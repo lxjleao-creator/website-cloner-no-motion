@@ -1321,20 +1321,20 @@ function render(options = {}) {
   });
 }
 
-function renderHeader() {
+function renderHeader(options = {}) {
   const state = cmsAdminState();
   const nav = cmsMenus(state);
   const settings = cmsSiteSettings(state);
   const currentRoute = routePathOnly(getRoutePath());
-  const overlay = currentRoute === "/"
+  const overlay = !options.forceSolid && (currentRoute === "/"
     || currentRoute === "/news"
     || currentRoute === "/company"
     || currentRoute === "/innovation"
     || currentRoute === "/contact-us"
     || currentRoute.startsWith("/products")
     || currentRoute.startsWith("/download/")
-    || currentRoute.startsWith("/resource-support/");
-  return `<header class="topbar ${overlay ? "topbar-overlay" : ""}">
+    || currentRoute.startsWith("/resource-support/"));
+  return `<header class="topbar ${overlay ? "topbar-overlay" : ""} ${options.className || ""}">
     <div class="top-small">
       <a href="${localHref("/contact-us")}">Online Support</a>
       <a href="${localHref("/innovation")}">Innovation</a>
@@ -1528,7 +1528,7 @@ function renderProductCategory(slug) {
   const records = pages.map((item) => cmsNormalizeProductRecord(cmsProductRecordForPath(item.path), item.path));
   const heroProduct = records[0];
   const displayProducts = heroProduct ? records.slice(1) : records;
-  return `${renderHeader()}<main class="inside-main">
+  return `${renderHeader({ forceSolid: true, className: "product-category-header" })}<main class="inside-main">
     <section class="source-category-hero source-category-hero-static" data-category-hero>
       <div class="source-category-sticky">
         ${heroProduct ? `<article class="source-hero-panel source-hero-panel-hot source-hero-panel-static">

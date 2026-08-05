@@ -106,6 +106,36 @@ html.no-motion-site .constant-logo-stage {
   display: none !important;
 }
 
+html.no-motion-site .product-category-header {
+  height: 90px;
+  color: #111 !important;
+  background: #fff !important;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04) !important;
+  backdrop-filter: none !important;
+}
+
+html.no-motion-site .product-category-header .main-nav {
+  height: 90px;
+  padding-right: clamp(60px, 6vw, 114px);
+  padding-left: clamp(60px, 6vw, 114px);
+}
+
+html.no-motion-site .product-category-header .logo-light {
+  opacity: 0 !important;
+}
+
+html.no-motion-site .product-category-header .logo-dark {
+  opacity: 1 !important;
+}
+
+html.no-motion-site .product-category-header .nav-item:first-child > a {
+  color: #754cff;
+}
+
+html.no-motion-site .product-category-header .nav-item:first-child > a::after {
+  width: 100%;
+}
+
 html.no-motion-site .source-category-hero {
   --source-main-opacity: 1 !important;
   --source-hot-opacity: 1 !important;
@@ -120,7 +150,7 @@ html.no-motion-site .source-category-hero {
   --source-hot-scale: 1 !important;
   height: auto !important;
   min-height: 0 !important;
-  padding: 58px 0 80px;
+  padding: 100px 0 78px;
   overflow: visible !important;
   background: #fff;
 }
@@ -141,9 +171,9 @@ html.no-motion-site .source-category-hero .source-hero-panel {
 html.no-motion-site .source-category-hero .source-hero-panel-static {
   position: relative !important;
   inset: auto !important;
-  width: min(90.8vw, 1600px);
-  height: min(43vw, 560px);
-  min-height: 460px;
+  width: calc(100% - 120px);
+  height: min(40.2vw, 780px);
+  min-height: 500px;
   margin: 0 auto;
   border-radius: 38px;
   overflow: hidden;
@@ -159,8 +189,12 @@ html.no-motion-site .source-category-hero .source-hero-panel picture img {
   object-position: center center;
 }
 
+html.no-motion-site .source-category-hero-static .source-category-hero-shade.hot {
+  display: none;
+}
+
 html.no-motion-site .source-hot-product {
-  left: 7.5vw;
+  left: 88px;
   top: 50%;
   width: min(46vw, 760px);
   opacity: 1 !important;
@@ -170,9 +204,43 @@ html.no-motion-site .source-hot-product {
 html.no-motion-site .source-hot-product h1 {
   margin: 10px 0 8px;
   color: #fff;
-  font-size: clamp(30px, 2.6vw, 44px);
+  font-size: clamp(42px, 2.85vw, 56px);
   line-height: 1.05;
   font-weight: 600;
+}
+
+html.no-motion-site .source-hot-product p {
+  margin-bottom: 94px;
+  font-size: clamp(24px, 1.85vw, 36px);
+}
+
+html.no-motion-site .source-hot-product .source-learn {
+  min-width: 208px;
+  min-height: 54px;
+  gap: 22px;
+  padding: 0 24px 0 6px;
+  border-color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+}
+
+html.no-motion-site .source-hot-product .source-learn svg {
+  width: 42px;
+  height: 42px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+@media (min-width: 1500px) {
+  html.no-motion-site .product-category-header .main-nav {
+    gap: 60px;
+  }
+
+  html.no-motion-site .product-category-header .nav-links {
+    gap: 60px;
+    font-size: 18px;
+  }
 }
 
 html.no-motion-site .source-product-list {
@@ -268,12 +336,12 @@ html.no-motion-site .hero-slide video {
   }
 
   html.no-motion-site .source-category-hero {
-    padding: 40px 0 64px;
+    padding: 94px 0 64px;
   }
 
   html.no-motion-site .source-category-hero .source-hero-panel-static {
     width: calc(100vw - 40px);
-    height: min(58vw, 500px);
+    height: min(58vw, 560px);
     min-height: 420px;
     border-radius: 24px;
   }
@@ -291,7 +359,7 @@ html.no-motion-site .hero-slide video {
 
 @media (max-width: 560px) {
   html.no-motion-site .source-category-hero {
-    padding: 24px 0 48px;
+    padding: 76px 0 48px;
   }
 
   html.no-motion-site .source-category-hero .source-hero-panel-static {
@@ -318,6 +386,7 @@ html.no-motion-site .hero-slide video {
   }
 
   html.no-motion-site .source-hot-product p {
+    margin-bottom: 30px;
     font-size: 16px;
   }
 
