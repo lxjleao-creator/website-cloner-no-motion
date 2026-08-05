@@ -1564,7 +1564,7 @@ function renderProductCategory(slug) {
       ${displayProducts.map((record) => renderSourceProductRow(record, slug)).join("") || `<article class="source-product-row empty"><h2>${esc(cat.title)}</h2><p>${esc(cat.intro)}</p></article>`}
     </section>
     <section class="source-resource-band">
-      <img src="${sourceAsset("/Public/Uploads/uploadfile/images/20251107/b2img03.png")}" alt="">
+      <img src="/assets/static-category/download-center.png" alt="Download center">
       <div>
         <span>Download Center</span>
         <h2>More Resources are Available to You</h2>
@@ -1590,24 +1590,24 @@ function categoryIntro(slug, cat) {
 }
 
 function categoryDesktopHero(slug) {
-  if (slug === "pv-inverter") return `${BASE}/Public/Uploads/uploadfile/images/20251113/PVInverterpc-989.jpg`;
+  if (slug === "pv-inverter") return "/assets/static-category/pv-hero.jpg";
   if (slug === "hybrid-inverter") return `${ASSET}/products.png`;
   if (slug === "battery") return `${ASSET}/solution-home.jpg`;
   return `${ASSET}/products.png`;
 }
 
 function categoryMobileHero(slug) {
-  if (slug === "pv-inverter") return `${BASE}/Public/Uploads/uploadfile/images/20251113/PVInverterph-552.jpg`;
+  if (slug === "pv-inverter") return "/assets/static-category/pv-hero.jpg";
   return categoryDesktopHero(slug);
 }
 
 function categoryHotDesktopHero(slug, record) {
-  if (slug === "pv-inverter") return `${BASE}/Public/Uploads/uploadfile/images/20251127/FSeriespc-331.jpg`;
+  if (slug === "pv-inverter") return "/assets/static-category/pv-featured.jpg";
   return record.heroImage || categoryDesktopHero(slug);
 }
 
 function categoryHotMobileHero(slug, record) {
-  if (slug === "pv-inverter") return `${BASE}/Public/Uploads/uploadfile/images/20251127/FSeriesph-80.jpg`;
+  if (slug === "pv-inverter") return "/assets/static-category/pv-featured.jpg";
   return categoryHotDesktopHero(slug, record);
 }
 
@@ -1639,19 +1639,35 @@ function productPowerRange(record, slug) {
 function productListImage(record, slug) {
   const title = record?.title || "";
   if (slug === "pv-inverter") {
-    if (/^G Series/i.test(title)) return `${BASE}/Public/Uploads/uploadfile/images/20251117/GSeries.1.png`;
-    if (/^T Series/i.test(title)) return `${BASE}/Public/Uploads/uploadfile/images/20251117/TSeries.1.png`;
+    if (/^G Series/i.test(title)) return "/assets/static-category/pv-g-series.png";
+    if (/^T Series/i.test(title)) return "/assets/static-category/pv-t-series.png";
   }
   return record.heroImage;
 }
 
 function renderSourceProductRow(record, slug) {
-  const highlights = (record.highlights && record.highlights.length ? record.highlights : [
+  const fallbackHighlights = [
     { title: "Remote Monitoring", body: "Monitor your system remotely via smartphone app or web portal." },
     { title: "High Performance", body: "Low start-up voltage, wide voltage range and high maximum efficiency." },
     { title: "Easy Installation", body: "Flexible configuration, plug and play set-up." },
     { title: "IP65 Rated", body: "Engineered to last with maximum flexibility." },
-  ]).slice(0, 4);
+  ];
+  const rawHighlights = record.highlights && record.highlights.length ? record.highlights : fallbackHighlights;
+  const highlights = rawHighlights.slice(0, 4).map((item, index) => {
+    const title = item?.title || fallbackHighlights[index]?.title || fallbackHighlights[0].title;
+    const fallback = /monitor/i.test(title)
+      ? fallbackHighlights[0]
+      : /performance|efficien/i.test(title)
+        ? fallbackHighlights[1]
+        : /install/i.test(title)
+          ? fallbackHighlights[2]
+          : fallbackHighlights[3];
+    const placeholderBody = /editable product highlight|cms product model/i.test(item?.body || "");
+    return {
+      title,
+      body: placeholderBody || !item?.body ? fallback.body : item.body,
+    };
+  });
   const marquee = `${record.title} ${productKind(record, slug)}`;
   return `<article class="source-product-row">
     <div class="source-product-media"><img src="${esc(productListImage(record, slug))}" alt=""></div>
