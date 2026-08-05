@@ -1,0 +1,156 @@
+html.no-motion-site {
+  scroll-behavior: auto !important;
+}
+
+html.no-motion-site *,
+html.no-motion-site *::before,
+html.no-motion-site *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+
+html.no-motion-site .topbar {
+  transform: none !important;
+}
+
+html.no-motion-site .products,
+html.no-motion-site .about-unbox,
+html.no-motion-site .source-product-row,
+html.no-motion-site .source-resource-band,
+html.no-motion-site .news-featured-media,
+html.no-motion-site .news-featured-copy,
+html.no-motion-site .news-page-card,
+html.no-motion-site .footer-cta,
+html.no-motion-site .product-monitoring-copy > span,
+html.no-motion-site .product-monitoring-copy > em,
+html.no-motion-site .product-monitoring-copy > h2,
+html.no-motion-site .product-monitoring-copy > p,
+html.no-motion-site .product-monitoring-downloads article,
+html.no-motion-site .product-monitoring-phone {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+html.no-motion-site .product-hub-category-card {
+  --hub-motion-x: 0px !important;
+  --hub-motion-y: 0px !important;
+  --hub-opacity: 1 !important;
+}
+
+html.no-motion-site .solutions {
+  min-height: auto !important;
+  margin-top: 90px !important;
+  padding: 0 20px 80px !important;
+}
+
+html.no-motion-site .solutions-pin {
+  --solution-side: 20px !important;
+  --solution-scale: 1 !important;
+  --solution-info-y: 0% !important;
+  --solution-head-opacity: 1 !important;
+  --solution-head-y: 0px !important;
+  --solution-intro-opacity: 1 !important;
+  --solution-intro-y: 0px !important;
+  --solution-mouse-opacity: 0 !important;
+  --solution-mouse-y: 0px !important;
+  --solution-y: 0vh !important;
+  --solution-radius: 18px !important;
+  --solution-clip: 0% !important;
+  --glass-opacity: .82 !important;
+  --glass-blur: 34px !important;
+  --flow-opacity: 0 !important;
+  --day-opacity: 1 !important;
+  --solution-copy-opacity: 1 !important;
+  --solution-copy-y: 0px !important;
+  position: relative !important;
+  top: auto !important;
+  width: 100% !important;
+  height: min(760px, 72vw) !important;
+  min-height: 560px;
+  max-height: none !important;
+  clip-path: none !important;
+}
+
+html.no-motion-site .solution-bg,
+html.no-motion-site .solution-glass,
+html.no-motion-site .solution-head,
+html.no-motion-site .solution-glass > p {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+html.no-motion-site .constant-sequence {
+  min-height: auto !important;
+  padding: 40px 20px 80px !important;
+}
+
+html.no-motion-site .constant-sticky {
+  --constant-clip-x: 0% !important;
+  --constant-clip-y: 0% !important;
+  --constant-round: 18px !important;
+  --constant-card-opacity: 1 !important;
+  --constant-card-copy-opacity: 1 !important;
+  --constant-card-copy-y: 0px !important;
+  position: relative !important;
+  top: auto !important;
+  height: min(720px, 66vw) !important;
+  min-height: 520px;
+}
+
+html.no-motion-site .constant-card {
+  clip-path: none !important;
+}
+
+html.no-motion-site .constant-logo-stage {
+  display: none !important;
+}
+
+html.no-motion-site .source-category-hero {
+  --source-progress: 0 !important;
+  --source-inverse: 1 !important;
+  --source-main-opacity: 1 !important;
+  --source-hot-opacity: 0 !important;
+  --source-copy-opacity: 1 !important;
+  --source-case-opacity: 0 !important;
+  --source-clip-top: 0px !important;
+  --source-clip-x: 0px !important;
+  --source-clip-bottom: 0px !important;
+  --source-clip-radius: 0px !important;
+  --source-copy-y: 0px !important;
+  height: auto !important;
+  min-height: 720px;
+  overflow: hidden !important;
+}
+
+html.no-motion-site .source-category-sticky {
+  position: relative !important;
+  top: auto !important;
+  height: 720px !important;
+}
+
+html.no-motion-site .series-hero {
+  --detail-bg-scale: 1 !important;
+  --detail-bg-inset: 0px !important;
+  --detail-bg-radius: 0px !important;
+  --detail-stats-opacity: 1 !important;
+  --detail-stats-y: 0px !important;
+}
+
+html.no-motion-site .product-reference-card,
+html.no-motion-site .product-reference-controls button,
+html.no-motion-site .hero-track,
+html.no-motion-site .hero-slide,
+html.no-motion-site .hero-slide img,
+html.no-motion-site .hero-slide video {
+  transition: none !important;
+}
+
+@media (max-width: 900px) {
+  html.no-motion-site .solutions-pin,
+  html.no-motion-site .constant-sticky,
+  html.no-motion-site .source-category-sticky {
+    height: 680px !important;
+    min-height: 0;
+  }
+}

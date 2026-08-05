@@ -1,0 +1,1684 @@
+{
+  "products": [
+    {
+      "id": "/products/pv-inverter/new-product-1785391098118",
+      "title": "新产品",
+      "category": "pv-inverter",
+      "categoryLabel": "PV Inverters",
+      "path": "/products/pv-inverter/new-product-1785391098118",
+      "heroImage": "/assets/fox-placeholder/product-detail/products_ev-charger_22.jpg",
+      "summary": "新的产品简介。",
+      "status": "Draft",
+      "heroText": "Tervona inverters are precision engineered to provide maximum performance, efficiency, reliability and longevity.",
+      "stats": [
+        {
+          "label": "Test",
+          "value": "97.4%"
+        },
+        {
+          "label": "Test",
+          "value": "99%"
+        }
+      ],
+      "advantagesEyebrow": "Key aaaa",
+      "advantagesTitle": "Key sasasa",
+      "advantagesBody": "High conversion efficiency, stable MPPT tracking and smart monitoring heasasaasa",
+      "highlights": [
+        {
+          "title": "High conversion efficiency",
+          "body": "Editable product highlight stored in the CMS product model."
+        },
+        {
+          "title": "Smart monitoring",
+          "body": "Editable product highlight stored in the CMS product model."
+        },
+        {
+          "title": "Flexible installation",
+          "body": "Editable product highlight stored in the CMS product model."
+        },
+        {
+          "title": "Reliable protection",
+          "body": "Editable product highlight stored in the CMS product model."
+        }
+      ],
+      "seoTitle": "新产品-Tervona",
+      "seoDescription": "新的产品简介。",
+      "seoKeywords": "新产品, PV Inverters, Tervona",
+      "canonicalUrl": "/products/pv-inverter/new-product-1785391098118",
+      "seoIndexing": "index, follow"
+    },
+    {
+      "id": "/products/pv-inverter/10",
+      "title": "F Series",
+      "category": "pv-inverter",
+      "categoryLabel": "PV Inverters",
+      "path": "/products/pv-inverter/10",
+      "heroImage": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_58.jpg",
+      "summary": "PV Inverters",
+      "status": "Published",
+      "heroText": "Tervona inverters are precision engineered to provide maximum performance, efficiency, reliability and longevity.",
+      "stats": [
+        {
+          "label": "Max. Efficiency",
+          "value": "97.4%"
+        },
+        {
+          "label": "MPPT Efficiency",
+          "value": "99%"
+        }
+      ],
+      "advantagesEyebrow": "Key Advantages",
+      "advantagesTitle": "Key Advantages",
+      "advantagesBody": "High conversion efficiency, stable MPPT tracking and smart monitoring help each system deliver dependable clean energy across homes and businesses.",
+      "highlights": [
+        {
+          "title": "High conversion efficiency",
+          "body": "Editable product highlight stored in the CMS product model."
+        },
+        {
+          "title": "Smart monitoring",
+          "body": "Editable product highlight stored in the CMS product model."
+        },
+        {
+          "title": "Flexible installation",
+          "body": "Editable product highlight stored in the CMS product model."
+        },
+        {
+          "title": "Reliable protection",
+          "body": "Editable product highlight stored in the CMS product model."
+        }
+      ],
+      "seoTitle": "F Series-Tervona",
+      "seoDescription": "PV Inverters",
+      "seoKeywords": "F Series, PV Inverters, Tervona",
+      "canonicalUrl": "/products/pv-inverter/10",
+      "seoIndexing": "index, follow"
+    },
+    {
+      "id": "/products/pv-inverter/9",
+      "title": "G Series",
+      "category": "pv-inverter",
+      "categoryLabel": "PV Inverters",
+      "path": "/products/pv-inverter/9",
+      "heroImage": "/assets/fox-placeholder/product-detail/products_pv-inverter_9.jpg",
+      "summary": "PV Inverters",
+      "status": "Published"
+    },
+    {
+      "id": "/products/pv-inverter/6",
+      "title": "T Series (G3)",
+      "category": "pv-inverter",
+      "categoryLabel": "PV Inverters",
+      "path": "/products/pv-inverter/6",
+      "heroImage": "/assets/fox-placeholder/product-detail/products_pv-inverter_6.jpg",
+      "summary": "PV Inverters",
+      "status": "Published"
+    },
+    {
+      "id": "/products/hybrid-inverter/14",
+      "title": "H3 Smart",
+      "category": "hybrid-inverter",
+      "categoryLabel": "Hybrid Inverters",
+      "path": "/products/hybrid-inverter/14",
+      "heroImage": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_14.jpg",
+      "summary": "Hybrid Inverters",
+      "status": "Published"
+    },
+    {
+      "id": "/products/hybrid-inverter/36",
+      "title": "H1/AC1",
+      "category": "hybrid-inverter",
+      "categoryLabel": "Hybrid Inverters",
+      "path": "/products/hybrid-inverter/36",
+      "heroImage": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_36.jpg",
+      "summary": "Hybrid Inverters",
+      "status": "Published"
+    },
+    {
+      "id": "/products/hybrid-inverter/35",
+      "title": "KH/KA",
+      "category": "hybrid-inverter",
+      "categoryLabel": "Hybrid Inverters",
+      "path": "/products/hybrid-inverter/35",
+      "heroImage": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_35.jpg",
+      "summary": "Hybrid Inverters",
+      "status": "Published"
+    },
+    {
+      "id": "/products/hybrid-inverter/32",
+      "title": "H3 PRO",
+      "category": "hybrid-inverter",
+      "categoryLabel": "Hybrid Inverters",
+      "path": "/products/hybrid-inverter/32",
+      "heroImage": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_32.jpg",
+      "summary": "Hybrid Inverters",
+      "status": "Published"
+    },
+    {
+      "id": "/products/hybrid-inverter/58",
+      "title": "H3 Plus",
+      "category": "hybrid-inverter",
+      "categoryLabel": "Hybrid Inverters",
+      "path": "/products/hybrid-inverter/58",
+      "heroImage": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_58.jpg",
+      "summary": "Hybrid Inverters",
+      "status": "Published"
+    },
+    {
+      "id": "/products/hybrid-inverter/30",
+      "title": "Stackable AIO",
+      "category": "hybrid-inverter",
+      "categoryLabel": "Hybrid Inverters",
+      "path": "/products/hybrid-inverter/30",
+      "heroImage": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_30.jpg",
+      "summary": "Hybrid Inverters",
+      "status": "Published"
+    },
+    {
+      "id": "/products/battery/16",
+      "title": "EQ4800",
+      "category": "battery",
+      "categoryLabel": "Batteries",
+      "path": "/products/battery/16",
+      "heroImage": "/assets/fox-placeholder/product-detail/products_battery_16.jpg",
+      "summary": "Batteries",
+      "status": "Published"
+    },
+    {
+      "id": "/products/battery/27",
+      "title": "EQ5500",
+      "category": "battery",
+      "categoryLabel": "Batteries",
+      "path": "/products/battery/27",
+      "heroImage": "/assets/fox-placeholder/product-detail/products_battery_27.jpg",
+      "summary": "Batteries",
+      "status": "Published"
+    },
+    {
+      "id": "/products/battery/23",
+      "title": "EP11",
+      "category": "battery",
+      "categoryLabel": "Batteries",
+      "path": "/products/battery/23",
+      "heroImage": "/assets/fox-placeholder/product-detail/products_battery_23.jpg",
+      "summary": "Batteries",
+      "status": "Published"
+    },
+    {
+      "id": "/products/battery/15",
+      "title": "EP12 Plus (w)",
+      "category": "battery",
+      "categoryLabel": "Batteries",
+      "path": "/products/battery/15",
+      "heroImage": "/assets/fox-placeholder/product-detail/products_battery_15.jpg",
+      "summary": "Batteries",
+      "status": "Published"
+    },
+    {
+      "id": "/products/battery/55",
+      "title": "CQ6",
+      "category": "battery",
+      "categoryLabel": "Batteries",
+      "path": "/products/battery/55",
+      "heroImage": "/assets/fox-placeholder/product-detail/products_battery_55.jpg",
+      "summary": "Batteries",
+      "status": "Published"
+    },
+    {
+      "id": "/products/battery/56",
+      "title": "CQ7",
+      "category": "battery",
+      "categoryLabel": "Batteries",
+      "path": "/products/battery/56",
+      "heroImage": "/assets/fox-placeholder/product-detail/products_battery_56.jpg",
+      "summary": "Batteries",
+      "status": "Published"
+    },
+    {
+      "id": "/products/battery/63",
+      "title": "EP5",
+      "category": "battery",
+      "categoryLabel": "Batteries",
+      "path": "/products/battery/63",
+      "heroImage": "/assets/fox-placeholder/product-detail/products_battery_63.jpg",
+      "summary": "Batteries",
+      "status": "Published"
+    },
+    {
+      "id": "/products/battery/61",
+      "title": "ECS",
+      "category": "battery",
+      "categoryLabel": "Batteries",
+      "path": "/products/battery/61",
+      "heroImage": "/assets/fox-placeholder/product-detail/products_battery_61.jpg",
+      "summary": "Batteries",
+      "status": "Published"
+    },
+    {
+      "id": "/products/ev-charger/18",
+      "title": "A Series",
+      "category": "ev-charger",
+      "categoryLabel": "EV Chargers",
+      "path": "/products/ev-charger/18",
+      "heroImage": "/assets/fox-placeholder/product-detail/products_ev-charger_18.jpg",
+      "summary": "EV Chargers",
+      "status": "Published"
+    },
+    {
+      "id": "/products/ev-charger/22",
+      "title": "L Series",
+      "category": "ev-charger",
+      "categoryLabel": "EV Chargers",
+      "path": "/products/ev-charger/22",
+      "heroImage": "/assets/fox-placeholder/product-detail/products_ev-charger_22.jpg",
+      "summary": "EV Chargers",
+      "status": "Published"
+    },
+    {
+      "id": "/products/ev-charger/17",
+      "title": "C Series",
+      "category": "ev-charger",
+      "categoryLabel": "EV Chargers",
+      "path": "/products/ev-charger/17",
+      "heroImage": "/assets/fox-placeholder/product-detail/products_ev-charger_17.jpg",
+      "summary": "EV Chargers",
+      "status": "Published"
+    },
+    {
+      "id": "/products/accessory/52",
+      "title": "Cloud",
+      "category": "accessory",
+      "categoryLabel": "Accessories",
+      "path": "/products/accessory/52",
+      "heroImage": "/assets/fox-placeholder/product-detail/products_accessory_52.jpg",
+      "summary": "Heat Pump",
+      "status": "Published"
+    },
+    {
+      "id": "/products/accessory/42",
+      "title": "Smart WiLan",
+      "category": "accessory",
+      "categoryLabel": "Accessories",
+      "path": "/products/accessory/42",
+      "heroImage": "/assets/fox-placeholder/product-detail/products_accessory_42.jpg",
+      "summary": "Heat Pump",
+      "status": "Published"
+    },
+    {
+      "id": "/products/accessory/41",
+      "title": "WIFI",
+      "category": "accessory",
+      "categoryLabel": "Accessories",
+      "path": "/products/accessory/41",
+      "heroImage": "/assets/fox-placeholder/product-detail/products_accessory_41.jpg",
+      "summary": "Heat Pump",
+      "status": "Published"
+    },
+    {
+      "id": "/products/1k5/66",
+      "title": "1K5-BAT-4660",
+      "category": "1k5",
+      "categoryLabel": "1K5 Products",
+      "path": "/products/1k5/66",
+      "heroImage": "/assets/fox-placeholder/product-detail/products_1k5_66.jpg",
+      "summary": "C&I Products",
+      "status": "Published"
+    },
+    {
+      "id": "/products/1k5/65",
+      "title": "1K5-1P-HI",
+      "category": "1k5",
+      "categoryLabel": "1K5 Products",
+      "path": "/products/1k5/65",
+      "heroImage": "/assets/fox-placeholder/product-detail/products_1k5_65.jpg",
+      "summary": "C&I Products",
+      "status": "Published"
+    },
+    {
+      "id": "/products/1k5/64",
+      "title": "1K5-HI-V1",
+      "category": "1k5",
+      "categoryLabel": "1K5 Products",
+      "path": "/products/1k5/64",
+      "heroImage": "/assets/fox-placeholder/product-detail/products_1k5_64.jpg",
+      "summary": "C&I Products",
+      "status": "Published"
+    },
+    {
+      "id": "/products/fox/70",
+      "title": "Tervona Cloud",
+      "category": "fox",
+      "categoryLabel": "Tervona Apps",
+      "path": "/products/fox/70",
+      "heroImage": "/assets/fox-placeholder/product-detail/products_fox_70.jpg",
+      "summary": "C&I Products",
+      "status": "Published"
+    }
+  ],
+  "news": [
+    {
+      "id": "/news/41",
+      "title": "NSW Home Energy Saver Program: How to Turn a Government Incentive into a Long-Term Family Asset",
+      "path": "/news/41",
+      "date": "June 17, 2026",
+      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260624/20260624102243.jpg",
+      "excerpt": "News",
+      "body": "<p>On 17 June 2026, the New South Wales Government officially announced the Home Energy Saver program, a $557 million initiative. The program is designed to support comprehensive home energy upgrades for NSW households by removing the upfront capital barrier.</p><p>The energy-efficiency upgrades explicitly covered by the policy include: rooftop solar, household batteries, insulation, reverse-cycle air conditioning, switchboard upgrades, ceiling fans, and draught-proofing.</p><p><img src=\"/Public/Uploads/ueditor/upload/image/20260624/1782286705272775.jpg\" alt=\"Home Energy Saver Program\"></p><h6>1. Who Is Eligible</h6><p><strong>Households with an annual taxable income of $210,000 or below</strong></p><p>• <strong>Support offered:</strong> zero-interest loans of up to <strong>$15,000</strong>, repayable over a maximum term of <strong>10 years (120 months)</strong>.</p><p><strong>Households with an annual taxable income of $80,000 or below</strong>, or residents holding an eligible concession card (this stream is scheduled to launch in the second half of 2026; tenants may also apply with their landlord’s permission).</p><p>• <strong>Support offered:</strong> a direct rebate of up to <strong>$4,000</strong>. If a household applies for both streams, the rebate must be deducted first, with the remaining balance then covered by the zero-interest loan.</p><h6>2. The Financial Benefits</h6><p>Take, as an example, a $10,000 solar-and-battery storage system, repaid through fixed interest-free instalments over 10 years (120 months): the monthly payment is just $83.33. Here is how that compares with a typical household’s current electricity costs.</p><p>• <strong>Baseline (before upgrade):</strong> a typical NSW household currently spends an average of <strong>$200 to $300</strong> per month on electricity — a pure consumption cost that rises year after year with retail price inflation.</p><p>• <strong>Interest-free loan repayment (after upgrade):</strong> a fixed monthly payment of exactly <strong>$83.33</strong> ($10,000 / 120 months).</p><p>Once the storage system is in operation, the household’s bill for electricity purchased from the retail grid approaches $0. The traditional electricity costs saved each month directly offset — and exceed — the fixed interest-free loan repayment, so the household achieves a net-positive cash flow from the very first month of installation.</p><h6>3. Hardware Lifespan and Hedging the 10-Year Loan Term</h6><p>Over a loan amortisation period as long as 10 years, the redundant design and long-term stability of the system hardware are central to protecting the value of the asset:</p><p>• <strong>Industrial-grade component lifespan:</strong> Tervona inverters use long-life capacitors from a leading global brand, fundamentally doubling the operating lifespan compared with standard market products.</p><p>• <strong>Extreme-climate resilience:</strong> the chassis features an exclusive integrated-housing heat-sink fin design, ensuring high efficiency and protecting electronic components from ageing even in Australia’s extreme summer temperatures of 40°C.</p><p>• <strong>Warranty covering the full loan term:</strong> Tervona provides a <strong>10-year official comprehensive warranty</strong> across its residential hybrid storage portfolio. The warranty period matches the government loan repayment term exactly, removing hardware-maintenance risk during the repayment period.</p><h6>4. Long-Term Asset Value (Year 11 and Beyond)</h6><p>In year 11, once the loan principal has been fully repaid, the $83.33 monthly payment drops to zero.</p><p>Thanks to Tervona’s high-specification hardware redundancy, the system continues to operate efficiently with no remaining debt. From year 11 onwards, all green electricity generated and stored becomes pure net gain, converting a short-term policy benefit into a long-term fixed asset for the family.</p><p>And with the Solar Sharer Offer coming into effect on 1 July, offering a 3-hour window of free electricity (up to 24 kWh), there’s no better time to invest in a storage battery for your home.</p><hr><p><em>Disclaimer: Figures and program details are based on the NSW Government announcement of 17 June 2026. Eligibility, rebate amounts, and loan terms are subject to official program guidelines. Customers should confirm current details before applying.</em></p>",
+      "status": "Published"
+    },
+    {
+      "id": "/news/40",
+      "title": "Tervona Celebrates Strong Momentum with Integrated Solar Storage & Charging Solutions at Smart Energy 2026",
+      "path": "/news/40",
+      "date": "May 07, 2026",
+      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260507news.jpg",
+      "excerpt": "News",
+      "status": "Published"
+    },
+    {
+      "id": "/news/39",
+      "title": "Tervona Ranks No. 1 Globally in Residential Energy Storage",
+      "path": "/news/39",
+      "date": "April 23, 2026",
+      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260423newsEN.jpg",
+      "excerpt": "News",
+      "status": "Published"
+    },
+    {
+      "id": "/news/37",
+      "title": "Tervona Claims No.1 Spot in Australia for Energy Storage Installations",
+      "path": "/news/37",
+      "date": "March 25, 2026",
+      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260327/au2.jpg",
+      "excerpt": "News",
+      "status": "Published"
+    },
+    {
+      "id": "/news/38",
+      "title": "Forbes China Recognizes Tervona as a 2026 Leading Enterprise in Renewable Energy",
+      "path": "/news/38",
+      "date": "March 18, 2026",
+      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260318news.jpg",
+      "excerpt": "News",
+      "status": "Published"
+    },
+    {
+      "id": "/news/36",
+      "title": "Why Tervona Inverters Are an Excellent Choice for Australian Homes and Businesses",
+      "path": "/news/36",
+      "date": "June 17, 2026",
+      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260624/20260624102243.jpg",
+      "excerpt": "News",
+      "status": "Published"
+    },
+    {
+      "id": "/news/35",
+      "title": "AC Coupling vs DC Coupling: Flexible Energy Storage with Tervona",
+      "path": "/news/35",
+      "date": "May 07, 2026",
+      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260507news.jpg",
+      "excerpt": "News",
+      "status": "Published"
+    },
+    {
+      "id": "/news/34",
+      "title": "Cheaper Home Batteries Rebate: What Changes on 1 May 2026 ??and How Homeowners Can Maximise Their Savings",
+      "path": "/news/34",
+      "date": "April 23, 2026",
+      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260423newsEN.jpg",
+      "excerpt": "News",
+      "status": "Published"
+    },
+    {
+      "id": "/news/33",
+      "title": "Tervona Enhances Versatile Energy Storage Solutions with the New H3 PRO Hybrid Inverter",
+      "path": "/news/33",
+      "date": "March 25, 2026",
+      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260327/au2.jpg",
+      "excerpt": "News",
+      "status": "Published"
+    },
+    {
+      "id": "/news/32",
+      "title": "Tervona expands its VPP offerings in Australia by partnering with Origin",
+      "path": "/news/32",
+      "date": "March 18, 2026",
+      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260318news.jpg",
+      "excerpt": "News",
+      "status": "Published"
+    },
+    {
+      "id": "/news/30",
+      "title": "Tervona Debuts CQ6 Battery High Voltage Battery, Elevating Energy Density for Local Needs",
+      "path": "/news/30",
+      "date": "June 17, 2026",
+      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260624/20260624102243.jpg",
+      "excerpt": "News",
+      "status": "Published"
+    },
+    {
+      "id": "/news/31",
+      "title": "Tervona Signs Olympic Champion Ian Thorpe as Australian Brand Ambassador Exciting Announcement right before Christmas",
+      "path": "/news/31",
+      "date": "May 07, 2026",
+      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260507news.jpg",
+      "excerpt": "News",
+      "status": "Published"
+    },
+    {
+      "id": "/news/29",
+      "title": "Tervona Tops Residential Energy Storage Market Across Europe and Beyond",
+      "path": "/news/29",
+      "date": "April 23, 2026",
+      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260423newsEN.jpg",
+      "excerpt": "News",
+      "status": "Published"
+    },
+    {
+      "id": "/news/27",
+      "title": "Tervona Makes a Splash at RE+ 2025 with Integrated Clean Energy Solutions",
+      "path": "/news/27",
+      "date": "March 25, 2026",
+      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260327/au2.jpg",
+      "excerpt": "News",
+      "status": "Published"
+    },
+    {
+      "id": "/news/23",
+      "title": "Tervona Launches New Installer Program to Enhance Brand Community",
+      "path": "/news/23",
+      "date": "March 18, 2026",
+      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260318news.jpg",
+      "excerpt": "News",
+      "status": "Published"
+    },
+    {
+      "id": "/news/24",
+      "title": "Tervona Unleashes Energy Potential at All Energy 2025",
+      "path": "/news/24",
+      "date": "June 17, 2026",
+      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260624/20260624102243.jpg",
+      "excerpt": "News",
+      "status": "Published"
+    },
+    {
+      "id": "/news/26",
+      "title": "Tervona and OSW Ink Strategic Partnership for 2GWh Energy Storage Projects at All Energy 2025",
+      "path": "/news/26",
+      "date": "May 07, 2026",
+      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260507news.jpg",
+      "excerpt": "News",
+      "status": "Published"
+    },
+    {
+      "id": "/news/25",
+      "title": "Tervona Partners with Solar Juice to Enhance Energy Storage Solutions in Australia",
+      "path": "/news/25",
+      "date": "April 23, 2026",
+      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260423newsEN.jpg",
+      "excerpt": "News",
+      "status": "Published"
+    },
+    {
+      "id": "/news/28",
+      "title": "Tervona Expands in Australia to Maximize User Benefits from Local Rebates",
+      "path": "/news/28",
+      "date": "March 25, 2026",
+      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260327/au2.jpg",
+      "excerpt": "News",
+      "status": "Published"
+    },
+    {
+      "id": "/news/22",
+      "title": "Tervona Achieves HTW 2025 A-Class Certification for Energy Storage System",
+      "path": "/news/22",
+      "date": "March 18, 2026",
+      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260318news.jpg",
+      "excerpt": "News",
+      "status": "Published"
+    },
+    {
+      "id": "/news/21",
+      "title": "Tervona Recognized as BNEF Tier 1 Energy Storage Leader",
+      "path": "/news/21",
+      "date": "June 17, 2026",
+      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260624/20260624102243.jpg",
+      "excerpt": "News",
+      "status": "Published"
+    },
+    {
+      "id": "/news/18",
+      "title": "Top Brand PV! Tervona Celebrates Again by Leading Industry Researchers",
+      "path": "/news/18",
+      "date": "May 07, 2026",
+      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260507news.jpg",
+      "excerpt": "News",
+      "status": "Published"
+    },
+    {
+      "id": "/news/17",
+      "title": "Tervona Appears in the Hurun Global Unicorn Index 2024",
+      "path": "/news/17",
+      "date": "April 23, 2026",
+      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260423newsEN.jpg",
+      "excerpt": "News",
+      "status": "Published"
+    },
+    {
+      "id": "/news/16",
+      "title": "Tervona new project on Shandong China",
+      "path": "/news/16",
+      "date": "March 25, 2026",
+      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260327/au2.jpg",
+      "excerpt": "News",
+      "status": "Published"
+    },
+    {
+      "id": "/news/15",
+      "title": "Tervona Receives Multiple Top Brand PV Seals in 2023",
+      "path": "/news/15",
+      "date": "March 18, 2026",
+      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260318news.jpg",
+      "excerpt": "News",
+      "status": "Published"
+    },
+    {
+      "id": "/news/14",
+      "title": "Tervona received multiple Top Brand PV seals from EUPD Research in 2023",
+      "path": "/news/14",
+      "date": "June 17, 2026",
+      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260624/20260624102243.jpg",
+      "excerpt": "News",
+      "status": "Published"
+    },
+    {
+      "id": "/news/13",
+      "title": "Tervona UK Launch ??lite Installer??Programme",
+      "path": "/news/13",
+      "date": "May 07, 2026",
+      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260507news.jpg",
+      "excerpt": "News",
+      "status": "Published"
+    },
+    {
+      "id": "/news/12",
+      "title": "Progressing with honor! Tervona won the EUPD ??op Brand PV Inverter??seal.",
+      "path": "/news/12",
+      "date": "April 23, 2026",
+      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260423newsEN.jpg",
+      "excerpt": "News",
+      "status": "Published"
+    },
+    {
+      "id": "/news/10",
+      "title": "Octopus Energy and Co-op Energy launch community energy joint venture",
+      "path": "/news/10",
+      "date": "March 25, 2026",
+      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260327/au2.jpg",
+      "excerpt": "News",
+      "status": "Published"
+    },
+    {
+      "id": "/news/9",
+      "title": "UK will need 1,400GWh of energy storage for future energy",
+      "path": "/news/9",
+      "date": "March 18, 2026",
+      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260318news.jpg",
+      "excerpt": "News",
+      "status": "Published"
+    }
+  ],
+  "pages": [
+    {
+      "id": "/page-1785393039276",
+      "title": "新页面",
+      "path": "/page-1785393039276",
+      "template": "templates/pages/default",
+      "heroImage": "/assets/fox-placeholder/hero-rank.jpg",
+      "summary": "新的页面摘要。",
+      "status": "Draft",
+      "blocks": [
+        {
+          "id": "widget-1785393415533-title",
+          "type": "heading",
+          "title": "新页面标题",
+          "text": "",
+          "image": "",
+          "href": "",
+          "buttonText": "",
+          "background": "#ffffff",
+          "color": "#17131f",
+          "padding": 64
+        },
+        {
+          "id": "widget-1785393415533-text",
+          "type": "text",
+          "title": "",
+          "text": "在这里输入页面内容。你可以继续添加图片、按钮、双栏、产品、新闻和 CTA。",
+          "image": "",
+          "href": "",
+          "buttonText": "",
+          "background": "#ffffff",
+          "color": "#5f5966",
+          "padding": 36
+        }
+      ],
+      "updatedAt": "2026-07-30T06:37:12.271Z"
+    },
+    {
+      "id": "/",
+      "title": "首页",
+      "path": "/",
+      "template": "templates/pages/home",
+      "heroImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260423/enpc.jpg",
+      "summary": "Tervona was born from a simple faith: the sun shines on everyone, so its power should too. A young team, driven by the same restless belief that ignited our mission, set out to remove every barrier between families and clean, independent energy.",
+      "status": "Published",
+      "visual": {
+        "heroTitle": "Tervona Ranks No. 1 Globally in Residential Energy Storage Market",
+        "heroText": "A global smart energy brand focused on solar storage, EV charging and clean energy management.",
+        "heroImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260423/enpc.jpg",
+        "heroVideo": "https://au.fox-ess.com/Public/Uploads/uploadfile/files/20260709/video31.mp4",
+        "heroTitleSize": 56,
+        "heroTitleWeight": 600,
+        "heroTitleLineHeight": 1.1,
+        "heroTitleColor": "#ffffff",
+        "heroTextSize": 18,
+        "heroTextColor": "#ffffff",
+        "sectionTop": 0,
+        "sectionBottom": 0,
+        "solutionsEyebrow": "OUR SOLUTIONS",
+        "solutionsTitle": "A Global Leader in Smart Renewable Energy Solutions",
+        "solutionsText": "Tervona offers all-in-one solar energy systems for homes and businesses, driving the global energy transition and paving the way for a greener future.",
+        "solutionsImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251202/download543.jpg",
+        "solutionsVideo": "https://au.fox-ess.com/Public/Uploads/uploadfile/files/20251217/251216maitiannengyuandianliudonghua1.mp4",
+        "productsEyebrow": "Our Products",
+        "productsTitle": "Reliable Products that Meet Diverse Needs",
+        "productsImage": "/assets/fox-placeholder/products.png",
+        "productsSource": "cms",
+        "aboutEyebrow": "ABOUT TERVONA",
+        "aboutTitle": "Life by Sunshine",
+        "aboutText": "Tervona was born from a simple faith: the sun shines on everyone, so its power should too. A young team set out to remove every barrier between families and clean, independent energy.",
+        "aboutImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251202/a1bg04.jpg",
+        "aboutVideo": "/assets/fox-placeholder/earth.mp4",
+        "innovationEyebrow": "R&D AND MANUFACTURING",
+        "innovationTitle": "Constant Innovation and Meticulous Manufacturing to Build trust with Every Delivery",
+        "innovationImage": "/assets/fox-placeholder/rnd-bg.jpg",
+        "innovationVideo": "/assets/fox-placeholder/innovation-production.mp4",
+        "newsEyebrow": "Events and News",
+        "newsTitle": "We Never Stop Exploring",
+        "newsSource": "cms",
+        "newsCount": 5,
+        "footerTitle": "Life by Sunshine",
+        "footerButtonText": "Contact Us",
+        "footerImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251202/download.jpg",
+        "footerVideo": "https://au.fox-ess.com/Public/Uploads/uploadfile/files/20251217/dibushipin.mp4",
+        "sectionVisibility": {
+          "solutions": true,
+          "products": true,
+          "about": true,
+          "innovation": true,
+          "news": true,
+          "footer": true
+        },
+        "sectionSpacing": {
+          "solutions": 80,
+          "products": 100,
+          "about": 80,
+          "innovation": 80,
+          "news": 100,
+          "footer": 64
+        }
+      }
+    },
+    {
+      "id": "/company",
+      "title": "关于我们",
+      "path": "/company",
+      "template": "templates/pages/about",
+      "heroImage": "/assets/fox-placeholder/company-hero.jpg",
+      "summary": "Company",
+      "status": "Published"
+    },
+    {
+      "id": "/innovation",
+      "title": "创新研发",
+      "path": "/innovation",
+      "template": "templates/pages/innovation",
+      "heroImage": "/assets/fox-placeholder/innovation-hero.jpg",
+      "summary": "Innovation",
+      "status": "Published"
+    },
+    {
+      "id": "/contact-us",
+      "title": "联系我们",
+      "path": "/contact-us",
+      "template": "templates/pages/contact",
+      "heroImage": "/assets/fox-placeholder/contact-hero.jpg",
+      "summary": "Contact Us",
+      "status": "Published"
+    },
+    {
+      "id": "/privacy",
+      "title": "隐私政策",
+      "path": "/privacy",
+      "template": "templates/pages/legal",
+      "heroImage": "/assets/fox-placeholder/hero-rank.jpg",
+      "summary": "Privacy Policy",
+      "status": "Published"
+    },
+    {
+      "id": "/resource-support/references",
+      "title": "项目案例",
+      "path": "/resource-support/references",
+      "template": "templates/pages/references",
+      "heroImage": "/assets/fox-placeholder/references-hero.jpg",
+      "summary": "Project References",
+      "status": "Published"
+    },
+    {
+      "id": "/sitemap.html",
+      "title": "网站地图",
+      "path": "/sitemap.html",
+      "template": "templates/pages/default",
+      "heroImage": "/assets/fox-placeholder/hero-rank.jpg",
+      "summary": "Sitemap",
+      "status": "Published"
+    }
+  ],
+  "media": [
+    {
+      "id": "/assets/fox-placeholder/product-detail/products_pv-inverter_10.jpg",
+      "title": "F Series 主图",
+      "url": "/assets/fox-placeholder/product-detail/products_pv-inverter_10.jpg",
+      "folder": "products",
+      "type": "image",
+      "usage": "产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": "",
+      "altText": "CMS 媒体详情编辑验证",
+      "caption": "",
+      "description": "产品详情首屏和产品卡片",
+      "createdAt": "2026-07-30T06:06:07.862Z",
+      "updatedAt": "2026-07-30T06:06:44.379Z",
+      "publishedAt": ""
+    },
+    {
+      "id": "/assets/fox-placeholder/product-detail/products_pv-inverter_9.jpg",
+      "title": "G Series 主图",
+      "url": "/assets/fox-placeholder/product-detail/products_pv-inverter_9.jpg",
+      "folder": "products",
+      "type": "image",
+      "usage": "产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "/assets/fox-placeholder/product-detail/products_pv-inverter_6.jpg",
+      "title": "T Series (G3) 主图",
+      "url": "/assets/fox-placeholder/product-detail/products_pv-inverter_6.jpg",
+      "folder": "products",
+      "type": "image",
+      "usage": "产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_14.jpg",
+      "title": "H3 Smart 主图",
+      "url": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_14.jpg",
+      "folder": "products",
+      "type": "image",
+      "usage": "产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_36.jpg",
+      "title": "H1/AC1 主图",
+      "url": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_36.jpg",
+      "folder": "products",
+      "type": "image",
+      "usage": "产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_35.jpg",
+      "title": "KH/KA 主图",
+      "url": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_35.jpg",
+      "folder": "products",
+      "type": "image",
+      "usage": "产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_32.jpg",
+      "title": "H3 PRO 主图",
+      "url": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_32.jpg",
+      "folder": "products",
+      "type": "image",
+      "usage": "产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_58.jpg",
+      "title": "H3 Plus 主图",
+      "url": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_58.jpg",
+      "folder": "products",
+      "type": "image",
+      "usage": "产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_30.jpg",
+      "title": "Stackable AIO 主图",
+      "url": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_30.jpg",
+      "folder": "products",
+      "type": "image",
+      "usage": "产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "/assets/fox-placeholder/product-detail/products_battery_16.jpg",
+      "title": "EQ4800 主图",
+      "url": "/assets/fox-placeholder/product-detail/products_battery_16.jpg",
+      "folder": "products",
+      "type": "image",
+      "usage": "产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "/assets/fox-placeholder/product-detail/products_battery_27.jpg",
+      "title": "EQ5500 主图",
+      "url": "/assets/fox-placeholder/product-detail/products_battery_27.jpg",
+      "folder": "products",
+      "type": "image",
+      "usage": "产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "/assets/fox-placeholder/product-detail/products_battery_23.jpg",
+      "title": "EP11 主图",
+      "url": "/assets/fox-placeholder/product-detail/products_battery_23.jpg",
+      "folder": "products",
+      "type": "image",
+      "usage": "产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "/assets/fox-placeholder/product-detail/products_battery_15.jpg",
+      "title": "EP12 Plus (w) 主图",
+      "url": "/assets/fox-placeholder/product-detail/products_battery_15.jpg",
+      "folder": "products",
+      "type": "image",
+      "usage": "产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "/assets/fox-placeholder/product-detail/products_battery_55.jpg",
+      "title": "CQ6 主图",
+      "url": "/assets/fox-placeholder/product-detail/products_battery_55.jpg",
+      "folder": "products",
+      "type": "image",
+      "usage": "产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "/assets/fox-placeholder/product-detail/products_battery_56.jpg",
+      "title": "CQ7 主图",
+      "url": "/assets/fox-placeholder/product-detail/products_battery_56.jpg",
+      "folder": "products",
+      "type": "image",
+      "usage": "产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "/assets/fox-placeholder/product-detail/products_battery_63.jpg",
+      "title": "EP5 主图",
+      "url": "/assets/fox-placeholder/product-detail/products_battery_63.jpg",
+      "folder": "products",
+      "type": "image",
+      "usage": "产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "/assets/fox-placeholder/product-detail/products_battery_61.jpg",
+      "title": "ECS 主图",
+      "url": "/assets/fox-placeholder/product-detail/products_battery_61.jpg",
+      "folder": "products",
+      "type": "image",
+      "usage": "产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "/assets/fox-placeholder/product-detail/products_ev-charger_18.jpg",
+      "title": "A Series 主图",
+      "url": "/assets/fox-placeholder/product-detail/products_ev-charger_18.jpg",
+      "folder": "products",
+      "type": "image",
+      "usage": "产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "/assets/fox-placeholder/product-detail/products_ev-charger_22.jpg",
+      "title": "L Series 主图",
+      "url": "/assets/fox-placeholder/product-detail/products_ev-charger_22.jpg",
+      "folder": "products",
+      "type": "image",
+      "usage": "产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "/assets/fox-placeholder/product-detail/products_ev-charger_17.jpg",
+      "title": "C Series 主图",
+      "url": "/assets/fox-placeholder/product-detail/products_ev-charger_17.jpg",
+      "folder": "products",
+      "type": "image",
+      "usage": "产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "/assets/fox-placeholder/product-detail/products_accessory_52.jpg",
+      "title": "Cloud 主图",
+      "url": "/assets/fox-placeholder/product-detail/products_accessory_52.jpg",
+      "folder": "products",
+      "type": "image",
+      "usage": "产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "/assets/fox-placeholder/product-detail/products_accessory_42.jpg",
+      "title": "Smart WiLan 主图",
+      "url": "/assets/fox-placeholder/product-detail/products_accessory_42.jpg",
+      "folder": "products",
+      "type": "image",
+      "usage": "产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "/assets/fox-placeholder/product-detail/products_accessory_41.jpg",
+      "title": "WIFI 主图",
+      "url": "/assets/fox-placeholder/product-detail/products_accessory_41.jpg",
+      "folder": "products",
+      "type": "image",
+      "usage": "产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "/assets/fox-placeholder/product-detail/products_1k5_66.jpg",
+      "title": "1K5-BAT-4660 主图",
+      "url": "/assets/fox-placeholder/product-detail/products_1k5_66.jpg",
+      "folder": "products",
+      "type": "image",
+      "usage": "产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "/assets/fox-placeholder/product-detail/products_1k5_65.jpg",
+      "title": "1K5-1P-HI 主图",
+      "url": "/assets/fox-placeholder/product-detail/products_1k5_65.jpg",
+      "folder": "products",
+      "type": "image",
+      "usage": "产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "/assets/fox-placeholder/product-detail/products_1k5_64.jpg",
+      "title": "1K5-HI-V1 主图",
+      "url": "/assets/fox-placeholder/product-detail/products_1k5_64.jpg",
+      "folder": "products",
+      "type": "image",
+      "usage": "产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "/assets/fox-placeholder/product-detail/products_fox_70.jpg",
+      "title": "Tervona Cloud 主图",
+      "url": "/assets/fox-placeholder/product-detail/products_fox_70.jpg",
+      "folder": "products",
+      "type": "image",
+      "usage": "产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260624/20260624102243.jpg",
+      "title": "NSW Home Energy Saver Program: How to Turn a Government Incentive into a Long-Term Family Asset 封面",
+      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260624/20260624102243.jpg",
+      "folder": "news",
+      "type": "image",
+      "usage": "新闻卡片和新闻详情首屏",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260507news.jpg",
+      "title": "Tervona Celebrates Strong Momentum with Integrated Solar Storage & Charging Solutions at Smart Energy 2026 封面",
+      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260507news.jpg",
+      "folder": "news",
+      "type": "image",
+      "usage": "新闻卡片和新闻详情首屏",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260423newsEN.jpg",
+      "title": "Tervona Ranks No. 1 Globally in Residential Energy Storage 封面",
+      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260423newsEN.jpg",
+      "folder": "news",
+      "type": "image",
+      "usage": "新闻卡片和新闻详情首屏",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260327/au2.jpg",
+      "title": "Tervona Claims No.1 Spot in Australia for Energy Storage Installations 封面",
+      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260327/au2.jpg",
+      "folder": "news",
+      "type": "image",
+      "usage": "新闻卡片和新闻详情首屏",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260318news.jpg",
+      "title": "Forbes China Recognizes Tervona as a 2026 Leading Enterprise in Renewable Energy 封面",
+      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260318news.jpg",
+      "folder": "news",
+      "type": "image",
+      "usage": "新闻卡片和新闻详情首屏",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "/assets/fox-placeholder/solution-home.jpg",
+      "title": "首页首屏图",
+      "url": "/assets/fox-placeholder/solution-home.jpg",
+      "folder": "heroes",
+      "type": "image",
+      "usage": "首页首屏",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "/assets/fox-placeholder/news-hero.jpg",
+      "title": "新闻页首屏图",
+      "url": "/assets/fox-placeholder/news-hero.jpg",
+      "folder": "heroes",
+      "type": "image",
+      "usage": "新闻列表首屏",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "/assets/fox-placeholder/footer-cta.jpg",
+      "title": "底部 CTA 背景图",
+      "url": "/assets/fox-placeholder/footer-cta.jpg",
+      "folder": "brand",
+      "type": "image",
+      "usage": "底部 CTA 模板",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "/assets/fox-placeholder/products.png",
+      "title": "产品中心图片",
+      "url": "/assets/fox-placeholder/products.png",
+      "folder": "products",
+      "type": "image",
+      "usage": "产品中心页面",
+      "size": "",
+      "mimeType": ""
+    },
+    {
+      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260423/enpc.jpg",
+      "title": "首页 Hero 01 PC",
+      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260423/enpc.jpg",
+      "folder": "heroes",
+      "type": "image",
+      "usage": "首页首屏轮播",
+      "size": "1920 x 960 px",
+      "mimeType": ""
+    },
+    {
+      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260423/enph.jpg",
+      "title": "首页 Hero 01 手机",
+      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260423/enph.jpg",
+      "folder": "heroes",
+      "type": "image",
+      "usage": "首页首屏轮播",
+      "size": "750 x 1200 px",
+      "mimeType": ""
+    },
+    {
+      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260709/pc1.jpg",
+      "title": "首页 Hero 02 PC",
+      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260709/pc1.jpg",
+      "folder": "heroes",
+      "type": "image",
+      "usage": "首页首屏轮播",
+      "size": "1920 x 960 px",
+      "mimeType": ""
+    },
+    {
+      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260115/ph.jpg",
+      "title": "首页 Hero 02 手机",
+      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260115/ph.jpg",
+      "folder": "heroes",
+      "type": "image",
+      "usage": "首页首屏轮播",
+      "size": "750 x 1200 px",
+      "mimeType": ""
+    },
+    {
+      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260115/guanwangdujiaoshou1.jpg",
+      "title": "首页 Hero 03 PC",
+      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260115/guanwangdujiaoshou1.jpg",
+      "folder": "heroes",
+      "type": "image",
+      "usage": "首页首屏轮播",
+      "size": "1920 x 960 px",
+      "mimeType": ""
+    },
+    {
+      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260115/shubanguanwang1.jpg",
+      "title": "首页 Hero 03 手机",
+      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260115/shubanguanwang1.jpg",
+      "folder": "heroes",
+      "type": "image",
+      "usage": "首页首屏轮播",
+      "size": "750 x 1200 px",
+      "mimeType": ""
+    },
+    {
+      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260206/Web1080.webp",
+      "title": "首页 Hero 04 PC",
+      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260206/Web1080.webp",
+      "folder": "heroes",
+      "type": "image",
+      "usage": "首页首屏轮播",
+      "size": "1920 x 1080 px",
+      "mimeType": ""
+    },
+    {
+      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260206/Mobile.webp",
+      "title": "首页 Hero 04 手机",
+      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260206/Mobile.webp",
+      "folder": "heroes",
+      "type": "image",
+      "usage": "首页首屏轮播",
+      "size": "750 x 1200 px",
+      "mimeType": ""
+    },
+    {
+      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251202/download543.jpg",
+      "title": "首页解决方案背景",
+      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251202/download543.jpg",
+      "folder": "heroes",
+      "type": "image",
+      "usage": "首页解决方案",
+      "size": "1880 x 940 px",
+      "mimeType": ""
+    },
+    {
+      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/files/20251217/251216maitiannengyuandianliudonghua1.mp4",
+      "title": "首页解决方案流动动画",
+      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/files/20251217/251216maitiannengyuandianliudonghua1.mp4",
+      "folder": "heroes",
+      "type": "video",
+      "usage": "首页解决方案视频",
+      "size": "1920 x 960 px · 13.04 秒 · MP4",
+      "mimeType": ""
+    },
+    {
+      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251202/a1bg04.jpg",
+      "title": "关于我们 PC 背景",
+      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251202/a1bg04.jpg",
+      "folder": "heroes",
+      "type": "image",
+      "usage": "关于我们首页板块",
+      "size": "1920 x 2130 px",
+      "mimeType": ""
+    },
+    {
+      "id": "/assets/fox-placeholder/earth.mp4",
+      "title": "关于我们地球动画",
+      "url": "/assets/fox-placeholder/earth.mp4",
+      "folder": "heroes",
+      "type": "video",
+      "usage": "关于我们动画",
+      "size": "1920 x 1080 px · 15 秒 · MP4",
+      "mimeType": ""
+    },
+    {
+      "id": "/assets/fox-placeholder/innovation-production.mp4",
+      "title": "研发制造产线视频",
+      "url": "/assets/fox-placeholder/innovation-production.mp4",
+      "folder": "heroes",
+      "type": "video",
+      "usage": "研发制造视频",
+      "size": "2254 x 1080 px · 11.45 秒 · MP4",
+      "mimeType": ""
+    },
+    {
+      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251125/a1bg043.jpg",
+      "title": "关于我们手机背景",
+      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251125/a1bg043.jpg",
+      "folder": "heroes",
+      "type": "image",
+      "usage": "关于我们首页板块",
+      "size": "768 x 2554 px",
+      "mimeType": ""
+    },
+    {
+      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251202/download.jpg",
+      "title": "底部 CTA PC 背景图",
+      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251202/download.jpg",
+      "folder": "brand",
+      "type": "image",
+      "usage": "底部 CTA 模板",
+      "size": "1920 x 440 px",
+      "mimeType": ""
+    },
+    {
+      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/files/20251217/dibushipin.mp4",
+      "title": "底部 CTA 超宽视频",
+      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/files/20251217/dibushipin.mp4",
+      "folder": "brand",
+      "type": "video",
+      "usage": "底部 CTA 视频",
+      "size": "4692 x 1080 px · 10.01 秒 · MP4",
+      "mimeType": ""
+    },
+    {
+      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251202/download-398.jpg",
+      "title": "底部 CTA 手机背景图",
+      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251202/download-398.jpg",
+      "folder": "brand",
+      "type": "image",
+      "usage": "底部 CTA 模板",
+      "size": "1920 x 440 px",
+      "mimeType": ""
+    }
+  ],
+  "templates": [
+    {
+      "id": "product-hub",
+      "label": "产品集合页模板",
+      "scope": "产品中心页面",
+      "file": "templates/products/product-hub",
+      "controls": [
+        "首屏媒体",
+        "分类网格",
+        "系统板块",
+        "CTA 模块"
+      ]
+    },
+    {
+      "id": "product-category",
+      "label": "产品分类/列表页模板",
+      "scope": "单个分类及产品卡片",
+      "file": "templates/products/category-list",
+      "controls": [
+        "分类标签",
+        "系列卡片",
+        "下载板块",
+        "排序"
+      ]
+    },
+    {
+      "id": "product-detail",
+      "label": "产品详情页模板",
+      "scope": "单个产品详情页",
+      "file": "templates/products/detail",
+      "controls": [
+        "首屏布局",
+        "数据指标",
+        "优势卖点",
+        "规格卡片",
+        "资源链接"
+      ]
+    },
+    {
+      "id": "news-list",
+      "label": "新闻列表页模板",
+      "scope": "分页文章网格",
+      "file": "templates/news/list",
+      "controls": [
+        "首屏",
+        "文章卡片网格",
+        "分页",
+        "精选文章"
+      ]
+    },
+    {
+      "id": "news-detail",
+      "label": "新闻详情页模板",
+      "scope": "单篇文章页面",
+      "file": "templates/news/detail",
+      "controls": [
+        "首屏图片",
+        "发布信息",
+        "富文本",
+        "图片模块",
+        "相关新闻"
+      ]
+    },
+    {
+      "id": "global-header",
+      "label": "页头模板",
+      "scope": "所有页面",
+      "file": "templates/global/header",
+      "controls": [
+        "Logo",
+        "菜单",
+        "Mega 菜单布局",
+        "联系 CTA",
+        "移动端菜单"
+      ]
+    },
+    {
+      "id": "global-footer",
+      "label": "页脚模板",
+      "scope": "所有页面",
+      "file": "templates/global/footer",
+      "controls": [
+        "栏目",
+        "订阅表单",
+        "社交链接",
+        "法律链接"
+      ]
+    },
+    {
+      "id": "footer-cta",
+      "label": "底部 CTA 模板",
+      "scope": "全站复用 CTA 模块",
+      "file": "templates/blocks/footer-cta",
+      "controls": [
+        "背景图",
+        "动态视频",
+        "标题",
+        "按钮文字",
+        "按钮链接"
+      ]
+    }
+  ],
+  "menus": [
+    {
+      "id": "products",
+      "label": "Products",
+      "href": "/products",
+      "intro": "Reliable Products that Meet Diverse Needs",
+      "kind": "products",
+      "children": [
+        {
+          "label": "PV Inverters",
+          "href": "/products/pv-inverter",
+          "icon": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251103/download-759.svg"
+        },
+        {
+          "label": "Hybrid Inverters",
+          "href": "/products/hybrid-inverter",
+          "icon": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251103/download-107.svg"
+        },
+        {
+          "label": "Batteries",
+          "href": "/products/battery",
+          "icon": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251103/download-519.svg"
+        },
+        {
+          "label": "EV Chargers",
+          "href": "/products/ev-charger",
+          "icon": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251103/download-774.svg"
+        },
+        {
+          "label": "Tervona Cloud 2.0",
+          "href": "/products/foxcloud",
+          "icon": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251103/download-790.svg"
+        }
+      ]
+    },
+    {
+      "id": "company",
+      "label": "Company",
+      "href": "/company",
+      "children": []
+    },
+    {
+      "id": "downloads",
+      "label": "Downloads",
+      "href": "/download/datasheets",
+      "children": []
+    },
+    {
+      "id": "support",
+      "label": "Support & Resources",
+      "href": "/resource-support/references",
+      "intro": "Project references, warranty, careers and online support",
+      "kind": "support",
+      "children": [
+        {
+          "label": "Project References",
+          "href": "/resource-support/references",
+          "icon": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251103/download-378.svg"
+        },
+        {
+          "label": "Warranty Registration",
+          "href": "/download/warranties",
+          "icon": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251103/download-971.svg"
+        },
+        {
+          "label": "Careers",
+          "href": "/contact-us",
+          "icon": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251229/Frame-229.svg"
+        },
+        {
+          "label": "Online Support",
+          "href": "/contact-us",
+          "icon": "https://au.fox-ess.com/Public/En/images/ys_icon2_1.svg"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "logoLight": "/assets/tervona-logo-transparent.png",
+    "logoDark": "/assets/tervona-logo-transparent.png",
+    "primaryColor": "#18aeb2",
+    "buttonColor": "#18aeb2",
+    "buttonTextColor": "#ffffff",
+    "fontFamily": "Poppins",
+    "headingFontFamily": "Poppins",
+    "baseFontSize": "16px",
+    "bodyFontWeight": "400",
+    "bodyLineHeight": "1.55",
+    "navFontSize": "20px",
+    "navFontWeight": "400",
+    "buttonFontSize": "16px",
+    "buttonFontWeight": "700",
+    "heroTitleSize": "clamp(48px, 5.8vw, 96px)",
+    "sectionTitleSize": "clamp(36px, 5vw, 64px)",
+    "cardTitleSize": "20px",
+    "headingFontWeight": "600",
+    "cardTitleWeight": "600",
+    "buttonRadius": "999px",
+    "headerContactText": "Contact Us",
+    "headerContactHref": "/contact-us",
+    "regionLabel": "Australia - English",
+    "translateEnabled": "yes",
+    "translateDefaultLanguage": "en",
+    "translateLanguages": "en | English\nzh-CN | 简体中文\nzh-TW | 繁體中文\nes | Español\nfr | Français\nde | Deutsch\nit | Italiano\npt | Português\nja | 日本語\nko | 한국어\nar | العربية",
+    "footerCtaTitle": "Life by Sunshine",
+    "footerCtaButtonText": "Contact Us",
+    "footerCtaButtonHref": "/contact-us",
+    "footerCtaImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251202/download.jpg",
+    "footerCtaMobileImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251202/download-398.jpg",
+    "footerCtaVideo": "https://au.fox-ess.com/Public/Uploads/uploadfile/files/20251217/dibushipin.mp4"
+  },
+  "downloads": [
+    {
+      "id": "download-1",
+      "title": "F Series Datasheet",
+      "type": "datasheets",
+      "product": "/products/pv-inverter/10",
+      "productLabel": "F Series",
+      "fileUrl": "/uploads/downloads/f-series-datasheet.pdf",
+      "version": "V1.0",
+      "status": "Published"
+    },
+    {
+      "id": "download-2",
+      "title": "G Series Datasheet",
+      "type": "datasheets",
+      "product": "/products/pv-inverter/9",
+      "productLabel": "G Series",
+      "fileUrl": "/uploads/downloads/g-series-datasheet.pdf",
+      "version": "V2.0",
+      "status": "Published"
+    },
+    {
+      "id": "download-3",
+      "title": "T Series (G3) Datasheet",
+      "type": "datasheets",
+      "product": "/products/pv-inverter/6",
+      "productLabel": "T Series (G3)",
+      "fileUrl": "/uploads/downloads/t-series-g3--datasheet.pdf",
+      "version": "V3.0",
+      "status": "Published"
+    },
+    {
+      "id": "download-4",
+      "title": "H3 Smart Datasheet",
+      "type": "datasheets",
+      "product": "/products/hybrid-inverter/14",
+      "productLabel": "H3 Smart",
+      "fileUrl": "/uploads/downloads/h3-smart-datasheet.pdf",
+      "version": "V4.0",
+      "status": "Published"
+    },
+    {
+      "id": "download-5",
+      "title": "H1/AC1 Datasheet",
+      "type": "datasheets",
+      "product": "/products/hybrid-inverter/36",
+      "productLabel": "H1/AC1",
+      "fileUrl": "/uploads/downloads/h1-ac1-datasheet.pdf",
+      "version": "V5.0",
+      "status": "Published"
+    },
+    {
+      "id": "download-6",
+      "title": "KH/KA Datasheet",
+      "type": "datasheets",
+      "product": "/products/hybrid-inverter/35",
+      "productLabel": "KH/KA",
+      "fileUrl": "/uploads/downloads/kh-ka-datasheet.pdf",
+      "version": "V6.0",
+      "status": "Published"
+    },
+    {
+      "id": "download-7",
+      "title": "H3 PRO Datasheet",
+      "type": "datasheets",
+      "product": "/products/hybrid-inverter/32",
+      "productLabel": "H3 PRO",
+      "fileUrl": "/uploads/downloads/h3-pro-datasheet.pdf",
+      "version": "V7.0",
+      "status": "Published"
+    },
+    {
+      "id": "download-8",
+      "title": "H3 Plus Datasheet",
+      "type": "datasheets",
+      "product": "/products/hybrid-inverter/58",
+      "productLabel": "H3 Plus",
+      "fileUrl": "/uploads/downloads/h3-plus-datasheet.pdf",
+      "version": "V8.0",
+      "status": "Published"
+    },
+    {
+      "id": "download-9",
+      "title": "Stackable AIO Datasheet",
+      "type": "datasheets",
+      "product": "/products/hybrid-inverter/30",
+      "productLabel": "Stackable AIO",
+      "fileUrl": "/uploads/downloads/stackable-aio-datasheet.pdf",
+      "version": "V9.0",
+      "status": "Published"
+    },
+    {
+      "id": "download-10",
+      "title": "EQ4800 Datasheet",
+      "type": "datasheets",
+      "product": "/products/battery/16",
+      "productLabel": "EQ4800",
+      "fileUrl": "/uploads/downloads/eq4800-datasheet.pdf",
+      "version": "V10.0",
+      "status": "Published"
+    }
+  ],
+  "downloadCategories": [
+    [
+      "datasheets",
+      "Datasheets"
+    ],
+    [
+      "user-manual",
+      "User Manual"
+    ],
+    [
+      "quick-install-guides",
+      "Quick Install Guides"
+    ],
+    [
+      "warranties",
+      "Warranties"
+    ],
+    [
+      "certificates",
+      "Certificates"
+    ],
+    [
+      "declaration",
+      "Declaration"
+    ],
+    [
+      "faqs",
+      "FAQs"
+    ],
+    [
+      "pre",
+      "Pre Installation"
+    ],
+    [
+      "installation",
+      "Installation"
+    ],
+    [
+      "commissioning",
+      "Commissioning"
+    ]
+  ],
+  "activity": []
+}

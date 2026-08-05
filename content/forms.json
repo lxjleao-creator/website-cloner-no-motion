@@ -1,0 +1,47 @@
+[
+  {
+    "id": "form-1785822305432",
+    "name": "Project Consultation",
+    "slug": "project-consultation",
+    "title": "Tell us about your energy project",
+    "description": "Share your project type, capacity and requirements. Our team will contact you with a suitable solution.",
+    "submitLabel": "Request consultation",
+    "successMessage": "Thank you. Our project team will contact you shortly.",
+    "status": "active",
+    "fields": [
+      { "id": "field-1785822305432", "key": "name", "label": "Name", "type": "text", "required": true, "placeholder": "Your name", "width": "half", "includeInEmail": true, "options": [] },
+      { "id": "field-1785822317202", "key": "email", "label": "Work Email", "type": "email", "required": true, "placeholder": "name@company.com", "width": "half", "includeInEmail": true, "options": [] },
+      { "id": "field-1785822317618", "key": "phone", "label": "Phone", "type": "phone", "required": true, "placeholder": "Your phone number", "width": "half", "includeInEmail": true, "options": [] },
+      { "id": "field-1785822318047", "key": "capacity", "label": "Estimated Capacity (kWh)", "type": "number", "required": false, "placeholder": "e.g. 500", "width": "half", "includeInEmail": true, "options": [] },
+      { "id": "field-1785822318479", "key": "projectType", "label": "Project Type", "type": "select", "required": true, "placeholder": "Select a project type", "width": "half", "includeInEmail": true, "options": ["Residential", "Commercial", "Utility Scale"] },
+      { "id": "field-1785822318896", "key": "details", "label": "Project Details", "type": "textarea", "required": true, "placeholder": "Tell us about the site and requirements", "width": "full", "includeInEmail": true, "options": [] },
+      { "id": "field-1785822319313", "key": "consent", "label": "Privacy Consent", "type": "checkbox", "required": true, "placeholder": "", "width": "full", "includeInEmail": false, "options": [] }
+    ],
+    "createdAt": "2026-08-04T05:46:16+00:00",
+    "updatedAt": "2026-08-04T05:46:16+00:00"
+  },
+  {
+    "id": "form-contact-us",
+    "name": "Contact Us",
+    "slug": "contact-us",
+    "title": "Tell us how we can help",
+    "description": "Share your project, product selection or technical support requirements and the appropriate team can follow up.",
+    "submitLabel": "Submit",
+    "successMessage": "Thank you. Your enquiry has been received. Our team will follow up shortly.",
+    "status": "active",
+    "fields": [
+      { "id": "field-first-name", "key": "firstName", "label": "First Name", "type": "text", "required": true, "placeholder": "Please enter your name", "width": "half", "includeInEmail": true, "options": [] },
+      { "id": "field-last-name", "key": "lastName", "label": "Last Name", "type": "text", "required": true, "placeholder": "Please enter your name", "width": "half", "includeInEmail": true, "options": [] },
+      { "id": "field-email", "key": "email", "label": "Email", "type": "email", "required": true, "placeholder": "Please enter your Email", "width": "half", "includeInEmail": true, "options": [] },
+      { "id": "field-phone", "key": "phone", "label": "Phone", "type": "phone", "required": true, "placeholder": "Please enter your Phone", "width": "half", "includeInEmail": true, "options": [] },
+      { "id": "field-company", "key": "company", "label": "Company", "type": "text", "required": false, "placeholder": "Please enter your Company", "width": "half", "includeInEmail": true, "options": [] },
+      { "id": "field-position", "key": "position", "label": "Department / Position", "type": "text", "required": false, "placeholder": "Please enter your position", "width": "half", "includeInEmail": true, "options": [] },
+      { "id": "field-country", "key": "country", "label": "Country / Region", "type": "text", "required": true, "placeholder": "Please enter your Country/Region", "width": "half", "includeInEmail": true, "options": [] },
+      { "id": "field-state", "key": "state", "label": "Province / State", "type": "text", "required": true, "placeholder": "Please enter your Province/State", "width": "half", "includeInEmail": true, "options": [] },
+      { "id": "field-message", "key": "message", "label": "Please enter the product you want to know, the selection requirements or more technical advice:", "type": "textarea", "required": true, "placeholder": "Message", "width": "full", "includeInEmail": true, "options": [] },
+      { "id": "field-consent", "key": "consent", "label": "I have carefully read and agree to the Privacy Statement.", "type": "checkbox", "required": true, "placeholder": "", "width": "full", "includeInEmail": false, "options": [] }
+    ],
+    "createdAt": "2026-08-04T00:00:00+08:00",
+    "updatedAt": "2026-08-04T00:00:00+08:00"
+  }
+]

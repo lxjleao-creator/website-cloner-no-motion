@@ -1,0 +1,117 @@
+﻿{
+    "source":  "https://au.fox-ess.com/sitemap.xml",
+    "crawledAt":  "2026-07-06T23:43:10",
+    "total":  83,
+    "groups":  {
+                   "home":  [
+                                "https://au.fox-ess.com"
+                            ],
+                   "products":  [
+                                    "https://au.fox-ess.com/products",
+                                    "https://au.fox-ess.com/products/pv-inverter",
+                                    "https://au.fox-ess.com/products/pv-inverter/10",
+                                    "https://au.fox-ess.com/products/pv-inverter/9",
+                                    "https://au.fox-ess.com/products/pv-inverter/6",
+                                    "https://au.fox-ess.com/products/hybrid-inverter",
+                                    "https://au.fox-ess.com/products/hybrid-inverter/14",
+                                    "https://au.fox-ess.com/products/hybrid-inverter/36",
+                                    "https://au.fox-ess.com/products/hybrid-inverter/35",
+                                    "https://au.fox-ess.com/products/hybrid-inverter/32",
+                                    "https://au.fox-ess.com/products/hybrid-inverter/58",
+                                    "https://au.fox-ess.com/products/hybrid-inverter/30",
+                                    "https://au.fox-ess.com/products/battery",
+                                    "https://au.fox-ess.com/products/battery/16",
+                                    "https://au.fox-ess.com/products/battery/27",
+                                    "https://au.fox-ess.com/products/battery/23",
+                                    "https://au.fox-ess.com/products/battery/15",
+                                    "https://au.fox-ess.com/products/battery/55",
+                                    "https://au.fox-ess.com/products/battery/56",
+                                    "https://au.fox-ess.com/products/battery/63",
+                                    "https://au.fox-ess.com/products/battery/61",
+                                    "https://au.fox-ess.com/products/ev-charger",
+                                    "https://au.fox-ess.com/products/ev-charger/18",
+                                    "https://au.fox-ess.com/products/ev-charger/22",
+                                    "https://au.fox-ess.com/products/ev-charger/17",
+                                    "https://au.fox-ess.com/products/foxcloud",
+                                    "https://au.fox-ess.com/products/accessory",
+                                    "https://au.fox-ess.com/products/accessory/52",
+                                    "https://au.fox-ess.com/products/accessory/42",
+                                    "https://au.fox-ess.com/products/accessory/41",
+                                    "https://au.fox-ess.com/products/1k5",
+                                    "https://au.fox-ess.com/products/1k5/66",
+                                    "https://au.fox-ess.com/products/1k5/65",
+                                    "https://au.fox-ess.com/products/1k5/64",
+                                    "https://au.fox-ess.com/products/fox",
+                                    "https://au.fox-ess.com/products/fox/70"
+                                ],
+                   "downloads":  [
+                                     "https://au.fox-ess.com/download/datasheets",
+                                     "https://au.fox-ess.com/download/user-manual",
+                                     "https://au.fox-ess.com/download/quick-install-guides",
+                                     "https://au.fox-ess.com/download/warranties",
+                                     "https://au.fox-ess.com/download/certificates",
+                                     "https://au.fox-ess.com/download/declaration",
+                                     "https://au.fox-ess.com/download/faqs",
+                                     "https://au.fox-ess.com/download/pre",
+                                     "https://au.fox-ess.com/download/installation",
+                                     "https://au.fox-ess.com/download/commissioning"
+                                 ],
+                   "resources":  [
+                                     "https://au.fox-ess.com/resource-support/references"
+                                 ],
+                   "company":  [
+                                   "https://au.fox-ess.com/company"
+                               ],
+                   "innovation":  [
+                                      "https://au.fox-ess.com/innovation"
+                                  ],
+                   "news":  [
+                                "https://au.fox-ess.com/news",
+                                "https://au.fox-ess.com/news/41",
+                                "https://au.fox-ess.com/news/40",
+                                "https://au.fox-ess.com/news/39",
+                                "https://au.fox-ess.com/news/37",
+                                "https://au.fox-ess.com/news/38",
+                                "https://au.fox-ess.com/news/36",
+                                "https://au.fox-ess.com/news/35",
+                                "https://au.fox-ess.com/news/34",
+                                "https://au.fox-ess.com/news/33",
+                                "https://au.fox-ess.com/news/32",
+                                "https://au.fox-ess.com/news/30",
+                                "https://au.fox-ess.com/news/31",
+                                "https://au.fox-ess.com/news/29",
+                                "https://au.fox-ess.com/news/27",
+                                "https://au.fox-ess.com/news/23",
+                                "https://au.fox-ess.com/news/24",
+                                "https://au.fox-ess.com/news/26",
+                                "https://au.fox-ess.com/news/25",
+                                "https://au.fox-ess.com/news/28",
+                                "https://au.fox-ess.com/news/22",
+                                "https://au.fox-ess.com/news/21",
+                                "https://au.fox-ess.com/news/18",
+                                "https://au.fox-ess.com/news/17",
+                                "https://au.fox-ess.com/news/16",
+                                "https://au.fox-ess.com/news/15",
+                                "https://au.fox-ess.com/news/14",
+                                "https://au.fox-ess.com/news/13",
+                                "https://au.fox-ess.com/news/12",
+                                "https://au.fox-ess.com/news/10",
+                                "https://au.fox-ess.com/news/9"
+                            ],
+                   "contact":  [
+                                   "https://au.fox-ess.com/contact-us"
+                               ],
+                   "legal":  [
+                                 "https://au.fox-ess.com/privacy"
+                             ],
+                   "other":  [
+
+                             ]
+               },
+    "localAssets":  "assets/fox-placeholder",
+    "implementationNotes":  [
+                                "Homepage sections: hero carousel, solutions sticky glass reveal, products statistics, earth metrics, R\u0026D scroll sequence, cases/news/footer CTA.",
+                                "CMS should model page, section, asset, taxonomy, product category, product detail, download category, news article, case reference, SEO fields.",
+                                "Current assets are local placeholders for internal preview and should be replaced before production."
+                            ]
+}

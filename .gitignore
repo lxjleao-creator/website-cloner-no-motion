@@ -1,0 +1,27 @@
+# Local server runtime files
+local-server.pid
+local-server.out.log
+local-server.err.log
+server-output.log
+server-error.log
+hostinger-deploy-*.zip
+hostinger-download-*.zip
+deployment-source-audit-*/
+deployment-source-audit-*.zip
+
+# QA and deployment verification captures
+.qa-*.png
+*-live.png
+*-live-final.png
+
+# OS and editor metadata
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
