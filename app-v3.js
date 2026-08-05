@@ -1676,12 +1676,11 @@ function productPowerRange(record, slug) {
 }
 
 function productListImage(record, slug) {
-  const title = record?.title || "";
-  if (slug === "pv-inverter") {
-    if (/^G Series/i.test(title)) return "/assets/static-category/pv-g-series.png";
-    if (/^T Series/i.test(title)) return "/assets/static-category/pv-t-series.png";
-  }
-  return record.heroImage;
+  const route = routePathOnly(record?.path || record?.id || "");
+  return record?.listImage
+    || (window.PRODUCT_LIST_MEDIA && window.PRODUCT_LIST_MEDIA[route])
+    || record?.heroImage
+    || categoryDesktopHero(slug);
 }
 
 function renderSourceProductRow(record, slug) {
@@ -3057,6 +3056,7 @@ function cmsNewProductRecord() {
     categoryLabel: cat.title,
     path: id,
     heroImage: "/uploads/products/new-product.webp",
+    listImage: "",
     summary: "新的产品简介。",
     status: "Draft",
   };
@@ -3111,6 +3111,7 @@ function cmsNormalizeProductRecord(record, fallbackPath = "") {
     categoryLabel: record?.categoryLabel || cat.title,
     path,
     heroImage: record?.heroImage || productImageFor(path),
+    listImage: record?.listImage || (window.PRODUCT_LIST_MEDIA && window.PRODUCT_LIST_MEDIA[path]) || "",
     summary: record?.summary || pageFor(path).description || cat.intro,
     status: record?.status || "Published",
     heroText: record?.heroText || cmsDefaultHeroText(cat.slug, cat.title),

@@ -27,3 +27,23 @@
   "/products/pv-inverter/6": "/assets/fox-placeholder/product-detail/products_pv-inverter_6.jpg",
   "/products/pv-inverter/9": "/assets/fox-placeholder/product-detail/products_pv-inverter_9.jpg",
 };
+
+// Product category rows use isolated cut-outs. Detail pages use PRODUCT_MEDIA.
+window.PRODUCT_LIST_MEDIA = {
+  "/products/pv-inverter/9": "/assets/static-category/product-list-pv-g.png",
+  "/products/pv-inverter/6": "/assets/static-category/product-list-pv-t.png",
+  "/products/hybrid-inverter/36": "/assets/static-category/product-list-hybrid-h1ac1.png",
+  "/products/hybrid-inverter/35": "/assets/static-category/product-list-hybrid-khka.png",
+  "/products/hybrid-inverter/32": "/assets/static-category/product-list-hybrid-h3pro.png",
+  "/products/hybrid-inverter/58": "/assets/static-category/product-list-hybrid-h3plus.png",
+  "/products/hybrid-inverter/30": "/assets/static-category/product-list-hybrid-stackable-aio.png",
+  "/products/battery/27": "/assets/static-category/product-list-battery-eq5500.png",
+  "/products/battery/23": "/assets/static-category/product-list-battery-ep11.png",
+  "/products/battery/15": "/assets/static-category/product-list-battery-ep12.png",
+  "/products/battery/55": "/assets/static-category/product-list-battery-ecs.png",
+  "/products/battery/56": "/assets/static-category/product-list-battery-ecs.png",
+  "/products/battery/61": "/assets/static-category/product-list-battery-ecs.png",
+  "/products/battery/63": "/assets/static-category/product-list-battery-ep11.png",
+  "/products/ev-charger/22": "/assets/static-category/product-list-ev-l.png",
+  "/products/ev-charger/17": "/assets/static-category/product-list-ev-c.png",
+};
