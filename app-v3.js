@@ -1526,9 +1526,7 @@ function renderProductCategory(slug) {
   const page = pageFor(`/products/${slug}`);
   const pages = productPages(slug);
   const records = pages.map((item) => cmsNormalizeProductRecord(cmsProductRecordForPath(item.path), item.path));
-  const heroProduct = records[0];
-  const listProducts = records.slice(1);
-  const displayProducts = listProducts.length ? listProducts : records;
+  const displayProducts = records;
   return `${renderHeader()}<main class="inside-main">
     <section class="source-category-hero" data-category-hero>
       <div class="source-category-sticky">
@@ -1539,24 +1537,11 @@ function renderProductCategory(slug) {
           </picture>
           <div class="source-category-hero-shade"></div>
           <div class="source-category-copy">
-            <h1>${esc(cleanTitle(page.title))}</h1>
+            <h1>${esc(plainTitle(page.title))}</h1>
             <p>${esc(categoryIntro(slug, cat))}</p>
             <nav class="source-breadcrumb"><a href="${localHref("/")}">Home</a><i>|</i><a href="${localHref("/products")}">Products</a><i>|</i><span>${esc(cat.title)}</span></nav>
           </div>
         </article>
-        ${heroProduct ? `<article class="source-hero-panel source-hero-panel-hot">
-          <picture>
-            <source media="(max-width: 767px)" srcset="${esc(categoryHotMobileHero(slug, heroProduct))}">
-            <img src="${esc(categoryHotDesktopHero(slug, heroProduct))}" alt="">
-          </picture>
-          <div class="source-category-hero-shade hot"></div>
-          <div class="source-hot-product">
-            <span>${esc(productKind(heroProduct, slug))}</span>
-            <h2>${esc(heroProduct.title)}</h2>
-            <p>${esc(productPowerRange(heroProduct, slug))}</p>
-            <a class="source-learn" href="${localHref(heroProduct.path)}">${icon("arrow")} Learn More</a>
-          </div>
-        </article>` : ""}
       </div>
     </section>
     <section class="category-tabs source-category-tabs">${productCategories().map((item) => `<a class="${item.slug === slug ? "active" : ""}" href="${localHref(`/products/${item.slug}`)}">${esc(item.title)}</a>`).join("")}</section>
