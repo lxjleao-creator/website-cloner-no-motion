@@ -598,6 +598,10 @@ function renderDetail(slug) {
 }
 
 function bind() {
+  document.querySelectorAll(".innovation-page-motion video[autoplay]").forEach((video) => {
+    video.muted = true;
+    video.play().catch(() => {});
+  });
   document.querySelectorAll('a[href^="/"]').forEach((link) => {
     link.addEventListener("click", (event) => {
       if (event.defaultPrevented || link.hasAttribute("download") || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
@@ -677,7 +681,8 @@ function syncScrollEffects() {
   const y = window.scrollY;
   const header = document.querySelector(".topbar");
   header?.classList.toggle("solid", y > 80);
-  if (window.SITE_NO_MOTION) {
+  const explicitInnerPageMotion = Boolean(document.querySelector(".innovation-page-motion"));
+  if (window.SITE_NO_MOTION && !explicitInnerPageMotion) {
     header?.classList.remove("hide");
     lastScrollY = y;
     animateCounters();
@@ -748,6 +753,7 @@ function syncScrollEffects() {
 
   const constant = document.querySelector(".constant-sequence");
   if (constant) {
+    const motionPriority = constant.classList.contains("innovation-page-motion") ? "important" : "";
     const rect = constant.getBoundingClientRect();
     const progress = Math.min(1, Math.max(0, -rect.top / (rect.height - window.innerHeight)));
     const cardReveal = Math.min(1, progress / 0.24);
@@ -759,16 +765,16 @@ function syncScrollEffects() {
     const copyOpacity = Math.max(0, copyIn * (1 - copyOut));
     const card = document.querySelector(".constant-sticky");
     if (card) {
-      card.style.setProperty("--constant-clip-x", `${20 - cardReveal * 20}%`);
-      card.style.setProperty("--constant-clip-y", `${20 - cardReveal * 20}%`);
-      card.style.setProperty("--constant-round", `${20 - cardReveal * 20}px`);
-      card.style.setProperty("--constant-card-opacity", `${1 - fadeProgress}`);
-      card.style.setProperty("--constant-card-copy-opacity", `${copyOpacity}`);
-      card.style.setProperty("--constant-card-copy-y", `${(26 - copyIn * 26 + copyOut * -18).toFixed(1)}px`);
-      card.style.setProperty("--constant-logo-opacity", `${logoProgress}`);
-      card.style.setProperty("--constant-logo-scale", `${2.65 - logoProgress * 1.65}`);
-      card.style.setProperty("--constant-title-opacity", `${titleProgress}`);
-      card.style.setProperty("--constant-title-y", `${32 - titleProgress * 32}px`);
+      card.style.setProperty("--constant-clip-x", `${20 - cardReveal * 20}%`, motionPriority);
+      card.style.setProperty("--constant-clip-y", `${20 - cardReveal * 20}%`, motionPriority);
+      card.style.setProperty("--constant-round", `${20 - cardReveal * 20}px`, motionPriority);
+      card.style.setProperty("--constant-card-opacity", `${1 - fadeProgress}`, motionPriority);
+      card.style.setProperty("--constant-card-copy-opacity", `${copyOpacity}`, motionPriority);
+      card.style.setProperty("--constant-card-copy-y", `${(26 - copyIn * 26 + copyOut * -18).toFixed(1)}px`, motionPriority);
+      card.style.setProperty("--constant-logo-opacity", `${logoProgress}`, motionPriority);
+      card.style.setProperty("--constant-logo-scale", `${2.65 - logoProgress * 1.65}`, motionPriority);
+      card.style.setProperty("--constant-title-opacity", `${titleProgress}`, motionPriority);
+      card.style.setProperty("--constant-title-y", `${32 - titleProgress * 32}px`, motionPriority);
     }
   }
 
@@ -1411,6 +1417,7 @@ function renderRoute(path) {
   if (route !== "/" && Array.isArray(pageFor(route).blocks) && pageFor(route).blocks.length) return renderGenericPage(route);
   if (route === "/products") return renderProductHub();
   if (/^\/products\/[^/]+\/[^/]+$/.test(route)) return renderProductDetailPage(route);
+  if (route === "/products/foxcloud") return renderFoxCloudPage();
   if (/^\/products\/[^/]+$/.test(route)) return renderProductCategory(route.split("/")[2]);
   if (/^\/download\/[^/]+$/.test(route)) return renderDownloadPage(route.split("/")[2], params, normalizePath(path));
   if (route === "/resource-support/references" && params.has("case")) return renderReferenceDetailPage(Number(params.get("case")) || 1);
@@ -1580,6 +1587,39 @@ function renderProductCategory(slug) {
   </main>${renderFooter()}`;
 }
 
+function renderFoxCloudPage() {
+  const heroImage = sourceAsset("/Public/Uploads/uploadfile/images/20251106/download-416.jpg");
+  const screens = [
+    sourceAsset("/Public/Uploads/uploadfile/images/20251122/7-743.png"),
+    sourceAsset("/Public/Uploads/uploadfile/images/20251122/8-251.png"),
+    sourceAsset("/Public/Uploads/uploadfile/images/20251122/9-830.png"),
+    sourceAsset("/Public/Uploads/uploadfile/images/20251122/10-484.png"),
+  ];
+  return `${renderHeader()}<main class="inside-main foxcloud-page">
+    <section class="foxcloud-hero">
+      <img src="${esc(heroImage)}" alt="FoxCloud 2.0">
+      <div class="foxcloud-devices" aria-hidden="true">
+        ${[
+          "b4banner01-968.png", "b4banner02-967.png", "b4banner03-181.png", "b4banner04-91.png",
+          "b4banner05-919.png", "b4banner05-760.png", "b4banner08-773.png", "b4banner08-168.png",
+        ].map((name, index) => `<img class="device-${index + 1}" src="${sourceAsset(`/Public/Uploads/uploadfile/images/20251106/${name}`)}" alt="">`).join("")}
+      </div>
+      <div class="foxcloud-hero-copy"><h1>FoxCloud 2.0</h1><h2>Your Home, All-in-One Control</h2><a class="source-learn" href="${localHref("/contact-us")}">${icon("arrow")} Install Now</a></div>
+      <nav class="foxcloud-breadcrumb"><a href="${localHref("/")}">Home</a><i>|</i><a href="${localHref("/products")}">Products</a><i>|</i><span>FoxCloud 2.0</span></nav>
+    </section>
+    <section class="foxcloud-control">
+      <header><span>FoxCloud 2.0</span><h2>Your Home<br><mark>All-in-One Control</mark></h2><p>Monitor production, consumption, storage and system revenue in one clear, responsive dashboard.</p></header>
+      <div class="foxcloud-screen-grid">${screens.map((image, index) => `<figure><img src="${esc(image)}" alt="FoxCloud app screen ${index + 1}"></figure>`).join("")}</div>
+    </section>
+    <section class="foxcloud-features">
+      <article><span>01</span><h2>See Your System Revenue at a Glance</h2><p>Clear performance and revenue information helps users understand their energy system immediately.</p></article>
+      <article><span>02</span><h2>Dynamic Tariff, Easy to Set</h2><p>Simple controls make tariff configuration and daily energy management straightforward.</p></article>
+      <article><span>03</span><h2>Clarity in Detail, Confidence in Control</h2><p>Consistent data presentation keeps monitoring practical across desktop and mobile.</p></article>
+    </section>
+    ${renderFooterCta()}
+  </main>${renderFooter()}`;
+}
+
 function categoryIntro(slug, cat) {
   if (slug === "pv-inverter") return "Tervona PV inverters are precision engineered to provide maximum performance, efficiency, reliability and longevity.";
   return cat.intro;
@@ -1599,6 +1639,9 @@ function categoryMobileHero(slug) {
 
 function categoryHotDesktopHero(slug, record) {
   if (slug === "pv-inverter") return "/assets/static-category/pv-featured.jpg";
+  if (slug === "hybrid-inverter") return sourceAsset("/Public/Uploads/uploadfile/images/20251208/H3Smart.jpg");
+  if (slug === "battery") return sourceAsset("/Public/Uploads/uploadfile/images/20251206/ECS1pc-564.jpg");
+  if (slug === "ev-charger") return sourceAsset("/Public/Uploads/uploadfile/images/20251205/Axiliepc.jpg");
   return record.heroImage || categoryDesktopHero(slug);
 }
 
@@ -1706,6 +1749,7 @@ function renderProductDetailPage(path) {
       <div class="series-hero-stats">
         ${productRecord.stats.map((stat) => `<article class="series-hero-stat"><span>${esc(stat.label)}</span><strong>${esc(stat.value)}</strong></article>`).join("")}
       </div>
+      <nav class="series-hero-breadcrumb"><a href="${localHref("/")}">Home</a><i>|</i><a href="${localHref("/products")}">Products</a><i>|</i><a href="${localHref(`/products/${cat.slug}`)}">${esc(cat.title)}</a></nav>
     </section>
     <section class="series-effi">
       <div class="series-effi-bg"><img src="${ASSET}/solution-home.jpg" alt=""></div>
@@ -1838,7 +1882,17 @@ function renderInnovationPage() {
     ${sourceBannerHero("INNOVATION", `${ASSET}/innovation-hero.jpg`, ["Home", "Innovation"])}
     <section class="innovation-overview">
       <header><h2><mark>Constant Innovation</mark> and <mark>Meticulous Manufacturing</mark> to Build Trust with Every Delivery</h2><p>At the heart of our operation is an advanced R&amp;D centre where engineers and technicians refine solar inverter and energy storage technology, from product development through rigorous manufacturing and quality control.</p></header>
-      <video autoplay muted loop playsinline poster="${ASSET}/rnd-bg.jpg" src="${ASSET}/innovation-production.mp4"></video>
+    </section>
+    <section class="constant-sequence innovation-page-motion">
+      <div class="constant-sticky">
+        <div class="constant-card">
+          <img src="${ASSET}/rnd-bg.jpg" alt="Tervona manufacturing facility">
+          <video class="constant-video" autoplay muted loop playsinline poster="${ASSET}/rnd-bg.jpg" src="${ASSET}/innovation-production.mp4"></video>
+          <div class="constant-shade"></div>
+          <div class="constant-card-copy"><span>Innovation &amp; Manufacturing</span><h2>Precision in Every Process</h2></div>
+        </div>
+        <div class="constant-logo-stage innovation-logo-stage"><img class="constant-mark" src="/assets/tervona-logo-transparent.png" alt="Tervona"><h2>Constant Innovation and Meticulous<br>Manufacturing</h2></div>
+      </div>
     </section>
     <section class="innovation-stats"><article><strong>70+</strong><span>Operations in countries</span></article><article><strong>5000+</strong><span>Employees worldwide</span></article><article><strong>6</strong><span>R&amp;D Centers</span></article></section>
     ${renderFooterCta()}

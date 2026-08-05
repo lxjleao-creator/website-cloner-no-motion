@@ -110,8 +110,353 @@ html.no-motion-site .product-category-header {
   height: 90px;
   color: #111 !important;
   background: #fff !important;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04) !important;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.08) !important;
   backdrop-filter: none !important;
+}
+
+/* Product detail pages use one source-matched template for every product. */
+html.no-motion-site .series-hero {
+  min-height: 0 !important;
+  height: auto;
+  aspect-ratio: 2.4 / 1;
+  display: block;
+  padding: 0 !important;
+}
+
+html.no-motion-site .series-hero-copy {
+  position: absolute;
+  left: 7%;
+  top: 21%;
+  width: min(36vw, 560px);
+  max-width: none;
+}
+
+html.no-motion-site .series-hero-copy .back-link {
+  min-height: 30px;
+  padding: 4px 14px;
+  font-size: clamp(13px, 1.15vw, 17px);
+}
+
+html.no-motion-site .series-hero-copy h1 {
+  margin: 12px 0 18px;
+  font-size: clamp(27px, 2.13vw, 44px);
+  line-height: 1.2;
+}
+
+html.no-motion-site .series-hero-copy p {
+  max-width: 440px;
+  font-size: clamp(14px, 1.16vw, 19px);
+  line-height: 1.58;
+}
+
+html.no-motion-site .series-hero-stats {
+  left: 7%;
+  bottom: 16.5%;
+  grid-template-columns: repeat(2, minmax(210px, 270px));
+  gap: 16px;
+  max-width: 560px;
+}
+
+html.no-motion-site .series-hero-stat {
+  min-height: 96px;
+  padding: 18px 20px;
+}
+
+html.no-motion-site .series-hero-stat span {
+  max-width: 120px;
+  font-size: 13px;
+}
+
+html.no-motion-site .series-hero-stat strong {
+  top: 11px;
+  right: 18px;
+  width: 74px;
+  height: 74px;
+  font-size: 22px;
+  border-width: 2px;
+}
+
+html.no-motion-site .series-hero-breadcrumb {
+  position: absolute;
+  left: 7%;
+  bottom: 4.3%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 13px;
+}
+
+html.no-motion-site .series-hero-breadcrumb a {
+  color: inherit;
+}
+
+/* Source download filters use a compact field and an inset custom chevron. */
+html.no-motion-site .source-download-search-row {
+  max-width: 504px;
+  grid-template-columns: minmax(260px, 326px) minmax(150px, 158px);
+}
+
+html.no-motion-site .source-download-product::after {
+  content: "";
+  position: absolute;
+  right: 19px;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid #5f536c;
+  border-bottom: 2px solid #5f536c;
+  transform: translateY(-65%) rotate(45deg);
+  pointer-events: none;
+}
+
+html.no-motion-site .source-download-product select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 44px;
+}
+
+/* FoxCloud is a dedicated source-style landing page, not a hardware list. */
+html.no-motion-site .foxcloud-hero {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2.04 / 1;
+  overflow: hidden;
+  color: #fff;
+}
+
+html.no-motion-site .foxcloud-hero > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+html.no-motion-site .foxcloud-devices,
+html.no-motion-site .foxcloud-devices img {
+  position: absolute;
+  pointer-events: none;
+}
+
+html.no-motion-site .foxcloud-devices {
+  inset: 0;
+  z-index: 1;
+}
+
+html.no-motion-site .foxcloud-devices img {
+  width: 25%;
+  height: auto;
+}
+
+html.no-motion-site .foxcloud-devices .device-1 { right: -12%; bottom: -23%; }
+html.no-motion-site .foxcloud-devices .device-2 { right: -20%; top: -14%; }
+html.no-motion-site .foxcloud-devices .device-3 { right: 8%; bottom: -20%; }
+html.no-motion-site .foxcloud-devices .device-4 { right: 0; top: -21%; }
+html.no-motion-site .foxcloud-devices .device-5 { left: 8%; top: -14%; }
+html.no-motion-site .foxcloud-devices .device-6 { left: 0; bottom: -20%; }
+html.no-motion-site .foxcloud-devices .device-7 { left: -10%; top: -18%; }
+html.no-motion-site .foxcloud-devices .device-8 { left: -17%; bottom: -10%; }
+
+html.no-motion-site .foxcloud-hero-copy {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  z-index: 2;
+  width: min(720px, 74vw);
+  text-align: center;
+  transform: translate(-50%, -50%) !important;
+}
+
+html.no-motion-site .foxcloud-hero-copy h1 {
+  margin: 0 0 12px;
+  font-size: clamp(34px, 3.6vw, 64px);
+}
+
+html.no-motion-site .foxcloud-hero-copy h2 {
+  margin: 0 0 34px;
+  font-size: clamp(24px, 2.2vw, 38px);
+  font-weight: 600;
+}
+
+html.no-motion-site .foxcloud-hero-copy .source-learn {
+  margin: 0 auto;
+}
+
+html.no-motion-site .foxcloud-breadcrumb {
+  position: absolute;
+  left: 50%;
+  bottom: 4%;
+  z-index: 2;
+  display: flex;
+  gap: 12px;
+  transform: translateX(-50%) !important;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 13px;
+}
+
+html.no-motion-site .foxcloud-breadcrumb a {
+  color: inherit;
+}
+
+html.no-motion-site .foxcloud-control,
+html.no-motion-site .foxcloud-features {
+  width: min(86vw, 1600px);
+  margin: 0 auto;
+}
+
+html.no-motion-site .foxcloud-control {
+  padding: 110px 0 90px;
+}
+
+html.no-motion-site .foxcloud-control header {
+  max-width: 760px;
+  margin: 0 auto 64px;
+  text-align: center;
+}
+
+html.no-motion-site .foxcloud-control header > span {
+  color: #754cff;
+  font-weight: 600;
+}
+
+html.no-motion-site .foxcloud-control h2 {
+  margin: 12px 0 18px;
+  font-size: clamp(42px, 4.6vw, 72px);
+  line-height: 1.06;
+}
+
+html.no-motion-site .foxcloud-control mark {
+  color: #24bdb7;
+  background: transparent;
+}
+
+html.no-motion-site .foxcloud-control p,
+html.no-motion-site .foxcloud-features p {
+  color: #6b6672;
+  line-height: 1.7;
+}
+
+html.no-motion-site .foxcloud-screen-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  align-items: end;
+  padding: 48px 36px;
+  border-radius: 34px;
+  background: linear-gradient(145deg, #f6f2ff, #eefcff);
+}
+
+html.no-motion-site .foxcloud-screen-grid figure {
+  margin: 0;
+  display: grid;
+  place-items: center;
+}
+
+html.no-motion-site .foxcloud-screen-grid img {
+  width: 100%;
+  max-height: 560px;
+  object-fit: contain;
+}
+
+html.no-motion-site .foxcloud-features {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  padding: 0 0 120px;
+}
+
+html.no-motion-site .foxcloud-features article {
+  padding: 36px;
+  border: 1px solid #ece8f2;
+  border-radius: 24px;
+  background: #fff;
+}
+
+html.no-motion-site .foxcloud-features span {
+  color: #754cff;
+  font-weight: 700;
+}
+
+html.no-motion-site .foxcloud-features h2 {
+  margin: 22px 0 16px;
+  font-size: clamp(24px, 2vw, 34px);
+  line-height: 1.18;
+}
+
+/* Explicit motion exception: reuse the homepage innovation video sequence. */
+html.no-motion-site .constant-sequence.innovation-page-motion {
+  min-height: 390vh !important;
+  padding: 0 20px !important;
+}
+
+html.no-motion-site .innovation-page-motion .constant-sticky {
+  position: sticky !important;
+  top: 90px !important;
+  width: 100% !important;
+  height: calc(100vh - 90px) !important;
+  min-height: 0 !important;
+}
+
+html.no-motion-site .innovation-page-motion .constant-card {
+  clip-path: inset(var(--constant-clip-y) var(--constant-clip-x) round var(--constant-round)) !important;
+}
+
+html.no-motion-site .innovation-page-motion .constant-logo-stage {
+  display: block !important;
+}
+
+html.no-motion-site .innovation-page-motion .innovation-logo-stage .constant-mark {
+  width: min(26vw, 360px);
+}
+
+@media (max-width: 760px) {
+  html.no-motion-site .series-hero {
+    min-height: 650px !important;
+    aspect-ratio: auto;
+  }
+
+  html.no-motion-site .series-hero-copy {
+    left: 24px;
+    top: 116px;
+    width: calc(100% - 48px);
+  }
+
+  html.no-motion-site .series-hero-stats {
+    left: 24px;
+    bottom: 72px;
+    grid-template-columns: 1fr;
+    width: calc(100% - 48px);
+    max-width: 320px;
+  }
+
+  html.no-motion-site .series-hero-breadcrumb {
+    left: 24px;
+    bottom: 28px;
+  }
+
+  html.no-motion-site .source-download-search-row {
+    max-width: none;
+    grid-template-columns: 1fr;
+  }
+
+  html.no-motion-site .foxcloud-hero {
+    min-height: 620px;
+    aspect-ratio: auto;
+  }
+
+  html.no-motion-site .foxcloud-screen-grid,
+  html.no-motion-site .foxcloud-features {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  html.no-motion-site .foxcloud-screen-grid,
+  html.no-motion-site .foxcloud-features {
+    grid-template-columns: 1fr;
+  }
 }
 
 html.no-motion-site .product-category-header .main-nav {
