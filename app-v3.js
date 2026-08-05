@@ -1526,11 +1526,23 @@ function renderProductCategory(slug) {
   const page = pageFor(`/products/${slug}`);
   const pages = productPages(slug);
   const records = pages.map((item) => cmsNormalizeProductRecord(cmsProductRecordForPath(item.path), item.path));
-  const displayProducts = records;
+  const heroProduct = records[0];
+  const displayProducts = heroProduct ? records.slice(1) : records;
   return `${renderHeader()}<main class="inside-main">
-    <section class="source-category-hero" data-category-hero>
+    <section class="source-category-hero source-category-hero-static" data-category-hero>
       <div class="source-category-sticky">
-        <article class="source-hero-panel source-hero-panel-main">
+        ${heroProduct ? `<article class="source-hero-panel source-hero-panel-hot source-hero-panel-static">
+          <picture>
+            <source media="(max-width: 767px)" srcset="${esc(categoryHotMobileHero(slug, heroProduct))}">
+            <img src="${esc(categoryHotDesktopHero(slug, heroProduct))}" alt="${esc(heroProduct.title)}">
+          </picture>
+          <div class="source-category-hero-shade hot"></div>
+          <div class="source-hot-product">
+            <h1>${esc(heroProduct.title)}</h1>
+            <p>${esc(productKind(heroProduct, slug))}</p>
+            <a class="source-learn" href="${localHref(heroProduct.path)}">${icon("arrow")} Learn More</a>
+          </div>
+        </article>` : `<article class="source-hero-panel source-hero-panel-main">
           <picture>
             <source media="(max-width: 767px)" srcset="${esc(categoryMobileHero(slug))}">
             <img src="${esc(categoryDesktopHero(slug))}" alt="">
@@ -1541,10 +1553,9 @@ function renderProductCategory(slug) {
             <p>${esc(categoryIntro(slug, cat))}</p>
             <nav class="source-breadcrumb"><a href="${localHref("/")}">Home</a><i>|</i><a href="${localHref("/products")}">Products</a><i>|</i><span>${esc(cat.title)}</span></nav>
           </div>
-        </article>
+        </article>`}
       </div>
     </section>
-    <section class="category-tabs source-category-tabs">${productCategories().map((item) => `<a class="${item.slug === slug ? "active" : ""}" href="${localHref(`/products/${item.slug}`)}">${esc(item.title)}</a>`).join("")}</section>
     <section class="source-product-list">
       ${displayProducts.map((record) => renderSourceProductRow(record, slug)).join("") || `<article class="source-product-row empty"><h2>${esc(cat.title)}</h2><p>${esc(cat.intro)}</p></article>`}
     </section>
