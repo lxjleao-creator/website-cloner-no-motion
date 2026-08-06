@@ -4919,7 +4919,17 @@ function bindDownloadCenter() {
     event.preventDefault();
     applyFilters();
   });
-  form.addEventListener("reset", () => requestAnimationFrame(applyFilters));
+  form.addEventListener("reset", (event) => {
+    event.preventDefault();
+    const keyword = form.querySelector("[data-download-keyword]");
+    const product = form.querySelector("[data-download-product]");
+    if (keyword) keyword.value = "";
+    if (product) product.value = "";
+    form.querySelectorAll("[data-download-type]").forEach((input) => {
+      input.checked = false;
+    });
+    applyFilters();
+  });
 }
 
 function bind() {

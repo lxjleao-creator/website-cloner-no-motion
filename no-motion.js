@@ -9,6 +9,15 @@ if (!isAnimatedHomepage) {
 
   window.freezeNoMotionMedia = function freezeNoMotionMedia(root = document) {
     root.querySelectorAll("video").forEach((video) => {
+      if (video.closest(".innovation-page-motion")) {
+        video.autoplay = true;
+        video.loop = true;
+        video.muted = true;
+        video.setAttribute("autoplay", "");
+        video.setAttribute("loop", "");
+        video.play().catch(() => {});
+        return;
+      }
       video.autoplay = false;
       video.loop = false;
       video.removeAttribute("autoplay");
