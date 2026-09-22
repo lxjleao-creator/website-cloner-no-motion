@@ -2,6 +2,7 @@ const http = require("http");
 const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
+const { createMarketingOsHandler } = require("./marketing-os/server");
 
 const root = process.cwd();
 const port = Number(process.env.PORT || 8766);
@@ -10,8 +11,9 @@ const cmsDir = path.join(root, "content");
 const cmsStateFile = path.join(cmsDir, "cms-state.json");
 const cmsUsersFile = path.join(cmsDir, "cms-users.json");
 const cmsSubmissionsFile = path.join(cmsDir, "submissions.json");
+const cmsFormsFile = path.join(cmsDir, "forms.json");
 const cmsMailSettingsFile = path.join(path.dirname(root), ".enplus-private", "smtp.local.json");
-const permissionKeys = ["pages", "menus", "products", "categories", "news", "downloads", "submissions", "seo", "media", "settings"];
+const permissionKeys = ["pages", "menus", "products", "categories", "news", "downloads", "submissions", "seo", "media", "settings", "content_ai", "knowledge", "content_plan", "analytics", "ads", "site_health", "publish", "members"];
 const sessionCookieName = "enplus_cms_session";
 const sessions = new Map();
 const loginAttempts = new Map();
@@ -195,18 +197,45 @@ function submissionText(value, max = 500) {
 
 function receiveSubmission(payload) {
   if (submissionText(payload.website, 200)) return { honeypot: true };
+  const forms = readJsonFile(cmsFormsFile, []);
+  const form = (Array.isArray(forms) ? forms : []).find((item) =>
+    (payload.formId && item.id === payload.formId) || (payload.formSlug && item.slug === payload.formSlug)
+  );
+  if (!form || form.status !== "active") throw new HttpError(404, "This form is not available.");
+  const rawValues = payload.values && typeof payload.values === "object" ? payload.values : payload;
+  const values = [];
+  const valueMap = {};
+  for (const field of Array.isArray(form.fields) ? form.fields : []) {
+    const key = submissionText(field.key, 60);
+    const type = submissionText(field.type || "text", 20);
+    const raw = rawValues[key] ?? (type === "checkbox" ? false : "");
+    let value;
+    if (type === "checkbox") {
+      value = raw === true || raw === 1 || ["1", "true", "on", "yes"].includes(String(raw).toLowerCase());
+      if (field.required && !value) throw new HttpError(422, `Please complete the required field: ${field.label || key}`);
+    } else {
+      value = submissionText(raw, type === "textarea" ? 5000 : 500);
+      if (field.required && !value) throw new HttpError(422, `Please complete the required field: ${field.label || key}`);
+      if (type === "email" && value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) throw new HttpError(422, "Please enter a valid email address.");
+      if (type === "number" && value && !Number.isFinite(Number(value))) throw new HttpError(422, `Please enter a valid number for: ${field.label || key}`);
+      if (type === "select" && value && !(field.options || []).includes(value)) throw new HttpError(422, `Please choose a valid option for: ${field.label || key}`);
+    }
+    valueMap[key] = value;
+    values.push({ key, label: submissionText(field.label || key, 140), type, value, includeInEmail: field.includeInEmail !== false });
+  }
+  const firstName = submissionText(valueMap.firstName, 80);
+  const lastName = submissionText(valueMap.lastName, 80);
+  const displayName = submissionText(`${firstName} ${lastName}`.trim() || valueMap.name || valueMap.company || valueMap.email || form.name, 180);
   const record = {
     id: `submission-${crypto.randomBytes(10).toString("hex")}`,
-    firstName: submissionText(payload.firstName, 80), lastName: submissionText(payload.lastName, 80),
-    email: submissionText(payload.email, 180).toLowerCase(), phone: submissionText(payload.phone, 80),
-    company: submissionText(payload.company, 180), position: submissionText(payload.position, 180),
-    country: submissionText(payload.country, 120), state: submissionText(payload.state, 120),
-    message: submissionText(payload.message, 5000), source: submissionText(payload.source || "/contact-us", 300),
+    formId: form.id, formName: form.name, formSlug: form.slug, displayName, values, data: valueMap,
+    firstName, lastName,
+    email: submissionText(valueMap.email, 180).toLowerCase(), phone: submissionText(valueMap.phone, 80),
+    company: submissionText(valueMap.company, 180), position: submissionText(valueMap.position, 180),
+    country: submissionText(valueMap.country, 120), state: submissionText(valueMap.state, 120),
+    message: submissionText(valueMap.message, 5000), source: submissionText(payload.source || "/contact-us", 300),
     status: "new", createdAt: new Date().toISOString(), mailSent: false, mailStatus: "local-dev",
   };
-  if (!record.firstName || !record.lastName || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(record.email) || !record.phone || !record.country || !record.state || !record.message) {
-    throw new HttpError(422, "Please complete all required fields with a valid email address.");
-  }
   const submissions = readJsonFile(cmsSubmissionsFile, []);
   writeJsonFile(cmsSubmissionsFile, [record, ...(Array.isArray(submissions) ? submissions : [])].slice(0, 2000));
   return record;
@@ -222,6 +251,11 @@ async function handleCmsApi(req, res, parsed) {
     if (req.method === "GET" && action === "session") {
       const { session, user } = currentUser(req);
       sendJson(res, 200, { ok: true, authenticated: !!user, user: user ? publicUser(user) : null, csrfToken: session?.csrfToken || "" }); return;
+    }
+
+    if (req.method === "GET" && action === "public-forms") {
+      const forms = readJsonFile(cmsFormsFile, []);
+      sendJson(res, 200, { ok: true, forms: (Array.isArray(forms) ? forms : []).filter((form) => form.status === "active") }); return;
     }
 
     if (req.method === "POST" && action === "login") {
@@ -334,10 +368,16 @@ async function handleCmsApi(req, res, parsed) {
   }
 }
 
+const handleMarketingOsApi = createMarketingOsHandler({
+  root, HttpError, sendJson, readPayload, readJsonFile, writeJsonFile, readUsers, publicUser, passwordHash,
+  requireUser, requireCsrf, hasPermission, permissionKeys, cmsUsersFile,
+});
+
 const server = http.createServer((req, res) => {
   const parsed = new URL(req.url, `http://${req.headers.host || "localhost"}`);
+  if (parsed.pathname.startsWith("/api/marketing-os/v1/")) { handleMarketingOsApi(req, res, parsed); return; }
   if (parsed.pathname === "/admin/api.php") { handleCmsApi(req, res, parsed); return; }
-  if (parsed.pathname.startsWith("/content/")) { res.writeHead(403, { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" }); res.end("Forbidden"); return; }
+  if (parsed.pathname.startsWith("/content/") || parsed.pathname.startsWith("/clients/") || parsed.pathname.startsWith("/docs/marketing-os/") || /^\/marketing-os\/(server(?:\.test)?\.js)$/.test(parsed.pathname)) { res.writeHead(403, { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" }); res.end("Forbidden"); return; }
   let filePath = safePath(parsed.pathname);
   if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) filePath = path.join(filePath, "index.html");
   if (!fs.existsSync(filePath) && parsed.pathname.startsWith("/uploads/")) { res.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" }); res.end("Not found"); return; }

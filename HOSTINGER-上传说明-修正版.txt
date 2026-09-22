@@ -1,0 +1,22 @@
+﻿Hostinger 上传说明（修正版）
+
+这版压缩包的内部路径使用服务器可识别的 / 目录结构。
+
+上传步骤：
+1. 进入 Hostinger 文件管理器 public_html。
+2. 建议先删除上一次错误解压出来的文件，尤其是名字里带反斜杠的文件，例如 assets\fox-placeholder\logo-dark.svg。
+3. 上传本 zip 到 public_html。
+4. 右键 zip，选择 Extract。
+5. 解压目标填写 public_html，勾选 Overwrite existing files。
+6. 解压后 public_html 根目录应该看到这些真正的文件夹：assets、admin、content、uploads。
+7. index.html 和 .htaccess 必须在 public_html 根目录。
+
+测试地址：
+/
+/cms
+/products
+/products/pv-inverter/10
+/news
+/download/datasheets
+
+如果图片、Logo、视频仍不显示，检查 public_html/assets/fox-placeholder/ 目录是否真实存在。

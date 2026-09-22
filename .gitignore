@@ -13,6 +13,17 @@ deployment-source-audit-*.zip
 .qa-*.png
 *-live.png
 *-live-final.png
+test-results/
+
+# Local generation, extraction and client-source workspaces
+.codex-tmp/
+.wrangler/
+tmp/
+clients/
+docs/
+
+# Generated handoff files kept on the VPS only
+Tervona产品手册.pdf
 
 # OS and editor metadata
 .DS_Store

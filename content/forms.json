@@ -43,5 +43,28 @@
     ],
     "createdAt": "2026-08-04T00:00:00+08:00",
     "updatedAt": "2026-08-04T00:00:00+08:00"
+  },
+  {
+    "id": "form-partner",
+    "name": "Partner Application",
+    "slug": "partner",
+    "title": "Start a partnership conversation",
+    "description": "Choose a partnership model and tell us how you would like to work with Tervona.",
+    "submitLabel": "Submit application",
+    "successMessage": "Thank you. Your partnership application has been received.",
+    "status": "active",
+    "fields": [
+      { "id": "field-partnership-model", "key": "partnershipModel", "label": "Partnership Model", "type": "select", "required": true, "placeholder": "Choose a partnership model", "width": "full", "includeInEmail": true, "options": ["Distributor", "Joint Venture", "Installer", "ODM"] },
+      { "id": "field-partner-name", "key": "name", "label": "Full Name", "type": "text", "required": true, "placeholder": "Your full name", "width": "half", "includeInEmail": true, "options": [] },
+      { "id": "field-partner-company", "key": "company", "label": "Company", "type": "text", "required": true, "placeholder": "Company name", "width": "half", "includeInEmail": true, "options": [] },
+      { "id": "field-partner-email", "key": "email", "label": "Work Email", "type": "email", "required": true, "placeholder": "name@company.com", "width": "half", "includeInEmail": true, "options": [] },
+      { "id": "field-partner-phone", "key": "phone", "label": "Phone", "type": "phone", "required": true, "placeholder": "Your phone number", "width": "half", "includeInEmail": true, "options": [] },
+      { "id": "field-partner-country", "key": "country", "label": "Country / Region", "type": "text", "required": true, "placeholder": "Your market", "width": "half", "includeInEmail": true, "options": [] },
+      { "id": "field-partner-website", "key": "companyWebsite", "label": "Company Website", "type": "text", "required": false, "placeholder": "https://", "width": "half", "includeInEmail": true, "options": [] },
+      { "id": "field-partner-message", "key": "message", "label": "Market and Capabilities", "type": "textarea", "required": true, "placeholder": "Tell us about your market, capabilities and partnership plans", "width": "full", "includeInEmail": true, "options": [] },
+      { "id": "field-partner-consent", "key": "consent", "label": "I have carefully read and agree to the Privacy Statement.", "type": "checkbox", "required": true, "placeholder": "", "width": "full", "includeInEmail": false, "options": [] }
+    ],
+    "createdAt": "2026-08-13T00:00:00+08:00",
+    "updatedAt": "2026-08-13T00:00:00+08:00"
   }
 ]

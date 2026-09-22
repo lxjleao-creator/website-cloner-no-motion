@@ -1,5 +1,8 @@
 const normalizedMotionPath = window.location.pathname.replace(/\/+$/, "") || "/";
-const isAnimatedHomepage = normalizedMotionPath === "/";
+// The handoff homepage uses local static artwork on every viewport. Keeping the
+// same static mode across the site also prevents the old scroll sequence from
+// clipping mobile copy or leaving an empty sticky frame between sections.
+const isAnimatedHomepage = false;
 
 window.SITE_NO_MOTION = !isAnimatedHomepage;
 document.documentElement.dataset.motion = isAnimatedHomepage ? "on" : "off";

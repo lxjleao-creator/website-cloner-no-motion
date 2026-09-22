@@ -1,683 +1,1018 @@
 {
   "products": [
     {
-      "id": "/products/pv-inverter/new-product-1785391098118",
-      "title": "新产品",
-      "category": "pv-inverter",
-      "categoryLabel": "PV Inverters",
-      "path": "/products/pv-inverter/new-product-1785391098118",
-      "heroImage": "/assets/fox-placeholder/product-detail/products_ev-charger_22.jpg",
-      "summary": "新的产品简介。",
-      "status": "Draft",
-      "heroText": "Tervona inverters are precision engineered to provide maximum performance, efficiency, reliability and longevity.",
-      "stats": [
-        {
-          "label": "Test",
-          "value": "97.4%"
-        },
-        {
-          "label": "Test",
-          "value": "99%"
-        }
-      ],
-      "advantagesEyebrow": "Key aaaa",
-      "advantagesTitle": "Key sasasa",
-      "advantagesBody": "High conversion efficiency, stable MPPT tracking and smart monitoring heasasaasa",
-      "highlights": [
-        {
-          "title": "High conversion efficiency",
-          "body": "Editable product highlight stored in the CMS product model."
-        },
-        {
-          "title": "Smart monitoring",
-          "body": "Editable product highlight stored in the CMS product model."
-        },
-        {
-          "title": "Flexible installation",
-          "body": "Editable product highlight stored in the CMS product model."
-        },
-        {
-          "title": "Reliable protection",
-          "body": "Editable product highlight stored in the CMS product model."
-        }
-      ],
-      "seoTitle": "新产品-Tervona",
-      "seoDescription": "新的产品简介。",
-      "seoKeywords": "新产品, PV Inverters, Tervona",
-      "canonicalUrl": "/products/pv-inverter/new-product-1785391098118",
-      "seoIndexing": "index, follow"
-    },
-    {
-      "id": "/products/pv-inverter/10",
-      "title": "F Series",
-      "category": "pv-inverter",
-      "categoryLabel": "PV Inverters",
-      "path": "/products/pv-inverter/10",
-      "heroImage": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_58.jpg",
-      "summary": "PV Inverters",
+      "id": "/products/low-voltage-battery/5-kwh-rack-mount",
+      "path": "/products/low-voltage-battery/5-kwh-rack-mount",
+      "title": "5 kWh Rack-Mount Low-Voltage Battery",
+      "category": "low-voltage-battery",
+      "categoryLabel": "Low-Voltage Batteries",
+      "productType": "RACK-MOUNT LIFEPO4 BATTERY",
+      "rangeLabel": "5 kWh",
+      "summary": "IYP-RM51100A-A1 is a 5.12 kWh rack-mount LiFePO4 battery with 48 / 51.2 V nominal voltage, 100 Ah rated capacity and RS485/CAN communication.",
+      "heroText": "IYP-RM51100A-A1 is a 5.12 kWh rack-mount LiFePO4 battery with 48 / 51.2 V nominal voltage, 100 Ah rated capacity and RS485/CAN communication.",
+      "heroImage": "/assets/tervona-products/catalog-v2/battery-5-kwh-cutout.png",
+      "bannerImage": "/assets/tervona-products/catalog-v2/battery-5-kwh-cutout.png",
+      "listImage": "/assets/tervona-products/catalog-v2/battery-5-kwh-cutout.png",
       "status": "Published",
-      "heroText": "Tervona inverters are precision engineered to provide maximum performance, efficiency, reliability and longevity.",
       "stats": [
         {
-          "label": "Max. Efficiency",
-          "value": "97.4%"
+          "label": "Battery Energy",
+          "value": "5.12 kWh"
         },
         {
-          "label": "MPPT Efficiency",
-          "value": "99%"
+          "label": "Rated Capacity",
+          "value": "100 Ah"
         }
       ],
-      "advantagesEyebrow": "Key Advantages",
-      "advantagesTitle": "Key Advantages",
-      "advantagesBody": "High conversion efficiency, stable MPPT tracking and smart monitoring help each system deliver dependable clean energy across homes and businesses.",
+      "advantagesEyebrow": "Rack-Mount LiFePO4 Battery",
+      "advantagesTitle": "5 kWh low-voltage energy storage",
+      "advantagesBody": "IYP-RM51100A-A1 combines 5.12 kWh of LiFePO4 storage with 48 / 51.2 V nominal voltage, 100 Ah rated capacity and RS485/CAN communication in a rack-mount enclosure.",
+      "advantagesImage": "/assets/tervona-products/catalog-v2/battery-5-kwh-cutout.png",
       "highlights": [
         {
-          "title": "High conversion efficiency",
-          "body": "Editable product highlight stored in the CMS product model."
+          "title": "5.12 kWh LiFePO4 battery",
+          "body": "48 / 51.2 V nominal voltage and 100 Ah rated capacity."
         },
         {
-          "title": "Smart monitoring",
-          "body": "Editable product highlight stored in the CMS product model."
+          "title": "Charge and discharge current",
+          "body": "100 A maximum charge current; 100 A maximum discharge current."
         },
         {
-          "title": "Flexible installation",
-          "body": "Editable product highlight stored in the CMS product model."
+          "title": "RS485 / CAN communication",
+          "body": "The product parameter sheet lists RS485 and CAN communication interfaces."
         },
         {
-          "title": "Reliable protection",
-          "body": "Editable product highlight stored in the CMS product model."
+          "title": "442 × 420 × 133 mm enclosure",
+          "body": "Product size: 442 × 420 × 133 mm; approximate weight: 43 / 45 kg."
         }
       ],
-      "seoTitle": "F Series-Tervona",
-      "seoDescription": "PV Inverters",
-      "seoKeywords": "F Series, PV Inverters, Tervona",
-      "canonicalUrl": "/products/pv-inverter/10",
-      "seoIndexing": "index, follow"
+      "datasheetUrl": "/uploads/downloads/lst-5-12kwh-16kwh-rack-mount-lifepo4-battery-datasheet.pdf",
+      "seoTitle": "5 kWh Rack-Mount Low-Voltage Battery | Tervona",
+      "seoDescription": "IYP-RM51100A-A1 is a 5.12 kWh rack-mount LiFePO4 battery with 48 / 51.2 V nominal voltage, 100 Ah rated capacity and RS485/CAN communication."
     },
     {
-      "id": "/products/pv-inverter/9",
-      "title": "G Series",
-      "category": "pv-inverter",
-      "categoryLabel": "PV Inverters",
-      "path": "/products/pv-inverter/9",
-      "heroImage": "/assets/fox-placeholder/product-detail/products_pv-inverter_9.jpg",
-      "summary": "PV Inverters",
-      "status": "Published"
+      "id": "/products/low-voltage-battery/7-5-kw-rack-mount",
+      "path": "/products/low-voltage-battery/7-5-kw-rack-mount",
+      "title": "7.5 kWh Rack-Mount Low-Voltage Battery",
+      "category": "low-voltage-battery",
+      "categoryLabel": "Low-Voltage Batteries",
+      "productType": "RACK-MOUNT LIFEPO4 BATTERY",
+      "rangeLabel": "7.5 kWh",
+      "summary": "IYP-RM51150A-A1 is a 7.5 kWh rack-mount LiFePO4 battery with 48 / 51.2 V nominal voltage, 150 Ah rated capacity and RS485/CAN communication.",
+      "heroText": "IYP-RM51150A-A1 is a 7.5 kWh rack-mount LiFePO4 battery with 48 / 51.2 V nominal voltage, 150 Ah rated capacity and RS485/CAN communication.",
+      "heroImage": "/assets/tervona-products/catalog-v2/battery-7-5-kw-cutout.png",
+      "bannerImage": "/assets/tervona-products/catalog-v2/battery-7-5-kw-cutout.png",
+      "listImage": "/assets/tervona-products/catalog-v2/battery-7-5-kw-cutout.png",
+      "status": "Published",
+      "stats": [
+        {
+          "label": "Battery Energy",
+          "value": "7.5 kWh"
+        },
+        {
+          "label": "Rated Capacity",
+          "value": "150 Ah"
+        }
+      ],
+      "advantagesEyebrow": "Rack-Mount LiFePO4 Battery",
+      "advantagesTitle": "7.5 kWh low-voltage energy storage",
+      "advantagesBody": "IYP-RM51150A-A1 combines 7.5 kWh of LiFePO4 storage with 48 / 51.2 V nominal voltage, 150 Ah rated capacity and RS485/CAN communication in a rack-mount enclosure.",
+      "advantagesImage": "/assets/tervona-products/catalog-v2/battery-7-5-kw-cutout.png",
+      "highlights": [
+        {
+          "title": "7.5 kWh LiFePO4 battery",
+          "body": "48 / 51.2 V nominal voltage and 150 Ah rated capacity."
+        },
+        {
+          "title": "Charge and discharge current",
+          "body": "150 A maximum charge current; 150 A maximum discharge current."
+        },
+        {
+          "title": "RS485 / CAN communication",
+          "body": "The product parameter sheet lists RS485 and CAN communication interfaces."
+        },
+        {
+          "title": "442 × 450 × 168 mm enclosure",
+          "body": "Product size: 442 × 450 × 168 mm; approximate weight: 63 / 66 kg."
+        }
+      ],
+      "datasheetUrl": "/uploads/downloads/lst-5-12kwh-16kwh-rack-mount-lifepo4-battery-datasheet.pdf",
+      "seoTitle": "7.5 kWh Rack-Mount Low-Voltage Battery | Tervona",
+      "seoDescription": "IYP-RM51150A-A1 is a 7.5 kWh rack-mount LiFePO4 battery with 48 / 51.2 V nominal voltage, 150 Ah rated capacity and RS485/CAN communication."
     },
     {
-      "id": "/products/pv-inverter/6",
-      "title": "T Series (G3)",
-      "category": "pv-inverter",
-      "categoryLabel": "PV Inverters",
-      "path": "/products/pv-inverter/6",
-      "heroImage": "/assets/fox-placeholder/product-detail/products_pv-inverter_6.jpg",
-      "summary": "PV Inverters",
-      "status": "Published"
+      "id": "/products/low-voltage-battery/10-kwh-floor-standing",
+      "path": "/products/low-voltage-battery/10-kwh-floor-standing",
+      "title": "10 kWh Floor-Standing Low-Voltage Battery",
+      "category": "low-voltage-battery",
+      "categoryLabel": "Low-Voltage Batteries",
+      "productType": "FLOOR-STANDING LIFEPO4 BATTERY",
+      "rangeLabel": "10 kWh",
+      "summary": "IYP-RM51206A-A1 is a 10.5 kWh floor-standing LiFePO4 battery with 48 / 51.2 V nominal voltage, 206 Ah rated capacity and RS485/CAN communication.",
+      "heroText": "IYP-RM51206A-A1 is a 10.5 kWh floor-standing LiFePO4 battery with 48 / 51.2 V nominal voltage, 206 Ah rated capacity and RS485/CAN communication.",
+      "heroImage": "/assets/tervona-products/catalog-v2/battery-10-kwh-cutout.png",
+      "bannerImage": "/assets/tervona-products/catalog-v2/battery-10-kwh-cutout.png",
+      "listImage": "/assets/tervona-products/catalog-v2/battery-10-kwh-cutout.png",
+      "status": "Published",
+      "stats": [
+        {
+          "label": "Battery Energy",
+          "value": "10.5 kWh"
+        },
+        {
+          "label": "Rated Capacity",
+          "value": "206 Ah"
+        }
+      ],
+      "advantagesEyebrow": "Floor-Standing LiFePO4 Battery",
+      "advantagesTitle": "10 kWh low-voltage energy storage",
+      "advantagesBody": "IYP-RM51206A-A1 combines 10.5 kWh of LiFePO4 storage with 48 / 51.2 V nominal voltage, 206 Ah rated capacity and RS485/CAN communication in a floor-standing enclosure.",
+      "advantagesImage": "/assets/tervona-products/catalog-v2/battery-10-kwh-cutout.png",
+      "highlights": [
+        {
+          "title": "10.5 kWh LiFePO4 battery",
+          "body": "48 / 51.2 V nominal voltage and 206 Ah rated capacity."
+        },
+        {
+          "title": "Charge and discharge current",
+          "body": "200 A maximum charge current; 200 A maximum discharge current."
+        },
+        {
+          "title": "RS485 / CAN communication",
+          "body": "The product parameter sheet lists RS485 and CAN communication interfaces."
+        },
+        {
+          "title": "442 × 420 × 266 mm enclosure",
+          "body": "Product size: 442 × 420 × 266 mm; approximate weight: 85 / 88 kg."
+        }
+      ],
+      "seoTitle": "10 kWh Floor-Standing Low-Voltage Battery | Tervona",
+      "seoDescription": "IYP-RM51206A-A1 is a 10.5 kWh floor-standing LiFePO4 battery with 48 / 51.2 V nominal voltage, 206 Ah rated capacity and RS485/CAN communication."
     },
     {
-      "id": "/products/hybrid-inverter/14",
-      "title": "H3 Smart",
+      "id": "/products/low-voltage-battery/16-kwh-floor-standing",
+      "path": "/products/low-voltage-battery/16-kwh-floor-standing",
+      "title": "16 kWh Floor-Standing Low-Voltage Battery",
+      "category": "low-voltage-battery",
+      "categoryLabel": "Low-Voltage Batteries",
+      "productType": "FLOOR-STANDING LIFEPO4 BATTERY",
+      "rangeLabel": "16 kWh",
+      "summary": "IYP-ST51314A-M1 is a 16 kWh floor-standing LiFePO4 battery with 51.2 V nominal voltage, 314 Ah rated capacity and RS485/CAN communication.",
+      "heroText": "IYP-ST51314A-M1 is a 16 kWh floor-standing LiFePO4 battery with 51.2 V nominal voltage, 314 Ah rated capacity and RS485/CAN communication.",
+      "heroImage": "/assets/tervona-products/catalog-v2/battery-16-kwh-cutout.png",
+      "bannerImage": "/assets/tervona-products/catalog-v2/battery-16-kwh-cutout.png",
+      "listImage": "/assets/tervona-products/catalog-v2/battery-16-kwh-cutout.png",
+      "status": "Published",
+      "stats": [
+        {
+          "label": "Battery Energy",
+          "value": "16 kWh"
+        },
+        {
+          "label": "Rated Capacity",
+          "value": "314 Ah"
+        }
+      ],
+      "advantagesEyebrow": "Floor-Standing LiFePO4 Battery",
+      "advantagesTitle": "16 kWh low-voltage energy storage",
+      "advantagesBody": "IYP-ST51314A-M1 combines 16 kWh of LiFePO4 storage with 51.2 V nominal voltage, 314 Ah rated capacity and RS485/CAN communication in a floor-standing enclosure.",
+      "advantagesImage": "/assets/tervona-products/catalog-v2/battery-16-kwh-cutout.png",
+      "highlights": [
+        {
+          "title": "16 kWh LiFePO4 battery",
+          "body": "51.2 V nominal voltage and 314 Ah rated capacity."
+        },
+        {
+          "title": "Charge and discharge current",
+          "body": "100 / 200 A maximum charge current; 200 A maximum discharge current."
+        },
+        {
+          "title": "RS485 / CAN communication",
+          "body": "The product parameter sheet lists RS485 and CAN communication interfaces."
+        },
+        {
+          "title": "470 × 250 × 690 mm enclosure",
+          "body": "Product size: 470 × 250 × 690 mm; approximate weight: 110 kg."
+        }
+      ],
+      "datasheetUrl": "/uploads/downloads/lsk-16kwh-standing-lifepo4-battery-datasheet.pdf",
+      "seoTitle": "16 kWh Floor-Standing Low-Voltage Battery | Tervona",
+      "seoDescription": "IYP-ST51314A-M1 is a 16 kWh floor-standing LiFePO4 battery with 51.2 V nominal voltage, 314 Ah rated capacity and RS485/CAN communication."
+    },
+    {
+      "id": "/products/low-voltage-battery/32-kwh-floor-standing",
+      "path": "/products/low-voltage-battery/32-kwh-floor-standing",
+      "title": "32 kWh Floor-Standing Low-Voltage Battery",
+      "category": "low-voltage-battery",
+      "categoryLabel": "Low-Voltage Batteries",
+      "productType": "FLOOR-STANDING LIFEPO4 BATTERY",
+      "rangeLabel": "32 kWh",
+      "summary": "A 32 kWh floor-standing LiFePO4 battery configuration in Tervona's low-voltage storage range.",
+      "heroText": "A 32 kWh floor-standing LiFePO4 battery configuration in Tervona's low-voltage storage range.",
+      "heroImage": "/assets/tervona-products/catalog-v2/battery-32-kwh-cutout.png",
+      "bannerImage": "/assets/tervona-products/catalog-v2/battery-32-kwh-cutout.png",
+      "listImage": "/assets/tervona-products/catalog-v2/battery-32-kwh-cutout.png",
+      "status": "Published",
+      "stats": [
+        {
+          "label": "Storage Configuration",
+          "value": "32 kWh"
+        },
+        {
+          "label": "Installation Format",
+          "value": "Floor-Standing"
+        }
+      ],
+      "advantagesEyebrow": "Floor-Standing LiFePO4 Battery",
+      "advantagesTitle": "32 kWh floor-standing storage",
+      "advantagesBody": "This 32 kWh configuration belongs to the supplied floor-standing LiFePO4 family, which is presented with 10 kW inverter support, compatibility with more than 20 mainstream inverter platforms and multilingual display switching.",
+      "advantagesImage": "/assets/tervona-products/catalog-v2/battery-32-kwh-cutout.png",
+      "highlights": [
+        {
+          "title": "32 kWh storage configuration",
+          "body": "The supplied standing-battery family lists 32 kWh among its available energy configurations."
+        },
+        {
+          "title": "LiFePO4 battery family",
+          "body": "Battery chemistry: lithium iron phosphate (LiFePO4)."
+        },
+        {
+          "title": "Broad inverter compatibility",
+          "body": "The supplied family presentation states compatibility with more than 20 mainstream inverter platforms."
+        },
+        {
+          "title": "Multilingual display",
+          "body": "The supplied family presentation lists multilingual display switching."
+        }
+      ],
+      "datasheetUrl": "/uploads/downloads/lsk-16kwh-standing-lifepo4-battery-datasheet.pdf",
+      "seoTitle": "32 kWh Floor-Standing Low-Voltage Battery | Tervona",
+      "seoDescription": "A 32 kWh floor-standing LiFePO4 battery configuration in Tervona's low-voltage storage range."
+    },
+    {
+      "id": "/products/hybrid-inverter/ecolink-3-6-kw",
+      "path": "/products/hybrid-inverter/ecolink-3-6-kw",
+      "title": "EcoLink 3.6 kW Low-Voltage Single-Phase Hybrid Inverter",
       "category": "hybrid-inverter",
-      "categoryLabel": "Hybrid Inverters",
-      "path": "/products/hybrid-inverter/14",
-      "heroImage": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_14.jpg",
-      "summary": "Hybrid Inverters",
-      "status": "Published"
+      "categoryLabel": "Low-Voltage Hybrid Inverters",
+      "productType": "SINGLE-PHASE LOW-VOLTAGE HYBRID INVERTER",
+      "rangeLabel": "3.6 kW",
+      "summary": "HYB-3K6LSG-01-TVN is a 3.6 kW EcoLink single-phase low-voltage hybrid inverter with 7.2 kW maximum PV input, dual MPPT, IP65 protection and backup switching of 10 ms or less.",
+      "heroText": "HYB-3K6LSG-01-TVN is a 3.6 kW EcoLink single-phase low-voltage hybrid inverter with 7.2 kW maximum PV input, dual MPPT, IP65 protection and backup switching of 10 ms or less.",
+      "heroImage": "/assets/tervona-products/catalog-v2/ecolink-series-cutout.png",
+      "bannerImage": "/assets/tervona-products/catalog-v2/ecolink-series-cutout.png",
+      "listImage": "/assets/tervona-products/catalog-v2/ecolink-series-cutout.png",
+      "status": "Published",
+      "stats": [
+        {
+          "label": "Rated AC Output",
+          "value": "3.6 kW"
+        },
+        {
+          "label": "Ingress Protection",
+          "value": "IP65"
+        }
+      ],
+      "advantagesEyebrow": "EcoLink Series",
+      "advantagesTitle": "3.6 kW single-phase low-voltage hybrid inverter",
+      "advantagesBody": "HYB-3K6LSG-01-TVN combines a 42–59 V battery interface, dual MPPT inputs, IP65 ingress protection and backup switching of 10 ms or less. The supplied EcoLink material also lists an optional integrated 7 kW AC charger, smart port and remote operation and maintenance.",
+      "advantagesImage": "/assets/tervona-products/catalog-v2/ecolink-series-cutout.png",
+      "highlights": [
+        {
+          "title": "83 A battery current",
+          "body": "Maximum charge/discharge current: 83 A; maximum battery charge/discharge power: 4.0 kW."
+        },
+        {
+          "title": "Dual MPPT PV input",
+          "body": "7.2 kW maximum PV input, 90–530 V MPPT range and two MPPT trackers."
+        },
+        {
+          "title": "≤10 ms backup switching",
+          "body": "3.6 kW nominal EPS output with automatic switching in 10 ms or less and peak output up to twice rated power for 10 seconds."
+        },
+        {
+          "title": "IP65 and 97% max efficiency",
+          "body": "IP65 enclosure, 97% maximum PV-to-AC efficiency, RS485/CAN and optional Wi-Fi via USB."
+        }
+      ],
+      "datasheetUrl": "/uploads/downloads/ecolink-3-6kw-8kw-hybrid-inverter-datasheet.pdf",
+      "seoTitle": "EcoLink 3.6 kW Low-Voltage Single-Phase Hybrid Inverter | Tervona",
+      "seoDescription": "HYB-3K6LSG-01-TVN is a 3.6 kW EcoLink single-phase low-voltage hybrid inverter with 7.2 kW maximum PV input, dual MPPT, IP65 protection and backup switching of 10 ms or less."
     },
     {
-      "id": "/products/hybrid-inverter/36",
-      "title": "H1/AC1",
+      "id": "/products/hybrid-inverter/ecolink-4-6-kw",
+      "path": "/products/hybrid-inverter/ecolink-4-6-kw",
+      "title": "EcoLink 4.6 kW Low-Voltage Single-Phase Hybrid Inverter",
       "category": "hybrid-inverter",
-      "categoryLabel": "Hybrid Inverters",
-      "path": "/products/hybrid-inverter/36",
-      "heroImage": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_36.jpg",
-      "summary": "Hybrid Inverters",
-      "status": "Published"
+      "categoryLabel": "Low-Voltage Hybrid Inverters",
+      "productType": "SINGLE-PHASE LOW-VOLTAGE HYBRID INVERTER",
+      "rangeLabel": "4.6 kW",
+      "summary": "HYB-4K6LSG-01-TVN is a 4.6 kW EcoLink single-phase low-voltage hybrid inverter with 9.2 kW maximum PV input, dual MPPT, IP65 protection and backup switching of 10 ms or less.",
+      "heroText": "HYB-4K6LSG-01-TVN is a 4.6 kW EcoLink single-phase low-voltage hybrid inverter with 9.2 kW maximum PV input, dual MPPT, IP65 protection and backup switching of 10 ms or less.",
+      "heroImage": "/assets/tervona-products/catalog-v2/ecolink-series-cutout.png",
+      "bannerImage": "/assets/tervona-products/catalog-v2/ecolink-series-cutout.png",
+      "listImage": "/assets/tervona-products/catalog-v2/ecolink-series-cutout.png",
+      "status": "Published",
+      "stats": [
+        {
+          "label": "Rated AC Output",
+          "value": "4.6 kW"
+        },
+        {
+          "label": "Ingress Protection",
+          "value": "IP65"
+        }
+      ],
+      "advantagesEyebrow": "EcoLink Series",
+      "advantagesTitle": "4.6 kW single-phase low-voltage hybrid inverter",
+      "advantagesBody": "HYB-4K6LSG-01-TVN combines a 42–59 V battery interface, dual MPPT inputs, IP65 ingress protection and backup switching of 10 ms or less. The supplied EcoLink material also lists an optional integrated 7 kW AC charger, smart port and remote operation and maintenance.",
+      "advantagesImage": "/assets/tervona-products/catalog-v2/ecolink-series-cutout.png",
+      "highlights": [
+        {
+          "title": "104 A battery current",
+          "body": "Maximum charge/discharge current: 104 A; maximum battery charge/discharge power: 5.0 kW."
+        },
+        {
+          "title": "Dual MPPT PV input",
+          "body": "9.2 kW maximum PV input, 90–530 V MPPT range and two MPPT trackers."
+        },
+        {
+          "title": "≤10 ms backup switching",
+          "body": "4.6 kW nominal EPS output with automatic switching in 10 ms or less and peak output up to twice rated power for 10 seconds."
+        },
+        {
+          "title": "IP65 and 97% max efficiency",
+          "body": "IP65 enclosure, 97% maximum PV-to-AC efficiency, RS485/CAN and optional Wi-Fi via USB."
+        }
+      ],
+      "datasheetUrl": "/uploads/downloads/ecolink-3-6kw-8kw-hybrid-inverter-datasheet.pdf",
+      "seoTitle": "EcoLink 4.6 kW Low-Voltage Single-Phase Hybrid Inverter | Tervona",
+      "seoDescription": "HYB-4K6LSG-01-TVN is a 4.6 kW EcoLink single-phase low-voltage hybrid inverter with 9.2 kW maximum PV input, dual MPPT, IP65 protection and backup switching of 10 ms or less."
     },
     {
-      "id": "/products/hybrid-inverter/35",
-      "title": "KH/KA",
+      "id": "/products/hybrid-inverter/ecolink-5-kw",
+      "path": "/products/hybrid-inverter/ecolink-5-kw",
+      "title": "EcoLink 5 kW Low-Voltage Single-Phase Hybrid Inverter",
       "category": "hybrid-inverter",
-      "categoryLabel": "Hybrid Inverters",
-      "path": "/products/hybrid-inverter/35",
-      "heroImage": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_35.jpg",
-      "summary": "Hybrid Inverters",
-      "status": "Published"
+      "categoryLabel": "Low-Voltage Hybrid Inverters",
+      "productType": "SINGLE-PHASE LOW-VOLTAGE HYBRID INVERTER",
+      "rangeLabel": "5 kW",
+      "summary": "HYB-05KLSG-01-TVN is a 5 kW EcoLink single-phase low-voltage hybrid inverter with 10 kW maximum PV input, dual MPPT, IP65 protection and backup switching of 10 ms or less.",
+      "heroText": "HYB-05KLSG-01-TVN is a 5 kW EcoLink single-phase low-voltage hybrid inverter with 10 kW maximum PV input, dual MPPT, IP65 protection and backup switching of 10 ms or less.",
+      "heroImage": "/assets/tervona-products/catalog-v2/ecolink-series-cutout.png",
+      "bannerImage": "/assets/tervona-products/catalog-v2/ecolink-series-cutout.png",
+      "listImage": "/assets/tervona-products/catalog-v2/ecolink-series-cutout.png",
+      "status": "Published",
+      "stats": [
+        {
+          "label": "Rated AC Output",
+          "value": "5 kW"
+        },
+        {
+          "label": "Ingress Protection",
+          "value": "IP65"
+        }
+      ],
+      "advantagesEyebrow": "EcoLink Series",
+      "advantagesTitle": "5 kW single-phase low-voltage hybrid inverter",
+      "advantagesBody": "HYB-05KLSG-01-TVN combines a 42–59 V battery interface, dual MPPT inputs, IP65 ingress protection and backup switching of 10 ms or less. The supplied EcoLink material also lists an optional integrated 7 kW AC charger, smart port and remote operation and maintenance.",
+      "advantagesImage": "/assets/tervona-products/catalog-v2/ecolink-series-cutout.png",
+      "highlights": [
+        {
+          "title": "112 A battery current",
+          "body": "Maximum charge/discharge current: 112 A; maximum battery charge/discharge power: 5.4 kW."
+        },
+        {
+          "title": "Dual MPPT PV input",
+          "body": "10 kW maximum PV input, 90–530 V MPPT range and two MPPT trackers."
+        },
+        {
+          "title": "≤10 ms backup switching",
+          "body": "5 kW nominal EPS output with automatic switching in 10 ms or less and peak output up to twice rated power for 10 seconds."
+        },
+        {
+          "title": "IP65 and 97% max efficiency",
+          "body": "IP65 enclosure, 97% maximum PV-to-AC efficiency, RS485/CAN and optional Wi-Fi via USB."
+        }
+      ],
+      "datasheetUrl": "/uploads/downloads/ecolink-3-6kw-8kw-hybrid-inverter-datasheet.pdf",
+      "seoTitle": "EcoLink 5 kW Low-Voltage Single-Phase Hybrid Inverter | Tervona",
+      "seoDescription": "HYB-05KLSG-01-TVN is a 5 kW EcoLink single-phase low-voltage hybrid inverter with 10 kW maximum PV input, dual MPPT, IP65 protection and backup switching of 10 ms or less."
     },
     {
-      "id": "/products/hybrid-inverter/32",
-      "title": "H3 PRO",
+      "id": "/products/hybrid-inverter/ecolink-6-kw",
+      "path": "/products/hybrid-inverter/ecolink-6-kw",
+      "title": "EcoLink 6 kW Low-Voltage Single-Phase Hybrid Inverter",
       "category": "hybrid-inverter",
-      "categoryLabel": "Hybrid Inverters",
-      "path": "/products/hybrid-inverter/32",
-      "heroImage": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_32.jpg",
-      "summary": "Hybrid Inverters",
-      "status": "Published"
+      "categoryLabel": "Low-Voltage Hybrid Inverters",
+      "productType": "SINGLE-PHASE LOW-VOLTAGE HYBRID INVERTER",
+      "rangeLabel": "6 kW",
+      "summary": "HYB-06KLSG-01-TVN is a 6 kW EcoLink single-phase low-voltage hybrid inverter with 12 kW maximum PV input, dual MPPT, IP65 protection and backup switching of 10 ms or less.",
+      "heroText": "HYB-06KLSG-01-TVN is a 6 kW EcoLink single-phase low-voltage hybrid inverter with 12 kW maximum PV input, dual MPPT, IP65 protection and backup switching of 10 ms or less.",
+      "heroImage": "/assets/tervona-products/catalog-v2/ecolink-series-cutout.png",
+      "bannerImage": "/assets/tervona-products/catalog-v2/ecolink-series-cutout.png",
+      "listImage": "/assets/tervona-products/catalog-v2/ecolink-series-cutout.png",
+      "status": "Published",
+      "stats": [
+        {
+          "label": "Rated AC Output",
+          "value": "6 kW"
+        },
+        {
+          "label": "Ingress Protection",
+          "value": "IP65"
+        }
+      ],
+      "advantagesEyebrow": "EcoLink Series",
+      "advantagesTitle": "6 kW single-phase low-voltage hybrid inverter",
+      "advantagesBody": "HYB-06KLSG-01-TVN combines a 42–59 V battery interface, dual MPPT inputs, IP65 ingress protection and backup switching of 10 ms or less. The supplied EcoLink material also lists an optional integrated 7 kW AC charger, smart port and remote operation and maintenance.",
+      "advantagesImage": "/assets/tervona-products/catalog-v2/ecolink-series-cutout.png",
+      "highlights": [
+        {
+          "title": "130 A battery current",
+          "body": "Maximum charge/discharge current: 130 A; maximum battery charge/discharge power: 6.5 kW."
+        },
+        {
+          "title": "Dual MPPT PV input",
+          "body": "12 kW maximum PV input, 90–530 V MPPT range and two MPPT trackers."
+        },
+        {
+          "title": "≤10 ms backup switching",
+          "body": "6 kW nominal EPS output with automatic switching in 10 ms or less and peak output up to twice rated power for 10 seconds."
+        },
+        {
+          "title": "IP65 and 97% max efficiency",
+          "body": "IP65 enclosure, 97% maximum PV-to-AC efficiency, RS485/CAN and optional Wi-Fi via USB."
+        }
+      ],
+      "datasheetUrl": "/uploads/downloads/ecolink-3-6kw-8kw-hybrid-inverter-datasheet.pdf",
+      "seoTitle": "EcoLink 6 kW Low-Voltage Single-Phase Hybrid Inverter | Tervona",
+      "seoDescription": "HYB-06KLSG-01-TVN is a 6 kW EcoLink single-phase low-voltage hybrid inverter with 12 kW maximum PV input, dual MPPT, IP65 protection and backup switching of 10 ms or less."
     },
     {
-      "id": "/products/hybrid-inverter/58",
-      "title": "H3 Plus",
+      "id": "/products/hybrid-inverter/ecolink-8-kw",
+      "path": "/products/hybrid-inverter/ecolink-8-kw",
+      "title": "EcoLink 8 kW Low-Voltage Single-Phase Hybrid Inverter",
       "category": "hybrid-inverter",
-      "categoryLabel": "Hybrid Inverters",
-      "path": "/products/hybrid-inverter/58",
-      "heroImage": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_58.jpg",
-      "summary": "Hybrid Inverters",
-      "status": "Published"
+      "categoryLabel": "Low-Voltage Hybrid Inverters",
+      "productType": "SINGLE-PHASE LOW-VOLTAGE HYBRID INVERTER",
+      "rangeLabel": "8 kW",
+      "summary": "HYB-08KLSG-01-TVN is a 8 kW EcoLink single-phase low-voltage hybrid inverter with 12 kW maximum PV input, dual MPPT, IP65 protection and backup switching of 10 ms or less.",
+      "heroText": "HYB-08KLSG-01-TVN is a 8 kW EcoLink single-phase low-voltage hybrid inverter with 12 kW maximum PV input, dual MPPT, IP65 protection and backup switching of 10 ms or less.",
+      "heroImage": "/assets/tervona-products/catalog-v2/ecolink-series-cutout.png",
+      "bannerImage": "/assets/tervona-products/catalog-v2/ecolink-series-cutout.png",
+      "listImage": "/assets/tervona-products/catalog-v2/ecolink-series-cutout.png",
+      "status": "Published",
+      "stats": [
+        {
+          "label": "Rated AC Output",
+          "value": "8 kW"
+        },
+        {
+          "label": "Ingress Protection",
+          "value": "IP65"
+        }
+      ],
+      "advantagesEyebrow": "EcoLink Series",
+      "advantagesTitle": "8 kW single-phase low-voltage hybrid inverter",
+      "advantagesBody": "HYB-08KLSG-01-TVN combines a 42–59 V battery interface, dual MPPT inputs, IP65 ingress protection and backup switching of 10 ms or less. The supplied EcoLink material also lists an optional integrated 7 kW AC charger, smart port and remote operation and maintenance.",
+      "advantagesImage": "/assets/tervona-products/catalog-v2/ecolink-series-cutout.png",
+      "highlights": [
+        {
+          "title": "180 A battery current",
+          "body": "Maximum charge/discharge current: 180 A; maximum battery charge/discharge power: 8.8 kW."
+        },
+        {
+          "title": "Dual MPPT PV input",
+          "body": "12 kW maximum PV input, 90–530 V MPPT range and two MPPT trackers."
+        },
+        {
+          "title": "≤10 ms backup switching",
+          "body": "8 kW nominal EPS output with automatic switching in 10 ms or less and peak output up to twice rated power for 10 seconds."
+        },
+        {
+          "title": "IP65 and 97% max efficiency",
+          "body": "IP65 enclosure, 97% maximum PV-to-AC efficiency, RS485/CAN and optional Wi-Fi via USB."
+        }
+      ],
+      "datasheetUrl": "/uploads/downloads/ecolink-3-6kw-8kw-hybrid-inverter-datasheet.pdf",
+      "seoTitle": "EcoLink 8 kW Low-Voltage Single-Phase Hybrid Inverter | Tervona",
+      "seoDescription": "HYB-08KLSG-01-TVN is a 8 kW EcoLink single-phase low-voltage hybrid inverter with 12 kW maximum PV input, dual MPPT, IP65 protection and backup switching of 10 ms or less."
     },
     {
-      "id": "/products/hybrid-inverter/30",
-      "title": "Stackable AIO",
-      "category": "hybrid-inverter",
-      "categoryLabel": "Hybrid Inverters",
-      "path": "/products/hybrid-inverter/30",
-      "heroImage": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_30.jpg",
-      "summary": "Hybrid Inverters",
-      "status": "Published"
+      "id": "/products/off-grid-inverter/6-2-kw-ip54",
+      "path": "/products/off-grid-inverter/6-2-kw-ip54",
+      "title": "6.2 kW IP54 Single-Phase Off-Grid Inverter",
+      "category": "off-grid-inverter",
+      "categoryLabel": "Single-Phase Off-Grid Inverters",
+      "productType": "SINGLE-PHASE OFF-GRID INVERTER",
+      "rangeLabel": "6.2 kW · IP54",
+      "summary": "A 6.2 kW single-phase off-grid inverter with an IP54 designation.",
+      "heroText": "A 6.2 kW single-phase off-grid inverter with an IP54 designation.",
+      "heroImage": "/assets/tervona-products/catalog-v2/off-grid-single-phase-cutout.png",
+      "bannerImage": "/assets/tervona-products/catalog-v2/off-grid-single-phase-cutout.png",
+      "listImage": "/assets/tervona-products/catalog-v2/off-grid-single-phase-cutout.png",
+      "status": "Published",
+      "stats": [
+        {
+          "label": "Power Class",
+          "value": "6.2 kW"
+        },
+        {
+          "label": "Ingress Designation",
+          "value": "IP54"
+        }
+      ],
+      "advantagesEyebrow": "Single-Phase Off-Grid Inverter",
+      "advantagesTitle": "6.2 kW power class with IP54 designation",
+      "advantagesBody": "6.2 kW IP54 Single-Phase Off-Grid Inverter combines the confirmed 6.2 kW power class, single-phase architecture and IP54 designation.",
+      "advantagesImage": "/assets/tervona-products/catalog-v2/off-grid-single-phase-cutout.png",
+      "highlights": [
+        {
+          "title": "6.2 kW power class",
+          "body": "Product power class: 6.2 kW."
+        },
+        {
+          "title": "Single-phase",
+          "body": "Phase category: single-phase."
+        },
+        {
+          "title": "IP54 designation",
+          "body": "Ingress designation: IP54."
+        },
+        {
+          "title": "Off-grid inverter",
+          "body": "Product category: off-grid inverter."
+        }
+      ],
+      "datasheetUrl": "/uploads/downloads/slh-ofg-6kw-off-grid-inverter-datasheet.pdf",
+      "seoTitle": "6.2 kW IP54 Single-Phase Off-Grid Inverter | Tervona",
+      "seoDescription": "A 6.2 kW single-phase off-grid inverter with an IP54 designation."
     },
     {
-      "id": "/products/battery/16",
-      "title": "EQ4800",
-      "category": "battery",
-      "categoryLabel": "Batteries",
-      "path": "/products/battery/16",
-      "heroImage": "/assets/fox-placeholder/product-detail/products_battery_16.jpg",
-      "summary": "Batteries",
-      "status": "Published"
+      "id": "/products/off-grid-inverter/8-2-kw-ip54",
+      "path": "/products/off-grid-inverter/8-2-kw-ip54",
+      "title": "8.2 kW IP54 Single-Phase Off-Grid Inverter",
+      "category": "off-grid-inverter",
+      "categoryLabel": "Single-Phase Off-Grid Inverters",
+      "productType": "SINGLE-PHASE OFF-GRID INVERTER",
+      "rangeLabel": "8.2 kW · IP54",
+      "summary": "A 8.2 kW single-phase off-grid inverter with an IP54 designation.",
+      "heroText": "A 8.2 kW single-phase off-grid inverter with an IP54 designation.",
+      "heroImage": "/assets/tervona-products/catalog-v2/off-grid-single-phase-cutout.png",
+      "bannerImage": "/assets/tervona-products/catalog-v2/off-grid-single-phase-cutout.png",
+      "listImage": "/assets/tervona-products/catalog-v2/off-grid-single-phase-cutout.png",
+      "status": "Published",
+      "stats": [
+        {
+          "label": "Power Class",
+          "value": "8.2 kW"
+        },
+        {
+          "label": "Ingress Designation",
+          "value": "IP54"
+        }
+      ],
+      "advantagesEyebrow": "Single-Phase Off-Grid Inverter",
+      "advantagesTitle": "8.2 kW power class with IP54 designation",
+      "advantagesBody": "8.2 kW IP54 Single-Phase Off-Grid Inverter combines the confirmed 8.2 kW power class, single-phase architecture and IP54 designation.",
+      "advantagesImage": "/assets/tervona-products/catalog-v2/off-grid-single-phase-cutout.png",
+      "highlights": [
+        {
+          "title": "8.2 kW power class",
+          "body": "Product power class: 8.2 kW."
+        },
+        {
+          "title": "Single-phase",
+          "body": "Phase category: single-phase."
+        },
+        {
+          "title": "IP54 designation",
+          "body": "Ingress designation: IP54."
+        },
+        {
+          "title": "Off-grid inverter",
+          "body": "Product category: off-grid inverter."
+        }
+      ],
+      "datasheetUrl": "/uploads/downloads/slh-ofg-8-2kw-10-2kw-solar-inverter-datasheet.pdf",
+      "seoTitle": "8.2 kW IP54 Single-Phase Off-Grid Inverter | Tervona",
+      "seoDescription": "A 8.2 kW single-phase off-grid inverter with an IP54 designation."
     },
     {
-      "id": "/products/battery/27",
-      "title": "EQ5500",
-      "category": "battery",
-      "categoryLabel": "Batteries",
-      "path": "/products/battery/27",
-      "heroImage": "/assets/fox-placeholder/product-detail/products_battery_27.jpg",
-      "summary": "Batteries",
-      "status": "Published"
+      "id": "/products/all-in-one-ess/500w-1kwh",
+      "path": "/products/all-in-one-ess/500w-1kwh",
+      "title": "500 W / 1 kWh All-in-One Energy Storage System",
+      "category": "all-in-one-ess",
+      "categoryLabel": "All-in-One Energy Storage",
+      "productType": "ALL-IN-ONE ENERGY STORAGE SYSTEM",
+      "rangeLabel": "500 W / 1 kWh",
+      "summary": "IYP-1K1A-500F1-A1 combines 1 kWh of LiFePO4 storage, 500 W pure-sine-wave AC output and PV/grid charging in one compact system.",
+      "heroText": "IYP-1K1A-500F1-A1 combines 1 kWh of LiFePO4 storage, 500 W pure-sine-wave AC output and PV/grid charging in one compact system.",
+      "heroImage": "/assets/tervona-products/catalog-v2/aio-500w-1kwh-cutout.png",
+      "bannerImage": "/assets/tervona-products/catalog-v2/aio-500w-1kwh-cutout.png",
+      "listImage": "/assets/tervona-products/catalog-v2/aio-500w-1kwh-cutout.png",
+      "status": "Published",
+      "stats": [
+        {
+          "label": "Rated Output",
+          "value": "500 W"
+        },
+        {
+          "label": "Battery Energy",
+          "value": "1 kWh"
+        }
+      ],
+      "advantagesEyebrow": "All-in-One Energy Storage",
+      "advantagesTitle": "500 W / 1 kWh integrated energy storage",
+      "advantagesBody": "This 500 W / 1 kWh configuration combines a LiFePO4 battery, pure-sine-wave AC output, PV and grid charging, AC/DC output and fast-charging support.",
+      "advantagesImage": "/assets/tervona-products/catalog-v2/aio-500w-1kwh-cutout.png",
+      "highlights": [
+        {
+          "title": "1 kWh LiFePO4 battery",
+          "body": "3.2 V nominal voltage and 314 Ah rated capacity."
+        },
+        {
+          "title": "300 W PV input",
+          "body": "Maximum PV input power: 300 W; MPPT voltage range: 11–55 V; maximum PV input current: 10 A."
+        },
+        {
+          "title": "500 W pure sine wave output",
+          "body": "500 W rated AC output at 230 Vac."
+        },
+        {
+          "title": "PV, grid and AC/DC operation",
+          "body": "Supports PV and grid charging, AC/DC output and fast charging. Product size: 310 × 360 × 151 mm; approximate weight: 15 kg."
+        }
+      ],
+      "datasheetUrl": "/uploads/downloads/aio-500w-1kw-dual-mount-energy-storage-datasheet.pdf",
+      "seoTitle": "500 W / 1 kWh All-in-One Energy Storage System | Tervona",
+      "seoDescription": "IYP-1K1A-500F1-A1 combines 1 kWh of LiFePO4 storage, 500 W pure-sine-wave AC output and PV/grid charging in one compact system."
     },
     {
-      "id": "/products/battery/23",
-      "title": "EP11",
-      "category": "battery",
-      "categoryLabel": "Batteries",
-      "path": "/products/battery/23",
-      "heroImage": "/assets/fox-placeholder/product-detail/products_battery_23.jpg",
-      "summary": "Batteries",
-      "status": "Published"
+      "id": "/products/all-in-one-ess/1kw-2kwh",
+      "path": "/products/all-in-one-ess/1kw-2kwh",
+      "title": "1 kW / 2 kWh All-in-One Energy Storage System",
+      "category": "all-in-one-ess",
+      "categoryLabel": "All-in-One Energy Storage",
+      "productType": "ALL-IN-ONE ENERGY STORAGE SYSTEM",
+      "rangeLabel": "1 kW / 2 kWh",
+      "summary": "IYP-2K1A-1KF1-A1 combines 2 kWh of LiFePO4 storage, 1 kW pure-sine-wave AC output and PV/grid charging in one compact system.",
+      "heroText": "IYP-2K1A-1KF1-A1 combines 2 kWh of LiFePO4 storage, 1 kW pure-sine-wave AC output and PV/grid charging in one compact system.",
+      "heroImage": "/assets/tervona-products/catalog-v2/aio-1kw-2kwh-cutout.png",
+      "bannerImage": "/assets/tervona-products/catalog-v2/aio-1kw-2kwh-cutout.png",
+      "listImage": "/assets/tervona-products/catalog-v2/aio-1kw-2kwh-cutout.png",
+      "status": "Published",
+      "stats": [
+        {
+          "label": "Rated Output",
+          "value": "1 kW"
+        },
+        {
+          "label": "Battery Energy",
+          "value": "2 kWh"
+        }
+      ],
+      "advantagesEyebrow": "All-in-One Energy Storage",
+      "advantagesTitle": "1 kW / 2 kWh integrated energy storage",
+      "advantagesBody": "This 1 kW / 2 kWh configuration combines a LiFePO4 battery, pure-sine-wave AC output, PV and grid charging, AC/DC output and fast-charging support.",
+      "advantagesImage": "/assets/tervona-products/catalog-v2/aio-1kw-2kwh-cutout.png",
+      "highlights": [
+        {
+          "title": "2 kWh LiFePO4 battery",
+          "body": "6.4 V nominal voltage and 314 Ah rated capacity."
+        },
+        {
+          "title": "500 W PV input",
+          "body": "Maximum PV input power: 500 W; MPPT voltage range: 12–60 V; maximum PV input current: 15 A."
+        },
+        {
+          "title": "1 kW pure sine wave output",
+          "body": "1 kW rated AC output at 230 Vac."
+        },
+        {
+          "title": "PV, grid and AC/DC operation",
+          "body": "Supports PV and grid charging, AC/DC output and fast charging. Product size: 350 × 270 × 241 mm; approximate weight: 20 kg."
+        }
+      ],
+      "datasheetUrl": "/uploads/downloads/aio-500w-1kw-dual-mount-energy-storage-datasheet.pdf",
+      "seoTitle": "1 kW / 2 kWh All-in-One Energy Storage System | Tervona",
+      "seoDescription": "IYP-2K1A-1KF1-A1 combines 2 kWh of LiFePO4 storage, 1 kW pure-sine-wave AC output and PV/grid charging in one compact system."
     },
     {
-      "id": "/products/battery/15",
-      "title": "EP12 Plus (w)",
-      "category": "battery",
-      "categoryLabel": "Batteries",
-      "path": "/products/battery/15",
-      "heroImage": "/assets/fox-placeholder/product-detail/products_battery_15.jpg",
-      "summary": "Batteries",
-      "status": "Published"
+      "id": "/products/all-in-one-ess/2kw-2-6kwh",
+      "path": "/products/all-in-one-ess/2kw-2-6kwh",
+      "title": "2 kW / 2.6 kWh All-in-One Energy Storage System",
+      "category": "all-in-one-ess",
+      "categoryLabel": "All-in-One Energy Storage",
+      "productType": "ALL-IN-ONE ENERGY STORAGE SYSTEM",
+      "rangeLabel": "2 kW / 2.6 kWh",
+      "summary": "IYP-ST2K6A-2KF1-A1 is a floor-standing 2 kW / 2.6 kWh system combining a LiFePO4 battery, inverter, PV/AC charging and UPS functionality.",
+      "heroText": "IYP-ST2K6A-2KF1-A1 is a floor-standing 2 kW / 2.6 kWh system combining a LiFePO4 battery, inverter, PV/AC charging and UPS functionality.",
+      "heroImage": "/assets/tervona-products/catalog-v2/aio-2kw-2-6kwh-cutout.png",
+      "bannerImage": "/assets/tervona-products/catalog-v2/aio-2kw-2-6kwh-cutout.png",
+      "listImage": "/assets/tervona-products/catalog-v2/aio-2kw-2-6kwh-cutout.png",
+      "status": "Published",
+      "stats": [
+        {
+          "label": "Rated Output",
+          "value": "2 kW"
+        },
+        {
+          "label": "Battery Energy",
+          "value": "2.6 kWh"
+        }
+      ],
+      "advantagesEyebrow": "All-in-One Energy Storage",
+      "advantagesTitle": "2 kW / 2.6 kWh integrated energy storage",
+      "advantagesBody": "This 2 kW / 2.6 kWh configuration combines a LiFePO4 battery and inverter in a floor-standing system with integrated PV/AC charging and UPS functionality.",
+      "advantagesImage": "/assets/tervona-products/catalog-v2/aio-2kw-2-6kwh-cutout.png",
+      "highlights": [
+        {
+          "title": "2.6 kWh LiFePO4 battery",
+          "body": "12.8 V nominal voltage and 206 Ah rated capacity."
+        },
+        {
+          "title": "3 kW PV input",
+          "body": "Maximum PV input power: 3 kW; MPPT voltage range: 30–400 Vdc; maximum PV input current: 18 A."
+        },
+        {
+          "title": "2 kW pure sine wave output",
+          "body": "2 kW rated AC output at 230 Vac with transfer time below 20 ms."
+        },
+        {
+          "title": "Integrated PV/AC charging and UPS",
+          "body": "RS485/Wi-Fi communication. Product size: 610 × 390 × 230 mm; approximate weight: 20 kg."
+        }
+      ],
+      "datasheetUrl": "/uploads/downloads/aio-2kw-2-6kwh-4kwh-standing-all-in-one-ess-datasheet.pdf",
+      "seoTitle": "2 kW / 2.6 kWh All-in-One Energy Storage System | Tervona",
+      "seoDescription": "IYP-ST2K6A-2KF1-A1 is a floor-standing 2 kW / 2.6 kWh system combining a LiFePO4 battery, inverter, PV/AC charging and UPS functionality."
     },
     {
-      "id": "/products/battery/55",
-      "title": "CQ6",
-      "category": "battery",
-      "categoryLabel": "Batteries",
-      "path": "/products/battery/55",
-      "heroImage": "/assets/fox-placeholder/product-detail/products_battery_55.jpg",
-      "summary": "Batteries",
-      "status": "Published"
+      "id": "/products/all-in-one-ess/2kw-4kwh",
+      "path": "/products/all-in-one-ess/2kw-4kwh",
+      "title": "2 kW / 4 kWh All-in-One Energy Storage System",
+      "category": "all-in-one-ess",
+      "categoryLabel": "All-in-One Energy Storage",
+      "productType": "ALL-IN-ONE ENERGY STORAGE SYSTEM",
+      "rangeLabel": "2 kW / 4 kWh",
+      "summary": "IYP-ST4K1A-2KF1-A1 is a floor-standing 2 kW / 4 kWh system combining a LiFePO4 battery, inverter, PV/AC charging and UPS functionality.",
+      "heroText": "IYP-ST4K1A-2KF1-A1 is a floor-standing 2 kW / 4 kWh system combining a LiFePO4 battery, inverter, PV/AC charging and UPS functionality.",
+      "heroImage": "/assets/tervona-products/catalog-v2/aio-2kw-4kwh-cutout.png",
+      "bannerImage": "/assets/tervona-products/catalog-v2/aio-2kw-4kwh-cutout.png",
+      "listImage": "/assets/tervona-products/catalog-v2/aio-2kw-4kwh-cutout.png",
+      "status": "Published",
+      "stats": [
+        {
+          "label": "Rated Output",
+          "value": "2 kW"
+        },
+        {
+          "label": "Battery Energy",
+          "value": "4 kWh"
+        }
+      ],
+      "advantagesEyebrow": "All-in-One Energy Storage",
+      "advantagesTitle": "2 kW / 4 kWh integrated energy storage",
+      "advantagesBody": "This 2 kW / 4 kWh configuration combines a LiFePO4 battery and inverter in a floor-standing system with integrated PV/AC charging and UPS functionality.",
+      "advantagesImage": "/assets/tervona-products/catalog-v2/aio-2kw-4kwh-cutout.png",
+      "highlights": [
+        {
+          "title": "4 kWh LiFePO4 battery",
+          "body": "12.8 V nominal voltage and 314 Ah rated capacity."
+        },
+        {
+          "title": "3 kW PV input",
+          "body": "Maximum PV input power: 3 kW; MPPT voltage range: 30–400 Vdc; maximum PV input current: 18 A."
+        },
+        {
+          "title": "2 kW pure sine wave output",
+          "body": "2 kW rated AC output at 230 Vac with transfer time below 20 ms."
+        },
+        {
+          "title": "Integrated PV/AC charging and UPS",
+          "body": "RS485/Wi-Fi communication. Product size: 610 × 390 × 230 mm; approximate weight: 30 kg."
+        }
+      ],
+      "datasheetUrl": "/uploads/downloads/aio-2kw-2-6kwh-4kwh-standing-all-in-one-ess-datasheet.pdf",
+      "seoTitle": "2 kW / 4 kWh All-in-One Energy Storage System | Tervona",
+      "seoDescription": "IYP-ST4K1A-2KF1-A1 is a floor-standing 2 kW / 4 kWh system combining a LiFePO4 battery, inverter, PV/AC charging and UPS functionality."
     },
     {
-      "id": "/products/battery/56",
-      "title": "CQ7",
-      "category": "battery",
-      "categoryLabel": "Batteries",
-      "path": "/products/battery/56",
-      "heroImage": "/assets/fox-placeholder/product-detail/products_battery_56.jpg",
-      "summary": "Batteries",
-      "status": "Published"
+      "id": "/products/all-in-one-ess/6kw-10-5kwh",
+      "path": "/products/all-in-one-ess/6kw-10-5kwh",
+      "title": "6 kW / 10.5 kWh All-in-One Energy Storage System",
+      "category": "all-in-one-ess",
+      "categoryLabel": "All-in-One Energy Storage",
+      "productType": "ALL-IN-ONE ENERGY STORAGE SYSTEM",
+      "rangeLabel": "6 kW / 10.5 kWh",
+      "summary": "IYP-ST10K5A-6KF1-A1 is a floor-standing 6 kW / 10.5 kWh system combining a LiFePO4 battery, inverter, PV/AC charging and UPS functionality.",
+      "heroText": "IYP-ST10K5A-6KF1-A1 is a floor-standing 6 kW / 10.5 kWh system combining a LiFePO4 battery, inverter, PV/AC charging and UPS functionality.",
+      "heroImage": "/assets/tervona-products/catalog-v2/aio-6kw-10-5kwh-cutout.png",
+      "bannerImage": "/assets/tervona-products/catalog-v2/aio-6kw-10-5kwh-cutout.png",
+      "listImage": "/assets/tervona-products/catalog-v2/aio-6kw-10-5kwh-cutout.png",
+      "status": "Published",
+      "stats": [
+        {
+          "label": "Rated Output",
+          "value": "6 kW"
+        },
+        {
+          "label": "Battery Energy",
+          "value": "10.5 kWh"
+        }
+      ],
+      "advantagesEyebrow": "All-in-One Energy Storage",
+      "advantagesTitle": "6 kW / 10.5 kWh integrated energy storage",
+      "advantagesBody": "This 6 kW / 10.5 kWh configuration combines a LiFePO4 battery and inverter in a floor-standing system with integrated PV/AC charging and UPS functionality.",
+      "advantagesImage": "/assets/tervona-products/catalog-v2/aio-6kw-10-5kwh-cutout.png",
+      "highlights": [
+        {
+          "title": "10.5 kWh LiFePO4 battery",
+          "body": "51.2 V nominal voltage and 206 Ah rated capacity."
+        },
+        {
+          "title": "8.5 kW PV input",
+          "body": "Maximum PV input power: 8.5 kW; MPPT voltage range: 60–450 Vdc; maximum PV input current: 22.5 A."
+        },
+        {
+          "title": "6 kW pure sine wave output",
+          "body": "6 kW rated AC output at 230 Vac with transfer time below 20 ms."
+        },
+        {
+          "title": "Integrated PV/AC charging and UPS",
+          "body": "RS485/Wi-Fi communication. Product size: 485 × 270 × 760 mm; approximate weight: 85 kg."
+        }
+      ],
+      "seoTitle": "6 kW / 10.5 kWh All-in-One Energy Storage System | Tervona",
+      "seoDescription": "IYP-ST10K5A-6KF1-A1 is a floor-standing 6 kW / 10.5 kWh system combining a LiFePO4 battery, inverter, PV/AC charging and UPS functionality."
     },
     {
-      "id": "/products/battery/63",
-      "title": "EP5",
-      "category": "battery",
-      "categoryLabel": "Batteries",
-      "path": "/products/battery/63",
-      "heroImage": "/assets/fox-placeholder/product-detail/products_battery_63.jpg",
-      "summary": "Batteries",
-      "status": "Published"
+      "id": "/products/all-in-one-ess/10kw-10-5kwh",
+      "path": "/products/all-in-one-ess/10kw-10-5kwh",
+      "title": "10 kW / 10.5 kWh All-in-One Energy Storage System",
+      "category": "all-in-one-ess",
+      "categoryLabel": "All-in-One Energy Storage",
+      "productType": "ALL-IN-ONE ENERGY STORAGE SYSTEM",
+      "rangeLabel": "10 kW / 10.5 kWh",
+      "summary": "IYP-ST10K5A-10KF1-A1 is a floor-standing 10 kW / 10.5 kWh system combining a LiFePO4 battery, inverter, PV/AC charging and UPS functionality.",
+      "heroText": "IYP-ST10K5A-10KF1-A1 is a floor-standing 10 kW / 10.5 kWh system combining a LiFePO4 battery, inverter, PV/AC charging and UPS functionality.",
+      "heroImage": "/assets/tervona-products/catalog-v2/aio-10kw-10-5kwh-cutout.png",
+      "bannerImage": "/assets/tervona-products/catalog-v2/aio-10kw-10-5kwh-cutout.png",
+      "listImage": "/assets/tervona-products/catalog-v2/aio-10kw-10-5kwh-cutout.png",
+      "status": "Published",
+      "stats": [
+        {
+          "label": "Rated Output",
+          "value": "10 kW"
+        },
+        {
+          "label": "Battery Energy",
+          "value": "10.5 kWh"
+        }
+      ],
+      "advantagesEyebrow": "All-in-One Energy Storage",
+      "advantagesTitle": "10 kW / 10.5 kWh integrated energy storage",
+      "advantagesBody": "This 10 kW / 10.5 kWh configuration combines a LiFePO4 battery and inverter in a floor-standing system with integrated PV/AC charging and UPS functionality.",
+      "advantagesImage": "/assets/tervona-products/catalog-v2/aio-10kw-10-5kwh-cutout.png",
+      "highlights": [
+        {
+          "title": "10.5 kWh LiFePO4 battery",
+          "body": "51.2 V nominal voltage and 206 Ah rated capacity."
+        },
+        {
+          "title": "15 kW PV input",
+          "body": "Maximum PV input power: 15 kW; MPPT voltage range: 60–450 Vdc; maximum PV input current: 25 A."
+        },
+        {
+          "title": "10 kW pure sine wave output",
+          "body": "10 kW rated AC output at 230 Vac with transfer time below 20 ms."
+        },
+        {
+          "title": "Integrated PV/AC charging and UPS",
+          "body": "RS485/Wi-Fi communication. Product size: 513 × 305 × 820 mm; approximate weight: 97 kg."
+        }
+      ],
+      "seoTitle": "10 kW / 10.5 kWh All-in-One Energy Storage System | Tervona",
+      "seoDescription": "IYP-ST10K5A-10KF1-A1 is a floor-standing 10 kW / 10.5 kWh system combining a LiFePO4 battery, inverter, PV/AC charging and UPS functionality."
     },
     {
-      "id": "/products/battery/61",
-      "title": "ECS",
-      "category": "battery",
-      "categoryLabel": "Batteries",
-      "path": "/products/battery/61",
-      "heroImage": "/assets/fox-placeholder/product-detail/products_battery_61.jpg",
-      "summary": "Batteries",
-      "status": "Published"
+      "id": "/products/all-in-one-ess/6kw-16kwh",
+      "path": "/products/all-in-one-ess/6kw-16kwh",
+      "title": "6 kW / 16 kWh All-in-One Energy Storage System",
+      "category": "all-in-one-ess",
+      "categoryLabel": "All-in-One Energy Storage",
+      "productType": "ALL-IN-ONE ENERGY STORAGE SYSTEM",
+      "rangeLabel": "6 kW / 16 kWh",
+      "summary": "IYP-ST16K1A-6KF1-A1 is a floor-standing 6 kW / 16 kWh system combining a LiFePO4 battery, inverter, PV/AC charging and UPS functionality.",
+      "heroText": "IYP-ST16K1A-6KF1-A1 is a floor-standing 6 kW / 16 kWh system combining a LiFePO4 battery, inverter, PV/AC charging and UPS functionality.",
+      "heroImage": "/assets/tervona-products/catalog-v2/aio-6kw-16kwh-cutout.png",
+      "bannerImage": "/assets/tervona-products/catalog-v2/aio-6kw-16kwh-cutout.png",
+      "listImage": "/assets/tervona-products/catalog-v2/aio-6kw-16kwh-cutout.png",
+      "status": "Published",
+      "stats": [
+        {
+          "label": "Rated Output",
+          "value": "6 kW"
+        },
+        {
+          "label": "Battery Energy",
+          "value": "16 kWh"
+        }
+      ],
+      "advantagesEyebrow": "All-in-One Energy Storage",
+      "advantagesTitle": "6 kW / 16 kWh integrated energy storage",
+      "advantagesBody": "This 6 kW / 16 kWh configuration combines a LiFePO4 battery and inverter in a floor-standing system with integrated PV/AC charging and UPS functionality.",
+      "advantagesImage": "/assets/tervona-products/catalog-v2/aio-6kw-16kwh-cutout.png",
+      "highlights": [
+        {
+          "title": "16 kWh LiFePO4 battery",
+          "body": "51.2 V nominal voltage and 314 Ah rated capacity."
+        },
+        {
+          "title": "8.5 kW PV input",
+          "body": "Maximum PV input power: 8.5 kW; MPPT voltage range: 60–450 Vdc; maximum PV input current: 22.5 A."
+        },
+        {
+          "title": "6 kW pure sine wave output",
+          "body": "6 kW rated AC output at 230 Vac with transfer time below 20 ms."
+        },
+        {
+          "title": "Integrated PV/AC charging and UPS",
+          "body": "RS485/Wi-Fi communication. Product size: 510 × 375 × 770 mm; approximate weight: 124 kg."
+        }
+      ],
+      "datasheetUrl": "/uploads/downloads/aio-6kw-12kw-16kwh-standing-all-in-one-ess-datasheet.pdf",
+      "seoTitle": "6 kW / 16 kWh All-in-One Energy Storage System | Tervona",
+      "seoDescription": "IYP-ST16K1A-6KF1-A1 is a floor-standing 6 kW / 16 kWh system combining a LiFePO4 battery, inverter, PV/AC charging and UPS functionality."
     },
     {
-      "id": "/products/ev-charger/18",
-      "title": "A Series",
-      "category": "ev-charger",
-      "categoryLabel": "EV Chargers",
-      "path": "/products/ev-charger/18",
-      "heroImage": "/assets/fox-placeholder/product-detail/products_ev-charger_18.jpg",
-      "summary": "EV Chargers",
-      "status": "Published"
-    },
-    {
-      "id": "/products/ev-charger/22",
-      "title": "L Series",
-      "category": "ev-charger",
-      "categoryLabel": "EV Chargers",
-      "path": "/products/ev-charger/22",
-      "heroImage": "/assets/fox-placeholder/product-detail/products_ev-charger_22.jpg",
-      "summary": "EV Chargers",
-      "status": "Published"
-    },
-    {
-      "id": "/products/ev-charger/17",
-      "title": "C Series",
-      "category": "ev-charger",
-      "categoryLabel": "EV Chargers",
-      "path": "/products/ev-charger/17",
-      "heroImage": "/assets/fox-placeholder/product-detail/products_ev-charger_17.jpg",
-      "summary": "EV Chargers",
-      "status": "Published"
-    },
-    {
-      "id": "/products/accessory/52",
-      "title": "Cloud",
-      "category": "accessory",
-      "categoryLabel": "Accessories",
-      "path": "/products/accessory/52",
-      "heroImage": "/assets/fox-placeholder/product-detail/products_accessory_52.jpg",
-      "summary": "Heat Pump",
-      "status": "Published"
-    },
-    {
-      "id": "/products/accessory/42",
-      "title": "Smart WiLan",
-      "category": "accessory",
-      "categoryLabel": "Accessories",
-      "path": "/products/accessory/42",
-      "heroImage": "/assets/fox-placeholder/product-detail/products_accessory_42.jpg",
-      "summary": "Heat Pump",
-      "status": "Published"
-    },
-    {
-      "id": "/products/accessory/41",
-      "title": "WIFI",
-      "category": "accessory",
-      "categoryLabel": "Accessories",
-      "path": "/products/accessory/41",
-      "heroImage": "/assets/fox-placeholder/product-detail/products_accessory_41.jpg",
-      "summary": "Heat Pump",
-      "status": "Published"
-    },
-    {
-      "id": "/products/1k5/66",
-      "title": "1K5-BAT-4660",
-      "category": "1k5",
-      "categoryLabel": "1K5 Products",
-      "path": "/products/1k5/66",
-      "heroImage": "/assets/fox-placeholder/product-detail/products_1k5_66.jpg",
-      "summary": "C&I Products",
-      "status": "Published"
-    },
-    {
-      "id": "/products/1k5/65",
-      "title": "1K5-1P-HI",
-      "category": "1k5",
-      "categoryLabel": "1K5 Products",
-      "path": "/products/1k5/65",
-      "heroImage": "/assets/fox-placeholder/product-detail/products_1k5_65.jpg",
-      "summary": "C&I Products",
-      "status": "Published"
-    },
-    {
-      "id": "/products/1k5/64",
-      "title": "1K5-HI-V1",
-      "category": "1k5",
-      "categoryLabel": "1K5 Products",
-      "path": "/products/1k5/64",
-      "heroImage": "/assets/fox-placeholder/product-detail/products_1k5_64.jpg",
-      "summary": "C&I Products",
-      "status": "Published"
-    },
-    {
-      "id": "/products/fox/70",
-      "title": "Tervona Cloud",
-      "category": "fox",
-      "categoryLabel": "Tervona Apps",
-      "path": "/products/fox/70",
-      "heroImage": "/assets/fox-placeholder/product-detail/products_fox_70.jpg",
-      "summary": "C&I Products",
-      "status": "Published"
+      "id": "/products/all-in-one-ess/12kw-16kwh",
+      "path": "/products/all-in-one-ess/12kw-16kwh",
+      "title": "12 kW / 16 kWh All-in-One Energy Storage System",
+      "category": "all-in-one-ess",
+      "categoryLabel": "All-in-One Energy Storage",
+      "productType": "ALL-IN-ONE ENERGY STORAGE SYSTEM",
+      "rangeLabel": "12 kW / 16 kWh",
+      "summary": "IYP-ST16K1A-12KF1-A1 is a floor-standing 12 kW / 16 kWh system combining a LiFePO4 battery, inverter, PV/AC charging and UPS functionality.",
+      "heroText": "IYP-ST16K1A-12KF1-A1 is a floor-standing 12 kW / 16 kWh system combining a LiFePO4 battery, inverter, PV/AC charging and UPS functionality.",
+      "heroImage": "/assets/tervona-products/catalog-v2/aio-12kw-16kwh-cutout.png",
+      "bannerImage": "/assets/tervona-products/catalog-v2/aio-12kw-16kwh-cutout.png",
+      "listImage": "/assets/tervona-products/catalog-v2/aio-12kw-16kwh-cutout.png",
+      "status": "Published",
+      "stats": [
+        {
+          "label": "Rated Output",
+          "value": "12 kW"
+        },
+        {
+          "label": "Battery Energy",
+          "value": "16 kWh"
+        }
+      ],
+      "advantagesEyebrow": "All-in-One Energy Storage",
+      "advantagesTitle": "12 kW / 16 kWh integrated energy storage",
+      "advantagesBody": "This 12 kW / 16 kWh configuration combines a LiFePO4 battery and inverter in a floor-standing system with integrated PV/AC charging and UPS functionality.",
+      "advantagesImage": "/assets/tervona-products/catalog-v2/aio-12kw-16kwh-cutout.png",
+      "highlights": [
+        {
+          "title": "16 kWh LiFePO4 battery",
+          "body": "51.2 V nominal voltage and 314 Ah rated capacity."
+        },
+        {
+          "title": "15 kW PV input",
+          "body": "Maximum PV input power: 15 kW; MPPT voltage range: 60–450 Vdc; maximum PV input current: 25 A."
+        },
+        {
+          "title": "12 kW pure sine wave output",
+          "body": "12 kW rated AC output at 230 Vac with transfer time below 20 ms."
+        },
+        {
+          "title": "Integrated PV/AC charging and UPS",
+          "body": "RS485/Wi-Fi communication. Product size: 510 × 377 × 770 mm; approximate weight: 130 kg."
+        }
+      ],
+      "datasheetUrl": "/uploads/downloads/aio-6kw-12kw-16kwh-standing-all-in-one-ess-datasheet.pdf",
+      "seoTitle": "12 kW / 16 kWh All-in-One Energy Storage System | Tervona",
+      "seoDescription": "IYP-ST16K1A-12KF1-A1 is a floor-standing 12 kW / 16 kWh system combining a LiFePO4 battery, inverter, PV/AC charging and UPS functionality."
     }
   ],
-  "news": [
-    {
-      "id": "/news/41",
-      "title": "NSW Home Energy Saver Program: How to Turn a Government Incentive into a Long-Term Family Asset",
-      "path": "/news/41",
-      "date": "June 17, 2026",
-      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260624/20260624102243.jpg",
-      "excerpt": "News",
-      "body": "<p>On 17 June 2026, the New South Wales Government officially announced the Home Energy Saver program, a $557 million initiative. The program is designed to support comprehensive home energy upgrades for NSW households by removing the upfront capital barrier.</p><p>The energy-efficiency upgrades explicitly covered by the policy include: rooftop solar, household batteries, insulation, reverse-cycle air conditioning, switchboard upgrades, ceiling fans, and draught-proofing.</p><p><img src=\"/Public/Uploads/ueditor/upload/image/20260624/1782286705272775.jpg\" alt=\"Home Energy Saver Program\"></p><h6>1. Who Is Eligible</h6><p><strong>Households with an annual taxable income of $210,000 or below</strong></p><p>• <strong>Support offered:</strong> zero-interest loans of up to <strong>$15,000</strong>, repayable over a maximum term of <strong>10 years (120 months)</strong>.</p><p><strong>Households with an annual taxable income of $80,000 or below</strong>, or residents holding an eligible concession card (this stream is scheduled to launch in the second half of 2026; tenants may also apply with their landlord’s permission).</p><p>• <strong>Support offered:</strong> a direct rebate of up to <strong>$4,000</strong>. If a household applies for both streams, the rebate must be deducted first, with the remaining balance then covered by the zero-interest loan.</p><h6>2. The Financial Benefits</h6><p>Take, as an example, a $10,000 solar-and-battery storage system, repaid through fixed interest-free instalments over 10 years (120 months): the monthly payment is just $83.33. Here is how that compares with a typical household’s current electricity costs.</p><p>• <strong>Baseline (before upgrade):</strong> a typical NSW household currently spends an average of <strong>$200 to $300</strong> per month on electricity — a pure consumption cost that rises year after year with retail price inflation.</p><p>• <strong>Interest-free loan repayment (after upgrade):</strong> a fixed monthly payment of exactly <strong>$83.33</strong> ($10,000 / 120 months).</p><p>Once the storage system is in operation, the household’s bill for electricity purchased from the retail grid approaches $0. The traditional electricity costs saved each month directly offset — and exceed — the fixed interest-free loan repayment, so the household achieves a net-positive cash flow from the very first month of installation.</p><h6>3. Hardware Lifespan and Hedging the 10-Year Loan Term</h6><p>Over a loan amortisation period as long as 10 years, the redundant design and long-term stability of the system hardware are central to protecting the value of the asset:</p><p>• <strong>Industrial-grade component lifespan:</strong> Tervona inverters use long-life capacitors from a leading global brand, fundamentally doubling the operating lifespan compared with standard market products.</p><p>• <strong>Extreme-climate resilience:</strong> the chassis features an exclusive integrated-housing heat-sink fin design, ensuring high efficiency and protecting electronic components from ageing even in Australia’s extreme summer temperatures of 40°C.</p><p>• <strong>Warranty covering the full loan term:</strong> Tervona provides a <strong>10-year official comprehensive warranty</strong> across its residential hybrid storage portfolio. The warranty period matches the government loan repayment term exactly, removing hardware-maintenance risk during the repayment period.</p><h6>4. Long-Term Asset Value (Year 11 and Beyond)</h6><p>In year 11, once the loan principal has been fully repaid, the $83.33 monthly payment drops to zero.</p><p>Thanks to Tervona’s high-specification hardware redundancy, the system continues to operate efficiently with no remaining debt. From year 11 onwards, all green electricity generated and stored becomes pure net gain, converting a short-term policy benefit into a long-term fixed asset for the family.</p><p>And with the Solar Sharer Offer coming into effect on 1 July, offering a 3-hour window of free electricity (up to 24 kWh), there’s no better time to invest in a storage battery for your home.</p><hr><p><em>Disclaimer: Figures and program details are based on the NSW Government announcement of 17 June 2026. Eligibility, rebate amounts, and loan terms are subject to official program guidelines. Customers should confirm current details before applying.</em></p>",
-      "status": "Published"
-    },
-    {
-      "id": "/news/40",
-      "title": "Tervona Celebrates Strong Momentum with Integrated Solar Storage & Charging Solutions at Smart Energy 2026",
-      "path": "/news/40",
-      "date": "May 07, 2026",
-      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260507news.jpg",
-      "excerpt": "News",
-      "status": "Published"
-    },
-    {
-      "id": "/news/39",
-      "title": "Tervona Ranks No. 1 Globally in Residential Energy Storage",
-      "path": "/news/39",
-      "date": "April 23, 2026",
-      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260423newsEN.jpg",
-      "excerpt": "News",
-      "status": "Published"
-    },
-    {
-      "id": "/news/37",
-      "title": "Tervona Claims No.1 Spot in Australia for Energy Storage Installations",
-      "path": "/news/37",
-      "date": "March 25, 2026",
-      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260327/au2.jpg",
-      "excerpt": "News",
-      "status": "Published"
-    },
-    {
-      "id": "/news/38",
-      "title": "Forbes China Recognizes Tervona as a 2026 Leading Enterprise in Renewable Energy",
-      "path": "/news/38",
-      "date": "March 18, 2026",
-      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260318news.jpg",
-      "excerpt": "News",
-      "status": "Published"
-    },
-    {
-      "id": "/news/36",
-      "title": "Why Tervona Inverters Are an Excellent Choice for Australian Homes and Businesses",
-      "path": "/news/36",
-      "date": "June 17, 2026",
-      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260624/20260624102243.jpg",
-      "excerpt": "News",
-      "status": "Published"
-    },
-    {
-      "id": "/news/35",
-      "title": "AC Coupling vs DC Coupling: Flexible Energy Storage with Tervona",
-      "path": "/news/35",
-      "date": "May 07, 2026",
-      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260507news.jpg",
-      "excerpt": "News",
-      "status": "Published"
-    },
-    {
-      "id": "/news/34",
-      "title": "Cheaper Home Batteries Rebate: What Changes on 1 May 2026 ??and How Homeowners Can Maximise Their Savings",
-      "path": "/news/34",
-      "date": "April 23, 2026",
-      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260423newsEN.jpg",
-      "excerpt": "News",
-      "status": "Published"
-    },
-    {
-      "id": "/news/33",
-      "title": "Tervona Enhances Versatile Energy Storage Solutions with the New H3 PRO Hybrid Inverter",
-      "path": "/news/33",
-      "date": "March 25, 2026",
-      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260327/au2.jpg",
-      "excerpt": "News",
-      "status": "Published"
-    },
-    {
-      "id": "/news/32",
-      "title": "Tervona expands its VPP offerings in Australia by partnering with Origin",
-      "path": "/news/32",
-      "date": "March 18, 2026",
-      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260318news.jpg",
-      "excerpt": "News",
-      "status": "Published"
-    },
-    {
-      "id": "/news/30",
-      "title": "Tervona Debuts CQ6 Battery High Voltage Battery, Elevating Energy Density for Local Needs",
-      "path": "/news/30",
-      "date": "June 17, 2026",
-      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260624/20260624102243.jpg",
-      "excerpt": "News",
-      "status": "Published"
-    },
-    {
-      "id": "/news/31",
-      "title": "Tervona Signs Olympic Champion Ian Thorpe as Australian Brand Ambassador Exciting Announcement right before Christmas",
-      "path": "/news/31",
-      "date": "May 07, 2026",
-      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260507news.jpg",
-      "excerpt": "News",
-      "status": "Published"
-    },
-    {
-      "id": "/news/29",
-      "title": "Tervona Tops Residential Energy Storage Market Across Europe and Beyond",
-      "path": "/news/29",
-      "date": "April 23, 2026",
-      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260423newsEN.jpg",
-      "excerpt": "News",
-      "status": "Published"
-    },
-    {
-      "id": "/news/27",
-      "title": "Tervona Makes a Splash at RE+ 2025 with Integrated Clean Energy Solutions",
-      "path": "/news/27",
-      "date": "March 25, 2026",
-      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260327/au2.jpg",
-      "excerpt": "News",
-      "status": "Published"
-    },
-    {
-      "id": "/news/23",
-      "title": "Tervona Launches New Installer Program to Enhance Brand Community",
-      "path": "/news/23",
-      "date": "March 18, 2026",
-      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260318news.jpg",
-      "excerpt": "News",
-      "status": "Published"
-    },
-    {
-      "id": "/news/24",
-      "title": "Tervona Unleashes Energy Potential at All Energy 2025",
-      "path": "/news/24",
-      "date": "June 17, 2026",
-      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260624/20260624102243.jpg",
-      "excerpt": "News",
-      "status": "Published"
-    },
-    {
-      "id": "/news/26",
-      "title": "Tervona and OSW Ink Strategic Partnership for 2GWh Energy Storage Projects at All Energy 2025",
-      "path": "/news/26",
-      "date": "May 07, 2026",
-      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260507news.jpg",
-      "excerpt": "News",
-      "status": "Published"
-    },
-    {
-      "id": "/news/25",
-      "title": "Tervona Partners with Solar Juice to Enhance Energy Storage Solutions in Australia",
-      "path": "/news/25",
-      "date": "April 23, 2026",
-      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260423newsEN.jpg",
-      "excerpt": "News",
-      "status": "Published"
-    },
-    {
-      "id": "/news/28",
-      "title": "Tervona Expands in Australia to Maximize User Benefits from Local Rebates",
-      "path": "/news/28",
-      "date": "March 25, 2026",
-      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260327/au2.jpg",
-      "excerpt": "News",
-      "status": "Published"
-    },
-    {
-      "id": "/news/22",
-      "title": "Tervona Achieves HTW 2025 A-Class Certification for Energy Storage System",
-      "path": "/news/22",
-      "date": "March 18, 2026",
-      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260318news.jpg",
-      "excerpt": "News",
-      "status": "Published"
-    },
-    {
-      "id": "/news/21",
-      "title": "Tervona Recognized as BNEF Tier 1 Energy Storage Leader",
-      "path": "/news/21",
-      "date": "June 17, 2026",
-      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260624/20260624102243.jpg",
-      "excerpt": "News",
-      "status": "Published"
-    },
-    {
-      "id": "/news/18",
-      "title": "Top Brand PV! Tervona Celebrates Again by Leading Industry Researchers",
-      "path": "/news/18",
-      "date": "May 07, 2026",
-      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260507news.jpg",
-      "excerpt": "News",
-      "status": "Published"
-    },
-    {
-      "id": "/news/17",
-      "title": "Tervona Appears in the Hurun Global Unicorn Index 2024",
-      "path": "/news/17",
-      "date": "April 23, 2026",
-      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260423newsEN.jpg",
-      "excerpt": "News",
-      "status": "Published"
-    },
-    {
-      "id": "/news/16",
-      "title": "Tervona new project on Shandong China",
-      "path": "/news/16",
-      "date": "March 25, 2026",
-      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260327/au2.jpg",
-      "excerpt": "News",
-      "status": "Published"
-    },
-    {
-      "id": "/news/15",
-      "title": "Tervona Receives Multiple Top Brand PV Seals in 2023",
-      "path": "/news/15",
-      "date": "March 18, 2026",
-      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260318news.jpg",
-      "excerpt": "News",
-      "status": "Published"
-    },
-    {
-      "id": "/news/14",
-      "title": "Tervona received multiple Top Brand PV seals from EUPD Research in 2023",
-      "path": "/news/14",
-      "date": "June 17, 2026",
-      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260624/20260624102243.jpg",
-      "excerpt": "News",
-      "status": "Published"
-    },
-    {
-      "id": "/news/13",
-      "title": "Tervona UK Launch ??lite Installer??Programme",
-      "path": "/news/13",
-      "date": "May 07, 2026",
-      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260507news.jpg",
-      "excerpt": "News",
-      "status": "Published"
-    },
-    {
-      "id": "/news/12",
-      "title": "Progressing with honor! Tervona won the EUPD ??op Brand PV Inverter??seal.",
-      "path": "/news/12",
-      "date": "April 23, 2026",
-      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260423newsEN.jpg",
-      "excerpt": "News",
-      "status": "Published"
-    },
-    {
-      "id": "/news/10",
-      "title": "Octopus Energy and Co-op Energy launch community energy joint venture",
-      "path": "/news/10",
-      "date": "March 25, 2026",
-      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260327/au2.jpg",
-      "excerpt": "News",
-      "status": "Published"
-    },
-    {
-      "id": "/news/9",
-      "title": "UK will need 1,400GWh of energy storage for future energy",
-      "path": "/news/9",
-      "date": "March 18, 2026",
-      "coverImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260318news.jpg",
-      "excerpt": "News",
-      "status": "Published"
-    }
-  ],
+  "news": [],
   "pages": [
-    {
-      "id": "/page-1785393039276",
-      "title": "新页面",
-      "path": "/page-1785393039276",
-      "template": "templates/pages/default",
-      "heroImage": "/assets/fox-placeholder/hero-rank.jpg",
-      "summary": "新的页面摘要。",
-      "status": "Draft",
-      "blocks": [
-        {
-          "id": "widget-1785393415533-title",
-          "type": "heading",
-          "title": "新页面标题",
-          "text": "",
-          "image": "",
-          "href": "",
-          "buttonText": "",
-          "background": "#ffffff",
-          "color": "#17131f",
-          "padding": 64
-        },
-        {
-          "id": "widget-1785393415533-text",
-          "type": "text",
-          "title": "",
-          "text": "在这里输入页面内容。你可以继续添加图片、按钮、双栏、产品、新闻和 CTA。",
-          "image": "",
-          "href": "",
-          "buttonText": "",
-          "background": "#ffffff",
-          "color": "#5f5966",
-          "padding": 36
-        }
-      ],
-      "updatedAt": "2026-07-30T06:37:12.271Z"
-    },
     {
       "id": "/",
       "title": "首页",
       "path": "/",
       "template": "templates/pages/home",
-      "heroImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260423/enpc.jpg",
-      "summary": "Tervona was born from a simple faith: the sun shines on everyone, so its power should too. A young team, driven by the same restless belief that ignited our mission, set out to remove every barrier between families and clean, independent energy.",
+      "heroImage": "/assets/tervona-home-20260922/home-hero-pc.jpg",
+      "summary": "Residential energy storage, hybrid inverters and integrated solar solutions.",
       "status": "Published",
       "visual": {
-        "heroTitle": "Tervona Ranks No. 1 Globally in Residential Energy Storage Market",
-        "heroText": "A global smart energy brand focused on solar storage, EV charging and clean energy management.",
-        "heroImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260423/enpc.jpg",
-        "heroVideo": "https://au.fox-ess.com/Public/Uploads/uploadfile/files/20260709/video31.mp4",
+        "heroTitle": "Smart Energy for Every Home",
+        "heroText": "Residential energy storage, hybrid inverters and integrated solar solutions.",
+        "heroImage": "/assets/tervona-home-20260922/home-hero-pc.jpg",
+        "heroVideo": "",
         "heroTitleSize": 56,
         "heroTitleWeight": 600,
         "heroTitleLineHeight": 1.1,
@@ -687,37 +1022,40 @@
         "sectionTop": 0,
         "sectionBottom": 0,
         "solutionsEyebrow": "OUR SOLUTIONS",
-        "solutionsTitle": "A Global Leader in Smart Renewable Energy Solutions",
-        "solutionsText": "Tervona offers all-in-one solar energy systems for homes and businesses, driving the global energy transition and paving the way for a greener future.",
-        "solutionsImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251202/download543.jpg",
-        "solutionsVideo": "https://au.fox-ess.com/Public/Uploads/uploadfile/files/20251217/251216maitiannengyuandianliudonghua1.mp4",
+        "solutionsTitle": "Integrated Residential Energy Solutions",
+        "solutionsText": "Residential energy storage, hybrid inverters and integrated solar solutions.",
+        "solutionsImage": "/assets/tervona-home-20260922/home-solutions-pc.jpg",
+        "solutionsMobileImage": "/assets/tervona-home-20260922/home-solutions-mobile.jpg",
+        "solutionsVideo": "",
         "productsEyebrow": "Our Products",
-        "productsTitle": "Reliable Products that Meet Diverse Needs",
-        "productsImage": "/assets/fox-placeholder/products.png",
+        "productsTitle": "Reliable Products for Smarter Energy",
+        "productsImage": "/assets/tervona-home-20260922/home-products.png",
         "productsSource": "cms",
         "aboutEyebrow": "ABOUT TERVONA",
-        "aboutTitle": "Life by Sunshine",
-        "aboutText": "Tervona was born from a simple faith: the sun shines on everyone, so its power should too. A young team set out to remove every barrier between families and clean, independent energy.",
-        "aboutImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251202/a1bg04.jpg",
-        "aboutVideo": "/assets/fox-placeholder/earth.mp4",
-        "innovationEyebrow": "R&D AND MANUFACTURING",
-        "innovationTitle": "Constant Innovation and Meticulous Manufacturing to Build trust with Every Delivery",
-        "innovationImage": "/assets/fox-placeholder/rnd-bg.jpg",
-        "innovationVideo": "/assets/fox-placeholder/innovation-production.mp4",
+        "aboutTitle": "Built for Smarter Energy",
+        "aboutText": "Tervona provides residential energy storage products and integrated home energy solutions.",
+        "aboutImage": "/assets/tervona-home-20260922/home-about-pc.jpg",
+        "aboutMobileImage": "/assets/tervona-home-20260922/home-about-mobile.jpg",
+        "aboutVideo": "",
+        "innovationEyebrow": "PRODUCT TECHNOLOGY",
+        "innovationTitle": "Designed for Reliable Home Energy",
+        "innovationImage": "/assets/tervona-home-20260922/home-rd.jpg",
+        "innovationVideo": "",
         "newsEyebrow": "Events and News",
         "newsTitle": "We Never Stop Exploring",
         "newsSource": "cms",
         "newsCount": 5,
-        "footerTitle": "Life by Sunshine",
+        "footerTitle": "Start Your Energy Project",
         "footerButtonText": "Contact Us",
-        "footerImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251202/download.jpg",
-        "footerVideo": "https://au.fox-ess.com/Public/Uploads/uploadfile/files/20251217/dibushipin.mp4",
+        "footerImage": "/assets/tervona-home-20260922/home-contact-cta.jpg",
+        "footerMobileImage": "/assets/tervona-home-20260922/home-contact-cta.jpg",
+        "footerVideo": "",
         "sectionVisibility": {
           "solutions": true,
           "products": true,
           "about": true,
           "innovation": true,
-          "news": true,
+          "news": false,
           "footer": true
         },
         "sectionSpacing": {
@@ -735,7 +1073,7 @@
       "title": "关于我们",
       "path": "/company",
       "template": "templates/pages/about",
-      "heroImage": "/assets/fox-placeholder/company-hero.jpg",
+      "heroImage": "/assets/tervona-products-home-banner-v2.png",
       "summary": "Company",
       "status": "Published"
     },
@@ -744,7 +1082,7 @@
       "title": "创新研发",
       "path": "/innovation",
       "template": "templates/pages/innovation",
-      "heroImage": "/assets/fox-placeholder/innovation-hero.jpg",
+      "heroImage": "/assets/tervona-downloads-hero-v2.png",
       "summary": "Innovation",
       "status": "Published"
     },
@@ -753,17 +1091,8 @@
       "title": "联系我们",
       "path": "/contact-us",
       "template": "templates/pages/contact",
-      "heroImage": "/assets/fox-placeholder/contact-hero.jpg",
+      "heroImage": "/assets/tervona-partner-home-hero-v2.png",
       "summary": "Contact Us",
-      "status": "Published"
-    },
-    {
-      "id": "/privacy",
-      "title": "隐私政策",
-      "path": "/privacy",
-      "template": "templates/pages/legal",
-      "heroImage": "/assets/fox-placeholder/hero-rank.jpg",
-      "summary": "Privacy Policy",
       "status": "Published"
     },
     {
@@ -771,556 +1100,370 @@
       "title": "项目案例",
       "path": "/resource-support/references",
       "template": "templates/pages/references",
-      "heroImage": "/assets/fox-placeholder/references-hero.jpg",
+      "heroImage": "/assets/tervona-partner-home-hero-v2.png",
       "summary": "Project References",
-      "status": "Published"
-    },
-    {
-      "id": "/sitemap.html",
-      "title": "网站地图",
-      "path": "/sitemap.html",
-      "template": "templates/pages/default",
-      "heroImage": "/assets/fox-placeholder/hero-rank.jpg",
-      "summary": "Sitemap",
       "status": "Published"
     }
   ],
   "media": [
     {
-      "id": "/assets/fox-placeholder/product-detail/products_pv-inverter_10.jpg",
-      "title": "F Series 主图",
-      "url": "/assets/fox-placeholder/product-detail/products_pv-inverter_10.jpg",
-      "folder": "products",
-      "type": "image",
-      "usage": "产品详情首屏和产品卡片",
-      "size": "",
-      "mimeType": "",
-      "altText": "CMS 媒体详情编辑验证",
-      "caption": "",
-      "description": "产品详情首屏和产品卡片",
-      "createdAt": "2026-07-30T06:06:07.862Z",
-      "updatedAt": "2026-07-30T06:06:44.379Z",
-      "publishedAt": ""
-    },
-    {
-      "id": "/assets/fox-placeholder/product-detail/products_pv-inverter_9.jpg",
-      "title": "G Series 主图",
-      "url": "/assets/fox-placeholder/product-detail/products_pv-inverter_9.jpg",
-      "folder": "products",
-      "type": "image",
-      "usage": "产品详情首屏和产品卡片",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "/assets/fox-placeholder/product-detail/products_pv-inverter_6.jpg",
-      "title": "T Series (G3) 主图",
-      "url": "/assets/fox-placeholder/product-detail/products_pv-inverter_6.jpg",
-      "folder": "products",
-      "type": "image",
-      "usage": "产品详情首屏和产品卡片",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_14.jpg",
-      "title": "H3 Smart 主图",
-      "url": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_14.jpg",
-      "folder": "products",
-      "type": "image",
-      "usage": "产品详情首屏和产品卡片",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_36.jpg",
-      "title": "H1/AC1 主图",
-      "url": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_36.jpg",
-      "folder": "products",
-      "type": "image",
-      "usage": "产品详情首屏和产品卡片",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_35.jpg",
-      "title": "KH/KA 主图",
-      "url": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_35.jpg",
-      "folder": "products",
-      "type": "image",
-      "usage": "产品详情首屏和产品卡片",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_32.jpg",
-      "title": "H3 PRO 主图",
-      "url": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_32.jpg",
-      "folder": "products",
-      "type": "image",
-      "usage": "产品详情首屏和产品卡片",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_58.jpg",
-      "title": "H3 Plus 主图",
-      "url": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_58.jpg",
-      "folder": "products",
-      "type": "image",
-      "usage": "产品详情首屏和产品卡片",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_30.jpg",
-      "title": "Stackable AIO 主图",
-      "url": "/assets/fox-placeholder/product-detail/products_hybrid-inverter_30.jpg",
-      "folder": "products",
-      "type": "image",
-      "usage": "产品详情首屏和产品卡片",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "/assets/fox-placeholder/product-detail/products_battery_16.jpg",
-      "title": "EQ4800 主图",
-      "url": "/assets/fox-placeholder/product-detail/products_battery_16.jpg",
-      "folder": "products",
-      "type": "image",
-      "usage": "产品详情首屏和产品卡片",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "/assets/fox-placeholder/product-detail/products_battery_27.jpg",
-      "title": "EQ5500 主图",
-      "url": "/assets/fox-placeholder/product-detail/products_battery_27.jpg",
-      "folder": "products",
-      "type": "image",
-      "usage": "产品详情首屏和产品卡片",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "/assets/fox-placeholder/product-detail/products_battery_23.jpg",
-      "title": "EP11 主图",
-      "url": "/assets/fox-placeholder/product-detail/products_battery_23.jpg",
-      "folder": "products",
-      "type": "image",
-      "usage": "产品详情首屏和产品卡片",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "/assets/fox-placeholder/product-detail/products_battery_15.jpg",
-      "title": "EP12 Plus (w) 主图",
-      "url": "/assets/fox-placeholder/product-detail/products_battery_15.jpg",
-      "folder": "products",
-      "type": "image",
-      "usage": "产品详情首屏和产品卡片",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "/assets/fox-placeholder/product-detail/products_battery_55.jpg",
-      "title": "CQ6 主图",
-      "url": "/assets/fox-placeholder/product-detail/products_battery_55.jpg",
-      "folder": "products",
-      "type": "image",
-      "usage": "产品详情首屏和产品卡片",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "/assets/fox-placeholder/product-detail/products_battery_56.jpg",
-      "title": "CQ7 主图",
-      "url": "/assets/fox-placeholder/product-detail/products_battery_56.jpg",
-      "folder": "products",
-      "type": "image",
-      "usage": "产品详情首屏和产品卡片",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "/assets/fox-placeholder/product-detail/products_battery_63.jpg",
-      "title": "EP5 主图",
-      "url": "/assets/fox-placeholder/product-detail/products_battery_63.jpg",
-      "folder": "products",
-      "type": "image",
-      "usage": "产品详情首屏和产品卡片",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "/assets/fox-placeholder/product-detail/products_battery_61.jpg",
-      "title": "ECS 主图",
-      "url": "/assets/fox-placeholder/product-detail/products_battery_61.jpg",
-      "folder": "products",
-      "type": "image",
-      "usage": "产品详情首屏和产品卡片",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "/assets/fox-placeholder/product-detail/products_ev-charger_18.jpg",
-      "title": "A Series 主图",
-      "url": "/assets/fox-placeholder/product-detail/products_ev-charger_18.jpg",
-      "folder": "products",
-      "type": "image",
-      "usage": "产品详情首屏和产品卡片",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "/assets/fox-placeholder/product-detail/products_ev-charger_22.jpg",
-      "title": "L Series 主图",
-      "url": "/assets/fox-placeholder/product-detail/products_ev-charger_22.jpg",
-      "folder": "products",
-      "type": "image",
-      "usage": "产品详情首屏和产品卡片",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "/assets/fox-placeholder/product-detail/products_ev-charger_17.jpg",
-      "title": "C Series 主图",
-      "url": "/assets/fox-placeholder/product-detail/products_ev-charger_17.jpg",
-      "folder": "products",
-      "type": "image",
-      "usage": "产品详情首屏和产品卡片",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "/assets/fox-placeholder/product-detail/products_accessory_52.jpg",
-      "title": "Cloud 主图",
-      "url": "/assets/fox-placeholder/product-detail/products_accessory_52.jpg",
-      "folder": "products",
-      "type": "image",
-      "usage": "产品详情首屏和产品卡片",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "/assets/fox-placeholder/product-detail/products_accessory_42.jpg",
-      "title": "Smart WiLan 主图",
-      "url": "/assets/fox-placeholder/product-detail/products_accessory_42.jpg",
-      "folder": "products",
-      "type": "image",
-      "usage": "产品详情首屏和产品卡片",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "/assets/fox-placeholder/product-detail/products_accessory_41.jpg",
-      "title": "WIFI 主图",
-      "url": "/assets/fox-placeholder/product-detail/products_accessory_41.jpg",
-      "folder": "products",
-      "type": "image",
-      "usage": "产品详情首屏和产品卡片",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "/assets/fox-placeholder/product-detail/products_1k5_66.jpg",
-      "title": "1K5-BAT-4660 主图",
-      "url": "/assets/fox-placeholder/product-detail/products_1k5_66.jpg",
-      "folder": "products",
-      "type": "image",
-      "usage": "产品详情首屏和产品卡片",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "/assets/fox-placeholder/product-detail/products_1k5_65.jpg",
-      "title": "1K5-1P-HI 主图",
-      "url": "/assets/fox-placeholder/product-detail/products_1k5_65.jpg",
-      "folder": "products",
-      "type": "image",
-      "usage": "产品详情首屏和产品卡片",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "/assets/fox-placeholder/product-detail/products_1k5_64.jpg",
-      "title": "1K5-HI-V1 主图",
-      "url": "/assets/fox-placeholder/product-detail/products_1k5_64.jpg",
-      "folder": "products",
-      "type": "image",
-      "usage": "产品详情首屏和产品卡片",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "/assets/fox-placeholder/product-detail/products_fox_70.jpg",
-      "title": "Tervona Cloud 主图",
-      "url": "/assets/fox-placeholder/product-detail/products_fox_70.jpg",
-      "folder": "products",
-      "type": "image",
-      "usage": "产品详情首屏和产品卡片",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260624/20260624102243.jpg",
-      "title": "NSW Home Energy Saver Program: How to Turn a Government Incentive into a Long-Term Family Asset 封面",
-      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260624/20260624102243.jpg",
-      "folder": "news",
-      "type": "image",
-      "usage": "新闻卡片和新闻详情首屏",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260507news.jpg",
-      "title": "Tervona Celebrates Strong Momentum with Integrated Solar Storage & Charging Solutions at Smart Energy 2026 封面",
-      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260507news.jpg",
-      "folder": "news",
-      "type": "image",
-      "usage": "新闻卡片和新闻详情首屏",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260423newsEN.jpg",
-      "title": "Tervona Ranks No. 1 Globally in Residential Energy Storage 封面",
-      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260423newsEN.jpg",
-      "folder": "news",
-      "type": "image",
-      "usage": "新闻卡片和新闻详情首屏",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260327/au2.jpg",
-      "title": "Tervona Claims No.1 Spot in Australia for Energy Storage Installations 封面",
-      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260327/au2.jpg",
-      "folder": "news",
-      "type": "image",
-      "usage": "新闻卡片和新闻详情首屏",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260318news.jpg",
-      "title": "Forbes China Recognizes Tervona as a 2026 Leading Enterprise in Renewable Energy 封面",
-      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260513/20260318news.jpg",
-      "folder": "news",
-      "type": "image",
-      "usage": "新闻卡片和新闻详情首屏",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "/assets/fox-placeholder/solution-home.jpg",
-      "title": "首页首屏图",
-      "url": "/assets/fox-placeholder/solution-home.jpg",
+      "id": "/assets/tervona-home-20260922/home-hero-pc.jpg",
+      "title": "Tervona 首页首屏 PC",
+      "url": "/assets/tervona-home-20260922/home-hero-pc.jpg",
       "folder": "heroes",
       "type": "image",
       "usage": "首页首屏",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "/assets/fox-placeholder/news-hero.jpg",
-      "title": "新闻页首屏图",
-      "url": "/assets/fox-placeholder/news-hero.jpg",
-      "folder": "heroes",
-      "type": "image",
-      "usage": "新闻列表首屏",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "/assets/fox-placeholder/footer-cta.jpg",
-      "title": "底部 CTA 背景图",
-      "url": "/assets/fox-placeholder/footer-cta.jpg",
-      "folder": "brand",
-      "type": "image",
-      "usage": "底部 CTA 模板",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "/assets/fox-placeholder/products.png",
-      "title": "产品中心图片",
-      "url": "/assets/fox-placeholder/products.png",
-      "folder": "products",
-      "type": "image",
-      "usage": "产品中心页面",
-      "size": "",
-      "mimeType": ""
-    },
-    {
-      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260423/enpc.jpg",
-      "title": "首页 Hero 01 PC",
-      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260423/enpc.jpg",
-      "folder": "heroes",
-      "type": "image",
-      "usage": "首页首屏轮播",
       "size": "1920 x 960 px",
-      "mimeType": ""
+      "mimeType": "image/jpeg",
+      "altText": "Modern solar home with rooftop panels"
     },
     {
-      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260423/enph.jpg",
-      "title": "首页 Hero 01 手机",
-      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260423/enph.jpg",
+      "id": "/assets/tervona-home-20260922/home-hero-mobile.jpg",
+      "title": "Tervona 首页首屏手机",
+      "url": "/assets/tervona-home-20260922/home-hero-mobile.jpg",
       "folder": "heroes",
       "type": "image",
-      "usage": "首页首屏轮播",
-      "size": "750 x 1200 px",
-      "mimeType": ""
+      "usage": "首页首屏手机",
+      "size": "768 x 1334 px",
+      "mimeType": "image/jpeg",
+      "altText": "Modern solar home on mobile"
     },
     {
-      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260709/pc1.jpg",
-      "title": "首页 Hero 02 PC",
-      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260709/pc1.jpg",
-      "folder": "heroes",
-      "type": "image",
-      "usage": "首页首屏轮播",
-      "size": "1920 x 960 px",
-      "mimeType": ""
-    },
-    {
-      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260115/ph.jpg",
-      "title": "首页 Hero 02 手机",
-      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260115/ph.jpg",
-      "folder": "heroes",
-      "type": "image",
-      "usage": "首页首屏轮播",
-      "size": "750 x 1200 px",
-      "mimeType": ""
-    },
-    {
-      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260115/guanwangdujiaoshou1.jpg",
-      "title": "首页 Hero 03 PC",
-      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260115/guanwangdujiaoshou1.jpg",
-      "folder": "heroes",
-      "type": "image",
-      "usage": "首页首屏轮播",
-      "size": "1920 x 960 px",
-      "mimeType": ""
-    },
-    {
-      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260115/shubanguanwang1.jpg",
-      "title": "首页 Hero 03 手机",
-      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260115/shubanguanwang1.jpg",
-      "folder": "heroes",
-      "type": "image",
-      "usage": "首页首屏轮播",
-      "size": "750 x 1200 px",
-      "mimeType": ""
-    },
-    {
-      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260206/Web1080.webp",
-      "title": "首页 Hero 04 PC",
-      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260206/Web1080.webp",
-      "folder": "heroes",
-      "type": "image",
-      "usage": "首页首屏轮播",
-      "size": "1920 x 1080 px",
-      "mimeType": ""
-    },
-    {
-      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260206/Mobile.webp",
-      "title": "首页 Hero 04 手机",
-      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20260206/Mobile.webp",
-      "folder": "heroes",
-      "type": "image",
-      "usage": "首页首屏轮播",
-      "size": "750 x 1200 px",
-      "mimeType": ""
-    },
-    {
-      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251202/download543.jpg",
-      "title": "首页解决方案背景",
-      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251202/download543.jpg",
+      "id": "/assets/tervona-home-20260922/home-solutions-pc.jpg",
+      "title": "Tervona 家庭能源解决方案 PC",
+      "url": "/assets/tervona-home-20260922/home-solutions-pc.jpg",
       "folder": "heroes",
       "type": "image",
       "usage": "首页解决方案",
-      "size": "1880 x 940 px",
-      "mimeType": ""
+      "size": "1880 x 960 px",
+      "mimeType": "image/jpeg",
+      "altText": "Integrated residential energy solution"
     },
     {
-      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/files/20251217/251216maitiannengyuandianliudonghua1.mp4",
-      "title": "首页解决方案流动动画",
-      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/files/20251217/251216maitiannengyuandianliudonghua1.mp4",
-      "folder": "heroes",
-      "type": "video",
-      "usage": "首页解决方案视频",
-      "size": "1920 x 960 px · 13.04 秒 · MP4",
-      "mimeType": ""
-    },
-    {
-      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251202/a1bg04.jpg",
-      "title": "关于我们 PC 背景",
-      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251202/a1bg04.jpg",
+      "id": "/assets/tervona-home-20260922/home-solutions-mobile.jpg",
+      "title": "Tervona 家庭能源解决方案手机",
+      "url": "/assets/tervona-home-20260922/home-solutions-mobile.jpg",
       "folder": "heroes",
       "type": "image",
-      "usage": "关于我们首页板块",
+      "usage": "首页解决方案手机",
+      "size": "728 x 880 px",
+      "mimeType": "image/jpeg",
+      "altText": "Integrated residential energy solution on mobile"
+    },
+    {
+      "id": "/assets/tervona-home-20260922/home-products.png",
+      "title": "Tervona 首页产品家族",
+      "url": "/assets/tervona-home-20260922/home-products.png",
+      "folder": "products",
+      "type": "image",
+      "usage": "首页产品板块",
+      "size": "2720 x 1348 px",
+      "mimeType": "image/png",
+      "altText": "Tervona residential energy product range"
+    },
+    {
+      "id": "/assets/tervona-home-20260922/home-about-pc.jpg",
+      "title": "Tervona 关于板块 PC",
+      "url": "/assets/tervona-home-20260922/home-about-pc.jpg",
+      "folder": "brand",
+      "type": "image",
+      "usage": "首页关于板块",
       "size": "1920 x 2130 px",
-      "mimeType": ""
+      "mimeType": "image/jpeg",
+      "altText": "Tervona brand background"
     },
     {
-      "id": "/assets/fox-placeholder/earth.mp4",
-      "title": "关于我们地球动画",
-      "url": "/assets/fox-placeholder/earth.mp4",
-      "folder": "heroes",
-      "type": "video",
-      "usage": "关于我们动画",
-      "size": "1920 x 1080 px · 15 秒 · MP4",
-      "mimeType": ""
-    },
-    {
-      "id": "/assets/fox-placeholder/innovation-production.mp4",
-      "title": "研发制造产线视频",
-      "url": "/assets/fox-placeholder/innovation-production.mp4",
-      "folder": "heroes",
-      "type": "video",
-      "usage": "研发制造视频",
-      "size": "2254 x 1080 px · 11.45 秒 · MP4",
-      "mimeType": ""
-    },
-    {
-      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251125/a1bg043.jpg",
-      "title": "关于我们手机背景",
-      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251125/a1bg043.jpg",
-      "folder": "heroes",
+      "id": "/assets/tervona-home-20260922/home-about-mobile.jpg",
+      "title": "Tervona 关于板块手机",
+      "url": "/assets/tervona-home-20260922/home-about-mobile.jpg",
+      "folder": "brand",
       "type": "image",
-      "usage": "关于我们首页板块",
+      "usage": "首页关于板块手机",
       "size": "768 x 2554 px",
-      "mimeType": ""
+      "mimeType": "image/jpeg",
+      "altText": "Tervona brand background on mobile"
     },
     {
-      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251202/download.jpg",
-      "title": "底部 CTA PC 背景图",
-      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251202/download.jpg",
+      "id": "/assets/tervona-home-20260922/home-rd.jpg",
+      "title": "Tervona 产品技术横幅",
+      "url": "/assets/tervona-home-20260922/home-rd.jpg",
       "folder": "brand",
       "type": "image",
-      "usage": "底部 CTA 模板",
-      "size": "1920 x 440 px",
-      "mimeType": ""
+      "usage": "首页产品技术板块",
+      "size": "1880 x 900 px",
+      "mimeType": "image/jpeg",
+      "altText": "Tervona product technology"
     },
     {
-      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/files/20251217/dibushipin.mp4",
-      "title": "底部 CTA 超宽视频",
-      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/files/20251217/dibushipin.mp4",
-      "folder": "brand",
-      "type": "video",
-      "usage": "底部 CTA 视频",
-      "size": "4692 x 1080 px · 10.01 秒 · MP4",
-      "mimeType": ""
-    },
-    {
-      "id": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251202/download-398.jpg",
-      "title": "底部 CTA 手机背景图",
-      "url": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251202/download-398.jpg",
+      "id": "/assets/tervona-home-20260922/home-contact-cta.jpg",
+      "title": "Tervona 页尾联系横幅",
+      "url": "/assets/tervona-home-20260922/home-contact-cta.jpg",
       "folder": "brand",
       "type": "image",
-      "usage": "底部 CTA 模板",
-      "size": "1920 x 440 px",
-      "mimeType": ""
+      "usage": "首页联系 CTA",
+      "size": "1830 x 859 px",
+      "mimeType": "image/jpeg",
+      "altText": "Solar home at sunset"
+    },
+    {
+      "id": "/assets/tervona-downloads-hero-v2.png",
+      "title": "Tervona 技术与下载场景",
+      "url": "/assets/tervona-downloads-hero-v2.png",
+      "folder": "brand",
+      "type": "image",
+      "usage": "创新和下载页面",
+      "size": "",
+      "mimeType": "image/png",
+      "altText": "Tervona technical documentation",
+      "caption": "",
+      "description": "Tervona 自有素材"
+    },
+    {
+      "id": "/assets/tervona-life-by-sunshine-v1.png",
+      "title": "Life by Sunshine",
+      "url": "/assets/tervona-life-by-sunshine-v1.png",
+      "folder": "brand",
+      "type": "image",
+      "usage": "全站底部 CTA",
+      "size": "",
+      "mimeType": "image/png",
+      "altText": "Life by Sunshine",
+      "caption": "",
+      "description": "Tervona 自有素材"
+    },
+    {
+      "id": "/assets/tervona-partner-home-hero-v2.png",
+      "title": "Tervona 合作与联系场景",
+      "url": "/assets/tervona-partner-home-hero-v2.png",
+      "folder": "brand",
+      "type": "image",
+      "usage": "合作、联系和项目案例页面",
+      "size": "",
+      "mimeType": "image/png",
+      "altText": "Tervona partner support",
+      "caption": "",
+      "description": "Tervona 自有素材"
+    },
+    {
+      "id": "/assets/tervona-products-home-banner-v2.png",
+      "title": "Tervona 产品中心场景",
+      "url": "/assets/tervona-products-home-banner-v2.png",
+      "folder": "brand",
+      "type": "image",
+      "usage": "产品中心和公司页面",
+      "size": "",
+      "mimeType": "image/png",
+      "altText": "Tervona residential energy solution",
+      "caption": "",
+      "description": "Tervona 自有素材"
+    },
+    {
+      "id": "/assets/tervona-products/catalog-v2/aio-10kw-10-5kwh-cutout.png",
+      "title": "10 kW / 10.5 kWh All-in-One Energy Storage System 主图",
+      "url": "/assets/tervona-products/catalog-v2/aio-10kw-10-5kwh-cutout.png",
+      "folder": "products",
+      "type": "image",
+      "usage": "Tervona 产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": "",
+      "altText": "10 kW / 10.5 kWh All-in-One Energy Storage System",
+      "caption": "",
+      "description": "Tervona 产品素材"
+    },
+    {
+      "id": "/assets/tervona-products/catalog-v2/aio-12kw-16kwh-cutout.png",
+      "title": "12 kW / 16 kWh All-in-One Energy Storage System 主图",
+      "url": "/assets/tervona-products/catalog-v2/aio-12kw-16kwh-cutout.png",
+      "folder": "products",
+      "type": "image",
+      "usage": "Tervona 产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": "",
+      "altText": "12 kW / 16 kWh All-in-One Energy Storage System",
+      "caption": "",
+      "description": "Tervona 产品素材"
+    },
+    {
+      "id": "/assets/tervona-products/catalog-v2/aio-1kw-2kwh-cutout.png",
+      "title": "1 kW / 2 kWh All-in-One Energy Storage System 主图",
+      "url": "/assets/tervona-products/catalog-v2/aio-1kw-2kwh-cutout.png",
+      "folder": "products",
+      "type": "image",
+      "usage": "Tervona 产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": "",
+      "altText": "1 kW / 2 kWh All-in-One Energy Storage System",
+      "caption": "",
+      "description": "Tervona 产品素材"
+    },
+    {
+      "id": "/assets/tervona-products/catalog-v2/aio-2kw-2-6kwh-cutout.png",
+      "title": "2 kW / 2.6 kWh All-in-One Energy Storage System 主图",
+      "url": "/assets/tervona-products/catalog-v2/aio-2kw-2-6kwh-cutout.png",
+      "folder": "products",
+      "type": "image",
+      "usage": "Tervona 产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": "",
+      "altText": "2 kW / 2.6 kWh All-in-One Energy Storage System",
+      "caption": "",
+      "description": "Tervona 产品素材"
+    },
+    {
+      "id": "/assets/tervona-products/catalog-v2/aio-2kw-4kwh-cutout.png",
+      "title": "2 kW / 4 kWh All-in-One Energy Storage System 主图",
+      "url": "/assets/tervona-products/catalog-v2/aio-2kw-4kwh-cutout.png",
+      "folder": "products",
+      "type": "image",
+      "usage": "Tervona 产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": "",
+      "altText": "2 kW / 4 kWh All-in-One Energy Storage System",
+      "caption": "",
+      "description": "Tervona 产品素材"
+    },
+    {
+      "id": "/assets/tervona-products/catalog-v2/aio-500w-1kwh-cutout.png",
+      "title": "500 W / 1 kWh All-in-One Energy Storage System 主图",
+      "url": "/assets/tervona-products/catalog-v2/aio-500w-1kwh-cutout.png",
+      "folder": "products",
+      "type": "image",
+      "usage": "Tervona 产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": "",
+      "altText": "500 W / 1 kWh All-in-One Energy Storage System",
+      "caption": "",
+      "description": "Tervona 产品素材"
+    },
+    {
+      "id": "/assets/tervona-products/catalog-v2/aio-6kw-10-5kwh-cutout.png",
+      "title": "6 kW / 10.5 kWh All-in-One Energy Storage System 主图",
+      "url": "/assets/tervona-products/catalog-v2/aio-6kw-10-5kwh-cutout.png",
+      "folder": "products",
+      "type": "image",
+      "usage": "Tervona 产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": "",
+      "altText": "6 kW / 10.5 kWh All-in-One Energy Storage System",
+      "caption": "",
+      "description": "Tervona 产品素材"
+    },
+    {
+      "id": "/assets/tervona-products/catalog-v2/aio-6kw-16kwh-cutout.png",
+      "title": "6 kW / 16 kWh All-in-One Energy Storage System 主图",
+      "url": "/assets/tervona-products/catalog-v2/aio-6kw-16kwh-cutout.png",
+      "folder": "products",
+      "type": "image",
+      "usage": "Tervona 产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": "",
+      "altText": "6 kW / 16 kWh All-in-One Energy Storage System",
+      "caption": "",
+      "description": "Tervona 产品素材"
+    },
+    {
+      "id": "/assets/tervona-products/catalog-v2/battery-10-kwh-cutout.png",
+      "title": "10 kWh Floor-Standing Low-Voltage Battery 主图",
+      "url": "/assets/tervona-products/catalog-v2/battery-10-kwh-cutout.png",
+      "folder": "products",
+      "type": "image",
+      "usage": "Tervona 产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": "",
+      "altText": "10 kWh Floor-Standing Low-Voltage Battery",
+      "caption": "",
+      "description": "Tervona 产品素材"
+    },
+    {
+      "id": "/assets/tervona-products/catalog-v2/battery-16-kwh-cutout.png",
+      "title": "16 kWh Floor-Standing Low-Voltage Battery 主图",
+      "url": "/assets/tervona-products/catalog-v2/battery-16-kwh-cutout.png",
+      "folder": "products",
+      "type": "image",
+      "usage": "Tervona 产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": "",
+      "altText": "16 kWh Floor-Standing Low-Voltage Battery",
+      "caption": "",
+      "description": "Tervona 产品素材"
+    },
+    {
+      "id": "/assets/tervona-products/catalog-v2/battery-32-kwh-cutout.png",
+      "title": "32 kWh Floor-Standing Low-Voltage Battery 主图",
+      "url": "/assets/tervona-products/catalog-v2/battery-32-kwh-cutout.png",
+      "folder": "products",
+      "type": "image",
+      "usage": "Tervona 产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": "",
+      "altText": "32 kWh Floor-Standing Low-Voltage Battery",
+      "caption": "",
+      "description": "Tervona 产品素材"
+    },
+    {
+      "id": "/assets/tervona-products/catalog-v2/battery-5-kwh-cutout.png",
+      "title": "5 kWh Rack-Mount Low-Voltage Battery 主图",
+      "url": "/assets/tervona-products/catalog-v2/battery-5-kwh-cutout.png",
+      "folder": "products",
+      "type": "image",
+      "usage": "Tervona 产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": "",
+      "altText": "5 kWh Rack-Mount Low-Voltage Battery",
+      "caption": "",
+      "description": "Tervona 产品素材"
+    },
+    {
+      "id": "/assets/tervona-products/catalog-v2/battery-7-5-kw-cutout.png",
+      "title": "7.5 kWh Rack-Mount Low-Voltage Battery 主图",
+      "url": "/assets/tervona-products/catalog-v2/battery-7-5-kw-cutout.png",
+      "folder": "products",
+      "type": "image",
+      "usage": "Tervona 产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": "",
+      "altText": "7.5 kWh Rack-Mount Low-Voltage Battery",
+      "caption": "",
+      "description": "Tervona 产品素材"
+    },
+    {
+      "id": "/assets/tervona-products/catalog-v2/ecolink-series-cutout.png",
+      "title": "EcoLink 3.6 kW Low-Voltage Single-Phase Hybrid Inverter 主图",
+      "url": "/assets/tervona-products/catalog-v2/ecolink-series-cutout.png",
+      "folder": "products",
+      "type": "image",
+      "usage": "Tervona 产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": "",
+      "altText": "EcoLink 3.6 kW Low-Voltage Single-Phase Hybrid Inverter",
+      "caption": "",
+      "description": "Tervona 产品素材"
+    },
+    {
+      "id": "/assets/tervona-products/catalog-v2/off-grid-single-phase-cutout.png",
+      "title": "6.2 kW IP54 Single-Phase Off-Grid Inverter 主图",
+      "url": "/assets/tervona-products/catalog-v2/off-grid-single-phase-cutout.png",
+      "folder": "products",
+      "type": "image",
+      "usage": "Tervona 产品详情首屏和产品卡片",
+      "size": "",
+      "mimeType": "",
+      "altText": "6.2 kW IP54 Single-Phase Off-Grid Inverter",
+      "caption": "",
+      "description": "Tervona 产品素材"
+    },
+    {
+      "id": "/assets/tervona-products/category-scene-tervona-v2.png",
+      "title": "Tervona 产品展示背景",
+      "url": "/assets/tervona-products/category-scene-tervona-v2.png",
+      "folder": "brand",
+      "type": "image",
+      "usage": "产品分类和创新页面",
+      "size": "",
+      "mimeType": "image/png",
+      "altText": "Tervona product environment",
+      "caption": "",
+      "description": "Tervona 自有素材"
     }
   ],
   "templates": [
@@ -1430,33 +1573,28 @@
       "id": "products",
       "label": "Products",
       "href": "/products",
-      "intro": "Reliable Products that Meet Diverse Needs",
+      "intro": "Tervona energy products for solar, storage and backup power",
       "kind": "products",
       "children": [
         {
-          "label": "PV Inverters",
-          "href": "/products/pv-inverter",
-          "icon": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251103/download-759.svg"
+          "label": "Low-Voltage Batteries",
+          "href": "/products/low-voltage-battery",
+          "icon": "/assets/tervona-products/low-voltage-battery-series.png"
         },
         {
-          "label": "Hybrid Inverters",
+          "label": "Low-Voltage Hybrid Inverters",
           "href": "/products/hybrid-inverter",
-          "icon": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251103/download-107.svg"
+          "icon": "/assets/tervona-products/ecolink-series.png"
         },
         {
-          "label": "Batteries",
-          "href": "/products/battery",
-          "icon": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251103/download-519.svg"
+          "label": "Single-Phase Off-Grid Inverters",
+          "href": "/products/off-grid-inverter",
+          "icon": "/assets/tervona-products/category-scene-tervona-v2.png"
         },
         {
-          "label": "EV Chargers",
-          "href": "/products/ev-charger",
-          "icon": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251103/download-774.svg"
-        },
-        {
-          "label": "Tervona Cloud 2.0",
-          "href": "/products/foxcloud",
-          "icon": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251103/download-790.svg"
+          "label": "All-in-One Energy Storage",
+          "href": "/products/all-in-one-ess",
+          "icon": "/assets/tervona-products/all-in-one-ess-series.png"
         }
       ]
     },
@@ -1474,32 +1612,11 @@
     },
     {
       "id": "support",
-      "label": "Support & Resources",
-      "href": "/resource-support/references",
-      "intro": "Project references, warranty, careers and online support",
-      "kind": "support",
-      "children": [
-        {
-          "label": "Project References",
-          "href": "/resource-support/references",
-          "icon": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251103/download-378.svg"
-        },
-        {
-          "label": "Warranty Registration",
-          "href": "/download/warranties",
-          "icon": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251103/download-971.svg"
-        },
-        {
-          "label": "Careers",
-          "href": "/contact-us",
-          "icon": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251229/Frame-229.svg"
-        },
-        {
-          "label": "Online Support",
-          "href": "/contact-us",
-          "icon": "https://au.fox-ess.com/Public/En/images/ys_icon2_1.svg"
-        }
-      ]
+      "label": "Partner",
+      "href": "/partner",
+      "intro": "",
+      "kind": "partner",
+      "children": []
     }
   ],
   "settings": {
@@ -1510,16 +1627,16 @@
     "buttonTextColor": "#ffffff",
     "fontFamily": "Poppins",
     "headingFontFamily": "Poppins",
-    "baseFontSize": "16px",
+    "baseFontSize": "19px",
     "bodyFontWeight": "400",
     "bodyLineHeight": "1.55",
     "navFontSize": "20px",
     "navFontWeight": "400",
-    "buttonFontSize": "16px",
+    "buttonFontSize": "19px",
     "buttonFontWeight": "700",
-    "heroTitleSize": "clamp(48px, 5.8vw, 96px)",
+    "heroTitleSize": "clamp(52px, 6vw, 100px)",
     "sectionTitleSize": "clamp(36px, 5vw, 64px)",
-    "cardTitleSize": "20px",
+    "cardTitleSize": "23px",
     "headingFontWeight": "600",
     "cardTitleWeight": "600",
     "buttonRadius": "999px",
@@ -1532,109 +1649,119 @@
     "footerCtaTitle": "Life by Sunshine",
     "footerCtaButtonText": "Contact Us",
     "footerCtaButtonHref": "/contact-us",
-    "footerCtaImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251202/download.jpg",
-    "footerCtaMobileImage": "https://au.fox-ess.com/Public/Uploads/uploadfile/images/20251202/download-398.jpg",
-    "footerCtaVideo": "https://au.fox-ess.com/Public/Uploads/uploadfile/files/20251217/dibushipin.mp4"
+    "footerCtaImage": "/assets/tervona-life-by-sunshine-v1.png",
+    "footerCtaMobileImage": "/assets/tervona-life-by-sunshine-v1.png",
+    "footerCtaVideo": ""
   },
   "downloads": [
     {
-      "id": "download-1",
-      "title": "F Series Datasheet",
+      "id": "download-tervona-2026-slh-ofg-6kw",
+      "title": "SLH-OFG 6 kW Off-Grid Inverter Datasheet",
       "type": "datasheets",
-      "product": "/products/pv-inverter/10",
-      "productLabel": "F Series",
-      "fileUrl": "/uploads/downloads/f-series-datasheet.pdf",
-      "version": "V1.0",
+      "product": "/products/off-grid-inverter/6-2-kw-ip54",
+      "productLabel": "SLH-OFG 6 kW Off-Grid Inverter",
+      "fileUrl": "/uploads/downloads/slh-ofg-6kw-off-grid-inverter-datasheet.pdf",
+      "version": "2026",
       "status": "Published"
     },
     {
-      "id": "download-2",
-      "title": "G Series Datasheet",
+      "id": "download-tervona-2026-slh-ofg-8-2-10-2kw",
+      "title": "SLH-OFG 8.2–10.2 kW Solar Inverter Datasheet",
       "type": "datasheets",
-      "product": "/products/pv-inverter/9",
-      "productLabel": "G Series",
-      "fileUrl": "/uploads/downloads/g-series-datasheet.pdf",
-      "version": "V2.0",
+      "product": "/products/off-grid-inverter/8-2-kw-ip54",
+      "productLabel": "SLH-OFG 8.2–10.2 kW Solar Inverter",
+      "fileUrl": "/uploads/downloads/slh-ofg-8-2kw-10-2kw-solar-inverter-datasheet.pdf",
+      "version": "2026",
       "status": "Published"
     },
     {
-      "id": "download-3",
-      "title": "T Series (G3) Datasheet",
+      "id": "download-tervona-2026-ecolink-3-6-8kw",
+      "title": "EcoLink 3.6–8 kW Hybrid Inverter Datasheet",
       "type": "datasheets",
-      "product": "/products/pv-inverter/6",
-      "productLabel": "T Series (G3)",
-      "fileUrl": "/uploads/downloads/t-series-g3--datasheet.pdf",
-      "version": "V3.0",
+      "product": "/products/hybrid-inverter/ecolink-3-6-kw",
+      "productLabel": "EcoLink 3.6–8 kW Hybrid Inverter",
+      "fileUrl": "/uploads/downloads/ecolink-3-6kw-8kw-hybrid-inverter-datasheet.pdf",
+      "version": "2026",
       "status": "Published"
     },
     {
-      "id": "download-4",
-      "title": "H3 Smart Datasheet",
+      "id": "download-tervona-2026-slh-hyb-10-16kw",
+      "title": "SLH-HYB 10–16 kW Single-Phase Hybrid Inverter Datasheet",
       "type": "datasheets",
-      "product": "/products/hybrid-inverter/14",
-      "productLabel": "H3 Smart",
-      "fileUrl": "/uploads/downloads/h3-smart-datasheet.pdf",
-      "version": "V4.0",
+      "product": "/products/hybrid-inverter",
+      "productLabel": "SLH-HYB 10–16 kW Single-Phase Hybrid Inverter",
+      "fileUrl": "/uploads/downloads/slh-hyb-10kw-16kw-single-phase-hybrid-inverter-datasheet.pdf",
+      "version": "2026",
       "status": "Published"
     },
     {
-      "id": "download-5",
-      "title": "H1/AC1 Datasheet",
+      "id": "download-tervona-2026-tlh-hyb-6-15kw",
+      "title": "TLH-HYB 6–15 kW Three-Phase Hybrid Inverter Datasheet",
       "type": "datasheets",
-      "product": "/products/hybrid-inverter/36",
-      "productLabel": "H1/AC1",
-      "fileUrl": "/uploads/downloads/h1-ac1-datasheet.pdf",
-      "version": "V5.0",
+      "product": "/products/hybrid-inverter",
+      "productLabel": "TLH-HYB 6–15 kW Three-Phase Hybrid Inverter",
+      "fileUrl": "/uploads/downloads/tlh-hyb-6kw-15kw-three-phase-hybrid-inverter-datasheet.pdf",
+      "version": "2026",
       "status": "Published"
     },
     {
-      "id": "download-6",
-      "title": "KH/KA Datasheet",
+      "id": "download-tervona-2026-tlh-hyb-20-25kw",
+      "title": "TLH-HYB 20–25 kW Three-Phase Hybrid Inverter Datasheet",
       "type": "datasheets",
-      "product": "/products/hybrid-inverter/35",
-      "productLabel": "KH/KA",
-      "fileUrl": "/uploads/downloads/kh-ka-datasheet.pdf",
-      "version": "V6.0",
+      "product": "/products/hybrid-inverter",
+      "productLabel": "TLH-HYB 20–25 kW Three-Phase Hybrid Inverter",
+      "fileUrl": "/uploads/downloads/tlh-hyb-20kw-25kw-three-phase-hybrid-inverter-datasheet.pdf",
+      "version": "2026",
       "status": "Published"
     },
     {
-      "id": "download-7",
-      "title": "H3 PRO Datasheet",
+      "id": "download-tervona-2026-lsk-16-32kwh",
+      "title": "LSK 16–32 kWh Standing LiFePO4 Battery Datasheet",
       "type": "datasheets",
-      "product": "/products/hybrid-inverter/32",
-      "productLabel": "H3 PRO",
-      "fileUrl": "/uploads/downloads/h3-pro-datasheet.pdf",
-      "version": "V7.0",
+      "product": "/products/low-voltage-battery/16-kwh-floor-standing",
+      "productLabel": "LSK 16–32 kWh Standing LiFePO4 Battery",
+      "fileUrl": "/uploads/downloads/lsk-16kwh-standing-lifepo4-battery-datasheet.pdf",
+      "version": "2026",
       "status": "Published"
     },
     {
-      "id": "download-8",
-      "title": "H3 Plus Datasheet",
+      "id": "download-tervona-2026-lst-5-12-16kwh",
+      "title": "LST 5.12–16 kWh Rack-Mount LiFePO4 Battery Datasheet",
       "type": "datasheets",
-      "product": "/products/hybrid-inverter/58",
-      "productLabel": "H3 Plus",
-      "fileUrl": "/uploads/downloads/h3-plus-datasheet.pdf",
-      "version": "V8.0",
+      "product": "/products/low-voltage-battery/5-kwh-rack-mount",
+      "productLabel": "LST 5.12–16 kWh Rack-Mount LiFePO4 Battery",
+      "fileUrl": "/uploads/downloads/lst-5-12kwh-16kwh-rack-mount-lifepo4-battery-datasheet.pdf",
+      "version": "2026",
       "status": "Published"
     },
     {
-      "id": "download-9",
-      "title": "Stackable AIO Datasheet",
+      "id": "download-tervona-2026-aio-500w-1kw",
+      "title": "AIO 500 W–1 kW Dual-Mount Energy Storage Datasheet",
       "type": "datasheets",
-      "product": "/products/hybrid-inverter/30",
-      "productLabel": "Stackable AIO",
-      "fileUrl": "/uploads/downloads/stackable-aio-datasheet.pdf",
-      "version": "V9.0",
+      "product": "/products/all-in-one-ess/500w-1kwh",
+      "productLabel": "AIO 500 W–1 kW Dual-Mount Energy Storage",
+      "fileUrl": "/uploads/downloads/aio-500w-1kw-dual-mount-energy-storage-datasheet.pdf",
+      "version": "2026",
       "status": "Published"
     },
     {
-      "id": "download-10",
-      "title": "EQ4800 Datasheet",
+      "id": "download-tervona-2026-aio-6-12kw-16kwh",
+      "title": "AIO 6–12 kW / 16 kWh Standing All-in-One ESS Datasheet",
       "type": "datasheets",
-      "product": "/products/battery/16",
-      "productLabel": "EQ4800",
-      "fileUrl": "/uploads/downloads/eq4800-datasheet.pdf",
-      "version": "V10.0",
+      "product": "/products/all-in-one-ess/6kw-16kwh",
+      "productLabel": "AIO 6–12 kW / 16 kWh Standing All-in-One ESS",
+      "fileUrl": "/uploads/downloads/aio-6kw-12kw-16kwh-standing-all-in-one-ess-datasheet.pdf",
+      "version": "2026",
+      "status": "Published"
+    },
+    {
+      "id": "download-tervona-2026-aio-2kw-2-6-4kwh",
+      "title": "AIO 2 kW / 2.6–4 kWh Standing All-in-One ESS Datasheet",
+      "type": "datasheets",
+      "product": "/products/all-in-one-ess/2kw-2-6kwh",
+      "productLabel": "AIO 2 kW / 2.6–4 kWh Standing All-in-One ESS",
+      "fileUrl": "/uploads/downloads/aio-2kw-2-6kwh-4kwh-standing-all-in-one-ess-datasheet.pdf",
+      "version": "2026",
       "status": "Published"
     }
   ],

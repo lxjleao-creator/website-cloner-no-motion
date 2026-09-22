@@ -1,0 +1,3 @@
+<FilesMatch "^server(?:\.test)?\.js$">
+  Require all denied
+</FilesMatch>
