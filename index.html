@@ -4,14 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tervona</title>
-    <link rel="stylesheet" href="/styles.css?v=20260922-home-handoff-v1" />
-    <link rel="stylesheet" href="/no-motion.css?v=20260922-home-handoff-v1" />
+    <script>
+      (() => {
+        const repositoryPath = "/website-cloner-no-motion";
+        const usesRepositoryPath = window.location.hostname.endsWith(".github.io")
+          || window.location.pathname === repositoryPath
+          || window.location.pathname.startsWith(`${repositoryPath}/`);
+        window.__SITE_BASE_PATH__ = usesRepositoryPath ? repositoryPath : "";
+        const base = document.createElement("base");
+        base.href = `${window.location.origin}${window.__SITE_BASE_PATH__ || ""}/`;
+        document.head.appendChild(base);
+      })();
+    </script>
+    <link rel="icon" type="image/png" href="assets/tervona-logo-transparent.png" />
+    <link rel="stylesheet" href="styles.css?v=20260922-home-handoff-v1" />
+    <link rel="stylesheet" href="no-motion.css?v=20260922-home-handoff-v1" />
   </head>
   <body>
     <div id="app"></div>
-    <script src="/assets/tervona-products.js?v=20260814-hostinger-sync"></script>
-    <script src="/cms-model.js?v=20260713-google-translate1"></script>
-    <script src="/no-motion.js?v=20260922-home-handoff-v1"></script>
-    <script src="/app-v3.js?v=20260922-home-handoff-v1"></script>
+    <script src="assets/tervona-products.js?v=20260814-hostinger-sync"></script>
+    <script src="cms-model.js?v=20260713-google-translate1"></script>
+    <script src="no-motion.js?v=20260922-home-handoff-v1"></script>
+    <script src="app-v3.js?v=20260922-home-handoff-v1"></script>
   </body>
 </html>

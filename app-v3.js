@@ -1,7 +1,20 @@
 window.CRAWLED_PAGES_FALLBACK = [];
 window.CRAWLED_PAGES = window.CRAWLED_PAGES || window.CRAWLED_PAGES_FALLBACK;
-const BASE = "https://au.fox-ess.com";
-const ASSET = "/assets/fox-placeholder";
+const ASSET = "/assets";
+const FALLBACK_SCENE = "/assets/tervona-products/category-scene-tervona-v2.png";
+const SITE_BASE_PATH = String(window.__SITE_BASE_PATH__ || "").replace(/\/+$/, "");
+
+function stripSiteBasePath(pathname) {
+  const value = String(pathname || "/");
+  if (!SITE_BASE_PATH) return value;
+  if (value === SITE_BASE_PATH) return "/";
+  return value.startsWith(`${SITE_BASE_PATH}/`) ? value.slice(SITE_BASE_PATH.length) || "/" : value;
+}
+
+function withSiteBaseUrls(markup) {
+  if (!SITE_BASE_PATH) return markup;
+  return String(markup).replace(/(["'(=])\/(assets|uploads)\//g, `$1${SITE_BASE_PATH}/$2/`);
+}
 
 const data = {
   nav: [
@@ -49,22 +62,22 @@ const data = {
     {
       title: "Residential",
       text: "Smart energy storage for homes, solar roofs and EV charging.",
-      image: `${BASE}/Public/Uploads/uploadfile/images/20251202/download543.jpg`,
+      image: "/assets/tervona-home-20260922/home-solutions-pc.jpg",
     },
     {
       title: "Commercial & Industrial",
       text: "Scalable products for business sites, retail assets and facilities.",
-      image: `${BASE}/Public/Uploads/uploadfile/images/20251202/download249.jpg`,
+      image: "/assets/tervona-products-home-banner-v2.png",
     },
     {
       title: "Utility Scale",
       text: "Reliable power conversion and storage across wider project sites.",
-      image: `${BASE}/Public/Uploads/uploadfile/images/20260325/PC1920x10802.jpg`,
+      image: "/assets/tervona-downloads-hero-v2.png",
     },
     {
       title: "EV Charging",
       text: "Connected charging hardware designed for smarter mobility.",
-      image: `${BASE}/Public/Uploads/uploadfile/images/20260206/Web1080.webp`,
+      image: "/assets/tervona-partner-home-hero-v2.png",
     },
   ],
   products: [
@@ -74,28 +87,28 @@ const data = {
       stat: 95000,
       statFormat: "plain",
       statText: "Global EV charger sold over past three years",
-      image: `${BASE}/Public/Uploads/uploadfile/images/20251103/download-774.svg`,
+      image: "/assets/tervona-products/catalog-v2/aio-500w-1kwh-cutout.png",
     },
     {
       id: "batteries",
       label: "Batteries",
       stat: 1500000,
       statText: "Global battery installed over past three years",
-      image: `${BASE}/Public/Uploads/uploadfile/images/20251103/download-519.svg`,
+      image: "/assets/tervona-products/catalog-v2/battery-5-kwh-cutout.png",
     },
     {
       id: "pv-inverters",
       label: "PV Inverters",
       stat: 950000,
       statText: "Global PV inverter installed over the past three years",
-      image: `${BASE}/Public/Uploads/uploadfile/images/20251103/download-759.svg`,
+      image: "/assets/tervona-products/catalog-v2/off-grid-single-phase-cutout.png",
     },
     {
       id: "hybrid-inverters",
       label: "Hybrid Inverters",
       stat: 950000,
       statText: "Global hybrid inverter installed over past three years",
-      image: `${BASE}/Public/Uploads/uploadfile/images/20251103/download-107.svg`,
+      image: "/assets/tervona-products/catalog-v2/ecolink-series-cutout.png",
     },
   ],
   frames: [],
@@ -136,7 +149,7 @@ let cmsPageBuilderPageId = "";
 let cmsPageBuilderSelectedId = "";
 let cmsPageBuilderDevice = "desktop";
 const CMS_ADMIN_STORAGE_KEY = "tervona-cms-admin-state-v2";
-const CMS_API_URL = "/admin/api.php";
+const CMS_API_URL = SITE_BASE_PATH ? `${SITE_BASE_PATH}/preview-api.json` : "/admin/api.php";
 let cmsRemoteState = null;
 let cmsBackendLoadStarted = false;
 let cmsBackendStatus = "Connecting";
@@ -235,7 +248,7 @@ function cmsLogoSource(value) {
 
 function logo() {
   const settings = cmsSiteSettings();
-  return `<a class="fox-logo" href="/" aria-label="Tervona home">
+  return `<a class="fox-logo" href="${localHref("/")}" aria-label="Tervona home">
     <img class="logo-light" src="${esc(cmsLogoSource(settings.logoLight))}" alt="Tervona">
     <img class="logo-dark" src="${esc(cmsLogoSource(settings.logoDark))}" alt="Tervona">
   </a>`;
@@ -279,9 +292,9 @@ function renderMega(item) {
         ["All-in-One Energy Storage", "/products/all-in-one-ess", "/assets/tervona-products/all-in-one-ess-series.png"],
       ]
     : [
-        ["Project References", "/resource-support/references", `${BASE}/Public/Uploads/uploadfile/images/20251103/download-378.svg`],
-        ["Warranty Registration", "#detail-warranty", `${BASE}/Public/Uploads/uploadfile/images/20251103/download-971.svg`],
-        ["Careers", "#detail-careers", `${BASE}/Public/Uploads/uploadfile/images/20251229/Frame-229.svg`],
+        ["Project References", "/resource-support/references", "/assets/tervona-partner-home-hero-v2.png"],
+        ["Warranty Registration", "#detail-warranty", "/assets/tervona-downloads-hero-v2.png"],
+        ["Careers", "#detail-careers", "/assets/tervona-products-home-banner-v2.png"],
       ];
 
   return `<div class="mega fox-dropdown ${productLike ? "" : "support-drop"}">
@@ -496,7 +509,7 @@ function renderFooter() {
     ${logo()}
     <div class="footer-cols">
       <div><h4>Products</h4><a href="#detail-pv-inverters">PV inverters</a><a href="#detail-hybrid-inverters">Hybrid inverters</a><a href="#detail-batteries">Batteries</a><a href="#detail-ev-chargers">EV chargers</a></div>
-      <div><h4>Support & Resources</h4><a href="/resource-support/references">Project References</a><a href="#detail-warranty">Warranty Registration</a><a href="#detail-support">Online Support</a></div>
+      <div><h4>Support & Resources</h4><a href="${localHref("/resource-support/references")}">Project References</a><a href="#detail-warranty">Warranty Registration</a><a href="#detail-support">Online Support</a></div>
       <div><h4>Company</h4><a href="#company">Company</a><a href="#innovation">Innovation</a><a href="#news">News</a><a href="#contact">Contact Us</a></div>
     </div>
   </footer>`;
@@ -507,7 +520,7 @@ function renderDetail(slug) {
   const newsMatch = slug.match(/^news-(\d+)/);
   const caseMatch = slug.match(/^case-(\d+)/);
   let title = "Tervona Detail";
-  let image = `${BASE}/Public/Uploads/uploadfile/images/20251202/download543.jpg`;
+  let image = "/assets/tervona-products-home-banner-v2.png";
   let body = "This page is generated by the local CMS prototype. Replace this placeholder detail content with your own copy, documents and media before launch.";
 
   if (product) {
@@ -890,14 +903,18 @@ function getRoutePath() {
   const hash = decodeURIComponent(location.hash || "");
   if (hash.startsWith("#/")) return normalizePath(hash.slice(1));
   if (hash.startsWith("#detail-")) return legacyDetailPath(hash.slice(8));
-  if (location.pathname && location.pathname !== "/" && location.pathname !== "/index.html") {
-    return normalizePath(`${location.pathname}${location.search || ""}`);
+  const pathname = stripSiteBasePath(location.pathname);
+  if (pathname && pathname !== "/" && pathname !== "/index.html") {
+    return normalizePath(`${pathname}${location.search || ""}`);
   }
   return "/";
 }
 
 function localHref(path) {
-  return normalizePath(path);
+  const normalized = normalizePath(path);
+  if (!SITE_BASE_PATH) return normalized;
+  if (/^\/(?:assets|uploads)\//.test(routePathOnly(normalized))) return `${SITE_BASE_PATH}${normalized}`;
+  return `${SITE_BASE_PATH}/#${normalized}`;
 }
 
 function cmsSectionPath(section) {
@@ -919,7 +936,7 @@ function hrefFor(path) {
 }
 
 function sourceUrl(path) {
-  return `${BASE}${normalizePath(path) === "/" ? "" : normalizePath(path)}`;
+  return normalizePath(path) === "/" ? FALLBACK_SCENE : normalizePath(path);
 }
 
 function pageFor(path) {
@@ -951,9 +968,9 @@ function titleFromSlug(slug) {
 }
 
 function sourceAsset(path) {
-  if (!path) return "/assets/tervona-products/category-scene-tervona-v2.png";
+  if (!path) return FALLBACK_SCENE;
   if (/^https?:\/\//i.test(path)) return path;
-  return `${BASE}${path.startsWith("/") ? path : `/${path}`}`;
+  return path.startsWith("/") ? path : `/${path}`;
 }
 
 function legacyDetailPath(slug) {
@@ -1382,7 +1399,7 @@ function render(options = {}) {
   document.title = ((!PUBLIC_NEWS_ENABLED && /^\/news(?:\/|-|$)/.test(publicRoute)) || isRetiredPublicRoute(publicRoute))
     ? "Page Not Found - Tervona"
     : publicRoute === "/cms" ? "后台管理 - Tervona" : path === "/" ? "Tervona" : `${cleanTitle(pageFor(path).title || "CMS Manager")} - Tervona`;
-  app.innerHTML = path === "/" ? renderHome() : renderRoute(path);
+  app.innerHTML = withSiteBaseUrls(path === "/" ? renderHome() : renderRoute(path));
   bind();
   requestAnimationFrame(() => {
     syncScrollEffects();
@@ -1432,7 +1449,7 @@ function renderHeader(options = {}) {
 function renderMega(item) {
   const productLike = item.kind === "products";
   if (productLike) return renderProductMega(item);
-  const links = (item.children?.length ? item.children : []).map((child) => [child.label, child.href, child.icon || `${BASE}/Public/En/images/b3__icon20.svg`]);
+  const links = (item.children?.length ? item.children : []).map((child) => [child.label, child.href, child.icon || FALLBACK_SCENE]);
   return `<div class="mega fox-dropdown support-drop">
     <div class="drop-inner">
       <div class="drop-top">
@@ -1478,7 +1495,7 @@ function renderProductMega(item) {
         ${taxonomy.map((category) => `<section class="product-taxonomy-panel ${category.slug === activeSlug ? "active" : ""}" role="tabpanel" ${category.slug === activeSlug ? "" : "hidden"} data-product-category-panel="${esc(category.slug)}">
           <header>
             <div><small>Product Category</small><h4>${esc(category.label)}</h4><p>${esc(productMegaPresentation(category).description)}</p></div>
-            <a href="${localHref(`/products/${category.slug}`)}">View Category ${icon("arrow")}</a>
+            <a href="${localHref(category.href || `/products/${category.slug}`)}">View Category ${icon("arrow")}</a>
           </header>
           ${renderProductTaxonomyTree(category.children)}
         </section>`).join("")}
@@ -1489,7 +1506,7 @@ function renderProductMega(item) {
 
 function renderMobileProductTaxonomy() {
   const activeSlug = activeProductTaxonomySlug();
-  return productTaxonomy().map((category) => `<a class="mobile-product-category-link ${category.slug === activeSlug ? "active" : ""}" href="${localHref(`/products/${category.slug}`)}">${esc(category.label)}</a>`).join("");
+  return productTaxonomy().map((category) => `<a class="mobile-product-category-link ${category.slug === activeSlug ? "active" : ""}" href="${localHref(category.href || `/products/${category.slug}`)}">${esc(category.label)}</a>`).join("");
 }
 
 function renderMobileDrawer(nav, settings) {
@@ -1567,7 +1584,7 @@ function renderProductHub() {
       <div class="product-hub-category-grid">
         ${categories.map((cat) => `<a class="product-hub-category-card" href="${localHref(`/products/${cat.slug}`)}" aria-label="View ${esc(cat.title)}">
           <div class="product-hub-card-copy"><h3>${esc(cat.title)}</h3><p>${esc(cat.intro)}</p></div>
-          <div class="product-hub-card-media"><img src="${esc(cat.heroImage || `${ASSET}/products.png`)}" alt="${esc(cat.title)}"></div>
+          <div class="product-hub-card-media"><img src="${esc(cat.heroImage || `${ASSET}/tervona-products-home-banner-v2.png`)}" alt="${esc(cat.title)}"></div>
           <span class="product-hub-card-arrow">${icon("arrow")}</span>
         </a>`).join("")}
       </div>
@@ -1661,7 +1678,9 @@ function categoryHotMobileHero(slug, record) {
 }
 
 function sourceAsset(path) {
-  return `${BASE}${path}`;
+  if (!path) return FALLBACK_SCENE;
+  if (/^https?:\/\//i.test(path)) return path;
+  return path.startsWith("/") ? path : `/${path}`;
 }
 
 function productKind(record, slug) {
@@ -1737,7 +1756,7 @@ function renderSourceProductRow(record, slug) {
 
 function productCenterHero(label, image = "") {
   return `<section class="product-source-hero">
-    <img src="${esc(image || `${ASSET}/products.png`)}" alt="Tervona residential solar and energy storage system at a modern home">
+    <img src="${esc(image || `${ASSET}/tervona-products-home-banner-v2.png`)}" alt="Tervona residential solar and energy storage system at a modern home">
     <div class="product-source-hero-shade"></div>
     <div class="product-source-hero-copy"><span>TERVONA RESIDENTIAL ENERGY</span><h1>Power for the way<br>homes really live</h1><p>Solar, storage and backup products designed as one practical home energy system.</p></div>
     <div class="product-scroll-mark"><span></span><b>${esc(label || "Product Center")}</b></div>
@@ -2114,7 +2133,7 @@ function sanitizeNewsBody(html) {
     });
     if (node.tagName === "IMG") {
       const src = node.getAttribute("src") || "";
-      if (src.startsWith("/Public/")) node.setAttribute("src", `${BASE}${src}`);
+      if (src.startsWith("/Public/")) node.setAttribute("src", FALLBACK_SCENE);
       node.setAttribute("loading", "lazy");
     }
     if (node.tagName === "A") {
@@ -2232,7 +2251,7 @@ function cmsPageTemplateFor(route) {
 }
 
 function cmsPageHeroFor(route) {
-  if (route === "/") return `${ASSET}/solution-home.jpg`;
+  if (route === "/") return `${ASSET}/tervona-home-20260922/home-hero-pc.jpg`;
   if (route === "/company") return "/assets/tervona-products-home-banner-v2.png";
   if (route === "/innovation") return "/assets/tervona-downloads-hero-v2.png";
   if (route === "/contact-us") return "/assets/tervona-partner-home-hero-v2.png";
@@ -2283,23 +2302,15 @@ function cmsSeedMedia() {
   };
   cmsSeedProducts().forEach((product) => push(product.heroImage, `${product.title} 主图`, "products", "产品详情首屏和产品卡片"));
   [
-    [`${BASE}/Public/Uploads/uploadfile/images/20260423/enpc.jpg`, "首页 Hero 01 PC", "heroes", "首页首屏轮播", "1920 x 960 px"],
-    [`${BASE}/Public/Uploads/uploadfile/images/20260423/enph.jpg`, "首页 Hero 01 手机", "heroes", "首页首屏轮播", "750 x 1200 px"],
-    [`${BASE}/Public/Uploads/uploadfile/images/20260709/pc1.jpg`, "首页 Hero 02 PC", "heroes", "首页首屏轮播", "1920 x 960 px"],
-    [`${BASE}/Public/Uploads/uploadfile/images/20260115/ph.jpg`, "首页 Hero 02 手机", "heroes", "首页首屏轮播", "750 x 1200 px"],
-    [`${BASE}/Public/Uploads/uploadfile/images/20260115/guanwangdujiaoshou1.jpg`, "首页 Hero 03 PC", "heroes", "首页首屏轮播", "1920 x 960 px"],
-    [`${BASE}/Public/Uploads/uploadfile/images/20260115/shubanguanwang1.jpg`, "首页 Hero 03 手机", "heroes", "首页首屏轮播", "750 x 1200 px"],
-    [`${BASE}/Public/Uploads/uploadfile/images/20260206/Web1080.webp`, "首页 Hero 04 PC", "heroes", "首页首屏轮播", "1920 x 1080 px"],
-    [`${BASE}/Public/Uploads/uploadfile/images/20260206/Mobile.webp`, "首页 Hero 04 手机", "heroes", "首页首屏轮播", "750 x 1200 px"],
-    [`${BASE}/Public/Uploads/uploadfile/images/20251202/download543.jpg`, "首页解决方案背景", "heroes", "首页解决方案", "1880 x 940 px"],
-    [`${BASE}/Public/Uploads/uploadfile/files/20251217/251216maitiannengyuandianliudonghua1.mp4`, "首页解决方案流动动画", "heroes", "首页解决方案视频", "1920 x 960 px · 13.04 秒 · MP4"],
-    [`${ASSET}/solution-home.jpg`, "首页解决方案本地备用图", "heroes", "首页解决方案", "1880 x 940 px"],
-    [`${ASSET}/products.png`, "首页产品组合透明图", "products", "首页产品展示", "源站透明产品组合图"],
-    [`${BASE}/Public/Uploads/uploadfile/images/20251202/a1bg04.jpg`, "关于我们 PC 背景", "heroes", "关于我们首页板块", "1920 x 2130 px"],
-    [`${ASSET}/earth.mp4`, "关于我们地球动画", "heroes", "关于我们动画", "1920 x 1080 px · 15 秒 · MP4"],
-    [`${ASSET}/rnd-bg.jpg`, "首页研发制造首帧", "heroes", "首页研发制造", ""],
-    [`${ASSET}/innovation-production.mp4`, "研发制造产线视频", "heroes", "研发制造视频", "2254 x 1080 px · 11.45 秒 · MP4"],
-    [`${BASE}/Public/Uploads/uploadfile/images/20251125/a1bg043.jpg`, "关于我们手机背景", "heroes", "关于我们首页板块", "768 x 2554 px"],
+    ["/assets/tervona-home-20260922/home-hero-pc.jpg", "Tervona 首页 Hero PC", "heroes", "首页首屏", "1920 x 960 px"],
+    ["/assets/tervona-home-20260922/home-hero-mobile.jpg", "Tervona 首页 Hero 手机", "heroes", "首页首屏", "750 x 1200 px"],
+    ["/assets/tervona-home-20260922/home-solutions-pc.jpg", "Tervona 解决方案 PC", "heroes", "首页解决方案", "1920 x 960 px"],
+    ["/assets/tervona-home-20260922/home-solutions-mobile.jpg", "Tervona 解决方案手机", "heroes", "首页解决方案", "750 x 1200 px"],
+    ["/assets/tervona-home-20260922/home-products.png", "Tervona 产品组合", "products", "首页产品展示", "透明 PNG"],
+    ["/assets/tervona-home-20260922/home-about-pc.jpg", "Tervona 关于我们 PC", "heroes", "首页关于我们", "1920 x 2130 px"],
+    ["/assets/tervona-home-20260922/home-about-mobile.jpg", "Tervona 关于我们手机", "heroes", "首页关于我们", "768 x 2554 px"],
+    ["/assets/tervona-home-20260922/home-rd.jpg", "Tervona 产品技术", "heroes", "首页产品技术", ""],
+    ["/assets/tervona-home-20260922/home-contact-cta.jpg", "Tervona 联系 CTA", "heroes", "首页和全站底部联系", ""],
     ["/assets/tervona-products-home-banner-v2.png", "Tervona 产品中心场景", "brand", "产品中心和公司页面"],
     ["/assets/tervona-partner-home-hero-v2.png", "Tervona 合作与联系场景", "brand", "合作、联系和项目案例页面"],
     ["/assets/tervona-downloads-hero-v2.png", "Tervona 技术与下载场景", "brand", "创新和下载页面"],
@@ -2310,15 +2321,15 @@ function cmsSeedMedia() {
 
 function cmsHomeMaterialGuide() {
   const slots = [
-    ["首页 Hero 轮播", "4 组 PC 图 + 4 组手机图", "PC 建议 1920 x 960 px；手机建议 750 x 1200 px", "图片文字尽量直接做进素材，前台不再额外压大标题。"],
-    ["解决方案首帧/视频", "背景图 + 动效视频", "源站图 1880 x 940 px；建议 2400 x 1200 px", "第一帧只显示缩放卡片，标签和连线滚动后再出现。"],
-    ["首页产品展示", "产品组合透明图 + 3 个热点 + 3 个数据卡", "组合图保持透明 PNG/WebP，宽度建议 1600 px 以上", "数据卡文字可在首页模板字段维护。"],
-    ["关于我们背景", "PC 长图 + 手机长图 + 视频", "PC 源图 1920 x 2130 px；手机源图 768 x 2554 px", "标题、按钮、介绍文字和右侧数字为独立可编辑内容。"],
-    ["底部 CTA", "PC/手机背景 + 视频", "源站 1920 x 440 px", "用于全站 Footer CTA 模板。"],
+    ["首页 Hero", "1 张 PC 图 + 1 张手机图", "PC 建议 1920 x 960 px；手机建议 750 x 1200 px", "使用 Tervona 最新设计稿和新版 slogan。"],
+    ["解决方案", "1 张 PC 图 + 1 张手机图", "建议分别针对横屏和竖屏裁切", "保持住宅储能与产品应用信息清晰。"],
+    ["首页产品展示", "1 张透明产品组合图", "透明 PNG/WebP，宽度建议 1600 px 以上", "产品热点和文字在首页模板字段维护。"],
+    ["关于我们", "1 张 PC 图 + 1 张手机图", "分别针对桌面和手机比例输出", "标题、按钮和介绍文字保持独立可编辑。"],
+    ["产品技术与底部 CTA", "2 张 Tervona 场景图", "建议宽度 1920 px 以上", "用于产品技术板块和全站联系入口。"],
   ];
   return `<div class="cms-home-guide">
     <div class="cms-section-head compact">
-      <div><span>首页素材设置</span><h2>首页按源站拆成独立素材位</h2></div>
+      <div><span>首页素材设置</span><h2>首页按 Tervona 设计稿拆分素材位</h2></div>
       <a href="${localHref("/cms?section=media")}">打开媒体库</a>
     </div>
     <div class="cms-home-guide-grid">
@@ -3380,7 +3391,7 @@ function renderCmsMediaPicker(name, selectedUrl, usageHint = "产品详情首屏
 function renderCmsProductEditor(record) {
   const selected = record || cmsNewProductRecord();
   const isNew = /^\/products\/[^/]+\/new-product-/.test(selected.id || "");
-  const selectedImage = selected.heroImage || `${ASSET}/products.png`;
+  const selectedImage = selected.heroImage || `${ASSET}/tervona-products-home-banner-v2.png`;
   return `<div class="cms-edit-panel">
     <div class="cms-edit-panel-head">
       <div><span>${isNew ? "新增产品" : "正在编辑产品"}</span><h3>${esc(selected.title || "未命名产品")}</h3></div>
@@ -3519,7 +3530,7 @@ function renderCmsLiveProductEditor(record, originalId) {
               </div>
             </section>
             <section class="series-effi cms-preview-effi">
-              <div class="series-effi-bg"><img src="${ASSET}/solution-home.jpg" alt=""></div>
+              <div class="series-effi-bg"><img src="${ASSET}/tervona-home-20260922/home-solutions-pc.jpg" alt=""></div>
               <div class="series-effi-copy"><span data-live-preview="advantagesEyebrow">${esc(record.advantagesEyebrow)}</span><h2 data-live-preview="advantagesTitle">${esc(record.advantagesTitle)}</h2><p data-live-preview="advantagesBody">${esc(record.advantagesBody)}</p></div>
             </section>
             ${renderProductAdvantages(record, { preview: true })}
@@ -3728,7 +3739,7 @@ function renderCmsProductRecords(products) {
   return `<div class="cms-record-list editable">
     ${products.map((product) => `<article class="${cmsEditing.products === product.id ? "is-selected" : ""}">
       <div class="cms-record-main">
-        <img src="${esc(product.heroImage || `${ASSET}/products.png`)}" alt="">
+        <img src="${esc(product.heroImage || `${ASSET}/tervona-products-home-banner-v2.png`)}" alt="">
         <div><span>${esc(product.title)}</span><p>${esc(product.path)}</p><small>${esc(product.summary || "")}</small></div>
       </div>
       <em class="cms-record-meta">${esc(product.categoryLabel || categoryForSlug(product.category).title)}</em>
@@ -3816,7 +3827,7 @@ function renderCmsPageBlock(block, state = cmsAdminState(), editor = true) {
     button: `<a class="lpb-button" href="${hrefFor(block.href || "#")}">${esc(block.buttonText || "按钮")}</a>`,
     spacer: `<div class="lpb-spacer"><span>间距 ${Number(block.padding || 72)}px</span></div>`,
     columns: `<div class="lpb-columns"><div><h3>${esc(block.title || "双栏标题")}</h3><p>${esc(block.text || "左侧内容")}</p></div><div><p>${esc(block.secondaryText || "右侧内容")}</p></div></div>`,
-    products: `<div class="lpb-dynamic"><h2>${esc(block.title || "产品推荐")}</h2><div>${state.products.slice(0, Number(block.count || 3)).map((item) => `<article><img src="${esc(item.heroImage || `${ASSET}/products.png`)}" alt=""><b>${esc(item.title)}</b></article>`).join("")}</div></div>`,
+    products: `<div class="lpb-dynamic"><h2>${esc(block.title || "产品推荐")}</h2><div>${state.products.slice(0, Number(block.count || 3)).map((item) => `<article><img src="${esc(item.heroImage || `${ASSET}/tervona-products-home-banner-v2.png`)}" alt=""><b>${esc(item.title)}</b></article>`).join("")}</div></div>`,
     news: `<div class="lpb-dynamic"><h2>${esc(block.title || "最新动态")}</h2><div>${state.news.slice(0, Number(block.count || 3)).map((item) => `<article><img src="${esc(item.coverImage || "/assets/tervona-downloads-hero-v2.png")}" alt=""><b>${esc(item.title)}</b></article>`).join("")}</div></div>`,
     cta: `<div class="lpb-cta"><h2>${esc(block.title || "准备好开始了吗？")}</h2><p>${esc(block.text || "")}</p><a href="${hrefFor(block.href || "/contact-us")}">${esc(block.buttonText || "联系我们")}</a></div>`,
   }[block.type] || "";
@@ -4486,7 +4497,7 @@ function cmsLiveEditorRecordFromForm(form) {
     category: cat.slug,
     categoryLabel: cat.title,
     path,
-    heroImage: values.heroImageManual || values.heroImage || values.heroImagePicker || `${ASSET}/products.png`,
+    heroImage: values.heroImageManual || values.heroImage || values.heroImagePicker || `${ASSET}/tervona-products-home-banner-v2.png`,
     summary: values.summary || "",
     status: values.status || "Draft",
     heroText: values.heroText || "",
@@ -4694,7 +4705,7 @@ function cmsSaveEditor(form) {
       category: cat.slug,
       categoryLabel: cat.title,
       path,
-      heroImage: values.heroImageManual || values.heroImage || `${ASSET}/products.png`,
+      heroImage: values.heroImageManual || values.heroImage || `${ASSET}/tervona-products-home-banner-v2.png`,
       summary: values.summary || "",
       status: values.status || "Draft",
     }, existing);

@@ -89,16 +89,23 @@ function writeJsonFile(file, data) {
 }
 
 function seedUsers() {
+  const username = String(process.env.CMS_ADMIN_USERNAME || "").trim().toLowerCase();
+  const password = String(process.env.CMS_ADMIN_PASSWORD || "");
+  if (!username || password.length < 10) return [];
+  const salt = crypto.randomBytes(24).toString("hex");
+  const now = new Date().toISOString();
   return [{
-    id: "user-superadmin", username: "admin", displayName: "超级管理员", role: "super_admin", permissions: [...permissionKeys], active: true,
-    salt: "a7cd7cdeeee0da73256c3944adfdf3f4ca34126d46be9a07", passwordHash: "c71b8a47ec5ae6281f33924f9e9d25eaefe0a384da6bc54615801f04e10c766d",
-    createdAt: "2026-08-04T00:00:00+08:00", updatedAt: "2026-08-04T00:00:00+08:00"
+    id: "user-superadmin", username, displayName: "超级管理员", role: "super_admin", permissions: [...permissionKeys], active: true,
+    salt, passwordHash: passwordHash(password, salt), createdAt: now, updatedAt: now,
   }];
 }
 
 function readUsers() {
   let users = readJsonFile(cmsUsersFile, null);
-  if (!Array.isArray(users) || !users.length) { users = seedUsers(); writeJsonFile(cmsUsersFile, users); }
+  if (!Array.isArray(users) || !users.length) {
+    users = seedUsers();
+    if (users.length) writeJsonFile(cmsUsersFile, users);
+  }
   return users;
 }
 

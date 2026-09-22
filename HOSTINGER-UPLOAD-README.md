@@ -2,6 +2,10 @@
 
 Upload everything in this package to the website root, usually `public_html`.
 
+Before using the CMS on a fresh installation, configure `CMS_ADMIN_USERNAME` and
+`CMS_ADMIN_PASSWORD` in the server environment. The password must contain at
+least 10 characters. The application no longer ships a fixed default account.
+
 Required entry file:
 
 ```text

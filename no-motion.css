@@ -970,7 +970,7 @@ html.no-motion-site .source-resource-band {
 }
 
 html.no-motion-site .source-resource-band::before {
-  background-image: url("/assets/tervona-downloads-hero-v2.png");
+  background-image: url("assets/tervona-downloads-hero-v2.png");
 }
 
 html.no-motion-site .source-product-top h2,

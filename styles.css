@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "MAITIAN-Light";
-  src: url("/assets/fox-placeholder/fonts/PoppinsLight.woff2") format("woff2");
+  font-family: "TERVONA-Light";
+  src: url("assets/tervona-fonts/PoppinsLight.woff2") format("woff2");
   font-display: swap;
 }
 
@@ -48,32 +48,32 @@
 @media (max-width:1180px) { .cms-visual-toolbar { grid-template-columns:260px 1fr 330px; }.cms-visual-body { grid-template-columns:260px minmax(400px,1fr); }.cms-visual-layers { display:none; }.cms-visual-toolbar-actions button:not(.primary) { display:none; }.cms-visual-site-header nav { gap:14px; }.cms-visual-media-grid { grid-template-columns:repeat(4,1fr); } }
 
 @font-face {
-  font-family: "MAITIAN-Regular";
-  src: url("/assets/fox-placeholder/fonts/PoppinsRegular.woff2") format("woff2");
+  font-family: "TERVONA-Regular";
+  src: url("assets/tervona-fonts/PoppinsRegular.woff2") format("woff2");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "MAITIAN-Medium";
-  src: url("/assets/fox-placeholder/fonts/PoppinsMedium.woff2") format("woff2");
+  font-family: "TERVONA-Medium";
+  src: url("assets/tervona-fonts/PoppinsMedium.woff2") format("woff2");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "MAITIAN-SemiBold";
-  src: url("/assets/fox-placeholder/fonts/PoppinsSemiBold.woff2") format("woff2");
+  font-family: "TERVONA-SemiBold";
+  src: url("assets/tervona-fonts/PoppinsSemiBold.woff2") format("woff2");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "MAITIAN-Bold";
-  src: url("/assets/fox-placeholder/fonts/PoppinsBold.woff2") format("woff2");
+  font-family: "TERVONA-Bold";
+  src: url("assets/tervona-fonts/PoppinsBold.woff2") format("woff2");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "MAITIAN-ManSemiBold";
-  src: url("/assets/fox-placeholder/fonts/Manrope-SemiBold.woff2") format("woff2");
+  font-family: "TERVONA-ManSemiBold";
+  src: url("assets/tervona-fonts/Manrope-SemiBold.woff2") format("woff2");
   font-display: swap;
 }
 
@@ -104,12 +104,12 @@
   --card-title-size: 23px;
   --heading-font-weight: 600;
   --card-title-weight: 600;
-  --font-light: "MAITIAN-Light", "Poppins", "Microsoft YaHei", Arial, sans-serif;
-  --font-regular: "MAITIAN-Regular", "Poppins", "Microsoft YaHei", Arial, sans-serif;
-  --font-medium: "MAITIAN-Medium", "Poppins", "Microsoft YaHei", Arial, sans-serif;
-  --font-semibold: "MAITIAN-SemiBold", "Poppins", "Microsoft YaHei", Arial, sans-serif;
-  --font-bold: "MAITIAN-Bold", "Poppins", "Microsoft YaHei", Arial, sans-serif;
-  --font-man: "MAITIAN-ManSemiBold", "Manrope", "Poppins", Arial, sans-serif;
+  --font-light: "TERVONA-Light", "Poppins", "Microsoft YaHei", Arial, sans-serif;
+  --font-regular: "TERVONA-Regular", "Poppins", "Microsoft YaHei", Arial, sans-serif;
+  --font-medium: "TERVONA-Medium", "Poppins", "Microsoft YaHei", Arial, sans-serif;
+  --font-semibold: "TERVONA-SemiBold", "Poppins", "Microsoft YaHei", Arial, sans-serif;
+  --font-bold: "TERVONA-Bold", "Poppins", "Microsoft YaHei", Arial, sans-serif;
+  --font-man: "TERVONA-ManSemiBold", "Manrope", "Poppins", Arial, sans-serif;
 }
 
 * {
@@ -2296,7 +2296,6 @@ body.mobile-menu-lock {
 .source-banner-innovation,
 .source-banner-we-never-stop-exploring { height: 440px; }
 .source-banner-a-global-leader-in-smart-renewable-energy-solutions { height: 600px; }
-.source-banner-get-in-touch-with-fox-ess { height: 510px; }
 
 .source-banner-hero > img,
 .source-banner-shade {

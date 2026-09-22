@@ -62,17 +62,22 @@ function cms_request_payload(): array {
 }
 
 function cms_seed_users(): array {
+    $username = trim((string)(getenv('CMS_ADMIN_USERNAME') ?: ''));
+    $password = (string)(getenv('CMS_ADMIN_PASSWORD') ?: '');
+    if ($username === '' || strlen($password) < 10) return [];
+    $salt = bin2hex(random_bytes(24));
+    $now = date(DATE_ATOM);
     return [[
         'id' => 'user-superadmin',
-        'username' => 'admin',
+        'username' => strtolower($username),
         'displayName' => '超级管理员',
         'role' => 'super_admin',
         'permissions' => ['pages', 'menus', 'products', 'categories', 'news', 'downloads', 'submissions', 'seo', 'media', 'settings'],
         'active' => true,
-        'salt' => 'a7cd7cdeeee0da73256c3944adfdf3f4ca34126d46be9a07',
-        'passwordHash' => 'c71b8a47ec5ae6281f33924f9e9d25eaefe0a384da6bc54615801f04e10c766d',
-        'createdAt' => '2026-08-04T00:00:00+08:00',
-        'updatedAt' => '2026-08-04T00:00:00+08:00',
+        'salt' => $salt,
+        'passwordHash' => cms_password_hash($password, $salt),
+        'createdAt' => $now,
+        'updatedAt' => $now,
     ]];
 }
 
@@ -80,7 +85,7 @@ function cms_read_users(string $contentDir, string $usersFile): array {
     $users = cms_read_json($usersFile);
     if (is_array($users) && count($users)) return $users;
     $users = cms_seed_users();
-    cms_write_json($contentDir, $usersFile, $users);
+    if (count($users)) cms_write_json($contentDir, $usersFile, $users);
     return $users;
 }
 

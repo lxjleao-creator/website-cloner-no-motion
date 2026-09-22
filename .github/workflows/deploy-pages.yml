@@ -1,0 +1,48 @@
+name: Deploy Tervona preview to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Build static preview
+        shell: bash
+        run: |
+          mkdir -p _site/uploads _site/admin
+          cp index.html app-v3.js cms-model.js no-motion.js styles.css no-motion.css _site/
+          cp -R assets _site/assets
+          cp -R uploads/downloads _site/uploads/downloads
+          cp index.html _site/404.html
+          printf '%s\n' '{"ok":false,"error":"CMS is unavailable in the static GitHub Pages preview."}' > _site/preview-api.json
+          touch _site/.nojekyll
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
