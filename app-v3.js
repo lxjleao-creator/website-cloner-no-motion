@@ -1177,7 +1177,7 @@ function cmsDefaultSettings() {
       "ko | 한국어",
       "ar | العربية",
     ].join("\n"),
-    footerCtaTitle: "Life by Sunshine",
+    footerCtaTitle: "Start Your Energy Project",
     footerCtaButtonText: "Contact Us",
     footerCtaButtonHref: "/contact-us",
     footerCtaImage: "/assets/tervona-life-by-sunshine-v1.png",
@@ -2314,7 +2314,7 @@ function cmsSeedMedia() {
     ["/assets/tervona-products-home-banner-v2.png", "Tervona 产品中心场景", "brand", "产品中心和公司页面"],
     ["/assets/tervona-partner-home-hero-v2.png", "Tervona 合作与联系场景", "brand", "合作、联系和项目案例页面"],
     ["/assets/tervona-downloads-hero-v2.png", "Tervona 技术与下载场景", "brand", "创新和下载页面"],
-    ["/assets/tervona-life-by-sunshine-v1.png", "Life by Sunshine", "brand", "全站底部 CTA"],
+    ["/assets/tervona-life-by-sunshine-v1.png", "Tervona Footer CTA", "brand", "全站底部 CTA"],
   ].forEach(([url, title, folder, usage, size]) => push(url, title, folder, usage, size));
   return seedAssets;
 }
