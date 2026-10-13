@@ -195,8 +195,8 @@ function cms_safe_manual_upload_name(?string $requestedName, ?string $sourceName
     $extension = strtolower(pathinfo($sourceRaw, PATHINFO_EXTENSION));
     $requestedRaw = basename(str_replace('\\', '/', $requestedName ?: $sourceRaw));
     $base = strtolower(pathinfo($requestedRaw, PATHINFO_FILENAME));
-    $base = trim(preg_replace('/[^a-z0-9_-]+/', '-', $base) ?: 'manual', '-_');
-    $base = preg_replace('/-+/', '-', $base) ?: 'manual';
+    $base = trim(preg_replace('/[^a-z0-9]+/', '_', $base) ?: 'manual', '_');
+    $base = preg_replace('/_+/', '_', $base) ?: 'manual';
     return $base . ($extension ? '.' . $extension : '');
 }
 

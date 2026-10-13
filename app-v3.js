@@ -4279,9 +4279,9 @@ function cmsSanitizeManualFileBase(value = "") {
     .trim()
     .replace(/\.[a-z0-9]+$/i, "")
     .toLowerCase()
-    .replace(/[^a-z0-9_-]+/g, "-")
-    .replace(/-+/g, "-")
-    .replace(/^[-_]+|[-_]+$/g, "");
+    .replace(/[^a-z0-9]+/g, "_")
+    .replace(/_+/g, "_")
+    .replace(/^_+|_+$/g, "");
 }
 
 function cmsNormalizeManualUrl(url = "") {
@@ -4311,8 +4311,8 @@ function renderCmsManualManager(state = cmsAdminState()) {
             <label>版本<input name="version" value="${esc(selected?.version || "")}" placeholder="例如：V1.0 / 2026-10"></label>
             <label>状态<select name="status">${["Published", "Draft", "Hidden"].map((status) => `<option value="${status}" ${selected?.status === status ? "selected" : ""}>${cmsStatusLabel(status)}</option>`).join("")}</select></label>
           </div>
-          <label>URL 文件名（不含扩展名）<input name="urlFileName" data-cms-manual-url-name value="${esc(cmsManualFileBase(selected?.fileUrl || ""))}" required placeholder="例如：tervona_user_guide" pattern="[A-Za-z0-9_-]+" title="只能使用英文字母、数字、连字符和下划线"></label>
-          <div class="cms-slot-spec"><span>访问路径预览</span><p data-cms-manual-url-preview>/product/manual/${esc(cmsManualFileBase(selected?.fileUrl || "文件名"))}${selected?.fileUrl ? `.${esc(cmsManualFileExtension(selected.fileUrl).toLowerCase())}` : ".文件扩展名"}</p><em>文件名可自行修改；系统会转为小写。同名上传会更新原地址下的文件。</em></div>
+          <label>URL 文件名（不含扩展名）<input name="urlFileName" data-cms-manual-url-name value="${esc(cmsManualFileBase(selected?.fileUrl || ""))}" required placeholder="例如：tervona_user_guide" pattern="[A-Za-z0-9_]+" title="只能使用英文字母、数字和下划线"></label>
+          <div class="cms-slot-spec"><span>访问路径预览</span><p data-cms-manual-url-preview>/product/manual/${esc(cmsManualFileBase(selected?.fileUrl || "文件名"))}${selected?.fileUrl ? `.${esc(cmsManualFileExtension(selected.fileUrl).toLowerCase())}` : ".文件扩展名"}</p><em>文件名可自行修改；系统会转为小写，并将空格或连字符统一替换为下划线。同名上传会更新原地址下的文件。</em></div>
           ${selected?.fileUrl ? `<div class="cms-slot-spec"><span>当前文件</span><b>${esc(cmsManualFileExtension(selected.fileUrl))}</b><p>${esc(selected.fileUrl)}</p><em>不选择新文件则仅更新标题、产品、版本和状态。</em></div>` : ""}
           <label>${selected ? "替换文件（可选）" : "选择 Manual 文件"}<input name="file" data-cms-manual-file type="file" accept="${CMS_MANUAL_ACCEPT}" ${selected ? "" : "required"}></label>
           <p class="cms-help-text">支持 PDF、Word、Excel、PowerPoint、TXT、ZIP、RAR 和 7Z，单文件最大 40 MB。上传后固定保存到 <code>/product/manual/文件名</code>，并自动出现在前台 Downloads 的 User Manual 分类中。</p>
@@ -4736,7 +4736,7 @@ async function cmsSaveManual(form) {
   const requestedBase = cmsSanitizeManualFileBase(values.urlFileName);
   const existingBase = cmsManualFileBase(fileUrl);
 
-  if (!requestedBase) throw new Error("请填写 URL 文件名，只能使用英文字母、数字、连字符和下划线。");
+  if (!requestedBase) throw new Error("请填写 URL 文件名，只能使用英文字母、数字和下划线。");
   if (!file && existingBase && requestedBase !== existingBase) throw new Error("修改 URL 文件名时，请同时选择要上传的文件。");
 
   if (file) {
