@@ -150,19 +150,27 @@ let cmsPageBuilderSelectedId = "";
 let cmsPageBuilderDevice = "desktop";
 const CMS_ADMIN_STORAGE_KEY = "tervona-cms-admin-state-v2";
 const CMS_API_URL = SITE_BASE_PATH ? `${SITE_BASE_PATH}/preview-api.json` : "/admin/api.php";
+const CMS_STATIC_PREVIEW = Boolean(SITE_BASE_PATH);
 let cmsRemoteState = null;
 let cmsBackendLoadStarted = false;
-let cmsBackendStatus = "Connecting";
-let cmsBackendSource = "local draft";
+let cmsBackendStatus = CMS_STATIC_PREVIEW ? "Preview" : "Connecting";
+let cmsBackendSource = CMS_STATIC_PREVIEW ? "GitHub Pages" : "local draft";
 const CMS_PERMISSION_OPTIONS = [
   ["pages", "页面"], ["menus", "导航"], ["products", "产品"], ["categories", "分类"], ["news", "新闻"],
   ["downloads", "下载"], ["manuals", "Manual 管理"], ["submissions", "询盘"], ["seo", "SEO"], ["media", "媒体"], ["settings", "网站设置"],
 ];
-let cmsAuthStatus = "checking";
-let cmsAuthUser = null;
+let cmsAuthStatus = CMS_STATIC_PREVIEW ? "authenticated" : "checking";
+let cmsAuthUser = CMS_STATIC_PREVIEW ? {
+  id: "github-preview",
+  username: "preview",
+  displayName: "后台样式预览",
+  role: "preview",
+  permissions: CMS_PERMISSION_OPTIONS.map(([permission]) => permission),
+  active: true,
+} : null;
 let cmsAuthCsrf = "";
 let cmsAuthError = "";
-let cmsAuthCheckStarted = false;
+let cmsAuthCheckStarted = CMS_STATIC_PREVIEW;
 let cmsManagedUsers = [];
 let cmsUsersStatus = "idle";
 let cmsUsersError = "";
@@ -2505,13 +2513,13 @@ async function cmsLogout() {
 }
 
 function renderCmsAuthLoading() {
-  return `<main class="cms-login-shell"><section class="cms-login-card is-loading"><img src="/assets/tervona-logo-transparent.png" alt="Tervona"><div class="cms-login-spinner"></div><h1>正在验证登录状态</h1><p>正在安全连接内容管理后台…</p></section></main>`;
+  return `<main class="cms-login-shell"><section class="cms-login-card is-loading"><img src="${hrefFor("/assets/tervona-logo-transparent.png")}" alt="Tervona"><div class="cms-login-spinner"></div><h1>正在验证登录状态</h1><p>正在安全连接内容管理后台…</p></section></main>`;
 }
 
 function renderCmsLogin() {
   return `<main class="cms-login-shell">
     <section class="cms-login-card">
-      <header><span><img src="/assets/tervona-logo-transparent.png" alt="Tervona"></span><div><b>Tervona</b></div></header>
+      <header><span><img src="${hrefFor("/assets/tervona-logo-transparent.png")}" alt="Tervona"></span><div><b>Tervona</b></div></header>
       <div class="cms-login-copy"><span>安全登录</span><h1>登录网站后台</h1><p>请输入管理员分配给你的账号和密码。</p></div>
       <form data-cms-login>
         <label>账号<input name="username" autocomplete="username" required autofocus placeholder="请输入账号"></label>
@@ -2932,6 +2940,12 @@ function cmsRefreshAdminIfActive() {
 }
 
 function cmsLoadBackendState() {
+  if (CMS_STATIC_PREVIEW) {
+    cmsBackendLoadStarted = true;
+    cmsBackendStatus = "Preview";
+    cmsBackendSource = "GitHub Pages";
+    return;
+  }
   if (cmsBackendLoadStarted || typeof fetch !== "function") return;
   cmsBackendLoadStarted = true;
   cmsBackendStatus = "Connecting";
@@ -2969,6 +2983,11 @@ function cmsLoadBackendState() {
 }
 
 function cmsPersistBackendState(state) {
+  if (CMS_STATIC_PREVIEW) {
+    cmsBackendStatus = "Preview";
+    cmsBackendSource = "GitHub Pages";
+    return;
+  }
   if (typeof fetch !== "function") {
     cmsBackendStatus = "Local fallback";
     cmsBackendSource = "localStorage";
@@ -3022,6 +3041,7 @@ function cmsBackendStatusLabel(status) {
     Connected: "已连接",
     Saving: "保存中",
     Connecting: "连接中",
+    Preview: "只读预览",
     "Local fallback": "本地草稿模式",
   }[status] || status || "连接中";
 }
@@ -4255,12 +4275,11 @@ function renderCmsAdmin(params = new URLSearchParams()) {
   ].filter(([id]) => cmsCanAccess(id));
   return `<main class="inside-main cms-admin cms-admin-shell">
     <header class="cms-command-bar">
-      <div class="cms-command-brand"><img class="cms-brand-logo" src="/assets/tervona-logo-transparent.png" alt="Tervona"></div>
+      <div class="cms-command-brand"><img class="cms-brand-logo" src="${hrefFor("/assets/tervona-logo-transparent.png")}" alt="Tervona"></div>
       <div class="cms-command-actions">
         <span class="cms-connection ${cmsConnectionClass()}">${esc(cmsBackendStatusLabel(cmsBackendStatus))}</span>
         <a href="${localHref("/")}" target="_blank">预览网站</a>
-        <button type="button" data-cms-publish-all>发布更改</button>
-        <button type="button" class="cms-logout-button" data-cms-logout>退出</button>
+        ${CMS_STATIC_PREVIEW ? "" : `<button type="button" data-cms-publish-all>发布更改</button><button type="button" class="cms-logout-button" data-cms-logout>退出</button>`}
       </div>
     </header>
     <section class="cms-layout">
