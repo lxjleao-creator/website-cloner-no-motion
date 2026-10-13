@@ -4871,7 +4871,7 @@ function cmsReadImagePixels(url, callback) {
   const image = new Image();
   image.onload = () => callback(`${image.naturalWidth} x ${image.naturalHeight} px`);
   image.onerror = () => callback("无法读取");
-  image.src = url;
+  image.src = hrefFor(url);
 }
 
 function cmsUpdateMediaPixelLabels(root = document) {
