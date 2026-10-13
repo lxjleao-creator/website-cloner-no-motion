@@ -1803,6 +1803,30 @@ function renderSeriesStatValue(value, attributes = "") {
   return `<strong ${attributes}>${esc(text)}</strong>`;
 }
 
+function cmsSetSeriesStatPreviewValue(node, value) {
+  if (!node) return;
+  const text = String(value || "").trim();
+  const measurement = text.match(/^([+-]?\d+(?:\.\d+)?)\s*(kWh|kW|W|Ah|A|V|ms|kg|mm)$/i);
+  node.classList.remove("is-multiline", "is-compact");
+  node.replaceChildren();
+  if (measurement) {
+    node.classList.add("is-multiline");
+    node.append(document.createTextNode(measurement[1]));
+    const unit = document.createElement("small");
+    unit.textContent = measurement[2];
+    node.append(unit);
+    return;
+  }
+  if (text.length > 10 && /[-\s]/.test(text)) {
+    const parts = text.split(/[-\s]+/).filter(Boolean);
+    const midpoint = Math.ceil(parts.length / 2);
+    node.classList.add("is-compact");
+    node.append(document.createTextNode(parts.slice(0, midpoint).join(" ")), document.createElement("br"), document.createTextNode(parts.slice(midpoint).join(" ")));
+    return;
+  }
+  node.textContent = text;
+}
+
 function renderProductAdvantages(record, { preview = false } = {}) {
   const highlightIcons = ["bolt", "eye", "link", "globe"];
   const sceneImage = record?.advantagesSceneImage || "/assets/tervona-products/core-advantages-scene-v1.png";
@@ -1819,7 +1843,7 @@ function renderProductAdvantages(record, { preview = false } = {}) {
       </div>
     </div>
     <div class="product-advantages-scene">
-      <img src="${esc(sceneImage)}" alt="Tervona home energy system in a residential solar setting">
+      <img src="${esc(sceneImage)}" alt="Tervona home energy system in a residential solar setting"${preview ? ` data-live-preview="advantagesSceneImage"` : ""}>
       <a class="product-advantages-cta" href="${preview ? "#" : localHref("/contact-us")}">
         <span>Get Product</span><i aria-hidden="true">${icon("arrow")}</i>
       </a>
@@ -3116,6 +3140,14 @@ function cmsMediaMimeLabel(asset) {
 
 function cmsMediaSlotSpec(usageHint = "") {
   const usage = String(usageHint || "");
+  if (usage.includes("Core Advantages")) {
+    return {
+      label: "Core Advantages 场景图",
+      display: "页面显示比例约 1 : 1",
+      recommended: "建议出图 1600 x 1600 px，最低 1200 x 1200 px",
+      safe: "主体居中，右下角会叠加 Get Product 按钮。",
+    };
+  }
   if (usage.includes("产品详情")) {
     return {
       label: "产品详情首屏主图",
@@ -3285,6 +3317,7 @@ function cmsNormalizeProductRecord(record, fallbackPath = "") {
     advantagesTitle: record?.advantagesTitle || "Key Advantages",
     advantagesBody: record?.advantagesBody || "High conversion efficiency, stable MPPT tracking and smart monitoring help each system deliver dependable clean energy across homes and businesses.",
     advantagesImage: record?.advantagesImage || record?.heroImage || productImageFor(path),
+    advantagesSceneImage: record?.advantagesSceneImage || "/assets/tervona-products/core-advantages-scene-v1.png",
     productType: record?.productType || "",
     rangeLabel: record?.rangeLabel || "",
     models: record?.models || null,
@@ -3571,10 +3604,10 @@ function renderCmsLiveProductEditor(record, originalId) {
           </div>`).join("")}
         </section>
         <section class="cms-editor-box">
-          <h2>优势板块</h2>
-          <label>小标题<input name="advantagesEyebrow" value="${esc(record.advantagesEyebrow)}" data-live-field="advantagesEyebrow"></label>
-          <label>标题<input name="advantagesTitle" value="${esc(record.advantagesTitle)}" data-live-field="advantagesTitle"></label>
-          <label>正文<textarea name="advantagesBody" data-live-field="advantagesBody">${esc(record.advantagesBody)}</textarea></label>
+          <h2>Core Advantages 场景图</h2>
+          <div class="cms-size-note"><b>优势板块右侧场景图</b><span>页面显示比例约 1 : 1</span><span>建议设计 1600 x 1600 px，最低 1200 x 1200 px</span><em>主体居中，右下角会叠加 Get Product 按钮。</em></div>
+          ${renderCmsMediaPicker("advantagesSceneImage", record.advantagesSceneImage, "产品详情 Core Advantages 场景图")}
+          <label>或粘贴图片地址<input name="advantagesSceneImageManual" value="" placeholder="/uploads/products/advantages-scene.webp" data-live-field="advantagesSceneImageManual"></label>
         </section>
         <section class="cms-editor-box">
           <h2>亮点卡片</h2>
@@ -3611,12 +3644,8 @@ function renderCmsLiveProductEditor(record, originalId) {
                 <p data-live-preview="heroText">${esc(record.heroText)}</p>
               </div>
               <div class="series-hero-stats">
-                ${record.stats.map((stat, index) => `<article class="series-hero-stat"><span data-live-preview="stat${index}Label">${esc(stat.label)}</span><strong data-live-preview="stat${index}Value">${esc(stat.value)}</strong></article>`).join("")}
+                ${record.stats.map((stat, index) => `<article class="series-hero-stat"><span data-live-preview="stat${index}Label">${esc(stat.label)}</span>${renderSeriesStatValue(stat.value, `data-live-preview="stat${index}Value"`)}</article>`).join("")}
               </div>
-            </section>
-            <section class="series-effi cms-preview-effi">
-              <div class="series-effi-bg"><img src="${ASSET}/tervona-home-20260922/home-solutions-pc.jpg" alt=""></div>
-              <div class="series-effi-copy"><span data-live-preview="advantagesEyebrow">${esc(record.advantagesEyebrow)}</span><h2 data-live-preview="advantagesTitle">${esc(record.advantagesTitle)}</h2><p data-live-preview="advantagesBody">${esc(record.advantagesBody)}</p></div>
             </section>
             ${renderProductAdvantages(record, { preview: true })}
           </div>
@@ -4778,9 +4807,7 @@ function cmsLiveEditorRecordFromForm(form) {
       { label: values.stat0Label || "Metric 1", value: values.stat0Value || "" },
       { label: values.stat1Label || "Metric 2", value: values.stat1Value || "" },
     ],
-    advantagesEyebrow: values.advantagesEyebrow || "Key Advantages",
-    advantagesTitle: values.advantagesTitle || "Key Advantages",
-    advantagesBody: values.advantagesBody || "",
+    advantagesSceneImage: values.advantagesSceneImageManual || values.advantagesSceneImage || "/assets/tervona-products/core-advantages-scene-v1.png",
     highlights: [0, 1, 2, 3].map((index) => ({
       title: values[`highlight${index}Title`] || `Highlight ${index + 1}`,
       body: values[`highlight${index}Body`] || "",
@@ -4820,14 +4847,11 @@ function cmsUpdateLivePreview(form) {
   setText("title", record.title);
   setText("categoryLabel", record.categoryLabel.replace(/ies$/, "y").replace(/s$/, ""));
   setText("heroText", record.heroText);
-  setText("advantagesEyebrow", record.advantagesEyebrow);
-  setText("advantagesTitle", record.advantagesTitle);
-  setText("advantagesBody", record.advantagesBody);
   setText("seoTitle", record.seoTitle);
   setText("seoDescription", record.seoDescription);
   record.stats.forEach((stat, index) => {
     setText(`stat${index}Label`, stat.label);
-    setText(`stat${index}Value`, stat.value);
+    form.querySelectorAll(`[data-live-preview="stat${index}Value"]`).forEach((node) => cmsSetSeriesStatPreviewValue(node, stat.value));
   });
   record.highlights.forEach((item, index) => {
     setText(`highlight${index}Title`, item.title);
@@ -4835,6 +4859,8 @@ function cmsUpdateLivePreview(form) {
   });
   const image = form.querySelector('[data-live-preview="heroImage"]');
   if (image) image.src = hrefFor(record.heroImage);
+  const advantagesScene = form.querySelector('[data-live-preview="advantagesSceneImage"]');
+  if (advantagesScene) advantagesScene.src = hrefFor(record.advantagesSceneImage);
 }
 
 function cmsReadImagePixels(url, callback) {

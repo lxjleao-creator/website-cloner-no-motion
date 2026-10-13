@@ -11053,3 +11053,9 @@ body.mobile-menu-lock {
 .cms-category-list article.is-selected{background:#f5f5f7;box-shadow:inset 3px 0 0 #1d1d1f}.cms-category-actions{display:flex;gap:3px}.cms-category-actions .danger{color:#b42318}.cms-category-actions button:disabled{opacity:.35;cursor:not-allowed}
 .cms-admin-shell .cms-category-editor-panel{margin-bottom:18px}.cms-admin-shell .cms-category-editor .wide{grid-column:1/-1}.cms-admin-shell .cms-category-editor>footer{display:flex;align-items:center;justify-content:flex-end;gap:10px}
 @media(max-width:900px){.cms-admin-shell .cms-media-layout.with-upload{grid-template-columns:1fr}.cms-admin-shell .cms-media-layout.with-upload .cms-upload-panel,.cms-admin-shell .cms-media-layout.with-upload .cms-media-library-head,.cms-admin-shell .cms-media-layout.with-upload .cms-media-grid{grid-column:1;grid-row:auto}.cms-admin-shell .cms-media-grid{grid-template-columns:repeat(auto-fill,minmax(128px,1fr))}}
+
+/* Keep product metric values inside their circular frames at every preview scale. */
+.series-hero-stat strong{box-sizing:border-box;max-width:112px;max-height:112px;overflow:hidden;text-align:center}
+.series-hero-stat strong.is-multiline{line-height:.95}
+.series-hero-stat strong.is-multiline small{display:block;line-height:1}
+@media(max-width:1020px){.series-hero-stat strong{max-width:88px;max-height:88px}.series-hero-stat strong.is-multiline{font-size:20px}}
