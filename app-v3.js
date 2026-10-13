@@ -135,7 +135,7 @@ let sourceRevealNodes = [];
 let sourceRevealObserver = null;
 let cmsActiveSection = "dashboard";
 const CMS_SECTION_IDS = new Set(["dashboard", "pages", "menus", "products", "categories", "news", "downloads", "manuals", "submissions", "seo", "media", "settings", "users", "roadmap"]);
-let cmsEditing = { products: "", news: "", pages: "", templates: "", downloads: "", manuals: "" };
+let cmsEditing = { products: "", categories: "", news: "", pages: "", templates: "", downloads: "", manuals: "" };
 let cmsUploadOpen = false;
 let cmsEditingMediaId = "";
 let cmsDownloadCategoriesOpen = false;
@@ -1007,11 +1007,15 @@ function tervonaCatalogProducts() {
   return Array.isArray(products) ? products : [];
 }
 
-function productCategories() {
+function managedProductRecords() {
+  return Array.isArray(cmsRemoteState?.products) && cmsRemoteState.products.length
+    ? cmsRemoteState.products
+    : tervonaCatalogProducts();
+}
+
+function catalogProductCategories() {
   const categories = tervonaCatalog().categories;
-  if (Array.isArray(categories) && categories.length) {
-    return categories.filter((category) => category.status !== "Hidden" && category.status !== "Draft");
-  }
+  if (Array.isArray(categories) && categories.length) return categories;
   return [
     { slug: "low-voltage-battery", title: "Low-Voltage Batteries", icon: "/assets/tervona-products/low-voltage-battery-series.png", intro: "Low-voltage batteries in rack-mount and floor-standing formats." },
     { slug: "hybrid-inverter", title: "Low-Voltage Hybrid Inverters", icon: "/assets/tervona-products/ecolink-series.png", intro: "EcoLink single-phase low-voltage hybrid inverter models." },
@@ -1020,17 +1024,31 @@ function productCategories() {
   ];
 }
 
+function productCategories(options = {}) {
+  const managed = Array.isArray(cmsRemoteState?.categories) && cmsRemoteState.categories.length
+    ? cmsRemoteState.categories
+    : catalogProductCategories();
+  const ordered = [...managed].sort((a, b) => Number(a.order || 0) - Number(b.order || 0));
+  return options.includeHidden
+    ? ordered
+    : ordered.filter((category) => category.status !== "Hidden" && category.status !== "Draft");
+}
+
 function productTaxonomy() {
   const taxonomy = tervonaCatalog().taxonomy;
-  if (Array.isArray(taxonomy) && taxonomy.length) return taxonomy;
-  return productCategories().map((category, index) => ({
-    slug: category.slug,
-    label: category.navTitle || category.title,
-    code: `P${index + 1}`,
-    href: `/products/${category.slug}`,
-    aliases: [],
-    children: [],
-  }));
+  return productCategories().map((category, index) => {
+    const sourceSlug = category.catalogSlug || category.slug;
+    const source = Array.isArray(taxonomy) ? taxonomy.find((item) => item.slug === sourceSlug) : null;
+    return {
+      ...(source || {}),
+      slug: category.slug,
+      label: category.navTitle || category.title,
+      code: source?.code || `P${index + 1}`,
+      href: `/products/${category.slug}`,
+      aliases: source?.aliases || [],
+      children: source?.children || [],
+    };
+  });
 }
 
 function activeProductTaxonomySlug() {
@@ -1356,7 +1374,7 @@ function applyGoogleLanguage(lang) {
 }
 
 function productPages(slug) {
-  const products = tervonaCatalogProducts();
+  const products = managedProductRecords();
   if (products.length) {
     return products.filter((product) => product.category === slug && product.status === "Published");
   }
@@ -1572,7 +1590,7 @@ function isRetiredPublicRoute(route) {
   if (route === "/privacy" || route === "/sitemap.html") return true;
   if (!route.startsWith("/products/") || route === "/products") return false;
   const categoryPaths = new Set(productCategories().map((category) => `/products/${category.slug}`));
-  const productPaths = new Set(tervonaCatalogProducts()
+  const productPaths = new Set(managedProductRecords()
     .filter((product) => product.status === "Published")
     .map((product) => routePathOnly(product.path)));
   return !categoryPaths.has(route) && !productPaths.has(route);
@@ -1677,7 +1695,7 @@ function categoryMobileHero(slug) {
 }
 
 function categoryHotDesktopHero(slug, record) {
-  if (tervonaCatalogProducts().length) return categoryForSlug(slug)?.heroImage || record.heroImage || categoryDesktopHero(slug);
+  if (managedProductRecords().length) return categoryForSlug(slug)?.heroImage || record.heroImage || categoryDesktopHero(slug);
   return record.heroImage || categoryDesktopHero(slug);
 }
 
@@ -1815,7 +1833,7 @@ function renderProductDetailPage(path) {
   const cat = categoryForSlug(parts[2]);
   const productRecord = cmsNormalizeProductRecord(cmsProductRecordForPath(path), path);
   const categoryLabel = cat.title.replace(/ies$/, "y").replace(/s$/, "");
-  const isTervonaProductDetail = tervonaCatalogProducts().some((product) => routePathOnly(product.path) === routePathOnly(path));
+  const isTervonaProductDetail = managedProductRecords().some((product) => routePathOnly(product.path) === routePathOnly(path));
   const bannerImage = productRecord.bannerImage || productRecord.heroImage;
   const bannerTitle = productRecord.title || cleanTitle(page.title);
   const directDatasheetUrl = String(productRecord.datasheetUrl || "").trim();
@@ -2247,6 +2265,18 @@ function cmsSeedProducts() {
   })));
 }
 
+function cmsSeedCategories() {
+  return catalogProductCategories().map((category, index) => ({
+    ...category,
+    id: category.id || category.slug,
+    catalogSlug: category.catalogSlug || category.slug,
+    navTitle: category.navTitle || category.title,
+    heroImage: category.heroImage || category.icon || "/assets/tervona-products/category-scene-tervona-v2.png",
+    status: category.status || "Published",
+    order: Number(category.order || index + 1),
+  }));
+}
+
 function cmsSeedNews() {
   return [];
 }
@@ -2356,6 +2386,7 @@ function cmsHomeMaterialGuide() {
 function cmsDefaultState() {
   return {
     products: cmsSeedProducts(),
+    categories: cmsSeedCategories(),
     news: cmsSeedNews(),
     pages: cmsSeedPages(),
     media: cmsSeedMedia(),
@@ -2373,8 +2404,8 @@ function cmsSanitizeState(state) {
   const savedProducts = Array.isArray(state.products) ? state.products : [];
   const productRecords = tervonaCatalogProducts().length
     ? defaults.products.map((seed) => {
-        const saved = savedProducts.find((record) => routePathOnly(record.path || record.id) === routePathOnly(seed.path || seed.id));
-        return saved ? { ...seed, ...saved, id: seed.id, path: seed.path, category: seed.category } : seed;
+        const saved = savedProducts.find((record) => record.catalogId === seed.id || routePathOnly(record.path || record.id) === routePathOnly(seed.path || seed.id));
+        return saved ? { ...seed, ...saved } : seed;
       })
     : (savedProducts.length ? savedProducts : defaults.products);
   const newsRecords = Array.isArray(state.news) ? state.news.map((record) => {
@@ -2383,6 +2414,7 @@ function cmsSanitizeState(state) {
   }) : defaults.news;
   return {
     products: productRecords,
+    categories: Array.isArray(state.categories) && state.categories.length ? state.categories : defaults.categories,
     news: newsRecords,
     pages: Array.isArray(state.pages) ? state.pages : defaults.pages,
     media: Array.isArray(state.media) ? [...state.media, ...defaults.media.filter((seed) => !state.media.some((item) => item.url === seed.url))] : defaults.media,
@@ -2420,12 +2452,13 @@ function cmsRecentContent(state = cmsAdminState()) {
 }
 
 function cmsCategoryRecords(state = cmsAdminState()) {
-  return productCategories().map((category, index) => ({
+  const categories = Array.isArray(state.categories) && state.categories.length ? state.categories : cmsSeedCategories();
+  return [...categories].sort((a, b) => Number(a.order || 0) - Number(b.order || 0)).map((category, index) => ({
     ...category,
     id: category.slug,
     count: state.products.filter((product) => product.category === category.slug).length,
-    status: "Published",
-    order: index + 1,
+    status: category.status || "Published",
+    order: Number(category.order || index + 1),
   }));
 }
 
@@ -3174,6 +3207,21 @@ function cmsNewProductRecord() {
   };
 }
 
+function cmsNewCategoryRecord() {
+  const slug = `new-category-${Date.now()}`;
+  return {
+    id: slug,
+    catalogSlug: slug,
+    slug,
+    title: "New Product Category",
+    navTitle: "New Product Category",
+    intro: "Add a short introduction for this product category.",
+    heroImage: "/assets/tervona-products/category-scene-tervona-v2.png",
+    status: "Draft",
+    order: productCategories({ includeHidden: true }).length + 1,
+  };
+}
+
 function cmsProductRecordForPath(path, state = cmsAdminState()) {
   const route = routePathOnly(path);
   return state.products.find((product) => routePathOnly(product.path || product.id) === route || product.id === route)
@@ -3555,7 +3603,7 @@ function renderCmsLiveProductEditor(record, originalId) {
         </div>
         <div class="cms-preview-stage" data-cms-preview-stage>
           <div class="cms-preview-frame" data-cms-preview-frame>
-            <section class="series-hero cms-preview-series-hero">
+            <section class="series-hero unified-product-banner cms-preview-series-hero">
               <div class="series-hero-bg"><img src="${esc(record.heroImage)}" alt="" data-live-preview="heroImage"></div>
               <div class="series-hero-copy">
                 <a class="back-link" data-live-preview="categoryLabel">${esc(cat.title.replace(/ies$/, "y").replace(/s$/, ""))}</a>
@@ -3822,6 +3870,24 @@ function renderCmsPageRecords(pages) {
   </div>`;
 }
 
+function renderCmsCategoryEditor(category) {
+  if (!category) return "";
+  return `<section class="cms-edit-panel cms-category-editor-panel">
+    <div class="cms-edit-panel-head"><div><span>产品分类</span><h2>${esc(category.title || "新分类")}</h2><p>修改后会同步影响产品中心、分类页、导航标签和产品 URL 结构。</p></div><button type="button" data-cms-close="categories">关闭</button></div>
+    <form class="cms-editor-form cms-category-editor" data-cms-editor="categories">
+      <input type="hidden" name="originalSlug" value="${esc(category.slug || "")}">
+      <label>分类名称<input name="title" value="${esc(category.title || "")}" required></label>
+      <label>导航名称<input name="navTitle" value="${esc(category.navTitle || category.title || "")}" required></label>
+      <label>URL 标识（slug）<input name="slug" value="${esc(category.slug || "")}" pattern="[a-z0-9]+(?:-[a-z0-9]+)*" required><small>只使用小写英文字母、数字和连字符；修改后该分类下产品路径会一起更新。</small></label>
+      <label>排序<input name="order" type="number" min="1" step="1" value="${Number(category.order || 1)}"></label>
+      <label>状态<select name="status"><option value="Published" ${category.status === "Published" ? "selected" : ""}>已发布</option><option value="Draft" ${category.status === "Draft" ? "selected" : ""}>草稿</option><option value="Hidden" ${category.status === "Hidden" ? "selected" : ""}>隐藏</option></select></label>
+      <label class="wide">分类简介<textarea name="intro" rows="3">${esc(category.intro || "")}</textarea></label>
+      <div class="wide">${renderCmsMediaPicker("heroImage", category.heroImage || category.icon || "", "产品中心分类图片")}</div>
+      <footer class="wide"><button type="submit">保存分类</button><a href="${localHref(`/products/${category.slug}`)}" target="_blank">查看分类页</a></footer>
+    </form>
+  </section>`;
+}
+
 function renderCmsMediaLibrary(state = cmsAdminState()) {
   const folders = [
     ["products", "产品图片"],
@@ -3834,6 +3900,7 @@ function renderCmsMediaLibrary(state = cmsAdminState()) {
     ${cmsUploadOpen ? `<form class="cms-upload-panel" data-cms-upload>
       <div class="cms-upload-head"><h3>上传素材</h3><button type="button" data-cms-close-upload>收起</button></div>
       <label>素材标题<input name="title" placeholder="F Series 主图"></label>
+      <label>ALT 替代文本<input name="altText" placeholder="例如：Tervona 低压机架式电池正面图"></label>
       <label>存放目录<select name="folder">${folders.map(([value, label]) => `<option value="${value}">${label}</option>`).join("")}</select></label>
       <label>使用位置<select name="usage">
         ${["产品详情首屏和产品卡片", "新闻卡片和新闻详情首屏", "首页首屏", "关于我们首屏", "底部 CTA 模板", "品牌素材", "未分配"].map((usage) => `<option value="${esc(usage)}">${esc(usage)}</option>`).join("")}
@@ -3843,14 +3910,16 @@ function renderCmsMediaLibrary(state = cmsAdminState()) {
       <button type="submit">添加到媒体库</button>
       <p>上传文件会保存到 /uploads/[目录]/，之后可以在产品、新闻和页面编辑器中复用。Manual 请使用左侧独立的“Manual 管理”入口。</p>
     </form>` : ""}
+    <div class="cms-media-library-head"><div><b>${state.media.length} 个素材</b><span>点击缩略图或“编辑详情”，可修改附件名称、ALT、说明和描述。</span></div></div>
     <div class="cms-media-grid">
-      ${state.media.map((asset) => `<article class="${cmsEditingMediaId === asset.id ? "is-selected" : ""}" data-cms-edit-media="${esc(asset.id)}" tabindex="0" role="button" aria-label="编辑 ${esc(asset.title)}">
-        <div class="cms-media-thumb">${asset.type === "document" ? "<span>PDF</span>" : `<img src="${esc(asset.url)}" alt="">`}</div>
-        <div><h3>${esc(asset.title)}</h3><p>${esc(asset.url)}</p><em>${esc(cmsUsageLabel(asset.usage))}</em>
-          <dl><dt>大小</dt><dd>${esc(cmsFormatBytes(asset.size))}</dd><dt>类型</dt><dd>${esc(cmsMediaMimeLabel(asset))}</dd><dt>目录</dt><dd>${esc(asset.folder || "products")}</dd></dl>
-        </div>
-        <button type="button" data-cms-copy-media="${esc(asset.url)}">复制地址</button>
-      </article>`).join("")}
+      ${state.media.map((asset) => {
+        const publicUrl = cmsPublicMediaUrl(asset.url);
+        return `<article class="${cmsEditingMediaId === asset.id ? "is-selected" : ""}" data-cms-edit-media="${esc(asset.id)}" tabindex="0" role="button" aria-label="编辑 ${esc(asset.title)}">
+          <div class="cms-media-thumb">${asset.type === "document" ? "<span>PDF</span>" : asset.type === "video" ? `<video src="${esc(asset.url)}" muted preload="metadata"></video>` : `<img src="${esc(asset.url)}" alt="${esc(asset.altText || asset.title || "")}">`}</div>
+          <div class="cms-media-card-copy"><h3 title="${esc(asset.title)}">${esc(asset.title)}</h3><p title="${esc(asset.altText || "尚未填写 ALT")}">ALT：${esc(asset.altText || "尚未填写")}</p><em>${esc(cmsUsageLabel(asset.usage))}</em></div>
+          <footer><button type="button" data-cms-open-media-detail>编辑详情</button><button type="button" data-cms-copy-media="${esc(publicUrl)}">复制链接</button></footer>
+        </article>`;
+      }).join("")}
     </div>
     ${renderCmsMediaEditor(state)}
   </div>`;
@@ -3919,6 +3988,7 @@ function renderCmsMediaEditor(state = cmsAdminState()) {
   if (index < 0) return "";
   const asset = media[index];
   const fileName = String(asset.url || "").split("/").pop()?.split("?")[0] || asset.title || "media-file";
+  const publicUrl = cmsPublicMediaUrl(asset.url);
   const uploadedAt = asset.createdAt || asset.updatedAt || "";
   return `<div class="cms-media-editor-backdrop" data-cms-close-media-editor>
     <section class="cms-media-editor-dialog" role="dialog" aria-modal="true" aria-label="媒体附件详情" data-cms-media-editor-dialog>
@@ -3934,8 +4004,8 @@ function renderCmsMediaEditor(state = cmsAdminState()) {
         <div class="cms-media-editor-preview">
           ${asset.type === "document" ? `<div class="cms-media-file-preview"><span>PDF</span><b>${esc(fileName)}</b></div>` : asset.type === "video" ? `<video src="${esc(asset.url)}" controls></video>` : `<img src="${esc(asset.url)}" alt="${esc(asset.altText || "")}">`}
           <div class="cms-media-preview-actions">
-            <a href="${esc(asset.url)}" target="_blank" rel="noopener">查看原文件</a>
-            <button type="button" data-cms-copy-media="${esc(asset.url)}">复制文件地址</button>
+            <a href="${esc(publicUrl)}" target="_blank" rel="noopener">查看原文件</a>
+            <button type="button" data-cms-copy-media="${esc(publicUrl)}">复制完整链接</button>
           </div>
         </div>
         <form class="cms-media-detail-form" data-cms-media-detail>
@@ -3947,11 +4017,11 @@ function renderCmsMediaEditor(state = cmsAdminState()) {
             <p><span>文件大小</span><b>${esc(cmsFormatBytes(asset.size))}</b></p>
             ${asset.size ? `<p><span>尺寸 / 信息</span><b>${esc(String(asset.size))}</b></p>` : ""}
           </div>
-          <label>替代文本<textarea name="altText" rows="2" placeholder="描述图片的内容和用途">${esc(asset.altText || "")}</textarea><small>用于无障碍访问和图片无法显示时的替代说明。</small></label>
-          <label>标题<input name="title" value="${esc(asset.title || "")}"></label>
+          <label>ALT 替代文本<textarea name="altText" rows="2" placeholder="描述图片的内容和用途">${esc(asset.altText || "")}</textarea><small>用于无障碍访问、SEO，以及图片无法显示时的替代说明。</small></label>
+          <label>附件名称<input name="title" value="${esc(asset.title || "")}"><small>这是媒体库中的显示名称，不会改动物理文件名或已有 URL。</small></label>
           <label>说明文字<textarea name="caption" rows="2">${esc(asset.caption || "")}</textarea></label>
           <label>描述<textarea name="description" rows="3">${esc(asset.description || asset.usage || "")}</textarea></label>
-          <label>文件地址<div class="cms-media-url-field"><input value="${esc(asset.url)}" readonly><button type="button" data-cms-copy-media="${esc(asset.url)}">复制</button></div></label>
+          <label>图片链接<div class="cms-media-url-field"><input value="${esc(publicUrl)}" readonly><button type="button" data-cms-copy-media="${esc(publicUrl)}">复制</button></div><small>这是可直接分享和引用的完整公开 URL。</small></label>
           <label>目录<select name="folder">${foldersForMediaEditor(asset.folder).map(([value, label]) => `<option value="${value}" ${asset.folder === value ? "selected" : ""}>${label}</option>`).join("")}</select></label>
           <label>使用位置<input name="usage" value="${esc(asset.usage || "")}"></label>
           <footer><span data-cms-media-save-status></span><button type="submit">保存媒体信息</button></footer>
@@ -3959,6 +4029,15 @@ function renderCmsMediaEditor(state = cmsAdminState()) {
       </div>
     </section>
   </div>`;
+}
+
+function cmsPublicMediaUrl(url = "") {
+  if (!url) return "";
+  try {
+    return new URL(hrefFor(url), window.location.href).href;
+  } catch {
+    return url;
+  }
 }
 
 function foldersForMediaEditor(selected = "") {
@@ -4266,6 +4345,7 @@ function renderCmsAdmin(params = new URLSearchParams()) {
   const manualCount = (state.downloads || []).filter((item) => item.type === "user-manual").length;
   const recentContent = cmsRecentContent(state);
   const categories = cmsCategoryRecords(state);
+  const selectedCategory = categories.find((category) => category.slug === cmsEditing.categories);
   const averageSeo = Math.round(recentContent.reduce((total, item) => total + cmsSeoScore(item), 0) / Math.max(1, recentContent.length));
   const productRows = cmsProductRows(state);
   const selectedProduct = state.products.find((product) => product.id === cmsEditing.products) || state.products[0] || cmsNewProductRecord();
@@ -4356,9 +4436,10 @@ function renderCmsAdmin(params = new URLSearchParams()) {
 
         <section class="cms-section ${cmsActiveSection === "categories" ? "active" : ""}" data-cms-section="categories">
           <div class="cms-page-title"><span>内容结构</span><h1>产品分类</h1><p>分类决定产品集合页、导航入口和产品详情页的 URL 结构。</p></div>
-          <div class="cms-section-head"><div><span>分类目录</span><h2>一次定义，自动应用到所有产品模板</h2></div><div class="cms-actions"><button type="button" data-cms-nav-jump="products">新增产品</button><a href="${localHref("/products")}">查看产品中心</a></div></div>
+          <div class="cms-section-head"><div><span>分类目录</span><h2>一次定义，自动应用到所有产品模板</h2></div><div class="cms-actions"><button type="button" data-cms-add="categories">新增分类</button><a href="${localHref("/products")}">查看产品中心</a></div></div>
+          ${selectedCategory ? renderCmsCategoryEditor(selectedCategory) : ""}
           <div class="cms-category-list">
-            ${categories.map((category) => `<article><div class="cms-category-order">${String(category.order).padStart(2, "0")}</div><div><b>${esc(category.title)}</b><small>/products/${esc(category.slug)}</small></div><p>${esc(category.intro || "统一管理该分类下的产品记录与集合页展示。")}</p><strong>${category.count} 个产品</strong><span class="cms-status-dot published">已发布</span><button type="button" data-cms-nav-jump="products">管理产品</button></article>`).join("")}
+            ${categories.map((category) => `<article class="${cmsEditing.categories === category.slug ? "is-selected" : ""}"><div class="cms-category-order">${String(category.order).padStart(2, "0")}</div><div><b>${esc(category.title)}</b><small>/products/${esc(category.slug)}</small></div><p>${esc(category.intro || "统一管理该分类下的产品记录与集合页展示。")}</p><strong>${category.count} 个产品</strong><span class="cms-status-dot ${category.status === "Published" ? "published" : ""}">${esc(cmsStatusLabel(category.status))}</span><div class="cms-category-actions"><button type="button" data-cms-edit="categories" data-cms-id="${esc(category.slug)}">编辑</button><button type="button" class="danger" data-cms-delete-category="${esc(category.slug)}" ${category.count ? "disabled" : ""}>删除</button></div></article>`).join("")}
           </div>
         </section>
 
@@ -4568,6 +4649,9 @@ function cmsAddMediaRecord(asset) {
     usage: asset.usage || "未分配",
     size: asset.size || "",
     mimeType: asset.mimeType || "",
+    altText: asset.altText || "",
+    caption: asset.caption || "",
+    description: asset.description || asset.usage || "",
   };
   state.media = [cleanAsset, ...state.media.filter((item) => item.url !== cleanAsset.url)];
   cmsActiveSection = "media";
@@ -4587,6 +4671,7 @@ async function cmsUploadMedia(form) {
       folder: values.folder,
       type: /\.pdf$/i.test(values.url) ? "document" : (/\.(mp4|webm|mov)$/i.test(values.url) ? "video" : "image"),
       usage: values.usage,
+      altText: values.altText,
     });
     return;
   }
@@ -4609,7 +4694,7 @@ async function cmsUploadMedia(form) {
   if (!response.ok || !payload.ok) throw new Error(payload.error || "上传失败");
   cmsBackendStatus = "Connected";
   cmsBackendSource = payload.source || "cms-api";
-  cmsAddMediaRecord(payload.asset);
+  cmsAddMediaRecord({ ...payload.asset, altText: values.altText || "" });
 }
 
 async function cmsSaveManual(form) {
@@ -4714,7 +4799,7 @@ function cmsSaveLiveEditor(form) {
   if (type !== "products") return;
   const values = Object.fromEntries(new FormData(form).entries());
   const existing = state.products.find((item) => item.id === values.originalId || item.path === values.originalId) || {};
-  const record = { ...existing, ...cmsLiveEditorRecordFromForm(form) };
+  const record = { ...existing, ...cmsLiveEditorRecordFromForm(form), catalogId: existing.catalogId || existing.id || values.originalId };
   const index = state.products.findIndex((item) => item.id === values.originalId || item.path === values.originalId);
   if (index >= 0) state.products[index] = record;
   else state.products.unshift(record);
@@ -4882,12 +4967,65 @@ function cmsSaveEditor(form) {
   const state = cmsAdminState();
   const type = form.dataset.cmsEditor;
   const values = Object.fromEntries(new FormData(form).entries());
+  if (type === "categories") {
+    const originalSlug = String(values.originalSlug || "").trim();
+    const slug = String(values.slug || "").trim().toLowerCase().replace(/[^a-z0-9-]+/g, "-").replace(/^-+|-+$/g, "");
+    if (!slug) {
+      window.alert("请填写有效的分类 URL 标识。");
+      return;
+    }
+    const duplicate = (state.categories || []).some((item) => item.slug === slug && item.slug !== originalSlug);
+    if (duplicate) {
+      window.alert("这个分类 URL 标识已存在，请换一个 slug。");
+      return;
+    }
+    const index = (state.categories || []).findIndex((item) => item.slug === originalSlug);
+    const existing = index >= 0 ? state.categories[index] : {};
+    const record = cmsStampRecord({
+      ...existing,
+      id: slug,
+      catalogSlug: existing.catalogSlug || originalSlug || slug,
+      slug,
+      title: values.title || "未命名分类",
+      navTitle: values.navTitle || values.title || "未命名分类",
+      intro: values.intro || "",
+      heroImage: values.heroImage || existing.heroImage || "/assets/tervona-products/category-scene-tervona-v2.png",
+      icon: values.heroImage || existing.icon || existing.heroImage || "",
+      status: values.status || "Draft",
+      order: Math.max(1, Number(values.order || 1)),
+    }, existing);
+    if (index >= 0) state.categories[index] = record;
+    else state.categories = [...(state.categories || []), record];
+    if (originalSlug && originalSlug !== slug) {
+      state.products = state.products.map((product) => {
+        if (product.category !== originalSlug) return product;
+        const oldPrefix = `/products/${originalSlug}/`;
+        const nextPath = String(product.path || product.id || "").replace(oldPrefix, `/products/${slug}/`);
+        return { ...product, catalogId: product.catalogId || product.id, id: nextPath, path: nextPath, category: slug, categoryLabel: record.title };
+      });
+      state.menus = cmsMenus(state).map((menu) => ({
+        ...menu,
+        href: menu.href === `/products/${originalSlug}` ? `/products/${slug}` : menu.href,
+        children: (menu.children || []).map((child) => ({
+          ...child,
+          href: child.href === `/products/${originalSlug}` ? `/products/${slug}` : child.href,
+          taxonomySlug: child.taxonomySlug === originalSlug ? slug : child.taxonomySlug,
+        })),
+      }));
+    } else {
+      state.products = state.products.map((product) => product.category === slug ? { ...product, categoryLabel: record.title } : product);
+    }
+    cmsEditing.categories = record.slug;
+    cmsActiveSection = "categories";
+    cmsTrackActivity(state, index >= 0 ? "已更新" : "已创建", record, "产品分类");
+  }
   if (type === "products") {
     const cat = categoryForSlug(values.category);
     const path = cmsNormalizeRecordPath(values.path, `/products/${cat.slug}/new-product`);
     const existing = state.products.find((item) => item.id === values.originalId) || {};
     const record = cmsStampRecord({
       ...existing,
+      catalogId: existing.catalogId || existing.id || values.originalId,
       id: path,
       title: values.title || "未命名产品",
       category: cat.slug,
@@ -5018,6 +5156,12 @@ function cmsSaveEditor(form) {
 
 function cmsAddRecord(type) {
   const state = cmsAdminState();
+  if (type === "categories") {
+    const record = cmsNewCategoryRecord();
+    state.categories = [...(state.categories || cmsSeedCategories()), record];
+    cmsEditing.categories = record.slug;
+    cmsActiveSection = "categories";
+  }
   if (type === "products") {
     const record = cmsNewProductRecord();
     state.products.unshift(record);
@@ -5768,6 +5912,22 @@ function bind() {
       const type = button.dataset.cmsDelete;
       const label = type === "products" ? "产品" : (type === "downloads" ? "下载文件" : "新闻");
       if (window.confirm(`确定要从后台草稿中删除这个${label}吗？`)) cmsDeleteRecord(type, button.dataset.cmsId);
+    });
+  });
+  document.querySelectorAll("[data-cms-delete-category]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const slug = button.dataset.cmsDeleteCategory;
+      const state = cmsAdminState();
+      if (state.products.some((product) => product.category === slug)) {
+        window.alert("该分类下仍有产品，请先移动或删除这些产品。");
+        return;
+      }
+      if (!window.confirm("确定删除这个空产品分类吗？")) return;
+      state.categories = (state.categories || []).filter((category) => category.slug !== slug);
+      if (cmsEditing.categories === slug) cmsEditing.categories = "";
+      cmsActiveSection = "categories";
+      cmsSaveState(state);
+      render();
     });
   });
   document.querySelectorAll("[data-cms-editor]").forEach((form) => {
