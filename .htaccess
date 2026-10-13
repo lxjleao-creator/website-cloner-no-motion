@@ -1,6 +1,18 @@
 Options -MultiViews
 DirectoryIndex index.html
 
+<IfModule mod_mime.c>
+  AddType application/msword .doc
+  AddType application/vnd.openxmlformats-officedocument.wordprocessingml.document .docx
+  AddType application/vnd.ms-excel .xls
+  AddType application/vnd.openxmlformats-officedocument.spreadsheetml.sheet .xlsx
+  AddType application/vnd.ms-powerpoint .ppt
+  AddType application/vnd.openxmlformats-officedocument.presentationml.presentation .pptx
+  AddType application/zip .zip
+  AddType application/vnd.rar .rar
+  AddType application/x-7z-compressed .7z
+</IfModule>
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
@@ -10,8 +22,9 @@ DirectoryIndex index.html
   RewriteRule ^ - [L]
 
   # Uploaded files must never fall back to the single-page application.
-  # A missing PDF should return 404 instead of rendering a fake content page.
+  # A missing download should return 404 instead of rendering a fake content page.
   RewriteRule ^uploads/ - [L]
+  RewriteRule ^product/manual(?:/|$) - [L]
 
   RewriteRule ^ index.html [L]
 </IfModule>

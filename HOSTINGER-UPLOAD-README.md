@@ -30,3 +30,18 @@ After uploading, open the temporary Hostinger domain or your connected domain an
 /products/pv-inverter/10
 /news
 ```
+
+## User Manual uploads
+
+The CMS has a separate **Manual 管理** entry and a matching `manuals` account permission.
+Manual files are stored outside the general media library under:
+
+```text
+/product/manual/<editable-file-name>.<uploaded-file-extension>
+```
+
+Supported formats: PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, TXT, ZIP, RAR and 7Z.
+The uploader can choose the URL file name (letters, numbers, hyphens and underscores).
+Names are normalized to lowercase, and uploading the same name and extension replaces
+the file while keeping its public URL unchanged.
+The public Downloads page continues to expose these records under the **User Manual** filter.

@@ -24,7 +24,7 @@ $formsFile = $contentDir . DIRECTORY_SEPARATOR . 'forms.json';
 $privateDir = dirname($root) . DIRECTORY_SEPARATOR . '.enplus-private';
 $mailSettingsFile = $privateDir . DIRECTORY_SEPARATOR . 'smtp.json';
 $action = $_GET['action'] ?? 'state';
-$permissionKeys = ['pages', 'menus', 'products', 'categories', 'news', 'downloads', 'submissions', 'seo', 'media', 'settings'];
+$permissionKeys = ['pages', 'menus', 'products', 'categories', 'news', 'downloads', 'manuals', 'submissions', 'seo', 'media', 'settings'];
 
 function cms_response(int $status, array $payload): void {
     http_response_code($status);
@@ -72,7 +72,7 @@ function cms_seed_users(): array {
         'username' => strtolower($username),
         'displayName' => '超级管理员',
         'role' => 'super_admin',
-        'permissions' => ['pages', 'menus', 'products', 'categories', 'news', 'downloads', 'submissions', 'seo', 'media', 'settings'],
+        'permissions' => ['pages', 'menus', 'products', 'categories', 'news', 'downloads', 'manuals', 'submissions', 'seo', 'media', 'settings'],
         'active' => true,
         'salt' => $salt,
         'passwordHash' => cms_password_hash($password, $salt),
@@ -153,7 +153,6 @@ function cms_authorized_state(array $user, ?array $current, array $incoming): ar
         'menus' => 'menus',
         'products' => 'products',
         'news' => 'news',
-        'downloads' => 'downloads',
         'downloadCategories' => 'downloads',
         'media' => 'media',
         'settings' => 'settings',
@@ -163,13 +162,22 @@ function cms_authorized_state(array $user, ?array $current, array $incoming): ar
             $result[$field] = $incoming[$field];
         }
     }
+    if (cms_has_permission($user, 'downloads') && array_key_exists('downloads', $incoming)) {
+        $result['downloads'] = $incoming['downloads'];
+    } elseif (cms_has_permission($user, 'manuals') && isset($incoming['downloads']) && is_array($incoming['downloads'])) {
+        $currentDownloads = isset($current['downloads']) && is_array($current['downloads']) ? $current['downloads'] : [];
+        $protectedDownloads = array_values(array_filter($currentDownloads, fn($item) => ($item['type'] ?? '') !== 'user-manual'));
+        $protectedIds = array_fill_keys(array_map(fn($item) => (string)($item['id'] ?? ''), $protectedDownloads), true);
+        $manuals = array_values(array_filter($incoming['downloads'], fn($item) => ($item['type'] ?? '') === 'user-manual' && !isset($protectedIds[(string)($item['id'] ?? '')])));
+        $result['downloads'] = array_merge($manuals, $protectedDownloads);
+    }
     if (isset($incoming['activity']) && is_array($incoming['activity'])) $result['activity'] = $incoming['activity'];
     return $result;
 }
 
 function cms_safe_upload_folder(?string $folder): string {
     $cleaned = strtolower(preg_replace('/[^a-z0-9-]/i', '', $folder ?: 'products') ?: 'products');
-    $allowed = ['products', 'news', 'heroes', 'downloads', 'brand'];
+    $allowed = ['products', 'news', 'heroes', 'downloads', 'brand', 'product-manual'];
     return in_array($cleaned, $allowed, true) ? $cleaned : 'products';
 }
 
@@ -182,20 +190,42 @@ function cms_safe_upload_name(?string $name, string $mimeType): string {
     return time() . '-' . ($base ?: 'media') . $extension;
 }
 
+function cms_safe_manual_upload_name(?string $requestedName, ?string $sourceName): string {
+    $sourceRaw = basename(str_replace('\\', '/', $sourceName ?: ($requestedName ?: 'manual.pdf')));
+    $extension = strtolower(pathinfo($sourceRaw, PATHINFO_EXTENSION));
+    $requestedRaw = basename(str_replace('\\', '/', $requestedName ?: $sourceRaw));
+    $base = strtolower(pathinfo($requestedRaw, PATHINFO_FILENAME));
+    $base = trim(preg_replace('/[^a-z0-9_-]+/', '-', $base) ?: 'manual', '-_');
+    $base = preg_replace('/-+/', '-', $base) ?: 'manual';
+    return $base . ($extension ? '.' . $extension : '');
+}
+
 function cms_save_uploaded_data_url(string $root, array $payload): array {
     $dataUrl = $payload['dataUrl'] ?? '';
     if (!is_string($dataUrl) || !preg_match('/^data:([^;,]+);base64,(.+)$/i', $dataUrl, $matches)) cms_response(400, ['ok' => false, 'error' => 'Invalid upload payload']);
     $mimeType = $matches[1];
-    if (!preg_match('/^(image\/(jpeg|png|webp|gif|svg\+xml)|application\/pdf)$/i', $mimeType)) cms_response(400, ['ok' => false, 'error' => 'Unsupported upload type']);
     $folder = cms_safe_upload_folder($payload['folder'] ?? 'products');
-    $fileName = cms_safe_upload_name($payload['fileName'] ?? 'media-file', $mimeType);
-    $uploadDir = $root . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . $folder;
+    $manualExtension = strtolower(pathinfo((string)($payload['sourceFileName'] ?? ($payload['fileName'] ?? '')), PATHINFO_EXTENSION));
+    $allowedManualExtensions = ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'txt', 'zip', 'rar', '7z'];
+    if ($folder === 'product-manual') {
+        if (!in_array($manualExtension, $allowedManualExtensions, true)) cms_response(400, ['ok' => false, 'error' => 'Unsupported User Manual file type']);
+    } elseif (!preg_match('/^(image\/(jpeg|png|webp|gif|svg\+xml)|application\/pdf)$/i', $mimeType)) {
+        cms_response(400, ['ok' => false, 'error' => 'Unsupported upload type']);
+    }
+    $isProductManual = $folder === 'product-manual';
+    $fileName = $isProductManual
+        ? cms_safe_manual_upload_name($payload['fileName'] ?? null, $payload['sourceFileName'] ?? null)
+        : cms_safe_upload_name($payload['fileName'] ?? 'media-file', $mimeType);
+    $uploadDir = $isProductManual
+        ? $root . DIRECTORY_SEPARATOR . 'product' . DIRECTORY_SEPARATOR . 'manual'
+        : $root . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . $folder;
     if (!is_dir($uploadDir) && !mkdir($uploadDir, 0755, true) && !is_dir($uploadDir)) cms_response(500, ['ok' => false, 'error' => 'Unable to create upload directory']);
     $bytes = base64_decode($matches[2], true);
     if ($bytes === false) cms_response(400, ['ok' => false, 'error' => 'Unable to decode upload']);
+    if ($isProductManual && strlen($bytes) > 40 * 1024 * 1024) cms_response(413, ['ok' => false, 'error' => 'User Manual file exceeds the 40 MB limit']);
     $target = $uploadDir . DIRECTORY_SEPARATOR . $fileName;
     if (file_put_contents($target, $bytes, LOCK_EX) === false) cms_response(500, ['ok' => false, 'error' => 'Unable to save upload']);
-    $url = '/uploads/' . $folder . '/' . $fileName;
+    $url = ($isProductManual ? '/product/manual/' : '/uploads/' . $folder . '/') . $fileName;
     return ['id' => $url, 'title' => $payload['title'] ?? $fileName, 'url' => $url, 'folder' => $folder, 'type' => str_starts_with($mimeType, 'image/') ? 'image' : 'document', 'usage' => $payload['usage'] ?? 'Unassigned', 'size' => strlen($bytes), 'mimeType' => $mimeType, 'createdAt' => date(DATE_ATOM)];
 }
 
@@ -667,8 +697,12 @@ try {
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && $action === 'upload') {
         cms_require_csrf();
-        if (!cms_has_permission($currentUser, 'media')) cms_response(403, ['ok' => false, 'error' => '没有媒体上传权限']);
-        cms_response(200, ['ok' => true, 'source' => 'hostinger-php', 'asset' => cms_save_uploaded_data_url($root, cms_request_payload())]);
+        $payload = cms_request_payload();
+        $folder = cms_safe_upload_folder($payload['folder'] ?? 'products');
+        if ($folder === 'product-manual') {
+            if (!cms_has_permission($currentUser, 'manuals') && !cms_has_permission($currentUser, 'media')) cms_response(403, ['ok' => false, 'error' => '没有 Manual 上传权限']);
+        } elseif (!cms_has_permission($currentUser, 'media')) cms_response(403, ['ok' => false, 'error' => '没有媒体上传权限']);
+        cms_response(200, ['ok' => true, 'source' => 'hostinger-php', 'asset' => cms_save_uploaded_data_url($root, $payload)]);
     }
 
     if ($_SERVER['REQUEST_METHOD'] === 'GET' && $action === 'users') {

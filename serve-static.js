@@ -13,7 +13,7 @@ const cmsUsersFile = path.join(cmsDir, "cms-users.json");
 const cmsSubmissionsFile = path.join(cmsDir, "submissions.json");
 const cmsFormsFile = path.join(cmsDir, "forms.json");
 const cmsMailSettingsFile = path.join(path.dirname(root), ".enplus-private", "smtp.local.json");
-const permissionKeys = ["pages", "menus", "products", "categories", "news", "downloads", "submissions", "seo", "media", "settings", "content_ai", "knowledge", "content_plan", "analytics", "ads", "site_health", "publish", "members"];
+const permissionKeys = ["pages", "menus", "products", "categories", "news", "downloads", "manuals", "submissions", "seo", "media", "settings", "content_ai", "knowledge", "content_plan", "analytics", "ads", "site_health", "publish", "members"];
 const sessionCookieName = "enplus_cms_session";
 const sessions = new Map();
 const loginAttempts = new Map();
@@ -21,7 +21,9 @@ const loginAttempts = new Map();
 const mime = {
   ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8", ".json": "application/json; charset=utf-8",
   ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp", ".gif": "image/gif", ".svg": "image/svg+xml", ".ico": "image/x-icon",
-  ".mp4": "video/mp4", ".webm": "video/webm", ".pdf": "application/pdf", ".woff": "font/woff", ".woff2": "font/woff2"
+  ".mp4": "video/mp4", ".webm": "video/webm", ".pdf": "application/pdf", ".doc": "application/msword", ".docx": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  ".xls": "application/vnd.ms-excel", ".xlsx": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", ".ppt": "application/vnd.ms-powerpoint", ".pptx": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+  ".txt": "text/plain; charset=utf-8", ".zip": "application/zip", ".rar": "application/vnd.rar", ".7z": "application/x-7z-compressed", ".woff": "font/woff", ".woff2": "font/woff2"
 };
 
 class HttpError extends Error {
@@ -58,16 +60,16 @@ function sendFile(req, res, filePath) {
   });
 }
 
-function readBody(req) {
+function readBody(req, maxBytes = 10 * 1024 * 1024) {
   return new Promise((resolve, reject) => {
     let body = "";
-    req.on("data", (chunk) => { body += chunk; if (body.length > 10 * 1024 * 1024) { req.destroy(); reject(new HttpError(413, "Request body too large")); } });
+    req.on("data", (chunk) => { body += chunk; if (body.length > maxBytes) { req.destroy(); reject(new HttpError(413, "Request body too large")); } });
     req.on("end", () => resolve(body)); req.on("error", reject);
   });
 }
 
-async function readPayload(req) {
-  const body = await readBody(req);
+async function readPayload(req, maxBytes) {
+  const body = await readBody(req, maxBytes);
   if (!body) return {};
   try { return JSON.parse(body); } catch { throw new HttpError(400, "请求格式不正确"); }
 }
@@ -163,16 +165,32 @@ function cleanPermissions(permissions) {
 function authorizedState(user, current, incoming) {
   if (user.role === "super_admin" || !current) return incoming;
   const result = structuredClone(current);
-  const fields = { pages: "pages", menus: "menus", products: "products", news: "news", downloads: "downloads", downloadCategories: "downloads", media: "media", settings: "settings" };
+  const fields = { pages: "pages", menus: "menus", products: "products", news: "news", downloadCategories: "downloads", media: "media", settings: "settings" };
   for (const [field, permission] of Object.entries(fields)) if (hasPermission(user, permission) && Object.hasOwn(incoming, field)) result[field] = incoming[field];
+  if (hasPermission(user, "downloads") && Object.hasOwn(incoming, "downloads")) {
+    result.downloads = incoming.downloads;
+  } else if (hasPermission(user, "manuals") && Array.isArray(incoming.downloads)) {
+    const currentDownloads = Array.isArray(current.downloads) ? current.downloads : [];
+    const protectedDownloads = currentDownloads.filter((item) => item.type !== "user-manual");
+    const protectedIds = new Set(protectedDownloads.map((item) => item.id));
+    const manuals = incoming.downloads.filter((item) => item?.type === "user-manual" && !protectedIds.has(item.id));
+    result.downloads = [...manuals, ...protectedDownloads];
+  }
   if (Array.isArray(incoming.activity)) result.activity = incoming.activity;
   return result;
 }
 
 function safeUploadFolder(folder) {
-  const allowed = new Set(["products", "news", "heroes", "downloads", "brand"]);
+  const allowed = new Set(["products", "news", "heroes", "downloads", "brand", "product-manual"]);
   const cleaned = String(folder || "products").replace(/[^a-z0-9-]/gi, "").toLowerCase();
   return allowed.has(cleaned) ? cleaned : "products";
+}
+
+function uploadTarget(folder) {
+  if (folder === "product-manual") {
+    return { directory: path.join(root, "product", "manual"), urlBase: "/product/manual" };
+  }
+  return { directory: path.join(root, "uploads", folder), urlBase: `/uploads/${folder}` };
 }
 
 function safeUploadName(name, mimeType) {
@@ -183,18 +201,40 @@ function safeUploadName(name, mimeType) {
   return `${Date.now()}-${base}${ext.toLowerCase()}`;
 }
 
+function safeManualUploadName(requestedName, sourceName) {
+  const sourceRaw = path.basename(String(sourceName || requestedName || "manual.pdf").replace(/\\/g, "/"));
+  const extension = path.extname(sourceRaw).toLowerCase();
+  const requestedRaw = path.basename(String(requestedName || sourceRaw).replace(/\\/g, "/"));
+  const base = path.basename(requestedRaw, path.extname(requestedRaw))
+    .toLowerCase()
+    .replace(/[^a-z0-9_-]+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^[-_]+|[-_]+$/g, "") || "manual";
+  return `${base}${extension}`;
+}
+
 function saveUploadedDataUrl(payload) {
   const match = /^data:([^;,]+);base64,(.+)$/i.exec(String(payload.dataUrl || ""));
   if (!match) throw new HttpError(400, "Invalid upload payload");
   const mimeType = match[1];
-  if (!/^(image\/(jpeg|png|webp|gif|svg\+xml)|application\/pdf)$/i.test(mimeType)) throw new HttpError(400, "Unsupported upload type");
   const folder = safeUploadFolder(payload.folder);
-  const fileName = safeUploadName(payload.fileName, mimeType);
-  const uploadDir = path.join(root, "uploads", folder);
+  const manualExtension = path.extname(String(payload.sourceFileName || payload.fileName || "")).toLowerCase();
+  const allowedManualExtensions = new Set([".pdf", ".doc", ".docx", ".xls", ".xlsx", ".ppt", ".pptx", ".txt", ".zip", ".rar", ".7z"]);
+  if (folder === "product-manual") {
+    if (!allowedManualExtensions.has(manualExtension)) throw new HttpError(400, "Unsupported User Manual file type");
+  } else if (!/^(image\/(jpeg|png|webp|gif|svg\+xml)|application\/pdf)$/i.test(mimeType)) {
+    throw new HttpError(400, "Unsupported upload type");
+  }
+  const fileName = folder === "product-manual"
+    ? safeManualUploadName(payload.fileName, payload.sourceFileName)
+    : safeUploadName(payload.fileName, mimeType);
+  const target = uploadTarget(folder);
+  const uploadDir = target.directory;
   fs.mkdirSync(uploadDir, { recursive: true });
   const bytes = Buffer.from(match[2], "base64");
+  if (folder === "product-manual" && bytes.length > 40 * 1024 * 1024) throw new HttpError(413, "User Manual file exceeds the 40 MB limit");
   fs.writeFileSync(path.join(uploadDir, fileName), bytes);
-  const url = `/uploads/${folder}/${fileName}`;
+  const url = `${target.urlBase}/${fileName}`;
   return { id: url, title: payload.title || fileName, url, folder, type: mimeType.startsWith("image/") ? "image" : "document", usage: payload.usage || "Unassigned", size: bytes.length, mimeType, createdAt: new Date().toISOString() };
 }
 
@@ -302,14 +342,18 @@ async function handleCmsApi(req, res, parsed) {
       sendJson(res, 200, { ok: true }, { "Set-Cookie": `${sessionCookieName}=; Path=/; HttpOnly; SameSite=Strict; Max-Age=0` }); return;
     }
     if (req.method === "POST" && action === "save") {
-      requireCsrf(req, session); const payload = await readPayload(req);
+      requireCsrf(req, session); const payload = await readPayload(req, 60 * 1024 * 1024);
       if (!payload.state || typeof payload.state !== "object") throw new HttpError(400, "Missing state object");
       const state = authorizedState(user, readJsonFile(cmsStateFile, null), payload.state); writeJsonFile(cmsStateFile, state);
       sendJson(res, 200, { ok: true, source: "node-dev", state }); return;
     }
     if (req.method === "POST" && action === "upload") {
-      requireCsrf(req, session); if (!hasPermission(user, "media")) throw new HttpError(403, "没有媒体上传权限");
-      sendJson(res, 200, { ok: true, source: "node-dev", asset: saveUploadedDataUrl(await readPayload(req)) }); return;
+      requireCsrf(req, session); const payload = await readPayload(req, 60 * 1024 * 1024);
+      const folder = safeUploadFolder(payload.folder);
+      if (folder === "product-manual") {
+        if (!hasPermission(user, "manuals") && !hasPermission(user, "media")) throw new HttpError(403, "没有 Manual 上传权限");
+      } else if (!hasPermission(user, "media")) throw new HttpError(403, "没有媒体上传权限");
+      sendJson(res, 200, { ok: true, source: "node-dev", asset: saveUploadedDataUrl(payload) }); return;
     }
     if (req.method === "GET" && action === "users") {
       requireSuperAdmin(user); sendJson(res, 200, { ok: true, users: readUsers().map(publicUser) }); return;
@@ -387,7 +431,7 @@ const server = http.createServer((req, res) => {
   if (parsed.pathname.startsWith("/content/") || parsed.pathname.startsWith("/clients/") || parsed.pathname.startsWith("/docs/marketing-os/") || /^\/marketing-os\/(server(?:\.test)?\.js)$/.test(parsed.pathname)) { res.writeHead(403, { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" }); res.end("Forbidden"); return; }
   let filePath = safePath(parsed.pathname);
   if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) filePath = path.join(filePath, "index.html");
-  if (!fs.existsSync(filePath) && parsed.pathname.startsWith("/uploads/")) { res.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" }); res.end("Not found"); return; }
+  if (!fs.existsSync(filePath) && (parsed.pathname.startsWith("/uploads/") || parsed.pathname.startsWith("/product/manual/"))) { res.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" }); res.end("Not found"); return; }
   if (!fs.existsSync(filePath)) filePath = path.join(root, "index.html");
   sendFile(req, res, filePath);
 });

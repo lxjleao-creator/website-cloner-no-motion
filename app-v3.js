@@ -134,8 +134,8 @@ let scrollRaf = 0;
 let sourceRevealNodes = [];
 let sourceRevealObserver = null;
 let cmsActiveSection = "dashboard";
-const CMS_SECTION_IDS = new Set(["dashboard", "pages", "menus", "products", "categories", "news", "downloads", "submissions", "seo", "media", "settings", "users", "roadmap"]);
-let cmsEditing = { products: "", news: "", pages: "", templates: "", downloads: "" };
+const CMS_SECTION_IDS = new Set(["dashboard", "pages", "menus", "products", "categories", "news", "downloads", "manuals", "submissions", "seo", "media", "settings", "users", "roadmap"]);
+let cmsEditing = { products: "", news: "", pages: "", templates: "", downloads: "", manuals: "" };
 let cmsUploadOpen = false;
 let cmsEditingMediaId = "";
 let cmsDownloadCategoriesOpen = false;
@@ -156,7 +156,7 @@ let cmsBackendStatus = "Connecting";
 let cmsBackendSource = "local draft";
 const CMS_PERMISSION_OPTIONS = [
   ["pages", "页面"], ["menus", "导航"], ["products", "产品"], ["categories", "分类"], ["news", "新闻"],
-  ["downloads", "下载"], ["submissions", "询盘"], ["seo", "SEO"], ["media", "媒体"], ["settings", "网站设置"],
+  ["downloads", "下载"], ["manuals", "Manual 管理"], ["submissions", "询盘"], ["seo", "SEO"], ["media", "媒体"], ["settings", "网站设置"],
 ];
 let cmsAuthStatus = "checking";
 let cmsAuthUser = null;
@@ -913,7 +913,7 @@ function getRoutePath() {
 function localHref(path) {
   const normalized = normalizePath(path);
   if (!SITE_BASE_PATH) return normalized;
-  if (/^\/(?:assets|uploads)\//.test(routePathOnly(normalized))) return `${SITE_BASE_PATH}${normalized}`;
+  if (/^\/(?:assets|uploads|product\/manual)\//.test(routePathOnly(normalized))) return `${SITE_BASE_PATH}${normalized}`;
   return `${SITE_BASE_PATH}/#${normalized}`;
 }
 
@@ -1906,7 +1906,9 @@ function renderDownloadPage(segment, params = new URLSearchParams(), currentPath
             const fileUrl = String(item.fileUrl || "").trim();
             const fileHref = fileUrl ? hrefFor(fileUrl) : "";
             const categoryLabel = categories.find(([key]) => key === item.type)?.[1] || item.type || "File";
-            const downloadName = `${String(item.title || "download").replace(/[^a-z0-9._-]+/gi, "-").replace(/^-+|-+$/g, "") || "download"}.pdf`;
+            const fileExtension = String(fileUrl).split(/[?#]/)[0].match(/(\.[a-z0-9]+)$/i)?.[1] || "";
+            const downloadBase = String(item.title || "download").replace(/[^a-z0-9._-]+/gi, "-").replace(/^-+|-+$/g, "") || "download";
+            const downloadName = `${downloadBase.replace(/\.[a-z0-9]+$/i, "")}${fileExtension}`;
             const haystack = `${item.title || ""} ${item.productLabel || ""} ${categoryLabel}`.toLowerCase();
             const initiallyVisible = initialMatches.includes(item);
             return `<article class="source-download-row" role="row" data-download-row data-download-search="${esc(haystack)}" data-download-product-value="${esc(String(item.product || item.productLabel || ""))}" data-download-type-value="${esc(item.type || "")}" ${initiallyVisible ? "" : "hidden"}>
@@ -3346,7 +3348,7 @@ function cmsImageMedia(state = cmsAdminState()) {
 }
 
 function renderCmsMediaPicker(name, selectedUrl, usageHint = "产品详情首屏和产品卡片") {
-  const media = cmsImageMedia();
+  const media = usageHint.includes("下载文件") ? cmsAdminState().media : cmsImageMedia();
   const slotSpec = cmsMediaSlotSpec(usageHint);
   const selectedAsset = media.find((asset) => asset.url === selectedUrl) || {
     title: selectedUrl || "未选择素材",
@@ -3804,7 +3806,7 @@ function renderCmsMediaLibrary(state = cmsAdminState()) {
       <label>选择文件<input name="file" type="file" accept="image/*,.pdf"></label>
       <label>或登记已有地址<input name="url" placeholder="/uploads/products/file.webp"></label>
       <button type="submit">添加到媒体库</button>
-      <p>上传文件会保存到 /uploads/[目录]/，之后可以在产品、新闻和页面编辑器中复用。</p>
+      <p>上传文件会保存到 /uploads/[目录]/，之后可以在产品、新闻和页面编辑器中复用。Manual 请使用左侧独立的“Manual 管理”入口。</p>
     </form>` : ""}
     <div class="cms-media-grid">
       ${state.media.map((asset) => `<article class="${cmsEditingMediaId === asset.id ? "is-selected" : ""}" data-cms-edit-media="${esc(asset.id)}" tabindex="0" role="button" aria-label="编辑 ${esc(asset.title)}">
@@ -4060,8 +4062,10 @@ function renderCmsStyleManager(state = cmsAdminState()) {
 }
 
 function renderCmsDownloadManager(state = cmsAdminState()) {
-  const downloads = Array.isArray(state.downloads) ? state.downloads : cmsDefaultDownloads();
+  const allDownloads = Array.isArray(state.downloads) ? state.downloads : cmsDefaultDownloads();
+  const downloads = allDownloads.filter((item) => item.type !== "user-manual");
   const categories = downloadCategories(state);
+  const editableCategories = categories.filter(([slug]) => slug !== "user-manual");
   const selected = downloads.find((item) => item.id === cmsEditing.downloads) || null;
   const showEditor = cmsEditing.downloads === "new" || Boolean(selected);
   return `<div class="cms-download-manager">
@@ -4073,7 +4077,7 @@ function renderCmsDownloadManager(state = cmsAdminState()) {
         <h2>${selected ? "编辑下载文件" : "新增下载文件"}</h2>
         <div class="cms-inline-fields">
           <label>文件标题<input name="title" value="${esc(selected?.title || "")}" placeholder="F Series Datasheet"></label>
-          <label>文件类型<select name="type">${categories.map(([slug, label]) => `<option value="${esc(slug)}" ${selected?.type === slug ? "selected" : ""}>${esc(label)}</option>`).join("")}</select></label>
+          <label>文件类型<select name="type">${editableCategories.map(([slug, label]) => `<option value="${esc(slug)}" ${selected?.type === slug ? "selected" : ""}>${esc(label)}</option>`).join("")}</select></label>
         </div>
         <div class="cms-inline-fields">
           <label>关联产品<select name="product">${state.products.map((product) => `<option value="${esc(product.path)}" ${selected?.product === product.path || selected?.product === product.id ? "selected" : ""}>${esc(product.title)}</option>`).join("")}</select></label>
@@ -4103,12 +4107,84 @@ function renderCmsDownloadManager(state = cmsAdminState()) {
       </form>
       <div class="cms-download-category-list">
         ${categories.map(([slug, label]) => {
-          const count = downloads.filter((item) => item.type === slug).length;
-          return `<article><div><b>${esc(label)}</b><code>${esc(slug)}</code></div><span>${count} 个文件</span><button type="button" class="danger" data-cms-delete-download-category="${esc(slug)}" ${count ? "disabled" : ""}>删除</button></article>`;
+          const count = allDownloads.filter((item) => item.type === slug).length;
+          const locked = slug === "user-manual";
+          return `<article><div><b>${esc(label)}</b><code>${esc(slug)}</code></div><span>${count} 个文件${locked ? " · 独立入口" : ""}</span><button type="button" class="danger" data-cms-delete-download-category="${esc(slug)}" ${count || locked ? "disabled" : ""}>删除</button></article>`;
         }).join("")}
       </div>
       <p>正在使用的分类需要先移动或删除关联文件，之后才能删除分类。</p>
     </section>` : ""}
+  </div>`;
+}
+
+const CMS_MANUAL_ACCEPT = ".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt,.zip,.rar,.7z";
+
+function cmsManualFileExtension(url = "") {
+  const clean = String(url).split(/[?#]/)[0];
+  const match = clean.match(/\.([a-z0-9]+)$/i);
+  return match ? match[1].toUpperCase() : "FILE";
+}
+
+function cmsManualFileBase(url = "") {
+  const clean = String(url).split(/[?#]/)[0];
+  const fileName = clean.split("/").pop() || "";
+  return fileName.replace(/\.[^.]+$/, "");
+}
+
+function cmsSanitizeManualFileBase(value = "") {
+  return String(value)
+    .trim()
+    .replace(/\.[a-z0-9]+$/i, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9_-]+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^[-_]+|[-_]+$/g, "");
+}
+
+function cmsNormalizeManualUrl(url = "") {
+  return String(url).trim().replace(/^https?:\/\/(?:www\.)?tervona\.uk/i, "");
+}
+
+function cmsIsValidManualUrl(url = "") {
+  return /^\/product\/manual\/[^/?#]+\.(?:pdf|docx?|xlsx?|pptx?|txt|zip|rar|7z)(?:[?#].*)?$/i.test(cmsNormalizeManualUrl(url));
+}
+
+function renderCmsManualManager(state = cmsAdminState()) {
+  const manuals = (state.downloads || []).filter((item) => item.type === "user-manual");
+  const selected = manuals.find((item) => item.id === cmsEditing.manuals) || null;
+  const showEditor = cmsEditing.manuals === "new" || Boolean(selected);
+  return `<div class="cms-download-manager cms-manual-manager">
+    ${showEditor ? `<div class="cms-edit-panel">
+      <div class="cms-edit-panel-head"><div><span>${selected ? "更新 Manual" : "上传 Manual"}</span><h3>${esc(selected?.title || "新增 User Manual")}</h3></div><button type="button" data-cms-close-manual>← 返回 Manual 列表</button></div>
+      <form class="cms-editor-form" data-cms-manual-upload>
+        <input type="hidden" name="originalId" value="${esc(selected?.id || "")}">
+        <section class="cms-editor-box">
+          <h2>${selected ? "更新文件或资料信息" : "上传新的 Manual 文件"}</h2>
+          <div class="cms-inline-fields">
+            <label>文件标题<input name="title" value="${esc(selected?.title || "")}" required placeholder="例如：EcoLink User Manual"></label>
+            <label>关联产品<select name="product"><option value="">通用 / 不关联单一产品</option>${state.products.map((product) => `<option value="${esc(product.path)}" ${selected?.product === product.path || selected?.product === product.id ? "selected" : ""}>${esc(product.title)}</option>`).join("")}</select></label>
+          </div>
+          <div class="cms-inline-fields">
+            <label>版本<input name="version" value="${esc(selected?.version || "")}" placeholder="例如：V1.0 / 2026-10"></label>
+            <label>状态<select name="status">${["Published", "Draft", "Hidden"].map((status) => `<option value="${status}" ${selected?.status === status ? "selected" : ""}>${cmsStatusLabel(status)}</option>`).join("")}</select></label>
+          </div>
+          <label>URL 文件名（不含扩展名）<input name="urlFileName" data-cms-manual-url-name value="${esc(cmsManualFileBase(selected?.fileUrl || ""))}" required placeholder="例如：tervona_user_guide" pattern="[A-Za-z0-9_-]+" title="只能使用英文字母、数字、连字符和下划线"></label>
+          <div class="cms-slot-spec"><span>访问路径预览</span><p data-cms-manual-url-preview>/product/manual/${esc(cmsManualFileBase(selected?.fileUrl || "文件名"))}${selected?.fileUrl ? `.${esc(cmsManualFileExtension(selected.fileUrl).toLowerCase())}` : ".文件扩展名"}</p><em>文件名可自行修改；系统会转为小写。同名上传会更新原地址下的文件。</em></div>
+          ${selected?.fileUrl ? `<div class="cms-slot-spec"><span>当前文件</span><b>${esc(cmsManualFileExtension(selected.fileUrl))}</b><p>${esc(selected.fileUrl)}</p><em>不选择新文件则仅更新标题、产品、版本和状态。</em></div>` : ""}
+          <label>${selected ? "替换文件（可选）" : "选择 Manual 文件"}<input name="file" data-cms-manual-file type="file" accept="${CMS_MANUAL_ACCEPT}" ${selected ? "" : "required"}></label>
+          <p class="cms-help-text">支持 PDF、Word、Excel、PowerPoint、TXT、ZIP、RAR 和 7Z，单文件最大 40 MB。上传后固定保存到 <code>/product/manual/文件名</code>，并自动出现在前台 Downloads 的 User Manual 分类中。</p>
+          <button type="submit">${selected ? "保存更新" : "上传并发布记录"}</button>
+        </section>
+      </form>
+    </div>` : ""}
+    <div class="cms-record-list editable">
+      ${manuals.length ? manuals.map((item) => `<article>
+        <div class="cms-record-main"><div class="cms-file-icon">${esc(cmsManualFileExtension(item.fileUrl))}</div><div><span>${esc(item.title)}</span><p>${esc(item.fileUrl)}</p><small>${esc(item.productLabel || "通用 Manual")} · User Manual</small></div></div>
+        <em class="cms-record-meta">${esc(item.version || "—")}</em>
+        <b class="cms-record-status">${esc(cmsStatusLabel(item.status || "Published"))}</b>
+        <footer class="cms-record-actions"><span><a href="${esc(hrefFor(item.fileUrl || "#"))}" target="_blank" rel="noopener">预览</a><a href="${esc(hrefFor(item.fileUrl || "#"))}" download>下载</a><button type="button" data-cms-edit-manual="${esc(item.id)}">编辑 / 替换</button><button type="button" class="danger" data-cms-delete-manual="${esc(item.id)}">删除记录</button></span></footer>
+      </article>`).join("") : `<div class="cms-empty-state"><h3>暂时没有 User Manual</h3><p>可以保留空列表；收到文件后再从这里上传，不需要预先创建占位记录。</p></div>`}
+    </div>
   </div>`;
 }
 
@@ -4152,6 +4228,7 @@ function renderCmsAdmin(params = new URLSearchParams()) {
   if (cmsVisualEditorOpen) return renderCmsHomeVisualEditor(state);
   const productCount = cmsCollectionCount("products", state);
   const newsCount = cmsCollectionCount("news", state);
+  const manualCount = (state.downloads || []).filter((item) => item.type === "user-manual").length;
   const recentContent = cmsRecentContent(state);
   const categories = cmsCategoryRecords(state);
   const averageSeo = Math.round(recentContent.reduce((total, item) => total + cmsSeoScore(item), 0) / Math.max(1, recentContent.length));
@@ -4171,6 +4248,7 @@ function renderCmsAdmin(params = new URLSearchParams()) {
     ["menus", "menu", "导航"],
     ["seo", "seo", "SEO"],
     ["downloads", "download", "下载"],
+    ["manuals", "folder", "Manual 管理"],
     ["submissions", "inbox", "询盘"],
     ["settings", "settings", "设置"],
     ["users", "users", "人员与权限"],
@@ -4188,7 +4266,7 @@ function renderCmsAdmin(params = new URLSearchParams()) {
     <section class="cms-layout">
       <aside class="cms-sidebar">
         <div class="cms-sidebar-label">内容</div>
-        ${navItems.map(([id, iconName, label], i) => `<button type="button" data-cms-nav="${id}" data-icon="${iconName}" class="${(cmsActiveSection === id || (!cmsActiveSection && i === 0)) ? "active" : ""}">${cmsNavIcon(iconName)}<span>${label}</span>${id === "products" ? `<em>${productCount}</em>` : id === "news" ? `<em>${newsCount}</em>` : id === "submissions" && cmsSubmissions.length ? `<em>${cmsSubmissions.filter((item) => item.status === "new").length || cmsSubmissions.length}</em>` : ""}</button>`).join("")}
+        ${navItems.map(([id, iconName, label], i) => `<button type="button" data-cms-nav="${id}" data-icon="${iconName}" class="${(cmsActiveSection === id || (!cmsActiveSection && i === 0)) ? "active" : ""}">${cmsNavIcon(iconName)}<span>${label}</span>${id === "products" ? `<em>${productCount}</em>` : id === "news" ? `<em>${newsCount}</em>` : id === "manuals" ? `<em>${manualCount}</em>` : id === "submissions" && cmsSubmissions.length ? `<em>${cmsSubmissions.filter((item) => item.status === "new").length || cmsSubmissions.length}</em>` : ""}</button>`).join("")}
         <div class="cms-sidebar-account"><span>${esc((cmsAuthUser.displayName || cmsAuthUser.username).slice(0, 2).toUpperCase())}</span><div><b>${esc(cmsAuthUser.displayName || cmsAuthUser.username)}</b><small>当前登录 · ${cmsIsSuperAdmin() ? "超级管理员" : "内容人员"}</small></div></div>
       </aside>
       <div class="cms-workspace">
@@ -4267,13 +4345,26 @@ function renderCmsAdmin(params = new URLSearchParams()) {
           <div class="cms-page-title">
             <span>下载中心</span>
             <h1>下载文件</h1>
-            <p>先在媒体库上传 PDF、说明书或证书，再在这里关联产品和下载分类。</p>
+            <p>在这里管理 Datasheets、证书等普通下载资源；User Manual 使用左侧独立入口。</p>
           </div>
           <div class="cms-section-head">
-            <div><span>文件管理</span><h2>管理 Datasheets、Manual、Certificates 等下载资源</h2></div>
+            <div><span>文件管理</span><h2>管理 Datasheets、Certificates 等下载资源</h2></div>
             <div class="cms-actions"><button type="button" data-cms-add="downloads">新增文件</button><button type="button" data-cms-manage-download-categories>管理分类</button><button type="button" data-cms-focus-upload>上传文件到媒体库</button><a href="${localHref("/download/datasheets")}">查看下载页</a></div>
           </div>
           ${renderCmsDownloadManager(state)}
+        </section>
+
+        <section class="cms-section ${cmsActiveSection === "manuals" ? "active" : ""}" data-cms-section="manuals">
+          <div class="cms-page-title">
+            <span>独立文件入口</span>
+            <h1>Manual 管理</h1>
+            <p>供 Manual 负责人单独上传、更新和发布文件，不需要进入媒体库或其他下载模块。</p>
+          </div>
+          <div class="cms-section-head">
+            <div><span>固定目录</span><h2>/product/manual/</h2></div>
+            <div class="cms-actions"><button type="button" data-cms-add-manual>上传 Manual</button><a href="${localHref("/download/user-manual")}" target="_blank">查看前台分类</a></div>
+          </div>
+          ${renderCmsManualManager(state)}
         </section>
 
         <section class="cms-section ${cmsActiveSection === "submissions" ? "active" : ""}" data-cms-section="submissions">
@@ -4485,6 +4576,69 @@ async function cmsUploadMedia(form) {
   cmsBackendStatus = "Connected";
   cmsBackendSource = payload.source || "cms-api";
   cmsAddMediaRecord(payload.asset);
+}
+
+async function cmsSaveManual(form) {
+  const values = Object.fromEntries(new FormData(form).entries());
+  const state = cmsAdminState();
+  const manuals = state.downloads || [];
+  const existing = manuals.find((item) => item.id === values.originalId && item.type === "user-manual") || {};
+  const file = form.querySelector('input[type="file"]')?.files?.[0];
+  let fileUrl = cmsNormalizeManualUrl(existing.fileUrl || "");
+  const requestedBase = cmsSanitizeManualFileBase(values.urlFileName);
+  const existingBase = cmsManualFileBase(fileUrl);
+
+  if (!requestedBase) throw new Error("请填写 URL 文件名，只能使用英文字母、数字、连字符和下划线。");
+  if (!file && existingBase && requestedBase !== existingBase) throw new Error("修改 URL 文件名时，请同时选择要上传的文件。");
+
+  if (file) {
+    if (file.size > 40 * 1024 * 1024) throw new Error("Manual 单文件不能超过 40 MB。");
+    const extension = `.${String(file.name).split(".").pop() || ""}`.toLowerCase();
+    if (!CMS_MANUAL_ACCEPT.split(",").includes(extension)) throw new Error("不支持该文件类型，请上传 PDF、Office 文档、TXT 或压缩包。");
+    cmsBackendStatus = "Saving";
+    cmsBackendSource = "正在上传 Manual";
+    cmsRefreshAdminIfActive();
+    const dataUrl = await cmsReadFileDataUrl(file);
+    const response = await fetch(`${CMS_API_URL}?action=upload`, {
+      method: "POST",
+      headers: cmsAuthHeaders({ "Content-Type": "application/json" }),
+      body: JSON.stringify({
+        title: values.title || file.name,
+        folder: "product-manual",
+        usage: "User Manual",
+        fileName: `${requestedBase}${extension}`,
+        sourceFileName: file.name,
+        dataUrl,
+      }),
+    });
+    const payload = await response.json();
+    if (!response.ok || !payload.ok) throw new Error(payload.error || "Manual 上传失败");
+    fileUrl = cmsNormalizeManualUrl(payload.asset?.url || "");
+    cmsBackendStatus = "Connected";
+    cmsBackendSource = payload.source || "cms-api";
+  }
+
+  if (!cmsIsValidManualUrl(fileUrl)) throw new Error("Manual 文件必须位于 /product/manual/，并使用受支持的文件类型。");
+  const product = state.products.find((item) => item.path === values.product || item.id === values.product);
+  const record = cmsStampRecord({
+    ...existing,
+    id: existing.id || `manual-${Date.now()}`,
+    title: values.title || file?.name || existing.title || "User Manual",
+    type: "user-manual",
+    product: values.product || "",
+    productLabel: product?.title || "",
+    fileUrl,
+    version: values.version || "",
+    status: values.status || "Draft",
+  }, existing);
+  const index = manuals.findIndex((item) => item.id === existing.id);
+  if (index >= 0) manuals[index] = record;
+  else state.downloads = [record, ...manuals];
+  cmsTrackActivity(state, index >= 0 ? "已更新" : "已上传", record, "User Manual");
+  cmsEditing.manuals = "";
+  cmsActiveSection = "manuals";
+  cmsSaveState(state);
+  render();
 }
 
 function cmsLiveEditorRecordFromForm(form) {
@@ -4799,6 +4953,14 @@ function cmsSaveEditor(form) {
   if (type === "downloads") {
     const product = state.products.find((item) => item.path === values.product || item.id === values.product);
     const existing = (state.downloads || []).find((item) => item.id === values.originalId) || {};
+    let fileUrl = values.fileUrlManual || values.fileUrl || "";
+    if (values.type === "user-manual") {
+      fileUrl = cmsNormalizeManualUrl(fileUrl);
+      if (!cmsIsValidManualUrl(fileUrl)) {
+        window.alert("User Manual 必须位于 /product/manual/，并使用受支持的文件类型");
+        return;
+      }
+    }
     const record = {
       ...existing,
       id: existing.id || `download-${Date.now()}`,
@@ -4806,7 +4968,7 @@ function cmsSaveEditor(form) {
       type: values.type || "datasheets",
       product: values.product || "",
       productLabel: product?.title || values.product || "",
-      fileUrl: values.fileUrlManual || values.fileUrl || "/uploads/downloads/file.pdf",
+      fileUrl: fileUrl || "/uploads/downloads/file.pdf",
       version: values.version || "V1.0",
       status: values.status || "Draft",
     };
@@ -5580,6 +5742,62 @@ function bind() {
       cmsSaveEditor(form);
     });
   });
+  document.querySelector("[data-cms-add-manual]")?.addEventListener("click", () => {
+    cmsEditing.manuals = "new";
+    cmsActiveSection = "manuals";
+    render();
+    requestAnimationFrame(() => document.querySelector("[data-cms-manual-upload]")?.scrollIntoView({ block: "start", behavior: "smooth" }));
+  });
+  document.querySelector("[data-cms-close-manual]")?.addEventListener("click", () => {
+    cmsEditing.manuals = "";
+    render({ preserveScroll: true });
+  });
+  document.querySelectorAll("[data-cms-edit-manual]").forEach((button) => button.addEventListener("click", () => {
+    cmsEditing.manuals = button.dataset.cmsEditManual;
+    cmsActiveSection = "manuals";
+    render();
+  }));
+  document.querySelectorAll("[data-cms-delete-manual]").forEach((button) => button.addEventListener("click", () => {
+    if (!window.confirm("确定删除这条 Manual 记录吗？服务器上的原文件会保留。")) return;
+    const state = cmsAdminState();
+    state.downloads = (state.downloads || []).filter((item) => item.id !== button.dataset.cmsDeleteManual || item.type !== "user-manual");
+    cmsSaveState(state);
+    cmsEditing.manuals = "";
+    render({ preserveScroll: true });
+  }));
+  document.querySelector("[data-cms-manual-upload]")?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    try {
+      await cmsSaveManual(event.currentTarget);
+    } catch (error) {
+      cmsBackendStatus = "Local fallback";
+      cmsBackendSource = error.message || "Manual 上传失败";
+      window.alert(cmsBackendSource);
+      cmsRefreshAdminIfActive();
+    }
+  });
+  const manualForm = document.querySelector("[data-cms-manual-upload]");
+  const manualFile = manualForm?.querySelector("[data-cms-manual-file]");
+  const manualUrlName = manualForm?.querySelector("[data-cms-manual-url-name]");
+  const manualUrlPreview = manualForm?.querySelector("[data-cms-manual-url-preview]");
+  const updateManualUrlPreview = () => {
+    if (!manualUrlPreview || !manualUrlName) return;
+    const base = cmsSanitizeManualFileBase(manualUrlName.value) || "文件名";
+    const selectedFile = manualFile?.files?.[0];
+    const extension = selectedFile
+      ? `.${String(selectedFile.name).split(".").pop() || "文件扩展名"}`.toLowerCase()
+      : (manualForm?.querySelector('input[name="originalId"]')?.value
+        ? `.${cmsManualFileExtension(manualUrlPreview.textContent).toLowerCase()}`
+        : ".文件扩展名");
+    manualUrlPreview.textContent = `/product/manual/${base}${extension}`;
+  };
+  manualFile?.addEventListener("change", () => {
+    if (manualFile.files?.[0] && manualUrlName && !manualUrlName.value.trim()) {
+      manualUrlName.value = cmsSanitizeManualFileBase(manualFile.files[0].name);
+    }
+    updateManualUrlPreview();
+  });
+  manualUrlName?.addEventListener("input", updateManualUrlPreview);
   document.querySelectorAll("[data-cms-pick-media]").forEach((button) => {
     button.addEventListener("click", () => {
       const panel = button.closest(".cms-edit-panel") || button.closest(".cms-live-editor");
@@ -5681,6 +5899,7 @@ function bind() {
   document.querySelectorAll("[data-cms-delete-download-category]").forEach((button) => {
     button.addEventListener("click", () => {
       const slug = button.dataset.cmsDeleteDownloadCategory;
+      if (slug === "user-manual") return;
       const state = cmsAdminState();
       if ((state.downloads || []).some((item) => item.type === slug)) return;
       state.downloadCategories = downloadCategories(state).filter(([key]) => key !== slug);
