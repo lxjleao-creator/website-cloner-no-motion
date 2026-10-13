@@ -3380,10 +3380,11 @@ function renderCmsMediaPicker(name, selectedUrl, usageHint = "产品详情首屏
   const mediaList = selectedUrl && !media.some((asset) => asset.url === selectedUrl)
     ? [selectedAsset, ...media]
     : media;
+  const pickerId = `cms-media-picker-${String(name).replace(/[^a-z0-9_-]+/gi, "-").toLowerCase()}`;
   return `<div class="cms-media-picker-field">
     <input type="hidden" name="${esc(name)}" value="${esc(selectedUrl || "")}" data-cms-picked-media>
     <div class="cms-media-picker-head">
-      <div><b>从媒体库选择主图</b><p>点击缩略图即可选择，不需要记住文件名。</p></div>
+      <div><b>当前使用图片</b><p>先确认当前产品图片，需要调整时再点击“更换图片”。</p></div>
       <button type="button" data-cms-open-media>打开媒体库</button>
     </div>
     <div class="cms-slot-spec">
@@ -3392,12 +3393,27 @@ function renderCmsMediaPicker(name, selectedUrl, usageHint = "产品详情首屏
       <p>${esc(slotSpec.recommended)}</p>
       <em>${esc(slotSpec.safe)}</em>
     </div>
-    <div class="cms-media-picker" data-cms-media-picker>
-      ${mediaList.map((asset) => `<button type="button" class="${asset.url === selectedUrl ? "active" : ""}" data-cms-pick-media="${esc(asset.url)}" data-cms-title="${esc(asset.title)}" data-cms-size="${esc(cmsFormatBytes(asset.size))}" data-cms-mime="${esc(cmsMediaMimeLabel(asset))}" data-cms-usage="${esc(cmsUsageLabel(asset.usage))}">
-        <span>${asset.type === "document" ? "PDF" : `<img src="${esc(asset.url)}" alt="">`}</span>
-        <b>${esc(asset.title)}</b>
-        <small>${esc(cmsUsageLabel(asset.usage))}</small>
-      </button>`).join("")}
+    <div class="cms-current-media">
+      <span class="cms-current-media-preview" data-cms-current-media-preview>${selectedAsset.type === "document" ? `<b>${esc(cmsManualFileExtension(selectedAsset.url))}</b>` : `<img src="${esc(selectedAsset.url)}" alt="${esc(selectedAsset.title)}" data-cms-current-media-image>`}</span>
+      <div>
+        <small>当前图片</small>
+        <b data-cms-current-title>${esc(selectedAsset.title)}</b>
+        <code data-cms-current-url>${esc(selectedAsset.url || "未选择")}</code>
+        <button type="button" data-cms-toggle-media-picker aria-controls="${esc(pickerId)}" aria-expanded="false">更换图片</button>
+      </div>
+    </div>
+    <div class="cms-media-replace-panel" id="${esc(pickerId)}" data-cms-media-replace-panel hidden>
+      <div class="cms-media-picker-head compact">
+        <div><b>选择替换图片</b><p>只有选择后，当前产品图片和右侧预览才会更新。</p></div>
+        <button type="button" data-cms-close-media-picker>收起</button>
+      </div>
+      <div class="cms-media-picker" data-cms-media-picker>
+        ${mediaList.map((asset) => `<button type="button" class="${asset.url === selectedUrl ? "active" : ""}" data-cms-pick-media="${esc(asset.url)}" data-cms-title="${esc(asset.title)}" data-cms-size="${esc(cmsFormatBytes(asset.size))}" data-cms-mime="${esc(cmsMediaMimeLabel(asset))}" data-cms-usage="${esc(cmsUsageLabel(asset.usage))}" data-cms-asset-type="${esc(asset.type || "image")}">
+          <span>${asset.type === "document" ? "PDF" : `<img src="${esc(asset.url)}" alt="">`}</span>
+          <b>${esc(asset.title)}</b>
+          <small>${esc(cmsUsageLabel(asset.usage))}</small>
+        </button>`).join("")}
+      </div>
     </div>
     <div class="cms-selected-media-details">
       <div><b>当前选中</b><span data-cms-selected-title>${esc(selectedAsset.title)}</span></div>
@@ -3473,7 +3489,6 @@ function renderCmsLiveProductEditor(record, originalId) {
     </div>
     <form class="cms-live-editor" data-cms-live-editor="products">
       <input type="hidden" name="originalId" value="${esc(originalId || record.id)}">
-      <input type="hidden" name="heroImage" value="${esc(record.heroImage)}" data-cms-picked-media>
       <aside class="cms-live-fields">
         <div class="cms-live-title">
           <a class="cms-editor-back" href="${cmsSectionPath("products")}">← 返回产品列表</a>
@@ -3497,7 +3512,7 @@ function renderCmsLiveProductEditor(record, originalId) {
         <section class="cms-editor-box">
           <h2>主图</h2>
           <div class="cms-size-note"><b>产品详情首屏主图尺寸</b><span>原位置桌面约 1920 x 940 px</span><span>建议设计 2400 x 1180 px，最低 1920 x 940 px</span><em>左侧会叠加标题文字，产品主体建议放在右侧中部。</em></div>
-          ${renderCmsMediaPicker("heroImagePicker", record.heroImage, "产品详情首屏和产品卡片")}
+          ${renderCmsMediaPicker("heroImage", record.heroImage, "产品详情首屏和产品卡片")}
           <label>或粘贴图片地址<input name="heroImageManual" value="" placeholder="/uploads/products/example.webp" data-live-field="heroImageManual"></label>
         </section>
         <section class="cms-editor-box">
@@ -4734,7 +4749,7 @@ function cmsUpdateLivePreview(form) {
     setText(`highlight${index}Body`, item.body);
   });
   const image = form.querySelector('[data-live-preview="heroImage"]');
-  if (image) image.src = record.heroImage;
+  if (image) image.src = hrefFor(record.heroImage);
 }
 
 function cmsReadImagePixels(url, callback) {
@@ -5817,28 +5832,67 @@ function bind() {
     updateManualUrlPreview();
   });
   manualUrlName?.addEventListener("input", updateManualUrlPreview);
+  document.querySelectorAll("[data-cms-toggle-media-picker]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const field = button.closest(".cms-media-picker-field");
+      const replacementPanel = field?.querySelector("[data-cms-media-replace-panel]");
+      if (!replacementPanel) return;
+      const open = replacementPanel.hidden;
+      replacementPanel.hidden = !open;
+      button.setAttribute("aria-expanded", open ? "true" : "false");
+      button.textContent = open ? "取消更换" : "更换图片";
+    });
+  });
+  document.querySelectorAll("[data-cms-close-media-picker]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const field = button.closest(".cms-media-picker-field");
+      const replacementPanel = field?.querySelector("[data-cms-media-replace-panel]");
+      const toggle = field?.querySelector("[data-cms-toggle-media-picker]");
+      if (replacementPanel) replacementPanel.hidden = true;
+      if (toggle) {
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.textContent = "更换图片";
+      }
+    });
+  });
   document.querySelectorAll("[data-cms-pick-media]").forEach((button) => {
     button.addEventListener("click", () => {
       const panel = button.closest(".cms-edit-panel") || button.closest(".cms-live-editor");
+      const field = button.closest(".cms-media-picker-field");
       const picker = button.closest("[data-cms-media-picker]");
       const value = button.dataset.cmsPickMedia || "";
-      const hiddenFields = panel?.querySelectorAll("[data-cms-picked-media]");
+      const hiddenField = field?.querySelector("[data-cms-picked-media]");
       const img = panel?.querySelector(".cms-media-placement img");
-      hiddenFields?.forEach((hidden) => {
-        hidden.value = value;
-      });
+      if (hiddenField) hiddenField.value = value;
       if (img) img.src = value;
       picker?.querySelectorAll("[data-cms-pick-media]").forEach((item) => item.classList.toggle("active", item === button));
       const setText = (selector, text) => {
-        const node = panel?.querySelector(selector);
+        const node = field?.querySelector(selector);
         if (node) node.textContent = text || "";
       };
+      const currentPreview = field?.querySelector("[data-cms-current-media-preview]");
+      if (currentPreview) {
+        currentPreview.replaceChildren();
+        if (button.dataset.cmsAssetType === "document") {
+          const label = document.createElement("b");
+          label.textContent = cmsManualFileExtension(value);
+          currentPreview.append(label);
+        } else {
+          const currentImage = document.createElement("img");
+          currentImage.src = hrefFor(value);
+          currentImage.alt = button.dataset.cmsTitle || "当前图片";
+          currentImage.dataset.cmsCurrentMediaImage = "";
+          currentPreview.append(currentImage);
+        }
+      }
+      setText("[data-cms-current-title]", button.dataset.cmsTitle);
+      setText("[data-cms-current-url]", value);
       setText("[data-cms-selected-title]", button.dataset.cmsTitle);
       setText("[data-cms-selected-url]", value);
       setText("[data-cms-selected-size]", button.dataset.cmsSize || "未知");
       setText("[data-cms-selected-mime]", button.dataset.cmsMime || "图片");
       setText("[data-cms-selected-usage]", button.dataset.cmsUsage || "未分配");
-      const pixelNode = panel?.querySelector("[data-cms-selected-pixels]");
+      const pixelNode = field?.querySelector("[data-cms-selected-pixels]");
       if (pixelNode) {
         pixelNode.textContent = "读取中";
         cmsReadImagePixels(value, (text) => {
@@ -5846,6 +5900,13 @@ function bind() {
         });
       }
       cmsUpdateLivePreview(button.closest("[data-cms-live-editor]"));
+      const replacementPanel = field?.querySelector("[data-cms-media-replace-panel]");
+      const toggle = field?.querySelector("[data-cms-toggle-media-picker]");
+      if (replacementPanel) replacementPanel.hidden = true;
+      if (toggle) {
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.textContent = "更换图片";
+      }
     });
   });
   cmsUpdateMediaPixelLabels(document);
