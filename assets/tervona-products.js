@@ -362,14 +362,21 @@
         code: "BP",
         href: "/products/low-voltage-battery",
         aliases: ["low-voltage-battery"],
-        children: [{
-          label: "Low Voltage",
-          priority: true,
-          children: [
-            { label: "LSK 5.12 kWh Rack-Mount", href: href("low-voltage-battery", "lsk-5-12kwh-rack-mount"), priority: true },
-            { label: "LST 16 kWh Standing", href: href("low-voltage-battery", "lst-16kwh-standing") },
-          ],
-        }],
+        children: [
+          {
+            label: "Rack-Mount LiFePO4 Battery",
+            priority: true,
+            children: [
+              { label: "5 kWh (LSK 5.12 kWh)", href: href("low-voltage-battery", "lsk-5-12kwh-rack-mount"), priority: true },
+            ],
+          },
+          {
+            label: "Standing LiFePO4 Battery",
+            children: [
+              { label: "16 kWh (LST)", href: href("low-voltage-battery", "lst-16kwh-standing") },
+            ],
+          },
+        ],
       },
       {
         slug: "hybrid-inverter",
