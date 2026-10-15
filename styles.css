@@ -3571,9 +3571,9 @@ body.mobile-menu-lock {
 
 .product-taxonomy-tab-media img {
   --product-visual-scale: 1;
-  --product-visual-scale-active: 1.04;
-  width: 94%;
-  height: 94%;
+  --product-visual-scale-active: 1.03;
+  width: 76%;
+  height: 76%;
   display: block;
   object-fit: contain;
   transform: scale(var(--product-visual-scale));
@@ -3582,17 +3582,17 @@ body.mobile-menu-lock {
 
 .product-taxonomy-tab[data-product-category-tab="low-voltage-battery"] img {
   --product-visual-scale: 1;
-  --product-visual-scale-active: 1.04;
+  --product-visual-scale-active: 1.03;
 }
 
 .product-taxonomy-tab[data-product-category-tab="hybrid-inverter"] img {
   --product-visual-scale: 1;
-  --product-visual-scale-active: 1.04;
+  --product-visual-scale-active: 1.03;
 }
 
 .product-taxonomy-tab[data-product-category-tab="off-grid-inverter"] img {
   --product-visual-scale: 1;
-  --product-visual-scale-active: 1.04;
+  --product-visual-scale-active: 1.03;
 }
 
 .product-taxonomy-tab-media svg {
