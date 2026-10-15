@@ -1409,3 +1409,48 @@ html.no-motion-site .hero-slide video {
     height: 500px !important;
   }
 }
+
+/* Product metric ranges need dedicated type sizing inside the fixed circles. */
+html.no-motion-site .series-hero-stat strong.is-multiline.is-range {
+  padding-inline: 4px;
+  font-size: 16px;
+  letter-spacing: -0.045em;
+  white-space: nowrap;
+}
+
+html.no-motion-site .series-hero-stat strong.is-paired-range {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 5px;
+  font-size: 13px;
+  line-height: 1;
+}
+
+html.no-motion-site .series-hero-stat strong.is-paired-range span {
+  position: static;
+  color: inherit;
+  font: inherit;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+html.no-motion-site .series-hero-stat strong.is-paired-range span + span::before {
+  content: "– ";
+  font-size: 0.8em;
+}
+
+@media (max-width: 760px) {
+  html.no-motion-site .series-hero.unified-product-banner .series-hero-stat strong.is-multiline.is-range {
+    padding-inline: 3px;
+    font-size: 14px;
+  }
+
+  html.no-motion-site .series-hero.unified-product-banner .series-hero-stat strong.is-paired-range {
+    gap: 4px;
+    padding: 4px;
+    font-size: 11px;
+  }
+}

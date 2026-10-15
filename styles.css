@@ -3541,9 +3541,9 @@ body.mobile-menu-lock {
 .product-taxonomy-tab {
   position: relative;
   min-width: 0;
-  min-height: 264px;
+  min-height: 356px;
   display: grid;
-  grid-template-rows: 128px auto;
+  grid-template-rows: auto auto;
   align-content: start;
   gap: 14px;
   padding: 12px 12px 18px;
@@ -3559,7 +3559,8 @@ body.mobile-menu-lock {
 
 .product-taxonomy-tab-media {
   width: 100%;
-  height: 128px;
+  height: auto;
+  aspect-ratio: 4 / 3;
   display: grid;
   place-items: center;
   overflow: hidden;
@@ -3569,10 +3570,10 @@ body.mobile-menu-lock {
 }
 
 .product-taxonomy-tab-media img {
-  --product-visual-scale: 1.25;
-  --product-visual-scale-active: 1.32;
+  --product-visual-scale: 1;
+  --product-visual-scale-active: 1.04;
   width: 94%;
-  height: 118px;
+  height: 94%;
   display: block;
   object-fit: contain;
   transform: scale(var(--product-visual-scale));
@@ -3580,18 +3581,18 @@ body.mobile-menu-lock {
 }
 
 .product-taxonomy-tab[data-product-category-tab="low-voltage-battery"] img {
-  --product-visual-scale: 1.42;
-  --product-visual-scale-active: 1.5;
+  --product-visual-scale: 1;
+  --product-visual-scale-active: 1.04;
 }
 
 .product-taxonomy-tab[data-product-category-tab="hybrid-inverter"] img {
-  --product-visual-scale: 1.4;
-  --product-visual-scale-active: 1.48;
+  --product-visual-scale: 1;
+  --product-visual-scale-active: 1.04;
 }
 
 .product-taxonomy-tab[data-product-category-tab="off-grid-inverter"] img {
-  --product-visual-scale: 1.35;
-  --product-visual-scale-active: 1.43;
+  --product-visual-scale: 1;
+  --product-visual-scale-active: 1.04;
 }
 
 .product-taxonomy-tab-media svg {
@@ -11072,7 +11073,11 @@ body.mobile-menu-lock {
 .series-hero-stat strong{box-sizing:border-box;max-width:112px;max-height:112px;overflow:hidden;text-align:center}
 .series-hero-stat strong.is-multiline{line-height:.95}
 .series-hero-stat strong.is-multiline small{display:block;line-height:1}
-@media(max-width:1020px){.series-hero-stat strong{max-width:88px;max-height:88px}.series-hero-stat strong.is-multiline{font-size:20px}}
+.series-hero-stat strong.is-multiline.is-range{padding-inline:8px;font-size:18px;letter-spacing:-.035em;white-space:nowrap}
+.series-hero-stat strong.is-paired-range{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:8px;font-size:15px;line-height:1}
+.series-hero-stat strong.is-paired-range span{position:static;color:inherit;font-family:inherit;font-size:inherit;line-height:1;white-space:nowrap}
+.series-hero-stat strong.is-paired-range span+span::before{content:"– ";font-size:.8em}
+@media(max-width:1020px){.series-hero-stat strong{max-width:88px;max-height:88px}.series-hero-stat strong.is-multiline{font-size:20px}.series-hero-stat strong.is-multiline.is-range{padding-inline:5px;font-size:15px}.series-hero-stat strong.is-paired-range{gap:5px;padding:5px;font-size:12px}}
 
 /* Final backend QA fixes: keep list rows, actions and tables inside their cards. */
 .cms-admin-shell .cms-record-main > .cms-file-icon{

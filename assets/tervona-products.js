@@ -67,7 +67,7 @@
       title: "SLH-OFG 6 kW Single-Phase Off-Grid Inverter",
       productType: "SINGLE-PHASE OFF-GRID INVERTER",
       rangeLabel: "6 kW",
-      summary: "OFG-06KSLH-01-TVN is a 6 kW single-phase off-grid inverter with dual smart-load outputs, parallel operation for up to nine units and two MPPT strings.",
+      summary: "Multi power source inverter with a built-in ATS can automatically switch between generator power and mains power input.",
       banner: "p01-ofg-06kslh-banner.png",
       scene: "p01-ofg-06kslh-scene.png",
       stats: [
@@ -91,7 +91,7 @@
       title: "SLH-OFG 8.2–10.2 kW Solar Inverter",
       productType: "SINGLE-PHASE SOLAR INVERTER",
       rangeLabel: "8.2–10.2 kW",
-      summary: "The SLH-OFG solar inverter series covers 8.2 kW and 10.2 kW single-phase models with on-grid and off-grid operation, dual PV input and battery-free running capability.",
+      summary: "A high cost performance off-grid inverter with two MPPTs and large power output.",
       banner: "p02-ofg-8k2-10kslh-banner.png",
       scene: "p02-ofg-8k2-10kslh-scene.png",
       stats: [
@@ -115,7 +115,7 @@
       title: "EcoLink 3.6–8 kW Single-Phase Hybrid Inverter",
       productType: "SINGLE-PHASE LOW-VOLTAGE HYBRID INVERTER",
       rangeLabel: "3.6–8 kW",
-      summary: "The EcoLink series covers 3.6 kW to 8 kW single-phase low-voltage hybrid inverters with optional EV charging, dual MPPT, IP65 protection and backup switching in 10 ms or less.",
+      summary: "Home energy center to connect with PV, EV, Grid and Battery, 4-in-1 residential energy solution core device.",
       banner: "p03-ecolink-hyb-lsg-banner.png",
       scene: "p03-ecolink-hyb-lsg-scene.png",
       stats: [

@@ -1642,6 +1642,9 @@ function renderProductCategory(slug) {
   const pages = productPages(slug);
   const records = pages.map((item) => cmsNormalizeProductRecord(cmsProductRecordForPath(item.path), item.path));
   const heroProduct = records[0];
+  const heroProductTitle = slug === "hybrid-inverter"
+    ? "EcoLink 8 kW Low-Voltage Single-Phase Hybrid Inverter"
+    : heroProduct?.title;
   const displayProducts = records;
   return `${renderHeader({ forceSolid: true, className: "product-category-header" })}<main class="inside-main">
     <section class="source-category-hero source-category-hero-static source-category-${esc(slug)}" data-category-hero>
@@ -1653,7 +1656,7 @@ function renderProductCategory(slug) {
           <div class="source-category-hero-shade hot"></div>
           <div class="source-category-product-art" aria-hidden="true"><img src="${esc(heroProduct.heroImage)}" alt=""></div>
           <div class="source-hot-product">
-            <h1>${esc(heroProduct.title)}</h1>
+            <h1>${esc(heroProductTitle)}</h1>
             <p>${esc(productKind(heroProduct, slug))}</p>
             <a class="source-learn" href="${localHref(heroProduct.path)}">${icon("arrow")} Learn More</a>
           </div>
@@ -1797,12 +1800,30 @@ function productCenterHero(label, image = "") {
   </section>`;
 }
 
-function renderSeriesStatValue(value, attributes = "") {
+function parseSeriesStatValue(value) {
   const text = String(value || "").trim();
-  const measurement = text.match(/^([+-]?\d+(?:\.\d+)?)\s*(kWh|kW|W|Ah|A|V|ms|kg|mm)$/i);
-  if (measurement) {
-    return `<strong class="is-multiline" ${attributes}>${esc(measurement[1])}<small>${esc(measurement[2])}</small></strong>`;
+  const unit = "(?:kWh|kW|W|Ah|A|V|ms|kg|mm)";
+  const pairedRange = text.match(new RegExp(`^([+-]?\\d+(?:\\.\\d+)?)\\s*(${unit})\\s*[–—-]\\s*([+-]?\\d+(?:\\.\\d+)?)\\s*(${unit})$`, "i"));
+  if (pairedRange) {
+    return { kind: "paired-range", first: `${pairedRange[1]} ${pairedRange[2]}`, second: `${pairedRange[3]} ${pairedRange[4]}` };
   }
+  const measurement = text.match(new RegExp(`^([+-]?\\d+(?:\\.\\d+)?(?:\\s*[–—-]\\s*[+-]?\\d+(?:\\.\\d+)?)?)\\s*(${unit})$`, "i"));
+  if (measurement) {
+    const primary = measurement[1].replace(/\s*([–—-])\s*/g, "$1");
+    return { kind: "measurement", primary, unit: measurement[2], range: /[–—-]/.test(primary) };
+  }
+  return { kind: "text", text };
+}
+
+function renderSeriesStatValue(value, attributes = "") {
+  const parsed = parseSeriesStatValue(value);
+  if (parsed.kind === "paired-range") {
+    return `<strong class="is-paired-range" ${attributes}><span>${esc(parsed.first)}</span><span>${esc(parsed.second)}</span></strong>`;
+  }
+  if (parsed.kind === "measurement") {
+    return `<strong class="is-multiline${parsed.range ? " is-range" : ""}" ${attributes}>${esc(parsed.primary)}<small>${esc(parsed.unit)}</small></strong>`;
+  }
+  const text = parsed.text;
   if (text.length > 10 && /[-\s]/.test(text)) {
     const parts = text.split(/[-\s]+/).filter(Boolean);
     const midpoint = Math.ceil(parts.length / 2);
@@ -1813,18 +1834,28 @@ function renderSeriesStatValue(value, attributes = "") {
 
 function cmsSetSeriesStatPreviewValue(node, value) {
   if (!node) return;
-  const text = String(value || "").trim();
-  const measurement = text.match(/^([+-]?\d+(?:\.\d+)?)\s*(kWh|kW|W|Ah|A|V|ms|kg|mm)$/i);
-  node.classList.remove("is-multiline", "is-compact");
+  const parsed = parseSeriesStatValue(value);
+  node.classList.remove("is-multiline", "is-range", "is-paired-range", "is-compact");
   node.replaceChildren();
-  if (measurement) {
+  if (parsed.kind === "paired-range") {
+    node.classList.add("is-paired-range");
+    for (const valuePart of [parsed.first, parsed.second]) {
+      const part = document.createElement("span");
+      part.textContent = valuePart;
+      node.append(part);
+    }
+    return;
+  }
+  if (parsed.kind === "measurement") {
     node.classList.add("is-multiline");
-    node.append(document.createTextNode(measurement[1]));
+    if (parsed.range) node.classList.add("is-range");
+    node.append(document.createTextNode(parsed.primary));
     const unit = document.createElement("small");
-    unit.textContent = measurement[2];
+    unit.textContent = parsed.unit;
     node.append(unit);
     return;
   }
+  const text = parsed.text;
   if (text.length > 10 && /[-\s]/.test(text)) {
     const parts = text.split(/[-\s]+/).filter(Boolean);
     const midpoint = Math.ceil(parts.length / 2);
