@@ -4740,7 +4740,15 @@ function renderFooter() {
       <div class="footer-nav-group footer-downloads"><h4>Downloads</h4><nav class="footer-link-list" aria-label="Downloads">${downloadCategories().slice(0, 5).map(([slug, label]) => `<a href="${localHref(`/download/${slug}`)}">${esc(label)}</a>`).join("")}</nav></div>
       <div class="footer-nav-group footer-company"><h4>Company</h4><nav class="footer-link-list" aria-label="Company and partner"><a href="${localHref("/company")}">About Tervona</a><a href="${localHref("/contact-us")}">Contact Us</a><a href="${localHref("/partner")}">Partner</a></nav></div>
     </div>
-    <div class="footer-legal"><strong>© 2026 Shenzhen Tervona Tech Co., Ltd.</strong><span>Plant 401, Nangang No. 2 Industrial Park, No. 1026 Songbai Road, Yangguang Community, Xili Street, Nanshan District, Shenzhen, China</span></div>
+    <div class="footer-legal">
+      <div class="footer-legal-brand">
+        <strong>© 2026 Shenzhen Tervona Tech Co., Ltd.</strong>
+        <a class="footer-linkedin" href="https://www.linkedin.com/company/tervona/home/" target="_blank" rel="noopener noreferrer" aria-label="Visit Tervona on LinkedIn" title="Tervona on LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.352V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.555V9H7.12v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
+        </a>
+      </div>
+      <span class="footer-address">Plant 401, Nangang No. 2 Industrial Park, No. 1026 Songbai Road, Yangguang Community, Xili Street, Nanshan District, Shenzhen, China</span>
+    </div>
   </footer>`;
 }
 
