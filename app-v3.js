@@ -1047,6 +1047,7 @@ function productTaxonomy() {
       href: `/products/${category.slug}`,
       aliases: source?.aliases || [],
       children: source?.children || [],
+      menuImage: category.icon || category.heroImage || "",
     };
   });
 }
@@ -1062,6 +1063,10 @@ function activeProductTaxonomySlug() {
 
 function productMegaPresentation(category) {
   const presentations = {
+    "low-voltage-battery": {
+      description: "Store solar energy for backup and everyday use.",
+      image: "/assets/tervona-products/catalog-v2/battery-5-kwh-cutout.png",
+    },
     "battery-pack": {
       description: "Store solar energy for backup and everyday use.",
       image: "/assets/tervona-products/catalog-v2/battery-5-kwh-cutout.png",
@@ -1087,10 +1092,13 @@ function productMegaPresentation(category) {
       icon: "cloud",
     },
   };
-  return presentations[category?.slug] || {
+  const presentation = presentations[category?.slug] || {
     description: "Explore Tervona energy products and solutions.",
     icon: "energy",
   };
+  return category?.menuImage
+    ? { ...presentation, image: category.menuImage, icon: "" }
+    : presentation;
 }
 
 function productMegaVisual(category) {
