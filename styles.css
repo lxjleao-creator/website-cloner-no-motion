@@ -4110,6 +4110,15 @@ body.mobile-menu-lock {
   font-weight: var(--heading-font-weight);
 }
 
+.product-hero-title-lead,
+.product-hero-title-type {
+  display: block;
+}
+
+.product-hero-title-lead {
+  white-space: nowrap;
+}
+
 .series-hero-copy p {
   max-width: 580px;
   margin: 0;

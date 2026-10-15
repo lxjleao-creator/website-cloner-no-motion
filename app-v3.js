@@ -1866,6 +1866,45 @@ function cmsSetSeriesStatPreviewValue(node, value) {
   node.textContent = text;
 }
 
+function productHeroTitleParts(value) {
+  const title = String(value || "").trim();
+  const match = title.match(/^(.+\b(?:kWh|kW|W))\s+(.+)$/i);
+  if (!match) return { lead: title, type: "", lengthClass: "" };
+  const lead = match[1].trim();
+  const lengthClass = lead.length > 22 ? "is-extra-long-lead" : lead.length > 17 ? "is-long-lead" : "";
+  return { lead, type: match[2].trim(), lengthClass };
+}
+
+function productHeroTitleClass(value) {
+  const { type, lengthClass } = productHeroTitleParts(value);
+  return type ? `product-hero-title${lengthClass ? ` ${lengthClass}` : ""}` : "";
+}
+
+function renderProductHeroTitle(value) {
+  const parts = productHeroTitleParts(value);
+  if (!parts.type) return esc(parts.lead);
+  return `<span class="product-hero-title-lead">${esc(parts.lead)}</span><span class="product-hero-title-type">${esc(parts.type)}</span>`;
+}
+
+function cmsSetProductHeroTitle(node, value) {
+  if (!node) return;
+  const parts = productHeroTitleParts(value);
+  node.replaceChildren();
+  if (!parts.type) {
+    node.textContent = parts.lead;
+    return;
+  }
+  node.classList.add("product-hero-title");
+  if (parts.lengthClass) node.classList.add(parts.lengthClass);
+  const lead = document.createElement("span");
+  lead.className = "product-hero-title-lead";
+  lead.textContent = parts.lead;
+  const type = document.createElement("span");
+  type.className = "product-hero-title-type";
+  type.textContent = parts.type;
+  node.append(lead, type);
+}
+
 function renderProductAdvantages(record, { preview = false } = {}) {
   const highlightIcons = ["bolt", "eye", "link", "globe"];
   const sceneImage = record?.advantagesSceneImage || "/assets/tervona-products/core-advantages-scene-v1.png";
@@ -1911,7 +1950,7 @@ function renderProductDetailPage(path) {
       <div class="series-hero-bg"><img src="${esc(bannerImage)}" alt="${esc(bannerTitle)}"></div>
       <div class="series-hero-copy">
         <a class="back-link" href="${localHref(`/products/${cat.slug}`)}">${esc(categoryLabel)}</a>
-        <h1>${esc(bannerTitle)}</h1>
+        <h1 class="${esc(productHeroTitleClass(bannerTitle))}">${renderProductHeroTitle(bannerTitle)}</h1>
         <p>${esc(productRecord.heroText)}</p>
       </div>
       <div class="series-hero-stats">
@@ -3687,7 +3726,7 @@ function renderCmsLiveProductEditor(record, originalId) {
               <div class="series-hero-bg"><img src="${esc(record.heroImage)}" alt="" data-live-preview="heroImage"></div>
               <div class="series-hero-copy">
                 <a class="back-link" data-live-preview="categoryLabel">${esc(cat.title.replace(/ies$/, "y").replace(/s$/, ""))}</a>
-                <h1 data-live-preview="title">${esc(record.title)}</h1>
+                <h1 class="${esc(productHeroTitleClass(record.title))}" data-live-preview="title" data-live-product-title>${renderProductHeroTitle(record.title)}</h1>
                 <p data-live-preview="heroText">${esc(record.heroText)}</p>
               </div>
               <div class="series-hero-stats">
@@ -4892,6 +4931,10 @@ function cmsUpdateLivePreview(form) {
     });
   };
   setText("title", record.title);
+  form.querySelectorAll("[data-live-product-title]").forEach((node) => {
+    node.classList.remove("product-hero-title", "is-long-lead", "is-extra-long-lead");
+    cmsSetProductHeroTitle(node, record.title);
+  });
   setText("categoryLabel", record.categoryLabel.replace(/ies$/, "y").replace(/s$/, ""));
   setText("heroText", record.heroText);
   setText("seoTitle", record.seoTitle);
