@@ -1038,7 +1038,12 @@ function productTaxonomy() {
   const taxonomy = tervonaCatalog().taxonomy;
   return productCategories().map((category, index) => {
     const sourceSlug = category.catalogSlug || category.slug;
-    const source = Array.isArray(taxonomy) ? taxonomy.find((item) => item.slug === sourceSlug) : null;
+    const source = Array.isArray(taxonomy) ? taxonomy.find((item) => {
+      const aliases = Array.isArray(item.aliases) ? item.aliases : [];
+      return item.slug === sourceSlug
+        || aliases.includes(sourceSlug)
+        || aliases.includes(category.slug);
+    }) : null;
     return {
       ...(source || {}),
       slug: category.slug,
