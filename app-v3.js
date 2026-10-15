@@ -2364,7 +2364,10 @@ function cmsSeedMedia() {
       description: usage || "",
     });
   };
-  cmsSeedProducts().forEach((product) => push(product.heroImage, `${product.title} 主图`, "products", "产品详情首屏和产品卡片"));
+  cmsSeedProducts().forEach((product) => {
+    push(product.heroImage, `${product.title} 主图`, "products", "产品详情首屏和产品卡片", "1200 x 1200 px");
+    push(product.advantagesSceneImage, `${product.title} 场景图`, "products", "产品详情 Core Advantages 场景图", "1600 x 1600 px");
+  });
   [
     ["/assets/tervona-home-20260922/home-hero-pc.jpg", "Tervona 首页 Hero PC", "heroes", "首页首屏", "1920 x 960 px"],
     ["/assets/tervona-home-20260922/home-hero-mobile.jpg", "Tervona 首页 Hero 手机", "heroes", "首页首屏", "750 x 1200 px"],
@@ -2429,16 +2432,21 @@ function cmsSanitizeState(state) {
   const productRecords = tervonaCatalogProducts().length
     ? defaults.products.map((seed) => {
         const saved = savedProducts.find((record) => record.catalogId === seed.id || routePathOnly(record.path || record.id) === routePathOnly(seed.path || seed.id));
-        return saved ? { ...seed, ...saved } : seed;
+        return saved?.catalogVersion === seed.catalogVersion ? { ...seed, ...saved } : seed;
       })
     : (savedProducts.length ? savedProducts : defaults.products);
+  const savedCategories = Array.isArray(state.categories) ? state.categories : [];
+  const categoryRecords = defaults.categories.map((seed) => {
+    const saved = savedCategories.find((record) => record.slug === seed.slug || record.id === seed.id);
+    return saved?.catalogVersion === seed.catalogVersion ? { ...seed, ...saved } : seed;
+  });
   const newsRecords = Array.isArray(state.news) ? state.news.map((record) => {
     const seed = defaults.news.find((item) => routePathOnly(item.path) === routePathOnly(record.path));
     return { ...seed, ...record, body: record.body || seed?.body || "" };
   }) : defaults.news;
   return {
     products: productRecords,
-    categories: Array.isArray(state.categories) && state.categories.length ? state.categories : defaults.categories,
+    categories: categoryRecords,
     news: newsRecords,
     pages: Array.isArray(state.pages) ? state.pages : defaults.pages,
     media: Array.isArray(state.media) ? [...state.media, ...defaults.media.filter((seed) => !state.media.some((item) => item.url === seed.url))] : defaults.media,

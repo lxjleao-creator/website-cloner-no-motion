@@ -1,12 +1,9 @@
 (function () {
   "use strict";
 
-  const imageRoot = "/assets/tervona-products/catalog-v2";
+  const catalogVersion = "2026-10-15-12-products";
+  const imageRoot = "/assets/tervona-products/catalog-20261015";
   const categoryScene = "/assets/tervona-products/category-scene-tervona-v2.png";
-  const lowVoltageBatteryImage = `${imageRoot}/battery-5-kwh-cutout.png`;
-  const ecoLinkImage = `${imageRoot}/ecolink-series-cutout.png`;
-  const allInOneImage = `${imageRoot}/aio-500w-1kwh-cutout.png`;
-  const offGridImage = `${imageRoot}/off-grid-single-phase-cutout.png`;
 
   const categoryLabels = {
     "low-voltage-battery": "Low-Voltage Batteries",
@@ -22,16 +19,18 @@
     productType,
     rangeLabel,
     summary,
-    image,
+    banner,
+    scene,
     stats,
     eyebrow,
     advantagesTitle,
     advantagesBody,
     highlights,
-    datasheetUrl,
+    datasheetUrl = "",
   }) {
     const path = `/products/${category}/${slug}`;
     return {
+      catalogVersion,
       id: path,
       path,
       title,
@@ -41,186 +40,320 @@
       rangeLabel,
       summary,
       heroText: summary,
-      heroImage: image,
-      bannerImage: image,
-      listImage: image,
+      heroImage: `${imageRoot}/${banner}`,
+      bannerImage: `${imageRoot}/${banner}`,
+      listImage: `${imageRoot}/${banner}`,
+      advantagesImage: `${imageRoot}/${banner}`,
+      advantagesSceneImage: `${imageRoot}/${scene}`,
       status: "Published",
       stats,
       advantagesEyebrow: eyebrow,
       advantagesTitle,
       advantagesBody,
-      advantagesImage: image,
       highlights,
       datasheetUrl,
       seoTitle: `${title} | Tervona`,
       seoDescription: summary,
+      seoKeywords: `${title}, ${categoryLabels[category]}, Tervona`,
+      canonicalUrl: path,
+      seoIndexing: "index, follow",
     };
   }
 
-  function batteryProduct(config) {
-    const { slug, designation, form, image, model, energy, voltage, capacity, chargeCurrent, dischargeCurrent, size, weight, familyOnly, datasheetUrl } = config;
-    const title = `${designation} ${form} Low-Voltage Battery`;
-    const sourceEnergy = energy || designation;
-    const summary = familyOnly
-      ? `A ${designation} floor-standing LiFePO4 battery configuration in Tervona's low-voltage storage range.`
-      : `${model} is a ${sourceEnergy} ${form.toLowerCase()} LiFePO4 battery with ${voltage} nominal voltage, ${capacity} rated capacity and RS485/CAN communication.`;
-    const highlights = familyOnly
-      ? [
-          { title: `${designation} storage configuration`, body: `The supplied standing-battery family lists ${designation} among its available energy configurations.` },
-          { title: "LiFePO4 battery family", body: "Battery chemistry: lithium iron phosphate (LiFePO4)." },
-          { title: "Broad inverter compatibility", body: "The supplied family presentation states compatibility with more than 20 mainstream inverter platforms." },
-          { title: "Multilingual display", body: "The supplied family presentation lists multilingual display switching." },
-        ]
-      : [
-          { title: `${sourceEnergy} LiFePO4 battery`, body: `${voltage} nominal voltage and ${capacity} rated capacity.` },
-          { title: "Charge and discharge current", body: `${chargeCurrent} maximum charge current; ${dischargeCurrent} maximum discharge current.` },
-          { title: "RS485 / CAN communication", body: "The product parameter sheet lists RS485 and CAN communication interfaces." },
-          { title: `${size} enclosure`, body: `Product size: ${size}; approximate weight: ${weight}.` },
-        ];
-    return productRecord({
-      slug: slug,
-      category: "low-voltage-battery",
-      title,
-      productType: `${form.toUpperCase()} LIFEPO4 BATTERY`,
-      rangeLabel: designation,
-      summary,
-      image,
+  const products = [
+    productRecord({
+      slug: "slh-ofg-6kw",
+      category: "off-grid-inverter",
+      title: "SLH-OFG 6 kW Single-Phase Off-Grid Inverter",
+      productType: "SINGLE-PHASE OFF-GRID INVERTER",
+      rangeLabel: "6 kW",
+      summary: "OFG-06KSLH-01-TVN is a 6 kW single-phase off-grid inverter with dual smart-load outputs, parallel operation for up to nine units and two MPPT strings.",
+      banner: "p01-ofg-06kslh-banner.png",
+      scene: "p01-ofg-06kslh-scene.png",
       stats: [
-        { label: familyOnly ? "Storage Configuration" : "Battery Energy", value: sourceEnergy },
-        { label: familyOnly ? "Installation Format" : "Rated Capacity", value: familyOnly ? form : capacity },
+        { label: "Rated Power", value: "6 kW" },
+        { label: "Maximum PV Input", value: "8 kW" },
       ],
-      eyebrow: `${form} LiFePO4 Battery`,
-      advantagesTitle: familyOnly ? `${designation} floor-standing storage` : `${designation} low-voltage energy storage`,
-      advantagesBody: familyOnly
-        ? `This ${designation} configuration belongs to the supplied floor-standing LiFePO4 family, which is presented with 10 kW inverter support, compatibility with more than 20 mainstream inverter platforms and multilingual display switching.`
-        : `${model} combines ${sourceEnergy} of LiFePO4 storage with ${voltage} nominal voltage, ${capacity} rated capacity and RS485/CAN communication in a ${form.toLowerCase()} enclosure.`,
-      highlights,
-      datasheetUrl,
-    });
-  }
-
-  function ecoLinkProduct(config) {
-    const { slug, power, modelCode, maxPvInput, batteryCurrent, batteryPower } = config;
-    const title = `EcoLink ${power} Low-Voltage Single-Phase Hybrid Inverter`;
-    const summary = `${modelCode} is a ${power} EcoLink single-phase low-voltage hybrid inverter with ${maxPvInput} maximum PV input, dual MPPT, IP65 protection and backup switching of 10 ms or less.`;
-    return productRecord({
-      slug: slug,
-      category: "hybrid-inverter",
-      title,
-      productType: "SINGLE-PHASE LOW-VOLTAGE HYBRID INVERTER",
-      rangeLabel: power,
-      summary,
-      image: ecoLinkImage,
+      eyebrow: "SLH-OFG Series",
+      advantagesTitle: "Flexible off-grid power for smart household loads",
+      advantagesBody: "The SLH-OFG 6 kW inverter combines pure-sine-wave output, dual smart-load management, scalable parallel operation and two MPPT strings.",
+      highlights: [
+        { title: "Dual outputs for smart load management", body: "Two output channels support smart-load management for essential and flexible household loads." },
+        { title: "6 kW rated power at power factor 1.0", body: "Rated output is 6 kVA / 6 kW with pure-sine-wave AC output." },
+        { title: "Parallel operation up to 9 units", body: "System capacity can scale through parallel operation of up to nine inverters." },
+        { title: "Two MPPT strings", body: "Two MPPT trackers accept up to 8,000 W of photovoltaic input in total." },
+      ],
+      datasheetUrl: "/uploads/downloads/slh-ofg-6kw-off-grid-inverter-datasheet.pdf",
+    }),
+    productRecord({
+      slug: "slh-ofg-8-2-10-2kw",
+      category: "off-grid-inverter",
+      title: "SLH-OFG 8.2–10.2 kW Solar Inverter",
+      productType: "SINGLE-PHASE SOLAR INVERTER",
+      rangeLabel: "8.2–10.2 kW",
+      summary: "The SLH-OFG solar inverter series covers 8.2 kW and 10.2 kW single-phase models with on-grid and off-grid operation, dual PV input and battery-free running capability.",
+      banner: "p02-ofg-8k2-10kslh-banner.png",
+      scene: "p02-ofg-8k2-10kslh-scene.png",
       stats: [
-        { label: "Rated AC Output", value: power },
+        { label: "Rated Output Range", value: "8.2–10.2 kW" },
+        { label: "Maximum PV Input", value: "10.8 kW" },
+      ],
+      eyebrow: "SLH-OFG Series",
+      advantagesTitle: "On-grid and off-grid solar power in one platform",
+      advantagesBody: "The 8.2–10.2 kW SLH-OFG series provides pure-sine-wave output, battery-free operation and dedicated battery and Wi-Fi communications.",
+      highlights: [
+        { title: "Pure sine-wave solar inverter", body: "Designed for both on-grid and off-grid operating modes with clean pure-sine-wave output." },
+        { title: "Runs without a battery", body: "The inverter can supply compatible loads directly without requiring a connected battery." },
+        { title: "Automatic lithium-battery activation", body: "Built-in lithium-battery activation helps restore and manage compatible battery systems." },
+        { title: "Dual communication ports", body: "Dedicated communication paths support battery communication and Wi-Fi monitoring." },
+      ],
+      datasheetUrl: "/uploads/downloads/slh-ofg-8-2kw-10-2kw-solar-inverter-datasheet.pdf",
+    }),
+    productRecord({
+      slug: "ecolink-3-6-kw",
+      category: "hybrid-inverter",
+      title: "EcoLink 3.6–8 kW Single-Phase Hybrid Inverter",
+      productType: "SINGLE-PHASE LOW-VOLTAGE HYBRID INVERTER",
+      rangeLabel: "3.6–8 kW",
+      summary: "The EcoLink series covers 3.6 kW to 8 kW single-phase low-voltage hybrid inverters with optional EV charging, dual MPPT, IP65 protection and backup switching in 10 ms or less.",
+      banner: "p03-ecolink-hyb-lsg-banner.png",
+      scene: "p03-ecolink-hyb-lsg-scene.png",
+      stats: [
+        { label: "Rated Output Range", value: "3.6–8 kW" },
         { label: "Ingress Protection", value: "IP65" },
       ],
       eyebrow: "EcoLink Series",
-      advantagesTitle: `${power} single-phase low-voltage hybrid inverter`,
-      advantagesBody: `${modelCode} combines a 42–59 V battery interface, dual MPPT inputs, IP65 ingress protection and backup switching of 10 ms or less. The supplied EcoLink material also lists an optional integrated 7 kW AC charger, smart port and remote operation and maintenance.`,
+      advantagesTitle: "Smart hybrid control with optional EV charging",
+      advantagesBody: "EcoLink combines low-voltage battery control, optional EV charging, fast backup switching and compact outdoor-ready construction.",
       highlights: [
-        { title: `${batteryCurrent} battery current`, body: `Maximum charge/discharge current: ${batteryCurrent}; maximum battery charge/discharge power: ${batteryPower}.` },
-        { title: "Dual MPPT PV input", body: `${maxPvInput} maximum PV input, 90–530 V MPPT range and two MPPT trackers.` },
-        { title: "≤10 ms backup switching", body: `${power} nominal EPS output with automatic switching in 10 ms or less and peak output up to twice rated power for 10 seconds.` },
-        { title: "IP65 and 97% max efficiency", body: "IP65 enclosure, 97% maximum PV-to-AC efficiency, RS485/CAN and optional Wi-Fi via USB." },
+        { title: "Smart energy control", body: "Integrated 7 kW AC charger support, a smart port and remote operation and maintenance." },
+        { title: "Powerful backup for heavy loads", body: "Supports 200% peak output and up to 180 A battery charge and discharge current." },
+        { title: "Easy installation", body: "A compact structure simplifies installation, commissioning and ongoing maintenance." },
+        { title: "≤10 ms ultra-fast switching", body: "Fast transfer delivers seamless power continuity during grid outages." },
       ],
       datasheetUrl: "/uploads/downloads/ecolink-3-6kw-8kw-hybrid-inverter-datasheet.pdf",
-    });
-  }
-
-  function offGridProduct(slug, power, datasheetUrl) {
-    const title = `${power} IP54 Single-Phase Off-Grid Inverter`;
-    const summary = `A ${power} single-phase off-grid inverter with an IP54 designation.`;
-    return productRecord({
-      slug,
-      category: "off-grid-inverter",
-      title,
-      productType: "SINGLE-PHASE OFF-GRID INVERTER",
-      rangeLabel: `${power} · IP54`,
-      summary,
-      image: offGridImage,
+    }),
+    productRecord({
+      slug: "slh-6-6-12kw",
+      category: "hybrid-inverter",
+      title: "SLH 6.6–12 kW Single-Phase Hybrid Inverter",
+      productType: "SINGLE-PHASE HYBRID INVERTER",
+      rangeLabel: "6.6–12 kW",
+      summary: "The SLH series covers 6.6 kW to 12 kW single-phase hybrid inverters with an IP66 enclosure, model-dependent dual or triple MPPT and smart-load outputs.",
+      banner: "p04-hyb-slh-banner.png",
+      scene: "p04-hyb-slh-scene.png",
       stats: [
-        { label: "Power Class", value: power },
-        { label: "Ingress Designation", value: "IP54" },
+        { label: "Rated Output Range", value: "6.6–12 kW" },
+        { label: "Ingress Protection", value: "IP66" },
       ],
-      eyebrow: "Single-Phase Off-Grid Inverter",
-      advantagesTitle: `${power} power class with IP54 designation`,
-      advantagesBody: `${title} combines the confirmed ${power} power class, single-phase architecture and IP54 designation.`,
+      eyebrow: "SLH Series",
+      advantagesTitle: "Configurable single-phase hybrid power",
+      advantagesBody: "The SLH platform combines an outdoor-ready enclosure, a large HMI display and high-current multi-MPPT photovoltaic input.",
       highlights: [
-        { title: `${power} power class`, body: `Product power class: ${power}.` },
-        { title: "Single-phase", body: "Phase category: single-phase." },
-        { title: "IP54 designation", body: "Ingress designation: IP54." },
-        { title: "Off-grid inverter", body: "Product category: off-grid inverter." },
+        { title: "IP66-certified enclosure", body: "The protected enclosure is designed for demanding residential installation environments." },
+        { title: "4.3-inch HMI LCD", body: "A large human-machine interface supports clear setup, monitoring and configuration." },
+        { title: "Two or three MPPT trackers", body: "Built-in MPPT quantity is matched to the selected model for flexible array design." },
+        { title: "High PV input current", body: "Maximum PV input current increases to 21 A, 27 A or 28 A according to model." },
       ],
-      datasheetUrl,
-    });
-  }
-
-  function allInOneProduct(config) {
-    const { slug, output, storage, image, family, model, voltage, capacity, pvPower, mppt, pvCurrent, transfer, size, weight, datasheetUrl } = config;
-    const rating = `${output} / ${storage}`;
-    const title = `${rating} All-in-One Energy Storage System`;
-    const mini = family === "mini";
-    const summary = mini
-      ? `${model} combines ${storage} of LiFePO4 storage, ${output} pure-sine-wave AC output and PV/grid charging in one compact system.`
-      : `${model} is a floor-standing ${rating} system combining a LiFePO4 battery, inverter, PV/AC charging and UPS functionality.`;
-    const highlights = [
-      { title: `${storage} LiFePO4 battery`, body: `${voltage} nominal voltage and ${capacity} rated capacity.` },
-      { title: `${pvPower} PV input`, body: `Maximum PV input power: ${pvPower}; MPPT voltage range: ${mppt}; maximum PV input current: ${pvCurrent}.` },
-      { title: `${output} pure sine wave output`, body: `${output} rated AC output at 230 Vac${transfer ? ` with transfer time below ${transfer}` : ""}.` },
-      { title: mini ? "PV, grid and AC/DC operation" : "Integrated PV/AC charging and UPS", body: mini ? `Supports PV and grid charging, AC/DC output and fast charging. Product size: ${size}; approximate weight: ${weight}.` : `RS485/Wi-Fi communication. Product size: ${size}; approximate weight: ${weight}.` },
-    ];
-    return productRecord({
-      slug: slug,
-      category: "all-in-one-ess",
-      title,
-      productType: "ALL-IN-ONE ENERGY STORAGE SYSTEM",
-      rangeLabel: rating,
-      summary,
-      image,
+    }),
+    productRecord({
+      slug: "slh-hby-10-16kw",
+      category: "hybrid-inverter",
+      title: "SLH-HBY 10–16 kW Single-Phase Hybrid Inverter",
+      productType: "SINGLE-PHASE HYBRID INVERTER",
+      rangeLabel: "10–16 kW",
+      summary: "The SLH-HBY series covers 10 kW, 12 kW and 16 kW single-phase hybrid inverters with IP66 protection, AC coupling and high-current battery support.",
+      banner: "p05-hyb-slh-hby-banner.png",
+      scene: "p05-hyb-slh-hby-scene.png",
       stats: [
-        { label: "Rated Output", value: output },
-        { label: "Battery Energy", value: storage },
+        { label: "Rated Output Range", value: "10–16 kW" },
+        { label: "Ingress Protection", value: "IP66" },
       ],
-      eyebrow: "All-in-One Energy Storage",
-      advantagesTitle: `${rating} integrated energy storage`,
-      advantagesBody: mini
-        ? `This ${rating} configuration combines a LiFePO4 battery, pure-sine-wave AC output, PV and grid charging, AC/DC output and fast-charging support.`
-        : `This ${rating} configuration combines a LiFePO4 battery and inverter in a floor-standing system with integrated PV/AC charging and UPS functionality.`,
-      highlights,
-      datasheetUrl,
-    });
-  }
-
-  const products = [
-    batteryProduct({ slug: "5-kwh-rack-mount", designation: "5 kWh", form: "Rack-Mount", image: `${imageRoot}/battery-5-kwh-cutout.png`, model: "IYP-RM51100A-A1", energy: "5.12 kWh", voltage: "48 / 51.2 V", capacity: "100 Ah", chargeCurrent: "100 A", dischargeCurrent: "100 A", size: "442 × 420 × 133 mm", weight: "43 / 45 kg", datasheetUrl: "/uploads/downloads/lst-5-12kwh-16kwh-rack-mount-lifepo4-battery-datasheet.pdf" }),
-    batteryProduct({ slug: "7-5-kw-rack-mount", designation: "7.5 kWh", form: "Rack-Mount", image: `${imageRoot}/battery-7-5-kw-cutout.png`, model: "IYP-RM51150A-A1", energy: "7.5 kWh", voltage: "48 / 51.2 V", capacity: "150 Ah", chargeCurrent: "150 A", dischargeCurrent: "150 A", size: "442 × 450 × 168 mm", weight: "63 / 66 kg", datasheetUrl: "/uploads/downloads/lst-5-12kwh-16kwh-rack-mount-lifepo4-battery-datasheet.pdf" }),
-    batteryProduct({ slug: "10-kwh-floor-standing", designation: "10 kWh", form: "Floor-Standing", image: `${imageRoot}/battery-10-kwh-cutout.png`, model: "IYP-RM51206A-A1", energy: "10.5 kWh", voltage: "48 / 51.2 V", capacity: "206 Ah", chargeCurrent: "200 A", dischargeCurrent: "200 A", size: "442 × 420 × 266 mm", weight: "85 / 88 kg" }),
-    batteryProduct({ slug: "16-kwh-floor-standing", designation: "16 kWh", form: "Floor-Standing", image: `${imageRoot}/battery-16-kwh-cutout.png`, model: "IYP-ST51314A-M1", energy: "16 kWh", voltage: "51.2 V", capacity: "314 Ah", chargeCurrent: "100 / 200 A", dischargeCurrent: "200 A", size: "470 × 250 × 690 mm", weight: "110 kg", datasheetUrl: "/uploads/downloads/lsk-16kwh-standing-lifepo4-battery-datasheet.pdf" }),
-    batteryProduct({ slug: "32-kwh-floor-standing", designation: "32 kWh", form: "Floor-Standing", image: `${imageRoot}/battery-32-kwh-cutout.png`, familyOnly: true, datasheetUrl: "/uploads/downloads/lsk-16kwh-standing-lifepo4-battery-datasheet.pdf" }),
-
-    ecoLinkProduct({ slug: "ecolink-3-6-kw", power: "3.6 kW", modelCode: "HYB-3K6LSG-01-TVN", maxPvInput: "7.2 kW", batteryCurrent: "83 A", batteryPower: "4.0 kW" }),
-    ecoLinkProduct({ slug: "ecolink-4-6-kw", power: "4.6 kW", modelCode: "HYB-4K6LSG-01-TVN", maxPvInput: "9.2 kW", batteryCurrent: "104 A", batteryPower: "5.0 kW" }),
-    ecoLinkProduct({ slug: "ecolink-5-kw", power: "5 kW", modelCode: "HYB-05KLSG-01-TVN", maxPvInput: "10 kW", batteryCurrent: "112 A", batteryPower: "5.4 kW" }),
-    ecoLinkProduct({ slug: "ecolink-6-kw", power: "6 kW", modelCode: "HYB-06KLSG-01-TVN", maxPvInput: "12 kW", batteryCurrent: "130 A", batteryPower: "6.5 kW" }),
-    ecoLinkProduct({ slug: "ecolink-8-kw", power: "8 kW", modelCode: "HYB-08KLSG-01-TVN", maxPvInput: "12 kW", batteryCurrent: "180 A", batteryPower: "8.8 kW" }),
-
-    offGridProduct("6-2-kw-ip54", "6.2 kW", "/uploads/downloads/slh-ofg-6kw-off-grid-inverter-datasheet.pdf"),
-    offGridProduct("8-2-kw-ip54", "8.2 kW", "/uploads/downloads/slh-ofg-8-2kw-10-2kw-solar-inverter-datasheet.pdf"),
-
-    allInOneProduct({ slug: "500w-1kwh", output: "500 W", storage: "1 kWh", image: `${imageRoot}/aio-500w-1kwh-cutout.png`, family: "mini", model: "IYP-1K1A-500F1-A1", voltage: "3.2 V", capacity: "314 Ah", pvPower: "300 W", mppt: "11–55 V", pvCurrent: "10 A", size: "310 × 360 × 151 mm", weight: "15 kg", datasheetUrl: "/uploads/downloads/aio-500w-1kw-dual-mount-energy-storage-datasheet.pdf" }),
-    allInOneProduct({ slug: "1kw-2kwh", output: "1 kW", storage: "2 kWh", image: `${imageRoot}/aio-1kw-2kwh-cutout.png`, family: "mini", model: "IYP-2K1A-1KF1-A1", voltage: "6.4 V", capacity: "314 Ah", pvPower: "500 W", mppt: "12–60 V", pvCurrent: "15 A", size: "350 × 270 × 241 mm", weight: "20 kg", datasheetUrl: "/uploads/downloads/aio-500w-1kw-dual-mount-energy-storage-datasheet.pdf" }),
-    allInOneProduct({ slug: "2kw-2-6kwh", output: "2 kW", storage: "2.6 kWh", image: `${imageRoot}/aio-2kw-2-6kwh-cutout.png`, family: "standing", model: "IYP-ST2K6A-2KF1-A1", voltage: "12.8 V", capacity: "206 Ah", pvPower: "3 kW", mppt: "30–400 Vdc", pvCurrent: "18 A", transfer: "20 ms", size: "610 × 390 × 230 mm", weight: "20 kg", datasheetUrl: "/uploads/downloads/aio-2kw-2-6kwh-4kwh-standing-all-in-one-ess-datasheet.pdf" }),
-    allInOneProduct({ slug: "2kw-4kwh", output: "2 kW", storage: "4 kWh", image: `${imageRoot}/aio-2kw-4kwh-cutout.png`, family: "standing", model: "IYP-ST4K1A-2KF1-A1", voltage: "12.8 V", capacity: "314 Ah", pvPower: "3 kW", mppt: "30–400 Vdc", pvCurrent: "18 A", transfer: "20 ms", size: "610 × 390 × 230 mm", weight: "30 kg", datasheetUrl: "/uploads/downloads/aio-2kw-2-6kwh-4kwh-standing-all-in-one-ess-datasheet.pdf" }),
-    allInOneProduct({ slug: "6kw-10-5kwh", output: "6 kW", storage: "10.5 kWh", image: `${imageRoot}/aio-6kw-10-5kwh-cutout.png`, family: "standing", model: "IYP-ST10K5A-6KF1-A1", voltage: "51.2 V", capacity: "206 Ah", pvPower: "8.5 kW", mppt: "60–450 Vdc", pvCurrent: "22.5 A", transfer: "20 ms", size: "485 × 270 × 760 mm", weight: "85 kg" }),
-    allInOneProduct({ slug: "10kw-10-5kwh", output: "10 kW", storage: "10.5 kWh", image: `${imageRoot}/aio-10kw-10-5kwh-cutout.png`, family: "standing", model: "IYP-ST10K5A-10KF1-A1", voltage: "51.2 V", capacity: "206 Ah", pvPower: "15 kW", mppt: "60–450 Vdc", pvCurrent: "25 A", transfer: "20 ms", size: "513 × 305 × 820 mm", weight: "97 kg" }),
-    allInOneProduct({ slug: "6kw-16kwh", output: "6 kW", storage: "16 kWh", image: `${imageRoot}/aio-6kw-16kwh-cutout.png`, family: "standing", model: "IYP-ST16K1A-6KF1-A1", voltage: "51.2 V", capacity: "314 Ah", pvPower: "8.5 kW", mppt: "60–450 Vdc", pvCurrent: "22.5 A", transfer: "20 ms", size: "510 × 375 × 770 mm", weight: "124 kg", datasheetUrl: "/uploads/downloads/aio-6kw-12kw-16kwh-standing-all-in-one-ess-datasheet.pdf" }),
-    allInOneProduct({ slug: "12kw-16kwh", output: "12 kW", storage: "16 kWh", image: `${imageRoot}/aio-12kw-16kwh-cutout.png`, family: "standing", model: "IYP-ST16K1A-12KF1-A1", voltage: "51.2 V", capacity: "314 Ah", pvPower: "15 kW", mppt: "60–450 Vdc", pvCurrent: "25 A", transfer: "20 ms", size: "510 × 377 × 770 mm", weight: "130 kg", datasheetUrl: "/uploads/downloads/aio-6kw-12kw-16kwh-standing-all-in-one-ess-datasheet.pdf" }),
+      eyebrow: "SLH-HBY Series",
+      advantagesTitle: "High-power hybrid energy for retrofit and new systems",
+      advantagesBody: "SLH-HBY combines AC coupling, multi-unit expansion, high-current battery operation and an IP66 touch-display enclosure.",
+      highlights: [
+        { title: "Color touch LCD and IP66 protection", body: "A full-color touch display supports operation and configuration inside an IP66 enclosure." },
+        { title: "AC coupling for solar retrofit", body: "AC-coupled operation supports upgrading and extending existing photovoltaic systems." },
+        { title: "Parallel system expansion", body: "Supports up to six units in parallel for on-grid and off-grid operation, plus multiple batteries in parallel." },
+        { title: "High charge and discharge current", body: "The series supports model-dependent battery current up to 275 A." },
+      ],
+      datasheetUrl: "/uploads/downloads/slh-hyb-10kw-16kw-single-phase-hybrid-inverter-datasheet.pdf",
+    }),
+    productRecord({
+      slug: "tlh-8-15kw",
+      category: "hybrid-inverter",
+      title: "TLH 8–15 kW Three-Phase Hybrid Inverter",
+      productType: "THREE-PHASE HYBRID INVERTER",
+      rangeLabel: "8–15 kW",
+      summary: "The TLH series covers 8 kW to 15 kW three-phase hybrid inverters with IP66 protection, generator energy storage support and integrated Wi-Fi monitoring.",
+      banner: "p06-hyb-tlh-banner.png",
+      scene: "p06-hyb-tlh-scene.png",
+      stats: [
+        { label: "Rated Output Range", value: "8–15 kW" },
+        { label: "Ingress Protection", value: "IP66" },
+      ],
+      eyebrow: "TLH Series",
+      advantagesTitle: "Three-phase hybrid control with flexible load support",
+      advantagesBody: "TLH combines a protected enclosure, clear local controls, generator storage support and app-connected monitoring.",
+      highlights: [
+        { title: "IP66-certified enclosure", body: "The outdoor-ready housing protects the inverter in demanding installation conditions." },
+        { title: "User-friendly HMI LCD", body: "The local display provides straightforward monitoring, setup and system configuration." },
+        { title: "Generator energy storage support", body: "Supports storing energy from a connected generator for improved backup flexibility." },
+        { title: "Built-in Wi-Fi with mobile app", body: "Integrated Wi-Fi enables remote system monitoring through a compatible mobile application." },
+      ],
+      datasheetUrl: "/uploads/downloads/tlh-hyb-6kw-15kw-three-phase-hybrid-inverter-datasheet.pdf",
+    }),
+    productRecord({
+      slug: "tlh-hyb-20-25kw",
+      category: "hybrid-inverter",
+      title: "TLH-HYB 20–25 kW Three-Phase Hybrid Inverter",
+      productType: "THREE-PHASE HYBRID INVERTER",
+      rangeLabel: "20–25 kW",
+      summary: "The TLH-HYB series covers 20 kW and 25 kW three-phase hybrid inverters with up to 415 A battery current, IP66 protection and expansion to eight parallel units.",
+      banner: "p07-hyb-tlh-hyb-banner.png",
+      scene: "p07-hyb-tlh-hyb-scene.png",
+      stats: [
+        { label: "Rated Output Range", value: "20–25 kW" },
+        { label: "Maximum Battery Current", value: "415 A" },
+      ],
+      eyebrow: "TLH-HYB Series",
+      advantagesTitle: "High-power three-phase hybrid performance",
+      advantagesBody: "TLH-HYB is designed for high-current batteries, broad grid conditions and demanding three-phase backup loads.",
+      highlights: [
+        { title: "Extreme climate adaptability", body: "Maintains full-load operation at 45 °C without derating." },
+        { title: "High battery compatibility", body: "Supports up to 415 A charge and discharge current and three independent battery inputs." },
+        { title: "Wide grid adaptability", body: "Supports 154–286 V per-phase input, automatic 50/60 Hz adaptation and built-in surge protection." },
+        { title: "High-surge and unbalanced output", body: "Delivers 200% load surge for 10 seconds and supports 150% three-phase unbalanced output." },
+      ],
+      datasheetUrl: "/uploads/downloads/tlh-hyb-20kw-25kw-three-phase-hybrid-inverter-datasheet.pdf",
+    }),
+    productRecord({
+      slug: "lst-16kwh-standing",
+      category: "low-voltage-battery",
+      title: "LST 16 kWh Standing LiFePO4 Battery",
+      productType: "STANDING LIFEPO4 BATTERY",
+      rangeLabel: "16 kWh",
+      summary: "BAT-16KLST-01-TVN is a 16 kWh standing LiFePO4 battery with 51.2 V nominal voltage, 314 Ah capacity and RS485/CAN communication.",
+      banner: "p08-bat-lst-banner.png",
+      scene: "p08-bat-lst-scene.png",
+      stats: [
+        { label: "Battery Energy", value: "16 kWh" },
+        { label: "Rated Capacity", value: "314 Ah" },
+      ],
+      eyebrow: "LST Series",
+      advantagesTitle: "Standing low-voltage storage for residential energy systems",
+      advantagesBody: "The LST battery provides 16 kWh of LiFePO4 storage with broad inverter compatibility and multilingual local display support.",
+      highlights: [
+        { title: "Drives a 10 kW inverter", body: "Designed to support compatible inverter systems with output classes up to 10 kW." },
+        { title: "16 kWh standing storage", body: "The listed BAT-16KLST-01-TVN configuration provides 16 kWh of battery energy." },
+        { title: "Compatible with 20+ inverters", body: "Communication support covers more than twenty mainstream inverter platforms." },
+        { title: "Multilingual display", body: "The local display supports switching between multiple interface languages." },
+      ],
+      datasheetUrl: "/uploads/downloads/lsk-16kwh-standing-lifepo4-battery-datasheet.pdf",
+    }),
+    productRecord({
+      slug: "lsk-5-12kwh-rack-mount",
+      category: "low-voltage-battery",
+      title: "LSK 5.12 kWh Rack-Mount LiFePO4 Battery",
+      productType: "RACK-MOUNT LIFEPO4 BATTERY",
+      rangeLabel: "5.12 kWh",
+      summary: "BAT-5K1LSK-00-TVN is the selected 5.12 kWh rack-mount LiFePO4 battery with 48/51.2 V nominal voltage, 100 Ah rated capacity and RS485/CAN communication.",
+      banner: "p09-bat-lsk-banner.png",
+      scene: "p09-bat-lsk-scene.png",
+      stats: [
+        { label: "Battery Energy", value: "5.12 kWh" },
+        { label: "Rated Capacity", value: "100 Ah" },
+      ],
+      eyebrow: "LSK Series",
+      advantagesTitle: "5.12 kWh rack-mount battery with scalable protection",
+      advantagesBody: "Only the confirmed BAT-5K1LSK-00-TVN 5.12 kWh model is listed on this product page.",
+      highlights: [
+        { title: "Self-developed BMS", body: "Tervona's battery management system coordinates monitoring, control and protection." },
+        { title: "Custom communication protocols", body: "Communication protocols can be adapted for compatible inverter and system integrations." },
+        { title: "Up to 15 units in parallel", body: "The rack-mount platform can scale through parallel connection of as many as fifteen units." },
+        { title: "15 layers of protection", body: "Layered electrical and battery protection supports safe long-term operation." },
+      ],
+      datasheetUrl: "/uploads/downloads/lst-5-12kwh-16kwh-rack-mount-lifepo4-battery-datasheet.pdf",
+    }),
+    productRecord({
+      slug: "aio-dual-mount-500w-1kw",
+      category: "all-in-one-ess",
+      title: "AIO 500 W–1 kW Dual-Mount Energy Storage System",
+      productType: "DUAL-MOUNT ENERGY STORAGE ALL-IN-ONE SYSTEM",
+      rangeLabel: "500 W–1 kW / 1–2 kWh",
+      summary: "The AIO dual-mount series combines 1–2 kWh of LiFePO4 storage with 500 W–1 kW pure-sine-wave output, PV charging, grid charging and AC/DC ports.",
+      banner: "p10-aio-dual-mount-banner.png",
+      scene: "p10-aio-dual-mount-scene.png",
+      stats: [
+        { label: "Rated Output Range", value: "500 W–1 kW" },
+        { label: "Battery Energy Range", value: "1–2 kWh" },
+      ],
+      eyebrow: "AIO Series",
+      advantagesTitle: "Compact dual-mount power for everyday energy needs",
+      advantagesBody: "The AIO dual-mount platform integrates LiFePO4 storage, fast charging, AC/DC output and both solar and grid charging.",
+      highlights: [
+        { title: "Single-cell storage system", body: "A compact integrated design combines battery storage and power conversion in one system." },
+        { title: "Fast charging support", body: "The platform is designed to recharge quickly from its compatible input sources." },
+        { title: "AC and DC output", body: "Supports household AC loads together with practical DC and USB output connections." },
+        { title: "PV and grid charging", body: "The battery can be charged from photovoltaic power or a connected utility supply." },
+      ],
+      datasheetUrl: "/uploads/downloads/aio-500w-1kw-dual-mount-energy-storage-datasheet.pdf",
+    }),
+    productRecord({
+      slug: "aio-standing-16kwh",
+      category: "all-in-one-ess",
+      title: "AIO 6–12 kW / 16 kWh Standing All-In-One ESS",
+      productType: "STANDING ALL-IN-ONE ENERGY STORAGE SYSTEM",
+      rangeLabel: "6–12 kW / 16 kWh",
+      summary: "The standing AIO series pairs a 16 kWh LiFePO4 battery with 6 kW or 12 kW inverter output, integrated PV/AC charging and UPS functionality.",
+      banner: "p11-aio-standing-16kwh-banner.png",
+      scene: "p11-aio-standing-16kwh-scene.png",
+      stats: [
+        { label: "Rated Output Range", value: "6–12 kW" },
+        { label: "Battery Energy", value: "16 kWh" },
+      ],
+      eyebrow: "AIO Series",
+      advantagesTitle: "High-capacity standing energy storage",
+      advantagesBody: "This 16 kWh standing platform combines the battery, inverter, solar charging, grid charging and backup transfer in one enclosure.",
+      highlights: [
+        { title: "LiFePO4 battery and inverter", body: "Battery storage and bidirectional inverter functions are integrated into one standing cabinet." },
+        { title: "Integrated PV and AC charging", body: "The system supports charging from photovoltaic arrays and an AC supply." },
+        { title: "Highly integrated installation", body: "A consolidated enclosure reduces separate equipment and simplifies installation." },
+        { title: "Integrated UPS function", body: "Backup transfer in under 20 ms supports continuity for essential loads." },
+      ],
+      datasheetUrl: "/uploads/downloads/aio-6kw-12kw-16kwh-standing-all-in-one-ess-datasheet.pdf",
+    }),
+    productRecord({
+      slug: "aio-standing-2-6-4kwh",
+      category: "all-in-one-ess",
+      title: "AIO 2 kW / 2.6–4 kWh Standing All-In-One ESS",
+      productType: "STANDING ALL-IN-ONE ENERGY STORAGE SYSTEM",
+      rangeLabel: "2 kW / 2.6–4 kWh",
+      summary: "The compact standing AIO series combines 2 kW inverter output with 2.6 kWh or 4 kWh of LiFePO4 storage, integrated PV/AC charging and UPS functionality.",
+      banner: "p12-aio-standing-2k6-4kwh-banner.png",
+      scene: "p12-aio-standing-2k6-4kwh-scene.png",
+      stats: [
+        { label: "Rated Output", value: "2 kW" },
+        { label: "Battery Energy Range", value: "2.6–4 kWh" },
+      ],
+      eyebrow: "AIO Series",
+      advantagesTitle: "Compact standing all-in-one energy storage",
+      advantagesBody: "This 2 kW standing platform integrates LiFePO4 storage, solar and grid charging, communication and UPS backup in a compact cabinet.",
+      highlights: [
+        { title: "LiFePO4 battery and inverter", body: "The energy-storage battery and 2 kW inverter are integrated into one standing enclosure." },
+        { title: "Integrated PV and AC charging", body: "Supports photovoltaic and utility charging through the built-in power electronics." },
+        { title: "Highly integrated installation", body: "The compact cabinet simplifies transport, wiring, commissioning and everyday use." },
+        { title: "Integrated UPS function", body: "Transfer in under 20 ms helps maintain power to critical household loads." },
+      ],
+      datasheetUrl: "/uploads/downloads/aio-2kw-2-6kwh-4kwh-standing-all-in-one-ess-datasheet.pdf",
+    }),
   ];
 
   const href = (category, slug) => `/products/${category}/${slug}`;
 
   window.TERVONA_PRODUCT_CATALOG = {
+    version: catalogVersion,
     language: "en",
     taxonomy: [
       {
@@ -229,20 +362,14 @@
         code: "BP",
         href: "/products/low-voltage-battery",
         aliases: ["low-voltage-battery"],
-        children: [
-          {
-            label: "Low Voltage",
-            priority: true,
-            children: [
-              { label: "5 kWh Rack-Mount", href: href("low-voltage-battery", "5-kwh-rack-mount") },
-              { label: "7.5 kWh Rack-Mount", href: href("low-voltage-battery", "7-5-kw-rack-mount") },
-              { label: "10 kWh Floor-Standing", href: href("low-voltage-battery", "10-kwh-floor-standing") },
-              { label: "16 kWh Floor-Standing", href: href("low-voltage-battery", "16-kwh-floor-standing") },
-              { label: "32 kWh Floor-Standing", href: href("low-voltage-battery", "32-kwh-floor-standing") },
-            ],
-          },
-          { label: "High Voltage", children: [{ label: "8 kWh Stackable" }, { label: "9 kWh Stackable" }] },
-        ],
+        children: [{
+          label: "Low Voltage",
+          priority: true,
+          children: [
+            { label: "LSK 5.12 kWh Rack-Mount", href: href("low-voltage-battery", "lsk-5-12kwh-rack-mount"), priority: true },
+            { label: "LST 16 kWh Standing", href: href("low-voltage-battery", "lst-16kwh-standing") },
+          ],
+        }],
       },
       {
         slug: "hybrid-inverter",
@@ -251,32 +378,19 @@
         href: "/products/hybrid-inverter",
         children: [
           {
-            label: "High Voltage",
+            label: "Single Phase",
+            priority: true,
             children: [
-              { label: "Single Phase", children: [{ label: "6 kW" }, { label: "8 kW" }, { label: "10 kW" }] },
-              { label: "Three Phase", children: [{ label: "10 kW" }, { label: "12 kW" }, { label: "15 kW" }, { label: "20 kW" }] },
+              { label: "EcoLink 3.6–8 kW", href: href("hybrid-inverter", "ecolink-3-6-kw"), priority: true },
+              { label: "SLH 6.6–12 kW", href: href("hybrid-inverter", "slh-6-6-12kw") },
+              { label: "SLH-HBY 10–16 kW", href: href("hybrid-inverter", "slh-hby-10-16kw") },
             ],
           },
           {
-            label: "Low Voltage",
+            label: "Three Phase",
             children: [
-              { label: "Three Phase", children: [{ label: "12 kW" }, { label: "10 kW" }] },
-              {
-                label: "Single Phase",
-                children: [
-                  {
-                    label: "EcoLink Series",
-                    priority: true,
-                    children: [
-                      { label: "3.6 kW", href: href("hybrid-inverter", "ecolink-3-6-kw") },
-                      { label: "4.6 kW", href: href("hybrid-inverter", "ecolink-4-6-kw") },
-                      { label: "5 kW", href: href("hybrid-inverter", "ecolink-5-kw") },
-                      { label: "6 kW", href: href("hybrid-inverter", "ecolink-6-kw") },
-                      { label: "8 kW", href: href("hybrid-inverter", "ecolink-8-kw") },
-                    ],
-                  },
-                ],
-              },
+              { label: "TLH 8–15 kW", href: href("hybrid-inverter", "tlh-8-15kw") },
+              { label: "TLH-HYB 20–25 kW", href: href("hybrid-inverter", "tlh-hyb-20-25kw") },
             ],
           },
         ],
@@ -286,17 +400,14 @@
         label: "Off-Grid Inverters",
         code: "OG",
         href: "/products/off-grid-inverter",
-        children: [
-          {
-            label: "Single Phase",
-            priority: true,
-            children: [
-              { label: "6.2 kW · IP54", href: href("off-grid-inverter", "6-2-kw-ip54") },
-              { label: "8.2 kW · IP54", href: href("off-grid-inverter", "8-2-kw-ip54") },
-            ],
-          },
-          { label: "Three Phase", children: [{ label: "10.2 kW" }, { label: "11.2 kW" }] },
-        ],
+        children: [{
+          label: "Single Phase",
+          priority: true,
+          children: [
+            { label: "SLH-OFG 6 kW", href: href("off-grid-inverter", "slh-ofg-6kw") },
+            { label: "SLH-OFG 8.2–10.2 kW", href: href("off-grid-inverter", "slh-ofg-8-2-10-2kw") },
+          ],
+        }],
       },
       {
         slug: "all-in-one-ess",
@@ -304,14 +415,9 @@
         code: "ESS",
         href: "/products/all-in-one-ess",
         children: [
-          { label: "500 W / 1 kWh", href: href("all-in-one-ess", "500w-1kwh") },
-          { label: "1 kW / 2 kWh", href: href("all-in-one-ess", "1kw-2kwh") },
-          { label: "2 kW / 2.6 kWh", href: href("all-in-one-ess", "2kw-2-6kwh") },
-          { label: "2 kW / 4 kWh", href: href("all-in-one-ess", "2kw-4kwh") },
-          { label: "6 kW / 10.5 kWh", href: href("all-in-one-ess", "6kw-10-5kwh"), priority: true },
-          { label: "10 kW / 10.5 kWh", href: href("all-in-one-ess", "10kw-10-5kwh"), priority: true },
-          { label: "6 kW / 16 kWh", href: href("all-in-one-ess", "6kw-16kwh") },
-          { label: "12 kW / 16 kWh", href: href("all-in-one-ess", "12kw-16kwh") },
+          { label: "500 W–1 kW Dual-Mount", href: href("all-in-one-ess", "aio-dual-mount-500w-1kw") },
+          { label: "6–12 kW / 16 kWh Standing", href: href("all-in-one-ess", "aio-standing-16kwh"), priority: true },
+          { label: "2 kW / 2.6–4 kWh Standing", href: href("all-in-one-ess", "aio-standing-2-6-4kwh") },
         ],
       },
       { slug: "ev-charger", label: "EV Chargers", code: "EV", children: [] },
@@ -319,43 +425,47 @@
     ],
     categories: [
       {
+        catalogVersion,
         slug: "low-voltage-battery",
         title: "Low-Voltage Batteries",
         navTitle: "Low-Voltage Batteries",
-        intro: "Five low-voltage battery products in rack-mount and floor-standing formats.",
-        heroImage: lowVoltageBatteryImage,
+        intro: "Two low-voltage LiFePO4 products: a 5.12 kWh rack-mount battery and a 16 kWh standing battery.",
+        heroImage: `${imageRoot}/p09-bat-lsk-banner.png`,
         bannerBackground: categoryScene,
-        icon: lowVoltageBatteryImage,
+        icon: `${imageRoot}/p09-bat-lsk-banner.png`,
         status: "Published",
       },
       {
+        catalogVersion,
         slug: "hybrid-inverter",
         title: "Low-Voltage Hybrid Inverters",
         navTitle: "Low-Voltage Hybrid Inverters",
-        intro: "Five EcoLink single-phase low-voltage hybrid inverter models from 3.6 kW to 8 kW.",
-        heroImage: ecoLinkImage,
+        intro: "Five single-phase and three-phase low-voltage hybrid inverter product series from 3.6 kW to 25 kW.",
+        heroImage: `${imageRoot}/p03-ecolink-hyb-lsg-banner.png`,
         bannerBackground: categoryScene,
-        icon: ecoLinkImage,
+        icon: `${imageRoot}/p03-ecolink-hyb-lsg-banner.png`,
         status: "Published",
       },
       {
+        catalogVersion,
         slug: "off-grid-inverter",
         title: "Single-Phase Off-Grid Inverters",
         navTitle: "Single-Phase Off-Grid Inverters",
-        intro: "Two single-phase IP54 off-grid inverter products in 6.2 kW and 8.2 kW power classes.",
-        heroImage: offGridImage,
+        intro: "Two SLH-OFG single-phase inverter product series covering 6 kW through 10.2 kW.",
+        heroImage: `${imageRoot}/p01-ofg-06kslh-banner.png`,
         bannerBackground: categoryScene,
-        icon: offGridImage,
+        icon: `${imageRoot}/p01-ofg-06kslh-banner.png`,
         status: "Published",
       },
       {
+        catalogVersion,
         slug: "all-in-one-ess",
         title: "All-in-One Energy Storage",
         navTitle: "All-in-One Energy Storage",
-        intro: "Eight all-in-one energy storage configurations from 500 W / 1 kWh to 12 kW / 16 kWh.",
-        heroImage: allInOneImage,
+        intro: "Three integrated all-in-one energy storage product families for portable and standing residential applications.",
+        heroImage: `${imageRoot}/p10-aio-dual-mount-banner.png`,
         bannerBackground: categoryScene,
-        icon: allInOneImage,
+        icon: `${imageRoot}/p10-aio-dual-mount-banner.png`,
         status: "Published",
       },
     ],
