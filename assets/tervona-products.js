@@ -139,7 +139,7 @@
       title: "SLH 6.6–12 kW Single-Phase Hybrid Inverter",
       productType: "SINGLE-PHASE HYBRID INVERTER",
       rangeLabel: "6.6–12 kW",
-      summary: "The SLH series covers 6.6 kW to 12 kW single-phase hybrid inverters with an IP66 enclosure, model-dependent dual or triple MPPT and smart-load outputs.",
+      summary: "A high-performance IP66 hybrid inverter that can form a three-phase system through parallel connection.",
       banner: "p04-hyb-slh-banner.png",
       scene: "p04-hyb-slh-scene.png",
       stats: [
@@ -162,7 +162,7 @@
       title: "SLH-HBY 10–16 kW Single-Phase Hybrid Inverter",
       productType: "SINGLE-PHASE HYBRID INVERTER",
       rangeLabel: "10–16 kW",
-      summary: "The SLH-HBY series covers 10 kW, 12 kW and 16 kW single-phase hybrid inverters with IP66 protection, AC coupling and high-current battery support.",
+      summary: "A higher-power single-phase inverter designed for office and shop applications.",
       banner: "p05-hyb-slh-hby-banner.png",
       scene: "p05-hyb-slh-hby-scene.png",
       stats: [
@@ -210,7 +210,7 @@
       title: "TLH-HYB 20–25 kW Three-Phase Hybrid Inverter",
       productType: "THREE-PHASE HYBRID INVERTER",
       rangeLabel: "20–25 kW",
-      summary: "The TLH-HYB series covers 20 kW and 25 kW three-phase hybrid inverters with up to 415 A battery current, IP66 protection and expansion to eight parallel units.",
+      summary: "A high-efficiency three-phase inverter with SiC technology and a wide voltage range.",
       banner: "p07-hyb-tlh-hyb-banner.png",
       scene: "p07-hyb-tlh-hyb-scene.png",
       stats: [
@@ -234,7 +234,7 @@
       title: "LST 16 kWh Standing LiFePO4 Battery",
       productType: "STANDING LIFEPO4 BATTERY",
       rangeLabel: "16 kWh",
-      summary: "BAT-16KLST-01-TVN is a 16 kWh standing LiFePO4 battery with 51.2 V nominal voltage, 314 Ah capacity and RS485/CAN communication.",
+      summary: "A universal-protocol energy storage battery compatible with a wider range of inverter brands.",
       banner: "p08-bat-lst-banner.png",
       scene: "p08-bat-lst-scene.png",
       stats: [

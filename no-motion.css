@@ -495,6 +495,14 @@ html.no-motion-site .series-hero-breadcrumb a {
   color: inherit;
 }
 
+/* Keep the desktop-style hero readable on landscape tablets and compact laptops. */
+@media (min-width: 901px) and (max-width: 1198px) {
+  html.no-motion-site .series-hero.unified-product-banner {
+    min-height: 740px !important;
+    aspect-ratio: auto;
+  }
+}
+
 /* Source download filters use a compact field and an inset custom chevron. */
 html.no-motion-site .source-download-search-row {
   max-width: 504px;
@@ -1158,8 +1166,8 @@ html.no-motion-site .hero-slide video {
   }
 }
 
-/* Mobile product-detail hero: reference-inspired vertical composition. */
-@media (max-width: 760px) {
+/* Phone and tablet product-detail hero: reference-inspired vertical composition. */
+@media (max-width: 900px) {
   html.no-motion-site .series-hero.unified-product-banner {
     min-height: 0 !important;
     height: auto !important;
