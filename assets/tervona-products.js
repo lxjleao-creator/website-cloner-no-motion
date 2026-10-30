@@ -282,7 +282,7 @@
       title: "AIO 500 W–1 kW Dual-Mount Energy Storage System",
       productType: "DUAL-MOUNT ENERGY STORAGE ALL-IN-ONE SYSTEM",
       rangeLabel: "500 W–1 kW / 1–2 kWh",
-      summary: "The AIO dual-mount series combines 1–2 kWh of LiFePO4 storage with 500 W–1 kW pure-sine-wave output, PV charging, grid charging and AC/DC ports.",
+      summary: "A portable residential all-in-one energy storage system with an integrated battery, MPPT controller and inverter.",
       banner: "p10-aio-dual-mount-banner.png",
       scene: "p10-aio-dual-mount-scene.png",
       stats: [
@@ -306,7 +306,7 @@
       title: "AIO 6–12 kW / 16 kWh Standing All-In-One ESS",
       productType: "STANDING ALL-IN-ONE ENERGY STORAGE SYSTEM",
       rangeLabel: "6–12 kW / 16 kWh",
-      summary: "The standing AIO series pairs a 16 kWh LiFePO4 battery with 6 kW or 12 kW inverter output, integrated PV/AC charging and UPS functionality.",
+      summary: "A higher-capacity all-in-one energy storage system combining a 16 kWh battery with 5 kW or 10 kW inverter options.",
       banner: "p11-aio-standing-16kwh-banner.png",
       scene: "p11-aio-standing-16kwh-scene.png",
       stats: [
@@ -330,7 +330,7 @@
       title: "AIO 2 kW / 2.6–4 kWh Standing All-In-One ESS",
       productType: "STANDING ALL-IN-ONE ENERGY STORAGE SYSTEM",
       rangeLabel: "2 kW / 2.6–4 kWh",
-      summary: "The compact standing AIO series combines 2 kW inverter output with 2.6 kWh or 4 kWh of LiFePO4 storage, integrated PV/AC charging and UPS functionality.",
+      summary: "A portable residential all-in-one energy storage system designed for high-power outdoor applications.",
       banner: "p12-aio-standing-2k6-4kwh-banner.png",
       scene: "p12-aio-standing-2k6-4kwh-scene.png",
       stats: [

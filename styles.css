@@ -10968,6 +10968,25 @@ body.mobile-menu-lock {
   .mobile-drawer-head-language .language-menu {
     top: calc(100% + 2px);
     right: 0;
+    width: 208px;
+    min-width: 208px;
+    max-width: calc(100vw - 32px);
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .mobile-drawer-head-language .language-menu button {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    padding: 9px 12px;
+    font-size: 15px;
+    line-height: 1.25;
+    white-space: nowrap;
+    word-break: keep-all;
+    overflow-wrap: normal;
   }
 
   .mobile-drawer-nav {
