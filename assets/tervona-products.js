@@ -234,7 +234,7 @@
       title: "LST 16 kWh Standing LiFePO4 Battery",
       productType: "STANDING LIFEPO4 BATTERY",
       rangeLabel: "16 kWh",
-      summary: "A universal-protocol energy storage battery compatible with a wider range of inverter brands.",
+      summary: "An easy-to-install, high-capacity energy storage battery compatible with all mainstream inverter brands.",
       banner: "p08-bat-lst-banner.png",
       scene: "p08-bat-lst-scene.png",
       stats: [
@@ -258,7 +258,7 @@
       title: "LSK 5.12 kWh Rack-Mount LiFePO4 Battery",
       productType: "RACK-MOUNT LIFEPO4 BATTERY",
       rangeLabel: "5.12 kWh",
-      summary: "BAT-5K1LSK-00-TVN is the selected 5.12 kWh rack-mount LiFePO4 battery with 48/51.2 V nominal voltage, 100 Ah rated capacity and RS485/CAN communication.",
+      summary: "A stackable energy storage battery that makes system capacity more flexible.",
       banner: "p09-bat-lsk-banner.png",
       scene: "p09-bat-lsk-scene.png",
       stats: [
